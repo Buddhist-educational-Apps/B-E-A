@@ -80,6 +80,7 @@
 
   // ==========================================
   // PDF පොත් නාමාවලිය දත්ත
+  // (GitHub හි ඇති ගොනු නම් වලට ගැලපෙන ලෙස)
   // ==========================================
   const booksData = [
     {
@@ -89,7 +90,7 @@
       folder: "අභිධර්ම",
       downloads: 0,
       size: "4.3 MB",
-      pdfUrl: "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/pdfs/Abhidhamma-Matika.pdf",
+      pdfUrl: "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/pdfs/Abhidhamma-matika.pdf",
       countKey: "abhidhamma-matika"
     },
     {
@@ -119,7 +120,7 @@
       folder: "අභිධර්ම",
       downloads: 0,
       size: "3.3 MB",
-      pdfUrl: "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/pdfs/Abhidhamma-pattana3.pdf",
+      pdfUrl: "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/pdfs/Abhidhamma-patthanathree.pdf",
       countKey: "abhidhamma-pattana3"
     },
     {
@@ -129,7 +130,7 @@
       folder: "අභිධර්ම",
       downloads: 0,
       size: "12 MB",
-      pdfUrl: "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/pdfs/Abhidhamma-pattanaA.pdf",
+      pdfUrl: "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/pdfs/Abhidhamma-patthanaa.pdf",
       countKey: "abhidhamma-pattanaA"
     },
     {
@@ -139,7 +140,7 @@
       folder: "අභිධර්ම",
       downloads: 0,
       size: "1.4 MB",
-      pdfUrl: "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/pdfs/Abhidhamma-pattanaS.pdf",
+      pdfUrl: "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/pdfs/Abhidhamma-patthanas.pdf",
       countKey: "abhidhamma-pattanaS"
     },
     {
@@ -149,7 +150,7 @@
       folder: "අභිධර්ම",
       downloads: 0,
       size: "4.3 MB",
-      pdfUrl: "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/pdfs/Abhidhamma-pattanaMPS.pdf",
+      pdfUrl: "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/pdfs/Abhidhamma-patthanamps.pdf",
       countKey: "abhidhamma-pattanaMPS"
     },
     {
