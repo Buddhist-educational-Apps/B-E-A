@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="si">
 <head>
   <meta charset="UTF-8">
@@ -8,36 +7,49 @@
   <meta http-equiv="Expires" content="0">
   <title>බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
 
-  <!-- Preconnect -->
+  <!-- Theme Flash Prevention -->
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('buddhist_apps_theme');
+        if (saved === 'light') {
+          document.documentElement.classList.add('light');
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://www.gstatic.com">
   <link rel="preconnect" href="https://buddhist-apps-default-rtdb.asia-southeast1.firebasedatabase.app">
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700;800&family=Gemunu+Libre:wght@500;600;700&family=Noto+Serif+Sinhala:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="main.css?v=13">
+  <link rel="stylesheet" href="main.css?v=16">
 
-  <!-- Open Graph -->
+  <!-- ⚠️ Open Graph - නව URL එකට යාවත්කාලීන කර ඇත -->
   <meta property="og:title" content="බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග">
   <meta property="og:description" content="අභිධර්ම ධර්ම ග්‍රන්ථ සහ බෞද්ධ අධ්‍යාපනික යෙදුම්">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://buddhist-educational-apps.github.io/B-E-A/">
   <meta property="og:image" content="https://buddhist-educational-apps.github.io/B-E-A/screenshots/matika-1.webp">
 
-  <!-- Twitter Card -->
+  <!-- ⚠️ Twitter Card - නව URL එකට යාවත්කාලීන කර ඇත -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="බෞද්ධ ධර්ම පුස්තකාලය">
   <meta name="twitter:description" content="අභිධර්ම ධර්ම ග්‍රන්ථ සහ බෞද්ධ අධ්‍යාපනික යෙදුම්">
   <meta name="twitter:image" content="https://buddhist-educational-apps.github.io/B-E-A/screenshots/matika-1.webp">
 
-  <!-- SEO -->
   <meta name="description" content="අභිධර්ම මාතිකා, ධාතුකථා, පට්ඨාන ප්‍රකරණ ඇතුළු බෞද්ධ ධර්ම ග්‍රන්ථ සහ අධ්‍යාපනික යෙදුම්">
   <meta name="keywords" content="අභිධර්ම, බුද්ධ ධර්මය, පාලි, රූපසිද්ධිය, අභිධර්ම මාතිකා, පට්ඨාන, Buddhist, Abhidhamma, Matika">
   <meta name="author" content="Pavara">
@@ -51,20 +63,40 @@
         <span>📖</span> පුස්තකාලය
       </a>
       
-      <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="searchInput" placeholder="සෙවුම් පද මෙතැන යොදන්න..." oninput="filterItems()">
+      <div class="search-wrapper">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" 
+                 id="searchInput" 
+                 placeholder="සෙවුම් පද මෙතැන යොදන්න..." 
+                 oninput="handleSearchInput()"
+                 onfocus="handleSearchFocus()"
+                 autocomplete="off">
+          <button type="button" 
+                  class="search-clear hidden" 
+                  id="searchClear"
+                  onclick="clearSearch()"
+                  aria-label="Clear search">×</button>
+        </div>
+        
+        <div id="searchResults" class="search-results hidden">
+          <div class="search-results-inner">
+            <!-- Results මෙහි dynamically load වේ -->
+          </div>
+        </div>
       </div>
+
+      <button class="theme-toggle" onclick="toggleTheme()" title="තේමාව මාරු කරන්න" aria-label="Theme toggle">
+        <span id="theme-toggle-icon">☀️</span>
+      </button>
     </div>
   </header>
 
   <main class="container">
     
-    <!-- Section 1: Educational Apps -->
     <h2 class="section-title"><span>💻</span> බෞද්ධ අධ්‍යාපනික Apps</h2>
     <div id="appsContainer" class="apps-grid"></div>
 
-    <!-- Section 2: PDF Books Library -->
     <h2 class="section-title"><span>📚</span> අභිධර්ම ධර්ම ග්‍රන්ථ (PDF)</h2>
 
     <div class="pdf-table">
@@ -80,7 +112,8 @@
 
   </main>
 
-  <!-- data.js with auto cache busting -->
+  <script src="theme.js"></script>
+
   <script>
     (function() {
       const version = new Date().getTime();

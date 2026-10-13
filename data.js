@@ -40,7 +40,7 @@
   }
 
   // ==========================================
-  // Base URL - අලුත් repo එකට
+  // ⚠️ BASE URL - මෙතන වෙනස් කර ඇත
   // ==========================================
   const BASE_URL = "https://buddhist-educational-apps.github.io/B-E-A";
 
@@ -63,7 +63,30 @@
         BASE_URL + "/screenshots/matika-3.webp",
         BASE_URL + "/screenshots/matika-4.webp",
         BASE_URL + "/screenshots/matika-5.webp"
-      ]
+      ],
+      installGuide: {
+        android: [
+          "පහත <strong>\"APK බාගන්න\"</strong> බොත්තම ඔබන්න",
+          "එය ඔබව Google Play Store එකට ගෙන යනු ඇත",
+          "<strong>\"Install\"</strong> බොත්තම ඔබන්න",
+          "Installation එක අවසන් වූ පසු <strong>\"Open\"</strong> ඔබන්න",
+          "දැන් ඔබගේ Home Screen එකේ අයිකනය දිස්වේ! 🎉"
+        ],
+        ios: [
+          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
+          "Safari browser එකේ යෙදුම විවෘත වේ",
+          "පහළ ඇති <strong>Share</strong> බොත්තම (⬆️) ඔබන්න",
+          "<strong>\"Add to Home Screen\"</strong> තෝරන්න",
+          "<strong>\"Add\"</strong> ඔබන්න - දැන් Home Screen එකේ! 🎉"
+        ],
+        desktop: [
+          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
+          "Address bar එකේ දකුණේ ඇති <strong>install icon</strong> (➕) ඔබන්න",
+          "හෝ browser මෙනුවෙන් <strong>\"Install\"</strong> තෝරන්න",
+          "<strong>\"Install\"</strong> බොත්තම ඔබන්න",
+          "Desktop එකේ යෙදුමක් ලෙස දිස්වේ! 🎉"
+        ]
+      }
     },
     {
       id: 2,
@@ -79,7 +102,31 @@
         BASE_URL + "/screenshots/rupasiddhi-2.webp",
         BASE_URL + "/screenshots/rupasiddhi-3.webp",
         BASE_URL + "/screenshots/rupasiddhi-4.webp"
-      ]
+      ],
+      installGuide: {
+        android: [
+          "පහත <strong>\"APK බාගන්න\"</strong> බොත්තම ඔබන්න",
+          "APK ගොනුව බාගත වේ (Rupasiddhi.apk)",
+          "Notifications එකෙන් <strong>\"Install\"</strong> ඔබන්න",
+          "හෝ <strong>Settings → Security → Unknown Sources</strong> සක්‍රීය කරන්න",
+          "APK ගොනුව ඔබා <strong>\"Install\"</strong> තෝරන්න",
+          "දැන් Home Screen එකේ අයිකනය දිස්වේ! 🎉"
+        ],
+        ios: [
+          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
+          "Safari browser එකේ යෙදුම විවෘත වේ",
+          "පහළ ඇති <strong>Share</strong> බොත්තම (⬆️) ඔබන්න",
+          "<strong>\"Add to Home Screen\"</strong> තෝරන්න",
+          "<strong>\"Add\"</strong> ඔබන්න - දැන් Home Screen එකේ! 🎉"
+        ],
+        desktop: [
+          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
+          "Address bar එකේ දකුණේ ඇති <strong>install icon</strong> (➕) ඔබන්න",
+          "හෝ browser මෙනුවෙන් <strong>\"Install\"</strong> තෝරන්න",
+          "<strong>\"Install\"</strong> බොත්තම ඔබන්න",
+          "Desktop එකේ යෙදුමක් ලෙස දිස්වේ! 🎉"
+        ]
+      }
     }
   ];
 
@@ -198,9 +245,17 @@
     loadAllDownloadCounts();
   }
 
+  // ==========================================
+  // Apps Render කිරීම (Install Guide සමඟ)
+  // ==========================================
   function renderApps(apps) {
     const container = document.getElementById("appsContainer");
     if (!container) return;
+
+    if (apps.length === 0) {
+      container.innerHTML = `<div style="padding: 24px; text-align: center; color: var(--text-muted); grid-column: 1/-1;">සොයන ලද යෙදුම හමු නොවීය.</div>`;
+      return;
+    }
 
     container.innerHTML = apps.map(app => {
       const screenshotsHTML = app.screenshots && app.screenshots.length > 0 ? `
@@ -215,6 +270,61 @@
                    loading="lazy"
                    onclick="openLightbox('${img}', '${app.title}')">
             `).join("")}
+          </div>
+        </div>
+      ` : "";
+
+      const installGuideHTML = app.installGuide ? `
+        <div class="install-guide">
+          <button class="install-guide-toggle" onclick="toggleInstallGuide(this)">
+            <span class="install-guide-icon">📲</span>
+            <span class="install-guide-text">යෙදුම ස්ථාපනය කරගන්නා ආකාරය</span>
+            <span class="install-guide-arrow">▼</span>
+          </button>
+          
+          <div class="install-guide-content">
+            <div class="install-tabs">
+              <button class="install-tab active" onclick="switchInstallTab(this, 'android-${app.id}')">
+                🤖 Android
+              </button>
+              <button class="install-tab" onclick="switchInstallTab(this, 'ios-${app.id}')">
+                🍎 iOS
+              </button>
+              <button class="install-tab" onclick="switchInstallTab(this, 'desktop-${app.id}')">
+                💻 Computer
+              </button>
+            </div>
+
+            <div class="install-panel active" id="android-${app.id}">
+              <ol class="install-steps">
+                ${app.installGuide.android.map(step => `<li>${step}</li>`).join("")}
+              </ol>
+              <div class="install-tip">
+                💡 <strong>ඉඟිය:</strong> Android 8+ භාවිතා කරන්නේ නම්, 
+                APK බාගත කිරීමෙන් පසු "Install" බොත්තම ස්වයංක්‍රීයව දිස්වේ.
+              </div>
+            </div>
+
+            <div class="install-panel" id="ios-${app.id}">
+              <ol class="install-steps">
+                ${app.installGuide.ios.map(step => `<li>${step}</li>`).join("")}
+              </ol>
+              <div class="install-tip">
+                💡 <strong>වැදගත්:</strong> iOS එකේ Safari browser එක 
+                පමණක් භාවිතා කරන්න. Chrome හෝ Firefox වලින් 
+                "Add to Home Screen" කළ නොහැක.
+              </div>
+            </div>
+
+            <div class="install-panel" id="desktop-${app.id}">
+              <ol class="install-steps">
+                ${app.installGuide.desktop.map(step => `<li>${step}</li>`).join("")}
+              </ol>
+              <div class="install-tip">
+                💡 <strong>ඉඟිය:</strong> Chrome හෝ Edge browser 
+                භාවිතා කරන්න. Firefox වලට install පහසුකම සීමිතයි.
+              </div>
+            </div>
           </div>
         </div>
       ` : "";
@@ -235,11 +345,15 @@
               Online භාවිතය ↗
             </a>
           </div>
+          ${installGuideHTML}
         </div>
       `;
     }).join("");
   }
 
+  // ==========================================
+  // Books Table Render කිරීම
+  // ==========================================
   function renderBooks(books) {
     const container = document.getElementById("pdfFileList");
     if (!container) return;
@@ -285,6 +399,9 @@
     `).join("");
   }
 
+  // ==========================================
+  // ෆෝල්ඩරය විවෘත/වසා දැමීම
+  // ==========================================
   function toggleFolder(headerElement) {
     const folderGroup = headerElement.parentElement;
     const folderBooks = folderGroup.querySelector(".folder-books");
@@ -303,6 +420,46 @@
     }
   }
 
+  // ==========================================
+  // Install Guide Toggle
+  // ==========================================
+  function toggleInstallGuide(button) {
+    const content = button.nextElementSibling;
+    const arrow = button.querySelector(".install-guide-arrow");
+    
+    const isOpen = content.classList.contains("open");
+    
+    if (isOpen) {
+      content.classList.remove("open");
+      arrow.textContent = "▼";
+    } else {
+      content.classList.add("open");
+      arrow.textContent = "▲";
+    }
+  }
+
+  // ==========================================
+  // Install Tab Switch
+  // ==========================================
+  function switchInstallTab(tabButton, panelId) {
+    const tabContainer = tabButton.parentElement;
+    tabContainer.querySelectorAll(".install-tab").forEach(t => {
+      t.classList.remove("active");
+    });
+    
+    const guideContent = tabButton.closest(".install-guide-content");
+    guideContent.querySelectorAll(".install-panel").forEach(p => {
+      p.classList.remove("active");
+    });
+    
+    tabButton.classList.add("active");
+    const targetPanel = document.getElementById(panelId);
+    if (targetPanel) targetPanel.classList.add("active");
+  }
+
+  // ==========================================
+  // Lightbox
+  // ==========================================
   function openLightbox(imageSrc, title) {
     const existing = document.getElementById("lightbox");
     if (existing) existing.remove();
@@ -330,6 +487,9 @@
     if (lightbox) lightbox.remove();
   }
 
+  // ==========================================
+  // Firebase Download Count Functions
+  // ==========================================
   function loadAllDownloadCounts() {
     if (!db) {
       console.warn("⚠️ Firebase not initialized");
@@ -382,22 +542,176 @@
     }
   }
 
+  // ==========================================
+  // Live Search with Dropdown Results
+  // ==========================================
+  let searchDebounceTimer = null;
+
+  function handleSearchInput() {
+    const input = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('searchClear');
+    if (!input) return;
+
+    const query = input.value.trim();
+
+    if (clearBtn) {
+      if (query.length > 0) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+    }
+
+    if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
+    searchDebounceTimer = setTimeout(function() {
+      performSearch(query);
+    }, 150);
+  }
+
+  function handleSearchFocus() {
+    const input = document.getElementById('searchInput');
+    if (input && input.value.trim().length > 0) {
+      performSearch(input.value.trim());
+    }
+  }
+
+  function performSearch(query) {
+    const resultsContainer = document.getElementById('searchResults');
+    const resultsInner = resultsContainer ? resultsContainer.querySelector('.search-results-inner') : null;
+    if (!resultsContainer || !resultsInner) return;
+
+    if (!query || query.length === 0) {
+      resultsContainer.classList.add('hidden');
+      return;
+    }
+
+    const lowerQuery = query.toLowerCase();
+
+    const matchedApps = appsData.filter(function(app) {
+      return app.title.toLowerCase().includes(lowerQuery) ||
+             app.category.toLowerCase().includes(lowerQuery) ||
+             app.description.toLowerCase().includes(lowerQuery);
+    });
+
+    const matchedBooks = booksData.filter(function(book) {
+      return book.title.toLowerCase().includes(lowerQuery) ||
+             book.category.toLowerCase().includes(lowerQuery);
+    });
+
+    const totalResults = matchedApps.length + matchedBooks.length;
+
+    if (totalResults === 0) {
+      resultsInner.innerHTML = 
+        '<div class="search-no-results">' +
+          '<div class="search-no-results-icon">🔍</div>' +
+          '<div class="search-no-results-text">"' + escapeHtml(query) + '" සඳහා ප්‍රතිඵල හමු නොවීය</div>' +
+          '<div class="search-no-results-hint">වෙනත් වචනයක් උත්සාහ කරන්න</div>' +
+        '</div>';
+      resultsContainer.classList.remove('hidden');
+      return;
+    }
+
+    let html = '';
+
+    if (matchedApps.length > 0) {
+      html += '<div class="search-section">';
+      html += '<div class="search-section-title">📱 යෙදුම් <span class="search-section-count">' + matchedApps.length + '</span></div>';
+      
+      matchedApps.forEach(function(app) {
+        html += 
+          '<a href="' + app.webUrl + '" target="_blank" rel="noopener noreferrer" class="search-result-item search-result-app">' +
+            '<div class="search-result-icon app-icon">📱</div>' +
+            '<div class="search-result-content">' +
+              '<div class="search-result-title">' + highlightMatch(app.title, query) + '</div>' +
+              '<div class="search-result-meta">' +
+                '<span class="search-result-tag">' + app.category + '</span>' +
+                '<span class="search-result-type">App</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="search-result-arrow">↗</div>' +
+          '</a>';
+      });
+      
+      html += '</div>';
+    }
+
+    if (matchedBooks.length > 0) {
+      html += '<div class="search-section">';
+      html += '<div class="search-section-title">📄 ග්‍රන්ථ <span class="search-section-count">' + matchedBooks.length + '</span></div>';
+      
+      matchedBooks.forEach(function(book) {
+        html += 
+          '<a href="' + book.pdfUrl + '" target="_blank" rel="noopener noreferrer" class="search-result-item search-result-book" onclick="handleDownload(\'' + book.countKey + '\')">' +
+            '<div class="search-result-icon book-icon">📄</div>' +
+            '<div class="search-result-content">' +
+              '<div class="search-result-title">' + highlightMatch(book.title, query) + '</div>' +
+              '<div class="search-result-meta">' +
+                '<span class="search-result-tag">' + book.category + '</span>' +
+                '<span class="search-result-size">' + book.size + '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="search-result-arrow">↗</div>' +
+          '</a>';
+      });
+      
+      html += '</div>';
+    }
+
+    resultsInner.innerHTML = html;
+    resultsContainer.classList.remove('hidden');
+  }
+
+  function highlightMatch(text, query) {
+    if (!query) return escapeHtml(text);
+    
+    const escapedText = escapeHtml(text);
+    const escapedQuery = escapeHtml(query);
+    const regex = new RegExp('(' + escapeRegex(escapedQuery) + ')', 'gi');
+    
+    return escapedText.replace(regex, '<mark class="search-highlight">$1</mark>');
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function escapeRegex(text) {
+    return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function clearSearch() {
+    const input = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('searchClear');
+    const resultsContainer = document.getElementById('searchResults');
+    
+    if (input) {
+      input.value = '';
+      input.focus();
+    }
+    if (clearBtn) clearBtn.classList.add('hidden');
+    if (resultsContainer) resultsContainer.classList.add('hidden');
+  }
+
+  document.addEventListener('click', function(event) {
+    const searchWrapper = document.querySelector('.search-wrapper');
+    const resultsContainer = document.getElementById('searchResults');
+    
+    if (searchWrapper && resultsContainer && !searchWrapper.contains(event.target)) {
+      resultsContainer.classList.add('hidden');
+    }
+  });
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      const resultsContainer = document.getElementById('searchResults');
+      if (resultsContainer) resultsContainer.classList.add('hidden');
+    }
+  });
+
   function filterItems() {
-    const query = document.getElementById("searchInput").value.trim().toLowerCase();
-
-    const filteredBooks = booksData.filter(book => 
-      book.title.toLowerCase().includes(query) || 
-      book.category.toLowerCase().includes(query)
-    );
-
-    const filteredApps = appsData.filter(app => 
-      app.title.toLowerCase().includes(query) || 
-      app.category.toLowerCase().includes(query) ||
-      app.description.toLowerCase().includes(query)
-    );
-
-    renderBooks(filteredBooks);
-    renderApps(filteredApps);
+    handleSearchInput();
   }
 
   // ==========================================
@@ -409,7 +723,15 @@
   window.handleDownload = handleDownload;
   window.filterItems = filterItems;
   window.renderContent = renderContent;
+  window.toggleInstallGuide = toggleInstallGuide;
+  window.switchInstallTab = switchInstallTab;
+  window.handleSearchInput = handleSearchInput;
+  window.handleSearchFocus = handleSearchFocus;
+  window.clearSearch = clearSearch;
 
+  // ==========================================
+  // පිටුව Load වූ පසු ආරම්භ කිරීම
+  // ==========================================
   if (document.readyState === 'loading') {
     document.addEventListener("DOMContentLoaded", renderContent);
   } else {
