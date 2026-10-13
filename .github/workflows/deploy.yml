@@ -1,31 +1,46 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages with Auto Cache Busting
 
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
+      - main  # ඔබ භාවිතා කරන branch එක (master නම් master ලෙස වෙනස් කරන්න)
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  deploy-github-pages:
-    name: Deploy to GitHub Pages
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
+  deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Setup GitHub Pages
-        uses: actions/configure-pages@v4
+
+      - name: Auto Cache Busting (Replace version with commit hash)
+        run: |
+          # Commit hash එක ලබා ගැනීම
+          COMMIT_HASH="${{ github.sha }}"
+          SHORT_HASH=${COMMIT_HASH:0:7}
+          
+          # index.html තුළ ඇති .css සහ .js සබැඳි අගට ?v=SHORT_HASH එක් කිරීම
+          sed -i -E "s/(\.css|\.js)(\?v=[^\"']*)?/\1?v=${SHORT_HASH}/g" index.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
