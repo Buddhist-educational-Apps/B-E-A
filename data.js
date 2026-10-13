@@ -127,7 +127,6 @@
 
   // ==========================================
   // PDF පොත් නාමාවලිය දත්ත
-  // (GitHub හි ඇති ගොනු නම් වලට ගැලපෙන ලෙස)
   // ==========================================
   const booksData = [
     {
@@ -441,22 +440,19 @@
   }
 
   // ==========================================
-  // Install Tab Switch (Android / iOS / Desktop)
+  // Install Tab Switch
   // ==========================================
   function switchInstallTab(tabButton, panelId) {
-    // සියලු tabs ඉවත් කරන්න
     const tabContainer = tabButton.parentElement;
     tabContainer.querySelectorAll(".install-tab").forEach(t => {
       t.classList.remove("active");
     });
     
-    // සියලු panels ඉවත් කරන්න
     const guideContent = tabButton.closest(".install-guide-content");
     guideContent.querySelectorAll(".install-panel").forEach(p => {
       p.classList.remove("active");
     });
     
-    // තෝරාගත් tab සහ panel සක්‍රීය කරන්න
     tabButton.classList.add("active");
     const targetPanel = document.getElementById(panelId);
     if (targetPanel) targetPanel.classList.add("active");
@@ -548,24 +544,196 @@
   }
 
   // ==========================================
-  // Live Search
+  // ✅ නව: Live Search with Dropdown Results
+  // ==========================================
+  let searchDebounceTimer = null;
+
+  function handleSearchInput() {
+    const input = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('searchClear');
+    if (!input) return;
+
+    const query = input.value.trim();
+
+    // Clear බොත්තම පෙන්වන්න/සඟවන්න
+    if (clearBtn) {
+      if (query.length > 0) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+    }
+
+    // Debounce - 150ms පසු search කරන්න
+    if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
+    searchDebounceTimer = setTimeout(function() {
+      performSearch(query);
+    }, 150);
+  }
+
+  function handleSearchFocus() {
+    const input = document.getElementById('searchInput');
+    if (input && input.value.trim().length > 0) {
+      performSearch(input.value.trim());
+    }
+  }
+
+  function performSearch(query) {
+    const resultsContainer = document.getElementById('searchResults');
+    const resultsInner = resultsContainer ? resultsContainer.querySelector('.search-results-inner') : null;
+    if (!resultsContainer || !resultsInner) return;
+
+    // හිස් නම් dropdown සඟවන්න
+    if (!query || query.length === 0) {
+      resultsContainer.classList.add('hidden');
+      return;
+    }
+
+    const lowerQuery = query.toLowerCase();
+
+    // Apps සොයන්න
+    const matchedApps = appsData.filter(function(app) {
+      return app.title.toLowerCase().includes(lowerQuery) ||
+             app.category.toLowerCase().includes(lowerQuery) ||
+             app.description.toLowerCase().includes(lowerQuery);
+    });
+
+    // Books සොයන්න
+    const matchedBooks = booksData.filter(function(book) {
+      return book.title.toLowerCase().includes(lowerQuery) ||
+             book.category.toLowerCase().includes(lowerQuery);
+    });
+
+    const totalResults = matchedApps.length + matchedBooks.length;
+
+    // ප්‍රතිඵල නැත්නම්
+    if (totalResults === 0) {
+      resultsInner.innerHTML = 
+        '<div class="search-no-results">' +
+          '<div class="search-no-results-icon">🔍</div>' +
+          '<div class="search-no-results-text">"' + escapeHtml(query) + '" සඳහා ප්‍රතිඵල හමු නොවීය</div>' +
+          '<div class="search-no-results-hint">වෙනත් වචනයක් උත්සාහ කරන්න</div>' +
+        '</div>';
+      resultsContainer.classList.remove('hidden');
+      return;
+    }
+
+    let html = '';
+
+    // Apps section
+    if (matchedApps.length > 0) {
+      html += '<div class="search-section">';
+      html += '<div class="search-section-title">📱 යෙදුම් <span class="search-section-count">' + matchedApps.length + '</span></div>';
+      
+      matchedApps.forEach(function(app) {
+        html += 
+          '<a href="' + app.webUrl + '" target="_blank" rel="noopener noreferrer" class="search-result-item search-result-app">' +
+            '<div class="search-result-icon app-icon">📱</div>' +
+            '<div class="search-result-content">' +
+              '<div class="search-result-title">' + highlightMatch(app.title, query) + '</div>' +
+              '<div class="search-result-meta">' +
+                '<span class="search-result-tag">' + app.category + '</span>' +
+                '<span class="search-result-type">App</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="search-result-arrow">↗</div>' +
+          '</a>';
+      });
+      
+      html += '</div>';
+    }
+
+    // Books section
+    if (matchedBooks.length > 0) {
+      html += '<div class="search-section">';
+      html += '<div class="search-section-title">📄 ග්‍රන්ථ <span class="search-section-count">' + matchedBooks.length + '</span></div>';
+      
+      matchedBooks.forEach(function(book) {
+        html += 
+          '<a href="' + book.pdfUrl + '" target="_blank" rel="noopener noreferrer" class="search-result-item search-result-book" onclick="handleDownload(\'' + book.countKey + '\')">' +
+            '<div class="search-result-icon book-icon">📄</div>' +
+            '<div class="search-result-content">' +
+              '<div class="search-result-title">' + highlightMatch(book.title, query) + '</div>' +
+              '<div class="search-result-meta">' +
+                '<span class="search-result-tag">' + book.category + '</span>' +
+                '<span class="search-result-size">' + book.size + '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="search-result-arrow">↗</div>' +
+          '</a>';
+      });
+      
+      html += '</div>';
+    }
+
+    resultsInner.innerHTML = html;
+    resultsContainer.classList.remove('hidden');
+  }
+
+  // ==========================================
+  // Query එක highlight කිරීම
+  // ==========================================
+  function highlightMatch(text, query) {
+    if (!query) return escapeHtml(text);
+    
+    const escapedText = escapeHtml(text);
+    const escapedQuery = escapeHtml(query);
+    const regex = new RegExp('(' + escapeRegex(escapedQuery) + ')', 'gi');
+    
+    return escapedText.replace(regex, '<mark class="search-highlight">$1</mark>');
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function escapeRegex(text) {
+    return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  // ==========================================
+  // Search එක clear කිරීම
+  // ==========================================
+  function clearSearch() {
+    const input = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('searchClear');
+    const resultsContainer = document.getElementById('searchResults');
+    
+    if (input) {
+      input.value = '';
+      input.focus();
+    }
+    if (clearBtn) clearBtn.classList.add('hidden');
+    if (resultsContainer) resultsContainer.classList.add('hidden');
+  }
+
+  // ==========================================
+  // පිටත click කළ විට dropdown වසා දැමීම
+  // ==========================================
+  document.addEventListener('click', function(event) {
+    const searchWrapper = document.querySelector('.search-wrapper');
+    const resultsContainer = document.getElementById('searchResults');
+    
+    if (searchWrapper && resultsContainer && !searchWrapper.contains(event.target)) {
+      resultsContainer.classList.add('hidden');
+    }
+  });
+
+  // Escape key එබූ විට dropdown වසා දැමීම
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      const resultsContainer = document.getElementById('searchResults');
+      if (resultsContainer) resultsContainer.classList.add('hidden');
+    }
+  });
+
+  // ==========================================
+  // පැරණි filterItems() - backward compatibility
   // ==========================================
   function filterItems() {
-    const query = document.getElementById("searchInput").value.trim().toLowerCase();
-
-    const filteredBooks = booksData.filter(book => 
-      book.title.toLowerCase().includes(query) || 
-      book.category.toLowerCase().includes(query)
-    );
-
-    const filteredApps = appsData.filter(app => 
-      app.title.toLowerCase().includes(query) || 
-      app.category.toLowerCase().includes(query) ||
-      app.description.toLowerCase().includes(query)
-    );
-
-    renderBooks(filteredBooks);
-    renderApps(filteredApps);
+    handleSearchInput();
   }
 
   // ==========================================
@@ -579,6 +747,11 @@
   window.renderContent = renderContent;
   window.toggleInstallGuide = toggleInstallGuide;
   window.switchInstallTab = switchInstallTab;
+  
+  // ✅ නව search functions
+  window.handleSearchInput = handleSearchInput;
+  window.handleSearchFocus = handleSearchFocus;
+  window.clearSearch = clearSearch;
 
   // ==========================================
   // පිටුව Load වූ පසු ආරම්භ කිරීම
