@@ -1,24 +1,4 @@
 {
-  "version": 2,
-  "name": "buddhist-apps",
-  "public": true,
   "cleanUrls": true,
-  "trailingSlash": false,
-  "buildCommand": null,
-  "devCommand": null,
-  "installCommand": null,
-  "framework": null,
-  "outputDirectory": ".",
-  "builds": [
-    {
-      "src": "**/*",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ]
+  "trailingSlash": false
 }
