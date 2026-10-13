@@ -58,7 +58,30 @@
         "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/screenshots/matika-3.webp",
         "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/screenshots/matika-4.webp",
         "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/screenshots/matika-5.webp"
-      ]
+      ],
+      installGuide: {
+        android: [
+          "පහත <strong>\"APK බාගන්න\"</strong> බොත්තම ඔබන්න",
+          "එය ඔබව Google Play Store එකට ගෙන යනු ඇත",
+          "<strong>\"Install\"</strong> බොත්තම ඔබන්න",
+          "Installation එක අවසන් වූ පසු <strong>\"Open\"</strong> ඔබන්න",
+          "දැන් ඔබගේ Home Screen එකේ අයිකනය දිස්වේ! 🎉"
+        ],
+        ios: [
+          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
+          "Safari browser එකේ යෙදුම විවෘත වේ",
+          "පහළ ඇති <strong>Share</strong> බොත්තම (⬆️) ඔබන්න",
+          "<strong>\"Add to Home Screen\"</strong> තෝරන්න",
+          "<strong>\"Add\"</strong> ඔබන්න - දැන් Home Screen එකේ! 🎉"
+        ],
+        desktop: [
+          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
+          "Address bar එකේ දකුණේ ඇති <strong>install icon</strong> (➕) ඔබන්න",
+          "හෝ browser මෙනුවෙන් <strong>\"Install\"</strong> තෝරන්න",
+          "<strong>\"Install\"</strong> බොත්තම ඔබන්න",
+          "Desktop එකේ යෙදුමක් ලෙස දිස්වේ! 🎉"
+        ]
+      }
     },
     {
       id: 2,
@@ -74,7 +97,31 @@
         "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/screenshots/rupasiddhi-2.webp",
         "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/screenshots/rupasiddhi-3.webp",
         "https://pavara9803-ctrl.github.io/Buddhist-educational-Apps/screenshots/rupasiddhi-4.webp"
-      ]
+      ],
+      installGuide: {
+        android: [
+          "පහත <strong>\"APK බාගන්න\"</strong> බොත්තම ඔබන්න",
+          "APK ගොනුව බාගත වේ (Rupasiddhi.apk)",
+          "Notifications එකෙන් <strong>\"Install\"</strong> ඔබන්න",
+          "හෝ <strong>Settings → Security → Unknown Sources</strong> සක්‍රීය කරන්න",
+          "APK ගොනුව ඔබා <strong>\"Install\"</strong> තෝරන්න",
+          "දැන් Home Screen එකේ අයිකනය දිස්වේ! 🎉"
+        ],
+        ios: [
+          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
+          "Safari browser එකේ යෙදුම විවෘත වේ",
+          "පහළ ඇති <strong>Share</strong> බොත්තම (⬆️) ඔබන්න",
+          "<strong>\"Add to Home Screen\"</strong> තෝරන්න",
+          "<strong>\"Add\"</strong> ඔබන්න - දැන් Home Screen එකේ! 🎉"
+        ],
+        desktop: [
+          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
+          "Address bar එකේ දකුණේ ඇති <strong>install icon</strong> (➕) ඔබන්න",
+          "හෝ browser මෙනුවෙන් <strong>\"Install\"</strong> තෝරන්න",
+          "<strong>\"Install\"</strong> බොත්තම ඔබන්න",
+          "Desktop එකේ යෙදුමක් ලෙස දිස්වේ! 🎉"
+        ]
+      }
     }
   ];
 
@@ -194,12 +241,20 @@
     loadAllDownloadCounts();
   }
 
-  // Apps Render කිරීම
+  // ==========================================
+  // Apps Render කිරීම (Install Guide සමඟ)
+  // ==========================================
   function renderApps(apps) {
     const container = document.getElementById("appsContainer");
     if (!container) return;
 
+    if (apps.length === 0) {
+      container.innerHTML = `<div style="padding: 24px; text-align: center; color: var(--text-muted); grid-column: 1/-1;">සොයන ලද යෙදුම හමු නොවීය.</div>`;
+      return;
+    }
+
     container.innerHTML = apps.map(app => {
+      // Screenshots HTML
       const screenshotsHTML = app.screenshots && app.screenshots.length > 0 ? `
         <div class="app-screenshots">
           <div class="screenshots-scroll">
@@ -212,6 +267,66 @@
                    loading="lazy"
                    onclick="openLightbox('${img}', '${app.title}')">
             `).join("")}
+          </div>
+        </div>
+      ` : "";
+
+      // Install Guide HTML
+      const installGuideHTML = app.installGuide ? `
+        <div class="install-guide">
+          <button class="install-guide-toggle" onclick="toggleInstallGuide(this)">
+            <span class="install-guide-icon">📲</span>
+            <span class="install-guide-text">යෙදුම ස්ථාපනය කරගන්නා ආකාරය</span>
+            <span class="install-guide-arrow">▼</span>
+          </button>
+          
+          <div class="install-guide-content">
+            <!-- Tabs -->
+            <div class="install-tabs">
+              <button class="install-tab active" onclick="switchInstallTab(this, 'android-${app.id}')">
+                🤖 Android
+              </button>
+              <button class="install-tab" onclick="switchInstallTab(this, 'ios-${app.id}')">
+                🍎 iOS
+              </button>
+              <button class="install-tab" onclick="switchInstallTab(this, 'desktop-${app.id}')">
+                💻 Computer
+              </button>
+            </div>
+
+            <!-- Android Instructions -->
+            <div class="install-panel active" id="android-${app.id}">
+              <ol class="install-steps">
+                ${app.installGuide.android.map(step => `<li>${step}</li>`).join("")}
+              </ol>
+              <div class="install-tip">
+                💡 <strong>ඉඟිය:</strong> Android 8+ භාවිතා කරන්නේ නම්, 
+                APK බාගත කිරීමෙන් පසු "Install" බොත්තම ස්වයංක්‍රීයව දිස්වේ.
+              </div>
+            </div>
+
+            <!-- iOS Instructions -->
+            <div class="install-panel" id="ios-${app.id}">
+              <ol class="install-steps">
+                ${app.installGuide.ios.map(step => `<li>${step}</li>`).join("")}
+              </ol>
+              <div class="install-tip">
+                💡 <strong>වැදගත්:</strong> iOS එකේ Safari browser එක 
+                පමණක් භාවිතා කරන්න. Chrome හෝ Firefox වලින් 
+                "Add to Home Screen" කළ නොහැක.
+              </div>
+            </div>
+
+            <!-- Desktop Instructions -->
+            <div class="install-panel" id="desktop-${app.id}">
+              <ol class="install-steps">
+                ${app.installGuide.desktop.map(step => `<li>${step}</li>`).join("")}
+              </ol>
+              <div class="install-tip">
+                💡 <strong>ඉඟිය:</strong> Chrome හෝ Edge browser 
+                භාවිතා කරන්න. Firefox වලට install පහසුකම සීමිතයි.
+              </div>
+            </div>
           </div>
         </div>
       ` : "";
@@ -232,12 +347,15 @@
               Online භාවිතය ↗
             </a>
           </div>
+          ${installGuideHTML}
         </div>
       `;
     }).join("");
   }
 
+  // ==========================================
   // Books Table Render කිරීම
+  // ==========================================
   function renderBooks(books) {
     const container = document.getElementById("pdfFileList");
     if (!container) return;
@@ -283,7 +401,9 @@
     `).join("");
   }
 
+  // ==========================================
   // ෆෝල්ඩරය විවෘත/වසා දැමීම
+  // ==========================================
   function toggleFolder(headerElement) {
     const folderGroup = headerElement.parentElement;
     const folderBooks = folderGroup.querySelector(".folder-books");
@@ -302,7 +422,49 @@
     }
   }
 
+  // ==========================================
+  // Install Guide Toggle
+  // ==========================================
+  function toggleInstallGuide(button) {
+    const content = button.nextElementSibling;
+    const arrow = button.querySelector(".install-guide-arrow");
+    
+    const isOpen = content.classList.contains("open");
+    
+    if (isOpen) {
+      content.classList.remove("open");
+      arrow.textContent = "▼";
+    } else {
+      content.classList.add("open");
+      arrow.textContent = "▲";
+    }
+  }
+
+  // ==========================================
+  // Install Tab Switch (Android / iOS / Desktop)
+  // ==========================================
+  function switchInstallTab(tabButton, panelId) {
+    // සියලු tabs ඉවත් කරන්න
+    const tabContainer = tabButton.parentElement;
+    tabContainer.querySelectorAll(".install-tab").forEach(t => {
+      t.classList.remove("active");
+    });
+    
+    // සියලු panels ඉවත් කරන්න
+    const guideContent = tabButton.closest(".install-guide-content");
+    guideContent.querySelectorAll(".install-panel").forEach(p => {
+      p.classList.remove("active");
+    });
+    
+    // තෝරාගත් tab සහ panel සක්‍රීය කරන්න
+    tabButton.classList.add("active");
+    const targetPanel = document.getElementById(panelId);
+    if (targetPanel) targetPanel.classList.add("active");
+  }
+
+  // ==========================================
   // Lightbox
+  // ==========================================
   function openLightbox(imageSrc, title) {
     const existing = document.getElementById("lightbox");
     if (existing) existing.remove();
@@ -330,7 +492,9 @@
     if (lightbox) lightbox.remove();
   }
 
+  // ==========================================
   // Firebase Download Count Functions
+  // ==========================================
   function loadAllDownloadCounts() {
     if (!db) {
       console.warn("⚠️ Firebase not initialized");
@@ -383,7 +547,9 @@
     }
   }
 
+  // ==========================================
   // Live Search
+  // ==========================================
   function filterItems() {
     const query = document.getElementById("searchInput").value.trim().toLowerCase();
 
@@ -411,8 +577,12 @@
   window.handleDownload = handleDownload;
   window.filterItems = filterItems;
   window.renderContent = renderContent;
+  window.toggleInstallGuide = toggleInstallGuide;
+  window.switchInstallTab = switchInstallTab;
 
+  // ==========================================
   // පිටුව Load වූ පසු ආරම්භ කිරීම
+  // ==========================================
   if (document.readyState === 'loading') {
     document.addEventListener("DOMContentLoaded", renderContent);
   } else {
