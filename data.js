@@ -96,7 +96,7 @@
       badgeType: "tag-blue",
       description: "පදරුපසිද්ධි ග්‍රන්ථය ඇසුරින් පාලි නාම හා ආඛ්‍යාත පද සාධනයන් හදාරන මෘදුකාංගය.",
       apkUrl: "https://github.com/pavara9803-ctrl/Rupasiddhi/releases/latest/download/Rupasiddhi.apk",
-      webUrl: "https://rupasiddhi.github.io/R-S/",
+      webUrl: "https://rupasiddhi.vercel.app/",
       screenshots: [
         BASE_URL + "/screenshots/rupasiddhi-1.webp",
         BASE_URL + "/screenshots/rupasiddhi-2.webp",
@@ -125,6 +125,74 @@
           "හෝ browser මෙනුවෙන් <strong>\"Install\"</strong> තෝරන්න",
           "<strong>\"Install\"</strong> බොත්තම ඔබන්න",
           "Desktop එකේ යෙදුමක් ලෙස දිස්වේ! 🎉"
+        ]
+      }
+    },
+    {
+      id: 3,
+      title: "බෞද්ධ වර්ෂය (Buddhist Era)",
+      category: "දින දර්ශන",
+      platform: "Android / Web",
+      badgeType: "tag-gold",
+      description: "ශ්‍රී බුද්ධ වර්ෂය, පොහොය දින සහ විශේෂ බෞද්ධ දින දර්ශන පහසුවෙන් ගණනය කර බලාගැනීමේ මෘදුකාංගය.",
+      apkUrl: "https://play.google.com/store/apps/details?id=app.vercel.buddhist_era.twa",
+      webUrl: "https://buddhist-era.vercel.app/",
+      screenshots: [
+        BASE_URL + "/buddhistera/DPSD-1.webp",
+        BASE_URL + "/buddhistera/DPSD-2.webp",
+        BASE_URL + "/buddhistera/DPSD-3.webp",
+        BASE_URL + "/buddhistera/DPSD-4.webp",
+        BASE_URL + "/buddhistera/DPSD-5.webp"
+      ],
+      installGuide: {
+        android: [
+          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
+          "Chrome browser එකේ මෙනුවෙන් (⋮) <strong>\"Add to Home screen\"</strong> හෝ <strong>\"Install App\"</strong> තෝරන්න",
+          "<strong>\"Install\"</strong> ඔබන්න - Home Screen එකේ අයිකනය දිස්වේ! 🎉"
+        ],
+        ios: [
+          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
+          "Safari browser එකේ පහළ ඇති <strong>Share</strong> බොත්තම (⬆️) ඔබන්න",
+          "<strong>\"Add to Home Screen\"</strong> තෝරන්න - දැන් Home Screen එකේ! 🎉"
+        ],
+        desktop: [
+          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
+          "Address bar එකේ දකුණේ ඇති <strong>install icon</strong> (➕) ඔබන්න",
+          "<strong>\"Install\"</strong> තෝරන්න - Desktop App එකක් ලෙස දිස්වේ! 🎉"
+        ]
+      }
+    },
+    {
+      id: 4,
+      title: "පාලි සිංහල ශබ්දකෝෂය (DPSD)",
+      category: "පාලි ශබ්දකෝෂ",
+      platform: "Android / Web",
+      badgeType: "tag-blue",
+      description: "Digital Pali-Sinhala Dictionary (DPSD) - ත්‍රිපිටක පාලි පාඨ සහ වචනාර්ථ පහසුවෙන් සිංහලෙන් සෙවිය හැකි විද්‍යුත් ශබ්දකෝෂය.",
+      apkUrl: "https://apkpure.com/ශබ්දකෝෂය/com.pali_sinhala_dictionary.twa",
+      webUrl: "https://buddhist-era.vercel.app/",
+      screenshots: [
+        BASE_URL + "/buddhistera/bc-1.webp",
+        BASE_URL + "/buddhistera/bc-2.webp",
+        BASE_URL + "/buddhistera/bc-3.webp",
+        BASE_URL + "/buddhistera/bc-4.webp",
+        BASE_URL + "/buddhistera/bc-5.webp"
+      ],
+      installGuide: {
+        android: [
+          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
+          "Chrome browser එකේ මෙනුවෙන් (⋮) <strong>\"Install App\"</strong> හෝ <strong>\"Add to Home screen\"</strong> තෝරන්න",
+          "දැන් Home Screen එකේ යෙදුමක් ලෙස භාවිතා කළ හැක! 🎉"
+        ],
+        ios: [
+          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
+          "Safari browser එකේ පහළ ඇති <strong>Share</strong> (⬆️) ඔබන්න",
+          "<strong>\"Add to Home Screen\"</strong> තෝරා <strong>Add</strong> ඔබන්න! 🎉"
+        ],
+        desktop: [
+          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
+          "Address bar එකේ දකුණු පස ඇති Install අයිකනය ඔබන්න",
+          "<strong>\"Install\"</strong> ඔබන්න! 🎉"
         ]
       }
     }
@@ -246,7 +314,7 @@
   }
 
   // ==========================================
-  // Apps Render කිරීම
+  // Apps Render කිරීම (සියලු ඇප් සඳහා එකම බටන් සැකසුම)
   // ==========================================
   function renderApps(apps) {
     const container = document.getElementById("appsContainer");
@@ -338,8 +406,8 @@
           <p class="app-desc">${app.description}</p>
           ${screenshotsHTML}
           <div class="app-actions">
-            <a href="${app.apkUrl}" download class="btn-apk">
-              <span>📥</span> APK බාගත කරන්න
+            <a href="${app.apkUrl}" ${app.apkUrl.endsWith('.apk') ? 'download' : 'target="_blank" rel="noopener noreferrer"'} class="btn-apk">
+              <span>📥</span> බාගත කරන්න (APK)
             </a>
             <a href="${app.webUrl}" target="_blank" rel="noopener noreferrer" class="btn-web">
               Online භාවිතය ↗
@@ -352,7 +420,7 @@
   }
 
   // ==========================================
-  // Books Table Render කිරීම (මුලින් Files සැඟවී තිබේ)
+  // Books Table Render කිරීම (විවෘත වන විට Files සැඟවී තිබේ)
   // ==========================================
   function renderBooks(books) {
     const container = document.getElementById("pdfFileList");
@@ -470,7 +538,7 @@
     lightbox.innerHTML = `
       <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
       <img src="${imageSrc}" alt="${title}" class="lightbox-img">
-      <p class="lightbox-caption">${title}</p>
+      <p class="lightbox-caption" style="color: var(--accent-gold); margin-top: 14px; font-family: var(--font-heading); font-size: 1.15rem; text-align: center;">${title}</p>
     `;
     lightbox.onclick = function(e) {
       if (e.target === lightbox) closeLightbox();
@@ -602,10 +670,10 @@
 
     if (totalResults === 0) {
       resultsInner.innerHTML = 
-        '<div class="search-no-results">' +
-          '<div class="search-no-results-icon">🔍</div>' +
-          '<div class="search-no-results-text">"' + escapeHtml(query) + '" සඳහා ප්‍රතිඵල හමු නොවීය</div>' +
-          '<div class="search-no-results-hint">වෙනත් වචනයක් උත්සාහ කරන්න</div>' +
+        '<div class="search-no-results" style="padding: 24px; text-align: center;">' +
+          '<div style="font-size: 2rem; margin-bottom: 8px;">🔍</div>' +
+          '<div style="font-weight: 600; color: var(--text-bright); margin-bottom: 4px;">"' + escapeHtml(query) + '" සඳහා ප්‍රතිඵල හමු නොවීය</div>' +
+          '<div style="font-size: 0.85rem; color: var(--text-muted);">වෙනත් වචනයක් උත්සාහ කරන්න</div>' +
         '</div>';
       resultsContainer.classList.remove('hidden');
       return;
@@ -619,16 +687,15 @@
       
       matchedApps.forEach(function(app) {
         html += 
-          '<a href="' + app.webUrl + '" target="_blank" rel="noopener noreferrer" class="search-result-item search-result-app">' +
+          '<a href="' + app.webUrl + '" target="_blank" rel="noopener noreferrer" class="search-result-item">' +
             '<div class="search-result-icon app-icon">📱</div>' +
             '<div class="search-result-content">' +
               '<div class="search-result-title">' + highlightMatch(app.title, query) + '</div>' +
               '<div class="search-result-meta">' +
-                '<span class="search-result-tag">' + app.category + '</span>' +
-                '<span class="search-result-type">App</span>' +
+                '<span class="tag ' + app.badgeType + '" style="font-size: 0.7rem; padding: 1px 6px;">' + app.category + '</span>' +
               '</div>' +
             '</div>' +
-            '<div class="search-result-arrow">↗</div>' +
+            '<div style="color: var(--accent-gold); font-size: 1rem;">↗</div>' +
           '</a>';
       });
       
@@ -641,16 +708,16 @@
       
       matchedBooks.forEach(function(book) {
         html += 
-          '<a href="' + book.pdfUrl + '" target="_blank" rel="noopener noreferrer" class="search-result-item search-result-book" onclick="handleDownload(\'' + book.countKey + '\')">' +
+          '<a href="' + book.pdfUrl + '" target="_blank" rel="noopener noreferrer" class="search-result-item" onclick="handleDownload(\'' + book.countKey + '\')">' +
             '<div class="search-result-icon book-icon">📄</div>' +
             '<div class="search-result-content">' +
               '<div class="search-result-title">' + highlightMatch(book.title, query) + '</div>' +
               '<div class="search-result-meta">' +
-                '<span class="search-result-tag">' + book.category + '</span>' +
-                '<span class="search-result-size">' + book.size + '</span>' +
+                '<span style="color: var(--text-muted);">' + book.category + '</span> • ' +
+                '<span style="color: var(--accent-green); font-weight: 600;">' + book.size + '</span>' +
               '</div>' +
             '</div>' +
-            '<div class="search-result-arrow">↗</div>' +
+            '<div style="color: var(--accent-gold); font-size: 1rem;">↗</div>' +
           '</a>';
       });
       
@@ -668,7 +735,7 @@
     const escapedQuery = escapeHtml(query);
     const regex = new RegExp('(' + escapeRegex(escapedQuery) + ')', 'gi');
     
-    return escapedText.replace(regex, '<mark class="search-highlight">$1</mark>');
+    return escapedText.replace(regex, '<mark style="background: rgba(246, 190, 78, 0.35); color: inherit; padding: 0 2px; border-radius: 3px;">$1</mark>');
   }
 
   function escapeHtml(text) {
@@ -715,7 +782,7 @@
   }
 
   // ==========================================
-  // Global Functions
+  // Global Function Bindings
   // ==========================================
   window.toggleFolder = toggleFolder;
   window.openLightbox = openLightbox;
