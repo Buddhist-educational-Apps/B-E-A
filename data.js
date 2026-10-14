@@ -138,7 +138,7 @@
     },
     {
       id: 3,
-      title: "බෞද්ධ වර්ෂය (Buddhist Era)",
+      title: "බුද්ධ වර්ෂය (Buddhist Era)",
       developer: "B.E.D • දින දර්ශන",
       category: "දින දර්ශනය",
       rating: "4.9",
