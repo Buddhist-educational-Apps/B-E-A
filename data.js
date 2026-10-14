@@ -66,7 +66,7 @@
       ],
       installGuide: {
         android: [
-          "පහත <strong>\"APK බාගන්න\"</strong> බොත්තම ඔබන්න",
+          "පහත <strong>\"බාගත කරන්න (APK)\"</strong> බොත්තම ඔබන්න",
           "එය ඔබව Google Play Store එකට ගෙන යනු ඇත",
           "<strong>\"Install\"</strong> බොත්තම ඔබන්න",
           "Installation එක අවසන් වූ පසු <strong>\"Open\"</strong> ඔබන්න",
@@ -105,7 +105,7 @@
       ],
       installGuide: {
         android: [
-          "පහත <strong>\"APK බාගන්න\"</strong> බොත්තම ඔබන්න",
+          "පහත <strong>\"බාගත කරන්න (APK)\"</strong> බොත්තම ඔබන්න",
           "APK ගොනුව බාගත වේ (Rupasiddhi.apk)",
           "Notifications එකෙන් <strong>\"Install\"</strong> ඔබන්න",
           "හෝ <strong>Settings → Security → Unknown Sources</strong> සක්‍රීය කරන්න",
@@ -138,16 +138,16 @@
       apkUrl: "https://play.google.com/store/apps/details?id=app.vercel.buddhist_era.twa",
       webUrl: "https://buddhist-era.vercel.app/",
       screenshots: [
-        BASE_URL + "/buddhistera/bc-1.webp",
-        BASE_URL + "/buddhistera/bc-2.webp",
-        BASE_URL + "/buddhistera/bc-3.webp",
-        BASE_URL + "/buddhistera/bc-4.webp",
-        BASE_URL + "/buddhistera/bc-5.webp"
+        BASE_URL + "/screenshots/bc-1.webp",
+        BASE_URL + "/screenshots/bc-2.webp",
+        BASE_URL + "/screenshots/bc-3.webp",
+        BASE_URL + "/screenshots/bc-4.webp",
+        BASE_URL + "/screenshots/bc-5.webp"
       ],
       installGuide: {
         android: [
-          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
-          "Chrome browser එකේ මෙනුවෙන් (⋮) <strong>\"Add to Home screen\"</strong> හෝ <strong>\"Install App\"</strong> තෝරන්න",
+          "පහත <strong>\"බාගත කරන්න (APK)\"</strong> බොත්තම ඔබන්න",
+          "එය ඔබව Google Play Store වෙත ගෙන යනු ඇත",
           "<strong>\"Install\"</strong> ඔබන්න - Home Screen එකේ අයිකනය දිස්වේ! 🎉"
         ],
         ios: [
@@ -170,17 +170,17 @@
       badgeType: "tag-blue",
       description: "Digital Pali-Sinhala Dictionary (DPSD) - ත්‍රිපිටක පාලි පාඨ සහ වචනාර්ථ පහසුවෙන් සිංහලෙන් සෙවිය හැකි විද්‍යුත් ශබ්දකෝෂය.",
       apkUrl: "https://apkpure.com/ශබ්දකෝෂය/com.pali_sinhala_dictionary.twa",
-      webUrl: "https://buddhist-era.vercel.app/",
+      webUrl: "https://pali-sinhala-dictionary.github.io/DPSD/",
       screenshots: [
-        BASE_URL + "/buddhistera/DPSD-1.webp",
-        BASE_URL + "/buddhistera/DPSD-2.webp",
-        BASE_URL + "/buddhistera/DPSD-3.webp",
-        BASE_URL + "/buddhistera/DPSD-4.webp",
-        BASE_URL + "/buddhistera/DPSD-5.webp"
+        BASE_URL + "/screenshots/DPSD-1.webp",
+        BASE_URL + "/screenshots/DPSD-2.webp",
+        BASE_URL + "/screenshots/DPSD-3.webp",
+        BASE_URL + "/screenshots/DPSD-4.webp",
+        BASE_URL + "/screenshots/DPSD-5.webp"
       ],
       installGuide: {
         android: [
-          "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
+          "පහත <strong>\"බාගත කරන්න (APK)\"</strong> බොත්තම ඔබන්න",
           "Chrome browser එකේ මෙනුවෙන් (⋮) <strong>\"Install App\"</strong> හෝ <strong>\"Add to Home screen\"</strong> තෝරන්න",
           "දැන් Home Screen එකේ යෙදුමක් ලෙස භාවිතා කළ හැක! 🎉"
         ],
@@ -314,7 +314,7 @@
   }
 
   // ==========================================
-  // Apps Render කිරීම (සියලු ඇප් සඳහා එකම බටන් සැකසුම)
+  // Apps Render කිරීම
   // ==========================================
   function renderApps(apps) {
     const container = document.getElementById("appsContainer");
@@ -368,8 +368,7 @@
                 ${app.installGuide.android.map(step => `<li>${step}</li>`).join("")}
               </ol>
               <div class="install-tip">
-                💡 <strong>ඉඟිය:</strong> Android 8+ භාවිතා කරන්නේ නම්, 
-                APK බාගත කිරීමෙන් පසු "Install" බොත්තම ස්වයංක්‍රීයව දිස්වේ.
+                💡 <strong>ඉඟිය:</strong> Progressive Web App (PWA) තාක්ෂණය නිසා Browser එක හරහාම පහසුවෙන් Install කරගත හැක.
               </div>
             </div>
 
@@ -378,9 +377,7 @@
                 ${app.installGuide.ios.map(step => `<li>${step}</li>`).join("")}
               </ol>
               <div class="install-tip">
-                💡 <strong>වැදගත්:</strong> iOS එකේ Safari browser එක 
-                පමණක් භාවිතා කරන්න. Chrome හෝ Firefox වලින් 
-                "Add to Home Screen" කළ නොහැක.
+                💡 <strong>වැදගත්:</strong> iOS එකේ Safari browser එක භාවිතා කර "Add to Home Screen" තෝරන්න.
               </div>
             </div>
 
@@ -389,8 +386,7 @@
                 ${app.installGuide.desktop.map(step => `<li>${step}</li>`).join("")}
               </ol>
               <div class="install-tip">
-                💡 <strong>ඉඟිය:</strong> Chrome හෝ Edge browser 
-                භාවිතා කරන්න. Firefox වලට install පහසුකම සීමිතයි.
+                💡 <strong>ඉඟිය:</strong> Chrome හෝ Edge browser භාවිතා කරන්න.
               </div>
             </div>
           </div>
