@@ -138,11 +138,11 @@
       apkUrl: "https://play.google.com/store/apps/details?id=app.vercel.buddhist_era.twa",
       webUrl: "https://buddhist-era.vercel.app/",
       screenshots: [
-        BASE_URL + "/buddhistera/DPSD-1.webp",
-        BASE_URL + "/buddhistera/DPSD-2.webp",
-        BASE_URL + "/buddhistera/DPSD-3.webp",
-        BASE_URL + "/buddhistera/DPSD-4.webp",
-        BASE_URL + "/buddhistera/DPSD-5.webp"
+        BASE_URL + "/buddhistera/bc-1.webp",
+        BASE_URL + "/buddhistera/bc-2.webp",
+        BASE_URL + "/buddhistera/bc-3.webp",
+        BASE_URL + "/buddhistera/bc-4.webp",
+        BASE_URL + "/buddhistera/bc-5.webp"
       ],
       installGuide: {
         android: [
@@ -172,11 +172,11 @@
       apkUrl: "https://apkpure.com/ශබ්දකෝෂය/com.pali_sinhala_dictionary.twa",
       webUrl: "https://buddhist-era.vercel.app/",
       screenshots: [
-        BASE_URL + "/buddhistera/bc-1.webp",
-        BASE_URL + "/buddhistera/bc-2.webp",
-        BASE_URL + "/buddhistera/bc-3.webp",
-        BASE_URL + "/buddhistera/bc-4.webp",
-        BASE_URL + "/buddhistera/bc-5.webp"
+        BASE_URL + "/buddhistera/DPSD-1.webp",
+        BASE_URL + "/buddhistera/DPSD-2.webp",
+        BASE_URL + "/buddhistera/DPSD-3.webp",
+        BASE_URL + "/buddhistera/DPSD-4.webp",
+        BASE_URL + "/buddhistera/DPSD-5.webp"
       ],
       installGuide: {
         android: [
