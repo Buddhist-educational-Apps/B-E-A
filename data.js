@@ -335,7 +335,7 @@
     if (!container) return;
 
     if (apps.length === 0) {
-      container.innerHTML = `<div style="padding: 24px; text-align: center; color: var(--text-muted); grid-column: 1/-1;">සොයන ලද යෙදුම හමු නොවීය.</div>`;
+      container.innerHTML = `<div style="padding: 32px; text-align: center; color: var(--text-muted); grid-column: 1/-1;">සොයන ලද යෙදුම හමු නොවීය.</div>`;
       return;
     }
 
@@ -359,30 +359,32 @@
 
       const installGuideHTML = app.installGuide ? `
         <div class="install-guide">
-          <button class="install-guide-toggle" onclick="event.stopPropagation(); toggleInstallGuide(this)">
-            <span class="install-guide-icon">📲</span>
+          <button type="button" class="install-guide-toggle" onclick="event.stopPropagation(); toggleInstallGuide(this)" aria-expanded="false">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-gold); flex-shrink: 0;">
+              <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/>
+            </svg>
             <span class="install-guide-text">යෙදුම ස්ථාපනය කරගන්නා ආකාරය</span>
-            <span class="install-guide-arrow">▼</span>
+            <span class="install-guide-arrow"></span>
           </button>
           
           <div class="install-guide-content">
             <div class="install-tabs">
-              <button class="install-tab active" onclick="event.stopPropagation(); switchInstallTab(this, 'android-${app.id}')">
-                <svg class="tab-badge-icon" viewBox="0 0 512 512" width="18" height="18" fill="currentColor">
+              <button type="button" class="install-tab active" onclick="event.stopPropagation(); switchInstallTab(this, 'android-${app.id}')">
+                <svg class="tab-badge-icon" viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
                   <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
                 </svg>
                 <span>Google Play</span>
               </button>
               
-              <button class="install-tab" onclick="event.stopPropagation(); switchInstallTab(this, 'ios-${app.id}')">
-                <svg class="tab-badge-icon" viewBox="0 0 170 170" width="18" height="18" fill="currentColor">
+              <button type="button" class="install-tab" onclick="event.stopPropagation(); switchInstallTab(this, 'ios-${app.id}')">
+                <svg class="tab-badge-icon" viewBox="0 0 170 170" width="16" height="16" fill="currentColor">
                   <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.58-7.7-11.64-13.98-5.88-9.13-10.46-19.46-13.73-30.98-3.26-11.52-4.9-22.37-4.9-32.55 0-14.12 3.59-25.99 10.77-35.61 7.18-9.62 16.32-14.53 27.42-14.73 4.9 0 10.12 1.25 15.66 3.75 5.54 2.5 9.14 3.86 10.79 4.08 1.96-.33 5.76-1.79 11.41-4.4 5.65-2.61 10.77-3.81 15.35-3.61 14.79.76 26.24 6.2 34.35 16.31-13.06 7.83-19.48 18.59-19.26 32.28.22 10.66 4.13 19.68 11.74 27.07 7.61 7.39 16.75 11.63 27.41 12.72-2.18 6.42-4.8 12.63-7.85 18.63zM119.22 31.84c0-7.72 2.72-14.9 8.16-21.53 5.44-6.63 12.19-10.77 20.25-12.42.22 1.31.33 2.5.33 3.59 0 7.61-2.83 14.8-8.49 21.55-5.66 6.75-12.51 10.77-20.57 12.07-.11-1.09-.17-2.18-.17-3.26z"/>
                 </svg>
                 <span>Apple iOS</span>
               </button>
               
-              <button class="install-tab" onclick="event.stopPropagation(); switchInstallTab(this, 'desktop-${app.id}')">
-                <svg class="tab-badge-icon" viewBox="0 0 88 88" width="18" height="18" fill="currentColor">
+              <button type="button" class="install-tab" onclick="event.stopPropagation(); switchInstallTab(this, 'desktop-${app.id}')">
+                <svg class="tab-badge-icon" viewBox="0 0 88 88" width="16" height="16" fill="currentColor">
                   <path d="M0 12.402l35.688-4.86.016 34.423-35.67.24zM35.67 45.547l.034 35.035-35.67-4.896-.034-30.139zm4.33-48.452L88 0v41.594l-48 .377zm48 44.139L40 81.334V45.717l48 .347z"/>
                 </svg>
                 <span>Windows PC</span>
@@ -420,7 +422,7 @@
                 <span>✓</span> ${app.developer || "බෞද්ධ අධ්‍යාපනය"}
               </div>
             </div>
-            <span class="card-expand-arrow">▼</span>
+            <span class="card-expand-arrow" aria-hidden="true"></span>
           </div>
 
           <div class="playstore-details">
@@ -437,19 +439,28 @@
               <div class="playstore-meta-divider"></div>
               <div class="playstore-meta-item">
                 <span class="playstore-meta-val">3+</span>
-                <span class="playstore-meta-lbl">Rated for 3+</span>
+                <span class="playstore-meta-lbl">Rated 3+</span>
               </div>
             </div>
 
             <div class="playstore-actions">
               <a href="${app.apkUrl}" ${app.apkUrl.endsWith('.apk') ? 'download' : 'target="_blank" rel="noopener noreferrer"'} class="btn-playstore-install" onclick="event.stopPropagation()">
-                <span>📥</span> ${buttonLabel}
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                ${buttonLabel}
               </a>
               <a href="${app.webUrl}" target="_blank" rel="noopener noreferrer" class="btn-playstore-web" onclick="event.stopPropagation()">
-                Online භාවිතය ↗
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+                Online භාවිතය
               </a>
-              <button type="button" class="btn-playstore-share" onclick="event.stopPropagation(); shareApp('${app.title}', '${app.webUrl}')" title="යෙදුම බෙදාගන්න">
-                <span>🔗</span> ශෙයා
+              <button type="button" class="btn-playstore-share" onclick="event.stopPropagation(); shareApp('${app.title}', '${app.webUrl}')" title="යෙදුම බෙදාගන්න" aria-label="Share">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                </svg>
+                ශෙයා
               </button>
             </div>
 
@@ -512,8 +523,8 @@
     container.innerHTML = Object.keys(grouped).map(folderName => `
       <div class="folder-group">
         <div class="folder-header" onclick="toggleFolder(this)">
-          <span class="folder-arrow">▶</span>
-          <span class="folder-icon">📁</span>
+          <span class="folder-arrow" aria-hidden="true"></span>
+          <span class="folder-icon" aria-hidden="true"></span>
           <span class="folder-name">${folderName}</span>
           <span class="folder-count">${grouped[folderName].length} පොත්</span>
         </div>
@@ -541,33 +552,28 @@
   function toggleFolder(headerElement) {
     const folderGroup = headerElement.parentElement;
     const folderBooks = folderGroup.querySelector(".folder-books");
-    const arrow = headerElement.querySelector(".folder-arrow");
 
     const isOpen = folderGroup.classList.contains("open");
 
     if (isOpen) {
       folderGroup.classList.remove("open");
       folderBooks.style.display = "none";
-      if (arrow) arrow.textContent = "▶";
     } else {
       folderGroup.classList.add("open");
       folderBooks.style.display = "block";
-      if (arrow) arrow.textContent = "▼";
     }
   }
 
   function toggleInstallGuide(button) {
     const content = button.nextElementSibling;
-    const arrow = button.querySelector(".install-guide-arrow");
-    
     const isOpen = content.classList.contains("open");
     
     if (isOpen) {
       content.classList.remove("open");
-      arrow.textContent = "▼";
+      button.setAttribute("aria-expanded", "false");
     } else {
       content.classList.add("open");
-      arrow.textContent = "▲";
+      button.setAttribute("aria-expanded", "true");
     }
   }
 
@@ -595,7 +601,7 @@
     lightbox.id = "lightbox";
     lightbox.className = "lightbox";
     lightbox.innerHTML = `
-      <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+      <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="වසන්න">&times;</button>
       <img src="${imageSrc}" alt="${title}" class="lightbox-img">
       <p class="lightbox-caption">${title}</p>
     `;
@@ -701,18 +707,18 @@
     );
 
     if (matchedApps.length === 0 && matchedBooks.length === 0) {
-      resultsInner.innerHTML = `<div style="padding: 20px; text-align: center; color: var(--text-muted);">ප්‍රතිඵල හමු නොවීය.</div>`;
+      resultsInner.innerHTML = `<div style="padding: 16px; text-align: center; color: var(--text-dim); font-size: 0.9rem;">ප්‍රතිඵල හමු නොවීය.</div>`;
       resultsContainer.classList.remove('hidden');
       return;
     }
 
     let html = '';
     if (matchedApps.length > 0) {
-      html += `<div class="search-section-title">📱 යෙදුම් (${matchedApps.length})</div>`;
+      html += `<div class="search-section-title">යෙදුම් (${matchedApps.length})</div>`;
       matchedApps.forEach(app => {
         html += `
           <a href="${app.webUrl}" target="_blank" rel="noopener noreferrer" class="search-result-item">
-            <span style="font-size: 1.2rem;">📱</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-gold); flex-shrink: 0;"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
             <div class="search-result-title">${app.title}</div>
           </a>
         `;
@@ -720,11 +726,11 @@
     }
 
     if (matchedBooks.length > 0) {
-      html += `<div class="search-section-title">📄 ග්‍රන්ථ (${matchedBooks.length})</div>`;
+      html += `<div class="search-section-title">ග්‍රන්ථ (${matchedBooks.length})</div>`;
       matchedBooks.forEach(book => {
         html += `
           <a href="${book.pdfUrl}" target="_blank" rel="noopener noreferrer" class="search-result-item" onclick="handleDownload('${book.countKey}')">
-            <span style="font-size: 1.2rem;">📄</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--pdf-red); flex-shrink: 0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             <div class="search-result-title">${book.title}</div>
           </a>
         `;

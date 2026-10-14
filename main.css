@@ -1,65 +1,76 @@
 /* ============================================================
-   බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග - Master Stylesheet (main.css)
+   බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග — Modern Stable UI
+   Clean · Traditional Serif Font · High Contrast · Responsive
    ============================================================ */
 
-/* ==========================================
-   Root Variables - DARK THEME (Default)
-   ========================================== */
+/* ---------- Dark (Default) ---------- */
 :root,
 :root.dark,
 html.dark,
 [data-theme="dark"] {
-  --bg-main: #141414;
-  --bg-surface: #1a1a1a;
-  --bg-hover: #242424;
-  --bg-elevated: #1f1f1f;
-  --bg-input: #0d0d0d;
-  --bg-table-header: #121212;
-  --bg-folder: #1f1a10;
-  --bg-folder-hover: #2a2314;
-  --border-color: #2b2b2b;
-  --border-light: #333333;
-  --text-main: #e8e8e8;
+  --bg-main: #09090b;
+  --bg-surface: #121215;
+  --bg-hover: #18181c;
+  --bg-elevated: #16161a;
+  --bg-input: #121215;
+  --bg-table-header: #141418;
+  --bg-folder: #121215;
+  --bg-folder-hover: #18181c;
+  --border-color: #23232a;
+  --border-light: #2e2e38;
+  --text-main: #f0f0f2;          /* පැහැදිලි සුදු පැහැය */
   --text-bright: #ffffff;
-  --text-muted: #8e8e8e;
-  --text-dim: #777777;
-  --accent-gold: #e5a93c;
-  --accent-green: #2ecc71;
-  --accent-blue: #3498db;
-  --pdf-red: #e74c3c;
-  --shadow-color: rgba(0, 0, 0, 0.5);
-  --font-serif: 'Noto Serif Sinhala', serif;
-  --font-heading: 'Abhaya Libre', serif;
-  --font-ui: 'Gemunu Libre', sans-serif;
+  --text-muted: #c4c4cc;         /* කියවීමට පහසු contrast එකක් */
+  --text-dim: #82828e;
+  --accent-gold: #fbbf24;        /* පැහැදිලි රන්වන් පැහැය */
+  --accent-soft: rgba(251, 191, 36, 0.12);
+  --accent-ring: rgba(251, 191, 36, 0.35);
+  --accent-green: #10b981;
+  --pdf-red: #ef4444;
+  --btn-solid-bg: #fafafa;
+  --btn-solid-text: #09090b;
+  --glass-bg: rgba(9, 9, 11, 0.85);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.5);
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --r-xl: 18px;
+  --r-lg: 14px;
+  --r-md: 10px;
+  --r-sm: 6px;
 }
 
-/* ==========================================
-   Root Variables - LIGHT THEME
-   ========================================== */
+/* ---------- Light ---------- */
 :root.light,
 html.light,
 [data-theme="light"] {
-  --bg-main: #f5f3ee;
+  --bg-main: #fdfdfc;
   --bg-surface: #ffffff;
-  --bg-hover: #f0ede6;
-  --bg-elevated: #faf8f3;
+  --bg-hover: #f5f5f3;
+  --bg-elevated: #fafaf8;
   --bg-input: #ffffff;
-  --bg-table-header: #f7f4ed;
-  --bg-folder: #fcf9f2;
-  --bg-folder-hover: #f5eedf;
-  --border-color: #e2d9cc;
-  --border-light: #ebdccb;
-  --text-main: #2c2416;
-  --text-bright: #1a1410;
-  --text-muted: #6b6255;
-  --text-dim: #999080;
-  --accent-gold: #b8860b;
-  --accent-green: #1e8449;
-  --accent-blue: #2874a6;
-  --pdf-red: #c0392b;
-  --shadow-color: rgba(0, 0, 0, 0.08);
+  --bg-table-header: #f5f5f3;
+  --bg-folder: #ffffff;
+  --bg-folder-hover: #f5f5f3;
+  --border-color: #e5e5e0;
+  --border-light: #d1d1cb;
+  --text-main: #18181b;          /* පැහැදිලි තද පැහැය */
+  --text-bright: #09090b;
+  --text-muted: #3f3f46;
+  --text-dim: #71717a;
+  --accent-gold: #b45309;        /* තද රන්වන්/දුඹුරු පැහැය */
+  --accent-soft: rgba(180, 83, 9, 0.1);
+  --accent-ring: rgba(180, 83, 9, 0.25);
+  --accent-green: #059669;
+  --pdf-red: #dc2626;
+  --btn-solid-bg: #0f172a;
+  --btn-solid-text: #ffffff;
+  --glass-bg: rgba(253, 253, 252, 0.88);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.08);
+  --grid-line: rgba(0, 0, 0, 0.03);
 }
 
+/* Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -74,129 +85,131 @@ html {
 body {
   background-color: var(--bg-main);
   color: var(--text-main);
-  font-family: var(--font-serif);
-  line-height: 1.6;
+  font-family: 'Noto Serif Sinhala', 'Abhaya Libre', Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.95;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+  transition: background-color 0.25s ease, color 0.25s ease;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: var(--accent-gold);
+  color: #000;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 /* ==========================================
-   Header & Search
+   Header
    ========================================== */
 .site-header {
-  background-color: var(--bg-surface);
-  border-bottom: 1px solid var(--border-color);
-  padding: 14px 0;
   position: sticky;
   top: 0;
   z-index: 50;
-  backdrop-filter: blur(8px);
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
+  height: 68px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: var(--accent-gold);
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
+  gap: 12px;
   text-decoration: none;
-  white-space: nowrap;
+  color: var(--text-bright);
+  flex-shrink: 0;
 }
 
-.theme-toggle {
-  background-color: var(--bg-hover);
-  border: 1px solid var(--border-color);
-  color: var(--text-main);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  transition: all 0.2s;
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--r-sm);
+  background: var(--accent-soft);
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-ring);
 }
 
-.theme-toggle:hover {
-  border-color: var(--accent-gold);
+.brand-name {
+  font-family: 'Noto Serif Sinhala', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.15rem;
 }
 
+/* Search Bar */
 .search-wrapper {
   flex: 1;
-  max-width: 550px;
+  max-width: 480px;
   position: relative;
 }
 
 .search-box {
   position: relative;
-  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .search-box input {
   width: 100%;
-  background-color: var(--bg-input);
+  height: 42px;
+  background: var(--bg-input);
   border: 1px solid var(--border-color);
-  border-radius: 30px;
-  padding: 9px 40px 9px 40px;
+  border-radius: var(--r-md);
+  padding: 0 40px 0 42px;
   color: var(--text-bright);
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
+  font-family: inherit;
+  font-size: 0.92rem;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .search-box input:focus {
   border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .search-icon {
   position: absolute;
   left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
   color: var(--text-dim);
-  font-size: 1rem;
+  pointer-events: none;
 }
 
 .search-clear {
   position: absolute;
   right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: var(--bg-hover);
   border: none;
   color: var(--text-muted);
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1rem;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
+  display: grid;
+  place-items: center;
 }
-
-.search-clear.hidden {
-  display: none;
-}
+.search-clear.hidden { display: none; }
 
 .search-results {
   position: absolute;
@@ -204,195 +217,250 @@ body {
   left: 0;
   right: 0;
   background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  box-shadow: 0 12px 40px var(--shadow-color);
-  z-index: 100;
-  max-height: 70vh;
+  border: 1px solid var(--border-light);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg);
+  max-height: 60vh;
   overflow-y: auto;
+  padding: 8px;
+  z-index: 100;
 }
-
-.search-results.hidden {
-  display: none;
-}
+.search-results.hidden { display: none; }
 
 .search-section-title {
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  color: var(--accent-gold);
+  font-family: 'Noto Serif Sinhala', Georgia, serif;
+  font-size: 0.74rem;
   font-weight: 700;
-  padding: 8px 16px 6px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 8px 12px 4px;
 }
 
 .search-result-item {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 16px;
+  padding: 10px 12px;
+  border-radius: var(--r-sm);
   text-decoration: none;
   color: var(--text-main);
-  transition: background-color 0.15s;
+  transition: background 0.15s;
 }
-
 .search-result-item:hover {
   background: var(--bg-hover);
 }
-
 .search-result-title {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--text-bright);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* ==========================================
-   Hero Banner
-   ========================================== */
-.hero-banner {
-  position: relative;
-  background: linear-gradient(135deg, rgba(229, 169, 60, 0.15) 0%, var(--bg-surface) 100%);
-  border: 1.5px solid var(--accent-gold);
-  border-radius: 16px;
-  padding: 24px 28px;
-  margin: 24px 0 32px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  overflow: hidden;
+/* Theme Toggle */
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--r-md);
+  color: var(--text-bright);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.2s, background 0.2s;
+}
+.theme-toggle:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-light);
 }
 
-.hero-banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 100%;
-  background: linear-gradient(180deg, #f5b942 0%, #b8860b 100%);
+.theme-toggle-icon {
+  width: 18px;
+  height: 18px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Cpath d='M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Cpath d='M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+html.light .theme-toggle-icon {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+/* ==========================================
+   Hero Banner — Classic Serif Style
+   ========================================== */
+.hero-banner {
+  margin: 28px 0 36px 0;
+  padding: 36px 40px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-left: 6px solid var(--accent-gold);
+  border-radius: var(--r-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  position: relative;
 }
 
 .hero-banner-content {
-  flex: 1;
+  max-width: 100%;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.hero-eyebrow .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
 }
 
 .hero-banner-title {
-  font-family: var(--font-heading);
-  font-size: 1.7rem;
+  font-family: 'Noto Serif Sinhala', Georgia, serif;
+  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
   font-weight: 800;
   color: var(--accent-gold);
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .hero-banner-desc {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-bright);
-  line-height: 1.7;
+  font-family: 'Noto Serif Sinhala', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-main);
+  line-height: 2.1;
   text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 24px;
 }
 
-.hero-banner-badge {
-  flex-shrink: 0;
-  width: 80px;
-  height: 80px;
-  background: rgba(229, 169, 60, 0.1);
-  border: 1px dashed var(--accent-gold);
-  border-radius: 50%;
+/* Hero Action Buttons */
+.hero-actions {
   display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  font-size: 2.8rem;
+  gap: 8px;
+  height: 44px;
+  padding: 0 22px;
+  border-radius: var(--r-md);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
 }
 
-html.light .hero-banner {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-  border-color: #d97706;
-  box-shadow: 0 8px 20px rgba(180, 83, 9, 0.12);
+.hero-btn-primary {
+  background: var(--btn-solid-bg) !important;
+  color: var(--btn-solid-text) !important;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.hero-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
-html.light .hero-banner-title {
-  color: #78350f;
+.hero-btn-ghost {
+  background: var(--bg-surface) !important;
+  color: var(--text-bright) !important;
+  border: 1px solid var(--border-color) !important;
 }
-
-html.light .hero-banner-desc {
-  color: #332211;
+.hero-btn-ghost:hover {
+  background: var(--bg-hover) !important;
+  border-color: var(--border-light) !important;
+  transform: translateY(-2px);
 }
 
 /* ==========================================
-   Section Title
+   Section Headers
    ========================================== */
+.section-block {
+  margin-bottom: 48px;
+}
+
 .section-title {
-  font-family: var(--font-heading);
-  font-size: 1.45rem;
-  color: var(--accent-gold);
-  margin: 28px 0 16px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  font-family: 'Noto Serif Sinhala', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 20px;
+  scroll-margin-top: 85px;
+}
+.section-title svg {
+  color: var(--accent-gold);
 }
 
 /* ==========================================
-   Play Store Style App Cards
+   Apps Grid & Cards (Clean & Stable Fixes)
    ========================================== */
 .apps-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 18px;
-  margin-bottom: 35px;
+  align-items: start;
 }
 
 .playstore-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: var(--r-lg);
   padding: 16px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.2s, box-shadow 0.2s;
   overflow: hidden;
 }
-
 .playstore-card:hover {
-  border-color: var(--accent-gold);
+  border-color: var(--border-light);
 }
-
 .playstore-card.expanded {
-  border-color: var(--accent-gold);
-  box-shadow: 0 8px 28px rgba(229, 169, 60, 0.2);
+  border-color: var(--accent-ring);
+  box-shadow: var(--shadow-lg);
 }
 
 .playstore-summary {
   display: flex;
-  gap: 14px;
   align-items: center;
+  gap: 14px;
   cursor: pointer;
   user-select: none;
 }
 
 .playstore-app-icon {
-  width: 62px;
-  height: 62px;
+  width: 58px;
+  height: 58px;
   border-radius: 14px;
   object-fit: cover;
-  flex-shrink: 0;
+  background: var(--bg-hover);
   border: 1px solid var(--border-color);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  background: #1a1a1a;
-  transition: transform 0.2s ease;
-}
-
-.playstore-summary:hover .playstore-app-icon {
-  transform: scale(1.05);
+  flex-shrink: 0;
 }
 
 .playstore-header-info {
@@ -401,423 +469,338 @@ html.light .hero-banner-desc {
 }
 
 .playstore-app-title {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
+  font-family: 'Noto Serif Sinhala', Georgia, serif;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--text-bright);
-  line-height: 1.3;
   margin-bottom: 3px;
+  line-height: 1.4;
+  white-space: normal;
+  word-break: break-word;
+  overflow: visible;
+  text-overflow: unset;
 }
 
 .playstore-developer {
   font-size: 0.8rem;
-  color: var(--accent-green);
-  font-weight: 600;
+  color: var(--text-muted);
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
+}
+.playstore-developer span {
+  color: var(--accent-green);
+  font-weight: 700;
 }
 
+/* Expand Arrow */
 .card-expand-arrow {
-  font-size: 0.85rem;
-  color: var(--accent-gold);
-  padding: 8px;
-  transition: transform 0.3s ease;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-hover);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
 }
-
+.card-expand-arrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: translateY(-2px) rotate(45deg);
+}
 .playstore-card.expanded .card-expand-arrow {
   transform: rotate(180deg);
 }
 
+/* Expanded Details */
 .playstore-details {
   display: none;
   margin-top: 14px;
   padding-top: 14px;
   border-top: 1px solid var(--border-color);
-  animation: detailsFadeIn 0.3s ease-out;
+  animation: fadeIn 0.2s ease-out;
 }
-
 .playstore-card.expanded .playstore-details {
   display: block;
 }
-
-@keyframes detailsFadeIn {
-  from { opacity: 0; transform: translateY(-6px); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .playstore-meta-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
   align-items: center;
-  justify-content: space-around;
-  padding: 10px 0;
+  padding: 10px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--r-md);
   margin-bottom: 14px;
-  background: var(--bg-hover);
-  border-radius: 10px;
 }
-
 .playstore-meta-item {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .playstore-meta-val {
-  font-family: var(--font-ui);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: var(--text-bright);
 }
-
 .playstore-meta-val .star {
-  color: #f1c40f;
+  color: #fbbf24;
 }
-
 .playstore-meta-lbl {
-  font-size: 0.72rem;
-  color: var(--text-muted);
+  font-size: 0.7rem;
+  color: var(--text-dim);
 }
-
 .playstore-meta-divider {
   width: 1px;
   height: 20px;
-  background-color: var(--border-color);
+  background: var(--border-color);
 }
 
+/* Card Action Buttons */
 .playstore-actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 14px;
+  align-items: stretch;
 }
 
-.btn-playstore-install {
-  flex: 1.3;
-  background: linear-gradient(135deg, #01875f 0%, #00694a 100%);
-  color: #fff;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 700;
-  display: flex;
+.btn-playstore-install,
+.btn-playstore-web,
+.btn-playstore-share {
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: var(--r-md);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  box-shadow: 0 4px 10px rgba(1, 135, 95, 0.3);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  white-space: nowrap;
+  border: 1px solid transparent;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-playstore-install {
+  flex: 1.5;
+  background: #0f172a;
+  color: #ffffff !important;
+}
+[data-theme="dark"] .btn-playstore-install {
+  background: #fafafa;
+  color: #09090b !important;
+}
+.btn-playstore-install:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+.btn-playstore-install svg {
+  flex-shrink: 0;
 }
 
 .btn-playstore-web {
   flex: 1;
+  background: var(--bg-surface);
+  color: var(--text-bright);
+  border-color: var(--border-color);
+}
+.btn-playstore-web:hover {
   background: var(--bg-hover);
-  color: var(--text-main);
-  border: 1px solid var(--border-color);
-  padding: 10px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-color: var(--border-light);
 }
 
 .btn-playstore-share {
-  background: var(--bg-hover);
-  border: 1px solid var(--border-color);
+  flex: 0 0 auto;
+  padding: 8px 14px;
+  background: var(--bg-surface);
   color: var(--text-bright);
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: 0.88rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: all 0.2s ease;
+  border-color: var(--border-color);
 }
-
 .btn-playstore-share:hover {
-  border-color: var(--accent-gold);
-  color: var(--accent-gold);
+  background: var(--bg-hover);
+  border-color: var(--border-light);
 }
 
 .playstore-about {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 12px;
-}
-
-.playstore-screenshots {
+  line-height: 1.75;
   margin-bottom: 14px;
 }
 
+/* Screenshots Carousel */
 .playstore-screenshots-scroll {
   display: flex;
   gap: 10px;
   overflow-x: auto;
-  padding-bottom: 6px;
-  scrollbar-width: thin;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
 }
-
 .playstore-screenshot-img {
-  height: 175px;
+  height: 180px;
   width: auto;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  cursor: pointer;
-  object-fit: cover;
   flex-shrink: 0;
-  transition: transform 0.2s ease;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-color);
+  object-fit: cover;
+  cursor: zoom-in;
+  transition: transform 0.2s;
 }
-
 .playstore-screenshot-img:hover {
-  transform: scale(1.03);
-  border-color: var(--accent-gold);
+  transform: scale(1.02);
 }
 
-/* ============================================================
-   Install Guide & Official Badges
-   ============================================================ */
-.install-guide {
-  margin-top: 10px;
-  border-top: 1px solid var(--border-color);
-  padding-top: 12px;
-}
-
+/* Install Guide */
 .install-guide-toggle {
   width: 100%;
-  background: var(--bg-surface);
-  border: 1.5px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-elevated);
   color: var(--text-bright);
-  padding: 12px 18px;
-  border-radius: 12px;
-  font-family: var(--font-heading);
-  font-size: 1.05rem;
-  font-weight: 700;
+  border: 1px solid var(--border-color);
+  border-radius: var(--r-md);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  transition: all 0.25s ease;
 }
-
-.install-guide-toggle:hover {
-  border-color: var(--accent-gold);
-  background: var(--bg-hover);
-  color: var(--accent-gold);
-  transform: translateY(-1px);
-}
-
-.install-guide-icon {
-  font-size: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .install-guide-text {
   flex: 1;
   text-align: left;
-  letter-spacing: 0.2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
-
 .install-guide-arrow {
-  font-size: 0.85rem;
-  color: var(--accent-gold);
-  transition: transform 0.25s ease;
-  margin-left: auto;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
 }
-
-html.light .install-guide-toggle {
-  background: #ffffff;
-  border-color: #d8cebe;
-  color: #2b1f14;
+.install-guide-arrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+  transition: transform 0.25s;
 }
-
-html.light .install-guide-toggle:hover {
-  border-color: #b45309;
-  background: #fdfbf7;
-  color: #78350f;
-  box-shadow: 0 4px 14px rgba(180, 83, 9, 0.12);
-}
-
-html.light .install-guide-arrow {
-  color: #b45309;
+.install-guide:has(.install-guide-content.open) .install-guide-arrow::before {
+  transform: rotate(-135deg);
 }
 
 .install-guide-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  background: var(--bg-input);
-  border-radius: 0 0 8px 8px;
+  transition: max-height 0.3s ease;
 }
-
 .install-guide-content.open {
-  max-height: 900px;
-  padding: 14px;
+  max-height: 700px;
+  padding: 12px;
+  margin-top: 8px;
+  background: var(--bg-elevated);
   border: 1px solid var(--border-color);
-  border-top: none;
+  border-radius: var(--r-md);
 }
 
 .install-tabs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 10px;
-  margin-bottom: 16px;
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+  background: var(--bg-hover);
+  padding: 4px;
+  border-radius: var(--r-sm);
 }
-
 .install-tab {
-  background: var(--bg-surface);
-  border: 1.5px solid var(--border-color);
-  color: var(--text-main);
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-family: var(--font-ui);
-  font-size: 0.86rem;
-  font-weight: 600;
-  cursor: pointer;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  gap: 6px;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
 }
-
-.tab-badge-icon {
-  flex-shrink: 0;
-  transition: transform 0.2s ease;
-}
-
-.install-tab:hover {
-  border-color: var(--accent-gold);
-  background: var(--bg-hover);
+.install-tab.active {
+  background: var(--bg-surface);
   color: var(--text-bright);
 }
-
-.install-tab:hover .tab-badge-icon {
-  transform: scale(1.1);
-}
-
-.install-tab.active {
-  background: #111111;
-  border-color: var(--accent-gold);
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(229, 169, 60, 0.25);
-  font-weight: 700;
-}
-
-.install-tab.active .tab-badge-icon {
-  fill: var(--accent-gold);
-}
-
-html.light .install-tab {
-  background: #ffffff;
-  border-color: #d8cebe;
-  color: #451a03;
-}
-
-html.light .install-tab:hover {
-  background: #fdfbf7;
-  border-color: #b45309;
-}
-
-html.light .install-tab.active {
-  background: #2b1f14;
-  border-color: #78350f;
-  color: #fef3c7;
-  box-shadow: 0 4px 12px rgba(69, 26, 3, 0.2);
-}
-
-html.light .install-tab.active .tab-badge-icon {
-  fill: #f59e0b;
-}
-
-.install-panel {
-  display: none;
-}
-.install-panel.active {
-  display: block;
-}
+.install-panel { display: none; }
+.install-panel.active { display: block; }
 
 .install-steps {
   list-style: none;
-  counter-reset: step-counter;
+  counter-reset: s;
   padding: 0;
-  margin: 0;
 }
-
 .install-steps li {
-  counter-increment: step-counter;
+  counter-increment: s;
   position: relative;
-  padding: 8px 10px 8px 38px;
-  margin-bottom: 6px;
-  background: var(--bg-surface);
-  border-radius: 6px;
-  border-left: 3px solid var(--accent-gold);
+  padding: 6px 0 6px 30px;
+  font-size: 0.85rem;
   color: var(--text-main);
-  font-size: 0.88rem;
 }
-
 .install-steps li::before {
-  content: counter(step-counter);
+  content: counter(s);
   position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 0;
+  top: 7px;
   width: 20px;
   height: 20px;
-  background: var(--accent-gold);
-  color: #1a1a1a;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
+  background: var(--accent-soft);
+  color: var(--accent-gold);
+  font-size: 0.72rem;
   font-weight: 700;
+  display: grid;
+  place-items: center;
 }
 
-/* ============================================================
-   PDF Files List Table & Folders
-   ============================================================ */
+/* ==========================================
+   PDF Table (Clean & Aligned)
+   ========================================== */
 .pdf-table {
   background: var(--bg-surface);
-  border: 1.5px solid var(--border-color);
-  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--r-lg);
   overflow: hidden;
-  margin-bottom: 50px;
-  padding: 8px 0;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .table-header {
   display: grid;
   grid-template-columns: 1fr 140px 100px 90px;
-  padding: 14px 22px;
-  background-color: var(--bg-table-header);
-  border-bottom: 1.5px solid var(--border-color);
-  color: var(--accent-gold);
-  font-size: 1rem;
-  font-weight: 800;
-  font-family: var(--font-heading);
+  padding: 14px 20px;
+  background: var(--bg-table-header);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-dim);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .folder-group {
-  margin: 10px 14px;
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  overflow: hidden;
-  background: var(--bg-surface);
-  transition: all 0.25s ease;
+  border-bottom: 1px solid var(--border-color);
+}
+.folder-group:last-child {
+  border-bottom: none;
 }
 
 .folder-header {
@@ -825,162 +808,128 @@ html.light .install-tab.active .tab-badge-icon {
   align-items: center;
   gap: 12px;
   padding: 14px 20px;
-  background-color: var(--bg-folder);
-  color: var(--accent-gold);
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
+  background: var(--bg-folder);
+  color: var(--text-bright);
+  font-family: 'Noto Serif Sinhala', Georgia, serif;
+  font-size: 0.96rem;
   font-weight: 700;
   cursor: pointer;
   user-select: none;
-  transition: background-color 0.2s ease;
+  transition: background 0.15s;
 }
-
 .folder-header:hover {
-  background-color: var(--bg-folder-hover);
+  background: var(--bg-folder-hover);
 }
 
 .folder-arrow {
-  font-size: 0.85rem;
-  width: 14px;
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.folder-arrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(-45deg);
+  transition: transform 0.2s;
+}
+.folder-group.open .folder-arrow::before {
+  transform: rotate(45deg);
+}
+
+.folder-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  background: var(--accent-gold);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3C/svg%3E") center/contain no-repeat;
 }
 
 .folder-count {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  font-family: var(--font-ui);
   margin-left: auto;
-}
-
-.folder-books {
-  display: none;
-  background: var(--bg-elevated);
-  border-top: 1px solid var(--border-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  padding: 3px 10px;
+  border-radius: 999px;
 }
 
 .table-row {
   display: grid;
   grid-template-columns: 1fr 140px 100px 90px;
   align-items: center;
-  padding: 13px 22px;
+  padding: 13px 20px;
   border-bottom: 1px solid var(--border-color);
   text-decoration: none;
   color: var(--text-main);
-  transition: background-color 0.15s ease;
+  background: var(--bg-elevated);
+  transition: background 0.15s;
 }
-
 .table-row:last-child {
   border-bottom: none;
 }
-
 .table-row:hover {
-  background-color: var(--bg-hover);
+  background: var(--bg-hover);
 }
 
 .file-col-title {
   display: flex;
   align-items: center;
   gap: 12px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-right: 15px;
+  min-width: 0;
+  padding-right: 12px;
 }
 
 .pdf-badge {
-  background-color: var(--pdf-red);
-  color: #ffffff;
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 700;
   padding: 2px 6px;
-  border-radius: 3px;
+  border-radius: 4px;
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--pdf-red);
   flex-shrink: 0;
 }
 
 .file-text {
-  font-size: 0.96rem;
-  font-weight: 600;
   color: var(--text-bright);
+  font-weight: 500;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
-
-.file-col-cat,
-.file-col-count {
-  font-size: 0.9rem;
-  font-weight: 600;
+.file-col-cat, .file-col-count {
+  font-size: 0.85rem;
   color: var(--text-muted);
 }
-
 .file-col-size {
-  font-family: var(--font-ui);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
+  font-weight: 600;
   color: var(--accent-green);
   text-align: right;
-  font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 
-/* Light Theme PDF Color Scheme */
-html.light .pdf-table {
-  background: #ffffff !important;
-  border: 1px solid #e2d9cc !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+/* ==========================================
+   Footer
+   ========================================== */
+.site-footer {
+  text-align: center;
+  padding: 40px 0 50px;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.88rem;
 }
-
-html.light .table-header {
-  background-color: #f7f4ed !important;
-  border-bottom: 1px solid #e5ded2 !important;
-  color: #78350f !important;
-  font-weight: 700 !important;
-}
-
-html.light .folder-group {
-  border: 1px solid #ebdccb !important;
-  background: #ffffff !important;
-  box-shadow: 0 2px 6px rgba(120, 53, 15, 0.04) !important;
-}
-
-html.light .folder-header {
-  background-color: #fcf9f2 !important;
-  color: #854d0e !important;
-}
-
-html.light .folder-header:hover {
-  background-color: #f5eedf !important;
-}
-
-html.light .folder-arrow {
-  color: #b45309 !important;
-}
-
-html.light .folder-name {
-  color: #451a03 !important;
-  font-weight: 700 !important;
-}
-
-html.light .folder-count {
-  color: #92400e !important;
-  background: #fef3c7 !important;
-  padding: 2px 10px !important;
-  border-radius: 12px !important;
-  font-weight: 700 !important;
-}
-
-html.light .table-row {
-  border-bottom-color: #eee4d5;
-}
-
-html.light .table-row:hover {
-  background-color: #f4ecdc;
-}
-
-html.light .file-text {
-  color: #1a1410;
-}
-
-html.light .file-col-cat,
-html.light .file-col-count {
-  color: #554433;
+.footer-subtext {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-top: 5px;
 }
 
 /* ==========================================
@@ -989,78 +938,95 @@ html.light .file-col-count {
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.92);
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
   padding: 20px;
-  cursor: zoom-out;
 }
-
 .lightbox-img {
   max-width: 90%;
   max-height: 80vh;
-  border-radius: 10px;
-  border: 2px solid var(--accent-gold);
+  border-radius: var(--r-md);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
-
 .lightbox-caption {
-  color: var(--accent-gold);
+  color: #fff;
   margin-top: 14px;
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-weight: 600;
 }
-
 .lightbox-close {
   position: absolute;
   top: 20px;
-  right: 25px;
-  font-size: 40px;
-  color: #fff;
-  cursor: pointer;
-  background: none;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
   border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 /* ==========================================
-   Mobile Responsive
+   Mobile Responsive Rules
    ========================================== */
 @media (max-width: 768px) {
   .header-inner {
-    flex-direction: column;
+    height: auto;
+    flex-wrap: wrap;
+    padding: 12px 0;
     gap: 12px;
   }
+  .brand {
+    order: 1;
+    flex: 1;
+  }
+  .theme-toggle {
+    order: 2;
+  }
   .search-wrapper {
+    order: 3;
     max-width: 100%;
-  }
-  .hero-banner {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px 16px;
-  }
-  .hero-banner::before {
     width: 100%;
-    height: 4px;
   }
-  .hero-banner-badge {
-    display: none;
+
+  .hero-banner {
+    padding: 24px 20px;
+    margin: 16px 0 28px 0;
   }
+
+  .hero-banner-desc {
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .apps-grid {
+    grid-template-columns: 1fr;
+  }
+
   .playstore-actions {
     flex-direction: column;
   }
-  .table-header,
-  .table-row {
+  .btn-playstore-install,
+  .btn-playstore-web,
+  .btn-playstore-share {
+    width: 100%;
+    flex: none;
+  }
+
+  .table-header, .table-row {
     grid-template-columns: 1fr 80px;
   }
-  .file-col-cat,
-  .file-col-count,
   .table-header span:nth-child(2),
-  .table-header span:nth-child(3) {
+  .table-header span:nth-child(3),
+  .file-col-cat,
+  .file-col-count {
     display: none;
-  }
-  .install-tabs {
-    grid-template-columns: 1fr;
   }
 }
