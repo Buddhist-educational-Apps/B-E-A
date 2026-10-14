@@ -1081,11 +1081,9 @@ html.light .install-guide-text {
   letter-spacing: 0.3px;
 }
 
+/* Hero Banner අකුරු Justify කිරීම */
 .hero-banner-desc {
-  font-size: 1rem;
-  font-weight: 600; /* විස්තරයද පැහැදිලි Bold ලෙස */
-  color: var(--text-bright);
-  line-height: 1.7;
+  text-align: justify !important;
 }
 
 /* Light Theme Banner එක වඩාත් පැහැදිලි කිරීම */
