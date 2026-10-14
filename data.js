@@ -51,7 +51,7 @@
     {
       id: 1,
       title: "අභිධර්ම මාතිකා (Matika)",
-      developer: "B.E.D • බෞද්ධ අධ්‍යාපනය",
+      developer: "B.E.A • බෞද්ධ අධ්‍යාපනය",
       category: "අභිධර්මය",
       rating: "4.9",
       reviews: "100+",
@@ -94,7 +94,7 @@
     {
       id: 2,
       title: "රූපසිද්ධි (Rupasiddhi)",
-      developer: "B.E.D • පාලි ව්‍යාකරණ",
+      developer: "B.E.A • පාලි ව්‍යාකරණ",
       category: "පාලි භාෂාව",
       rating: "4.8",
       reviews: "50+",
@@ -136,8 +136,8 @@
     },
     {
       id: 3,
-      title: "බෞද්ධ වර්ෂය (Buddhist Era)",
-      developer: "B.E.D • දින දර්ශන",
+      title: "බුද්ධ වර්ෂය (Buddhist Era)",
+      developer: "B.C • බෞද්ධ දින දර්ශන",
       category: "දින දර්ශනය",
       rating: "4.9",
       reviews: "30+",

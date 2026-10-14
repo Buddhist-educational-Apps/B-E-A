@@ -106,7 +106,8 @@ body {
 .container {
   max-width: 1140px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
+  position: relative;
 }
 
 /* ==========================================
@@ -292,12 +293,13 @@ html.light .theme-toggle-icon {
 /* ==========================================
    Hero Banner — Compact Height (තනි බැනරය)
    ========================================== */
+/* බැනරයට පමණක් වම්පස රන්වන් මායිම පවත්වා ගැනීම */
 .hero-banner {
   margin: 20px 0 14px 0;
-  padding: 22px 28px;         /* අනවශ්‍ය ඉඩ ඉවත් කර උස අඩු කර ඇත */
+  padding: 22px 28px;
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
-  border-left: 5px solid var(--accent-gold);
+  border-left: 5px solid var(--accent-gold) !important;
   border-radius: var(--r-lg);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
   position: relative;
@@ -358,8 +360,9 @@ html.light .theme-toggle-icon {
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: 14px;
-  margin-bottom: 32px;
+  margin-top: 16px;
+  margin-bottom: 36px;
+  padding-left: 28px; /* බැනරයේ ඇතුළත content එකේ වම් මායිමට සමපාත වීමට */
 }
 
 .hero-btn {
@@ -423,6 +426,7 @@ html.light .theme-toggle-icon {
   margin-bottom: 48px;
 }
 
+/* 3. Section Titles (බෞද්ධ අධ්‍යාපනික Apps / ධර්ම ග්‍රන්ථ එකතුව) මදක් ඇතුළට ගැනීම */
 .section-title {
   display: flex;
   align-items: center;
@@ -432,8 +436,10 @@ html.light .theme-toggle-icon {
   font-weight: 700;
   color: var(--text-bright);
   margin-bottom: 20px;
+  padding-left: 6px;  /* වම් දාරයෙන් මදක් ඇතුළට පෙළගැස්වීම */
   scroll-margin-top: 85px;
 }
+
 .section-title svg {
   color: var(--accent-gold);
 }
