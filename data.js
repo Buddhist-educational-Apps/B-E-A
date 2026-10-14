@@ -45,16 +45,20 @@
   const BASE_URL = "https://buddhist-educational-apps.github.io/B-E-A";
 
   // ==========================================
-  // බෞද්ධ අධ්‍යාපනික Apps දත්ත
+  // බෞද්ධ අධ්‍යාපනික Apps දත්ත (Icons සහිතව)
   // ==========================================
   const appsData = [
     {
       id: 1,
       title: "අභිධර්ම මාතිකා (Matika)",
+      developer: "Pavara • බෞද්ධ අධ්‍යාපනය",
       category: "අභිධර්මය",
-      platform: "Android / Web",
+      rating: "4.9",
+      reviews: "100+",
+      size: "15 MB",
       badgeType: "tag-gold",
-      description: "අභිධර්ම මාතිකා සහ ධම්මසංගණී විග්‍රහයන් අධ්‍යයනයට නිර්මාණය කළ සුවිශේෂී මෘදුකාංගය.",
+      description: "අභිධර්ම මාතිකා සහ ධම්මසංගණී විග්‍රහයන් පහසුවෙන් කියවීමට සහ අධ්‍යයනය කිරීමට නිර්මාණය කළ සුවිශේෂී මෘදුකාංගයකි.",
+      icon: BASE_URL + "/icons/matika.png",
       apkUrl: "https://play.google.com/store/apps/details?id=app.vercel.matika_snowy.twa",
       webUrl: "https://pavara9803-ctrl.github.io/Matika/",
       screenshots: [
@@ -66,7 +70,7 @@
       ],
       installGuide: {
         android: [
-          "පහත <strong>\"බාගත කරන්න (APK)\"</strong> බොත්තම ඔබන්න",
+          "පහත <strong>\"Install (Play Store)\"</strong> බොත්තම ඔබන්න",
           "එය ඔබව Google Play Store එකට ගෙන යනු ඇත",
           "<strong>\"Install\"</strong> බොත්තම ඔබන්න",
           "Installation එක අවසන් වූ පසු <strong>\"Open\"</strong> ඔබන්න",
@@ -91,10 +95,14 @@
     {
       id: 2,
       title: "රූපසිද්ධි (Rupasiddhi)",
-      category: "පාලි ව්‍යාකරණ",
-      platform: "Android / Web",
+      developer: "Pavara • පාලි ව්‍යාකරණ",
+      category: "පාලි භාෂාව",
+      rating: "4.8",
+      reviews: "50+",
+      size: "8 MB",
       badgeType: "tag-blue",
-      description: "පදරුපසිද්ධි ග්‍රන්ථය ඇසුරින් පාලි නාම හා ආඛ්‍යාත පද සාධනයන් හදාරන මෘදුකාංගය.",
+      description: "පදරුපසිද්ධි ග්‍රන්ථය ඇසුරින් පාලි නාම, ආඛ්‍යාත පද සාධනයන් සහ ව්‍යාකරණ සූත්‍ර පහසුවෙන් හදාරන මෘදුකාංගය.",
+      icon: BASE_URL + "/icons/ruoasiddhi.png",
       apkUrl: "https://github.com/pavara9803-ctrl/Rupasiddhi/releases/latest/download/Rupasiddhi.apk",
       webUrl: "https://rupasiddhi.vercel.app/",
       screenshots: [
@@ -131,10 +139,14 @@
     {
       id: 3,
       title: "බෞද්ධ වර්ෂය (Buddhist Era)",
-      category: "දින දර්ශන",
-      platform: "Android / Web",
+      developer: "Pavara • දින දර්ශන",
+      category: "දින දර්ශනය",
+      rating: "4.9",
+      reviews: "30+",
+      size: "4 MB",
       badgeType: "tag-gold",
-      description: "ශ්‍රී බුද්ධ වර්ෂය, පොහොය දින සහ විශේෂ බෞද්ධ දින දර්ශන පහසුවෙන් ගණනය කර බලාගැනීමේ මෘදුකාංගය.",
+      description: "ශ්‍රී බුද්ධ වර්ෂය, පොහොය දින සහ විශේෂ බෞද්ධ දින දර්ශන ස්වයංක්‍රීයව ගණනය කර බලාගැනීමේ මෘදුකාංගය.",
+      icon: BASE_URL + "/icons/buddhistera.png",
       apkUrl: "https://play.google.com/store/apps/details?id=app.vercel.buddhist_era.twa",
       webUrl: "https://buddhist-era.vercel.app/",
       screenshots: [
@@ -146,7 +158,7 @@
       ],
       installGuide: {
         android: [
-          "පහත <strong>\"බාගත කරන්න (APK)\"</strong> බොත්තම ඔබන්න",
+          "පහත <strong>\"Install (Play Store)\"</strong> බොත්තම ඔබන්න",
           "එය ඔබව Google Play Store වෙත ගෙන යනු ඇත",
           "<strong>\"Install\"</strong> ඔබන්න - Home Screen එකේ අයිකනය දිස්වේ! 🎉"
         ],
@@ -165,10 +177,14 @@
     {
       id: 4,
       title: "පාලි සිංහල ශබ්දකෝෂය (DPSD)",
+      developer: "DPSD Team • ශබ්දකෝෂ",
       category: "පාලි ශබ්දකෝෂ",
-      platform: "Android / Web",
+      rating: "4.9",
+      reviews: "45+",
+      size: "12 MB",
       badgeType: "tag-blue",
       description: "Digital Pali-Sinhala Dictionary (DPSD) - ත්‍රිපිටක පාලි පාඨ සහ වචනාර්ථ පහසුවෙන් සිංහලෙන් සෙවිය හැකි විද්‍යුත් ශබ්දකෝෂය.",
+      icon: BASE_URL + "/icons/palidic.png",
       apkUrl: "https://apkpure.com/ශබ්දකෝෂය/com.pali_sinhala_dictionary.twa",
       webUrl: "https://pali-sinhala-dictionary.github.io/DPSD/",
       screenshots: [
@@ -314,7 +330,7 @@
   }
 
   // ==========================================
-  // Apps Render කිරීම
+  // Apps Render කිරීම (Play Store Card Layout)
   // ==========================================
   function renderApps(apps) {
     const container = document.getElementById("appsContainer");
@@ -326,15 +342,16 @@
     }
 
     container.innerHTML = apps.map(app => {
+      const isPlayStoreLink = app.apkUrl && app.apkUrl.includes("play.google.com");
+      const buttonLabel = isPlayStoreLink ? "Install (Play Store)" : "බාගත කරන්න (APK)";
+
       const screenshotsHTML = app.screenshots && app.screenshots.length > 0 ? `
-        <div class="app-screenshots">
-          <div class="screenshots-scroll">
+        <div class="playstore-screenshots">
+          <div class="playstore-screenshots-scroll">
             ${app.screenshots.map((img, index) => `
               <img src="${img}" 
                    alt="${app.title} - Screenshot${index + 1}" 
-                   class="screenshot-img"
-                   width="220"
-                   height="180"
+                   class="playstore-screenshot-img"
                    loading="lazy"
                    onclick="openLightbox('${img}', '${app.title}')">
             `).join("")}
@@ -343,7 +360,7 @@
       ` : "";
 
       const installGuideHTML = app.installGuide ? `
-        <div class="install-guide">
+        <div class="install-guide" style="margin-top: 10px;">
           <button class="install-guide-toggle" onclick="toggleInstallGuide(this)">
             <span class="install-guide-icon">📲</span>
             <span class="install-guide-text">යෙදුම ස්ථාපනය කරගන්නා ආකාරය</span>
@@ -368,7 +385,7 @@
                 ${app.installGuide.android.map(step => `<li>${step}</li>`).join("")}
               </ol>
               <div class="install-tip">
-                💡 <strong>ඉඟිය:</strong> Progressive Web App (PWA) තාක්ෂණය නිසා Browser එක හරහාම පහසුවෙන් Install කරගත හැක.
+                💡 <strong>ඉඟිය:</strong> Android 8+ භාවිතා කරන්නේ නම් Install බොත්තම මඟින් පහසුවෙන් යෙදුම ක්‍රියාත්මක කරගත හැක.
               </div>
             </div>
 
@@ -377,7 +394,7 @@
                 ${app.installGuide.ios.map(step => `<li>${step}</li>`).join("")}
               </ol>
               <div class="install-tip">
-                💡 <strong>වැදගත්:</strong> iOS එකේ Safari browser එක භාවිතා කර "Add to Home Screen" තෝරන්න.
+                💡 <strong>වැදගත්:</strong> iOS හි Safari browser එක භාවිතා කර "Add to Home Screen" තෝරන්න.
               </div>
             </div>
 
@@ -386,7 +403,7 @@
                 ${app.installGuide.desktop.map(step => `<li>${step}</li>`).join("")}
               </ol>
               <div class="install-tip">
-                💡 <strong>ඉඟිය:</strong> Chrome හෝ Edge browser භාවිතා කරන්න.
+                💡 <strong>ඉඟිය:</strong> Chrome හෝ Edge browser මඟින් Install කරගත හැක.
               </div>
             </div>
           </div>
@@ -394,21 +411,53 @@
       ` : "";
 
       return `
-        <div class="app-box">
-          <div class="app-header">
-            <h3 class="app-title">${app.title}</h3>
-            <span class="tag ${app.badgeType}">${app.category}</span>
+        <div class="playstore-card">
+          <!-- Play Store Card Header -->
+          <div class="playstore-header">
+            <img src="${app.icon}" alt="${app.title} Icon" class="playstore-app-icon" onerror="this.src='favicon.png'">
+            <div class="playstore-header-info">
+              <h3 class="playstore-app-title">${app.title}</h3>
+              <div class="playstore-developer">
+                <span>✓</span> ${app.developer || "බෞද්ධ අධ්‍යාපනය"}
+              </div>
+            </div>
           </div>
-          <p class="app-desc">${app.description}</p>
-          ${screenshotsHTML}
-          <div class="app-actions">
-            <a href="${app.apkUrl}" ${app.apkUrl.endsWith('.apk') ? 'download' : 'target="_blank" rel="noopener noreferrer"'} class="btn-apk">
-              <span>📥</span> බාගත කරන්න (APK)
+
+          <!-- Play Store Stats Row -->
+          <div class="playstore-meta-row">
+            <div class="playstore-meta-item">
+              <span class="playstore-meta-val">${app.rating || "4.8"} <span class="star">★</span></span>
+              <span class="playstore-meta-lbl">${app.reviews || "Reviews"}</span>
+            </div>
+            <div class="playstore-meta-divider"></div>
+            <div class="playstore-meta-item">
+              <span class="playstore-meta-val">${app.size || "10 MB"}</span>
+              <span class="playstore-meta-lbl">ප්‍රමාණය</span>
+            </div>
+            <div class="playstore-meta-divider"></div>
+            <div class="playstore-meta-item">
+              <span class="playstore-meta-val">3+</span>
+              <span class="playstore-meta-lbl">Rated for 3+</span>
+            </div>
+          </div>
+
+          <!-- Play Store Buttons -->
+          <div class="playstore-actions">
+            <a href="${app.apkUrl}" ${app.apkUrl.endsWith('.apk') ? 'download' : 'target="_blank" rel="noopener noreferrer"'} class="btn-playstore-install">
+              <span>📥</span> ${buttonLabel}
             </a>
-            <a href="${app.webUrl}" target="_blank" rel="noopener noreferrer" class="btn-web">
+            <a href="${app.webUrl}" target="_blank" rel="noopener noreferrer" class="btn-playstore-web">
               Online භාවිතය ↗
             </a>
           </div>
+
+          <!-- Screenshots Carousel -->
+          ${screenshotsHTML}
+
+          <!-- About Description -->
+          <p class="playstore-about">${app.description}</p>
+
+          <!-- Install Instructions -->
           ${installGuideHTML}
         </div>
       `;
@@ -416,7 +465,7 @@
   }
 
   // ==========================================
-  // Books Table Render කිරීම (විවෘත වන විට Files සැඟවී තිබේ)
+  // Books Table Render කිරීම (මුලින් Files සැඟවී තිබේ)
   // ==========================================
   function renderBooks(books) {
     const container = document.getElementById("pdfFileList");
