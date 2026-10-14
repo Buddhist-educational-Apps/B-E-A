@@ -1061,3 +1061,28 @@ html.light .theme-toggle-icon {
     display: none;
   }
 }
+/* ============================================================
+   ⚡ CLS (Layout Shift) Fixes
+   ============================================================ */
+#appsContainer {
+  min-height: 280px; /* Apps load වීමට පෙර හිස් අවකාශය වෙන් කර තැබීම */
+  contain-intrinsic-size: 280px;
+}
+
+#pdfFileList {
+  min-height: 200px; /* PDF list එක සඳහා අවකාශය */
+  contain-intrinsic-size: 200px;
+}
+
+/* Icon එක load වන තෙක් layout එක වෙනස් වීම වැළැක්වීම */
+.playstore-app-icon {
+  width: 62px;
+  height: 62px;
+  aspect-ratio: 1 / 1;
+}
+
+.playstore-screenshot-img {
+  width: 220px;
+  height: 175px;
+  aspect-ratio: 220 / 175;
+}
