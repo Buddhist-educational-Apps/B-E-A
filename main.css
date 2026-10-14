@@ -1037,3 +1037,245 @@ html.light .install-guide-text {
     display: none;
   }
 }
+/* ============================================================
+   🌟 Hero Banner (තද, පැහැදිලි Bold අකුරු සහිතව)
+   ============================================================ */
+.hero-banner {
+  position: relative;
+  background: linear-gradient(135deg, rgba(229, 169, 60, 0.15) 0%, var(--bg-surface) 100%);
+  border: 1.5px solid var(--accent-gold);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin: 24px 0 32px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(180deg, #f5b942 0%, #b8860b 100%);
+}
+
+.hero-banner-content {
+  flex: 1;
+}
+
+.hero-banner-title {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  font-weight: 800; /* ඉතා තද අකුරු (Extra Bold) */
+  color: var(--accent-gold);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0.3px;
+}
+
+.hero-banner-desc {
+  font-size: 1rem;
+  font-weight: 600; /* විස්තරයද පැහැදිලි Bold ලෙස */
+  color: var(--text-bright);
+  line-height: 1.7;
+}
+
+/* Light Theme Banner එක වඩාත් පැහැදිලි කිරීම */
+html.light .hero-banner {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border-color: #d97706;
+  box-shadow: 0 8px 20px rgba(180, 83, 9, 0.12);
+}
+
+html.light .hero-banner-title {
+  color: #78350f;
+  font-weight: 800;
+}
+
+html.light .hero-banner-desc {
+  color: #332211;
+  font-weight: 600;
+}
+
+/* ============================================================
+   📚 PDF Files List Table & Folders (පැහැදිලි නවීන පෙනුම)
+   ============================================================ */
+.pdf-table {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 50px;
+  padding: 8px 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+html.light .pdf-table {
+  border-color: #d1c7b7;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Table Header - අකුරු පැහැදිලි සහ Bold කිරීම */
+.table-header {
+  display: grid;
+  grid-template-columns: 1fr 140px 100px 90px;
+  padding: 14px 22px;
+  background-color: var(--bg-table-header);
+  border-bottom: 1.5px solid var(--border-color);
+  color: var(--accent-gold);
+  font-size: 1rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+}
+
+html.light .table-header {
+  background-color: #ebdcb9;
+  border-bottom-color: #d5c39b;
+  color: #5c3a00; /* කියවීමට පහසු තද දුඹුරු රන්වන් පැහැය */
+  font-weight: 800;
+}
+
+/* Folder Row Styling */
+.folder-group {
+  margin: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  transition: all 0.25s ease;
+}
+
+html.light .folder-group {
+  border-color: #e6dac3;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.folder-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background-color: var(--bg-folder);
+  color: var(--accent-gold);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+html.light .folder-header {
+  background-color: #f7ecd2;
+  color: #4a2e00;
+  font-weight: 700;
+}
+
+.folder-header:hover {
+  background-color: var(--bg-folder-hover);
+}
+
+html.light .folder-header:hover {
+  background-color: #efe0bf;
+}
+
+.folder-arrow {
+  font-size: 0.85rem;
+  color: var(--accent-gold);
+  width: 14px;
+}
+
+html.light .folder-arrow {
+  color: #78350f;
+}
+
+.folder-count {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-family: var(--font-ui);
+  margin-left: auto;
+}
+
+html.light .folder-count {
+  color: #614d31;
+}
+
+/* File List Rows (ඇතුළත ගොනු පෙළගැස්ම) */
+.folder-books {
+  display: none;
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-color);
+}
+
+html.light .folder-books {
+  background: #fdfbf7;
+  border-top-color: #e5dac7;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 1fr 140px 100px 90px;
+  align-items: center;
+  padding: 13px 22px;
+  border-bottom: 1px solid var(--border-color);
+  text-decoration: none;
+  color: var(--text-main);
+  transition: background-color 0.15s ease;
+}
+
+html.light .table-row {
+  border-bottom-color: #eee4d5;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-row:hover {
+  background-color: var(--bg-hover);
+}
+
+html.light .table-row:hover {
+  background-color: #f4ecdc;
+}
+
+.file-text {
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--text-bright);
+}
+
+html.light .file-text {
+  color: #1a1410;
+}
+
+.file-col-cat,
+.file-col-count {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+html.light .file-col-cat,
+html.light .file-col-count {
+  color: #554433;
+}
+
+.file-col-size {
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  color: var(--accent-green);
+  text-align: right;
+  font-weight: 700;
+}
