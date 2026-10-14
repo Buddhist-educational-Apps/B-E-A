@@ -51,7 +51,7 @@
     {
       id: 1,
       title: "අභිධර්ම මාතිකා (Matika)",
-      developer: "B.E.A • බෞද්ධ අධ්‍යාපනය",
+      developer: "B.E.A • අභිධර්ම අධ්‍යනය",
       category: "අභිධර්මය",
       rating: "4.9",
       reviews: "100+",
