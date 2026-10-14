@@ -26,27 +26,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Preload First App Icon (LCP Optimization) -->
-  <link rel="preload" as="image" href="https://buddhist-educational-apps.github.io/B-E-A/icons/matika.png" fetchpriority="high">
-
   <!-- Optimized Google Fonts with display=optional -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700;800&family=Gemunu+Libre:wght@500;600;700&family=Noto+Serif+Sinhala:wght@400;500;600&display=optional">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700;800&family=Gemunu+Libre:wght@500;600;700&family=Noto+Serif+Sinhala:wght@400;500;600&display=optional" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700;800&family=Gemunu+Libre:wght@500;600;700&family=Noto+Serif+Sinhala:wght@400;500;600&display=optional">
   </noscript>
-
-  <!-- Critical Above-the-Fold Styles for Sub-2s FCP -->
-  <style>
-    body { background-color: #141414; color: #e8e8e8; margin: 0; font-family: 'Noto Serif Sinhala', serif; }
-    html.light body { background-color: #f5f3ee; color: #2c2416; }
-    .site-header { min-height: 60px; }
-    .hero-banner { min-height: 180px; }
-    .hero-actions { display: flex; gap: 12px; margin-bottom: 24px; }
-    #appsContainer { min-height: 280px; }
-    #pdfFileList { min-height: 200px; }
-  </style>
-
   <link rel="stylesheet" href="main.css?v=20">
 
   <!-- Theme Detection Script -->
@@ -201,5 +186,14 @@
 
   <script src="theme.js" defer></script>
   <script src="data.js" defer></script>
+
+  <script>
+    (function() {
+      const version = Date.now();
+      const script = document.createElement('script');
+      script.src = 'data.js?v=' + version;
+      document.body.appendChild(script);
+    })();
+  </script>
 </body>
 </html>
