@@ -290,16 +290,16 @@ html.light .theme-toggle-icon {
 }
 
 /* ==========================================
-   Hero Banner — Classic Serif Style
+   Hero Banner — Compact Height (තනි බැනරය)
    ========================================== */
 .hero-banner {
-  margin: 28px 0 36px 0;
-  padding: 36px 40px;
+  margin: 20px 0 14px 0;
+  padding: 22px 28px;         /* අනවශ්‍ය ඉඩ ඉවත් කර උස අඩු කර ඇත */
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
-  border-left: 6px solid var(--accent-gold);
+  border-left: 5px solid var(--accent-gold);
   border-radius: var(--r-lg);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
   position: relative;
 }
 
@@ -311,51 +311,55 @@ html.light .theme-toggle-icon {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px;
+  padding: 3px 10px;
   border-radius: 999px;
   background: var(--bg-elevated);
   border: 1px solid var(--border-color);
   color: var(--text-muted);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 
 .hero-eyebrow .dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--accent-green);
-  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
 }
 
 .hero-banner-title {
   font-family: 'Noto Serif Sinhala', Georgia, serif;
-  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  font-size: clamp(1.45rem, 2.6vw, 1.95rem);
   font-weight: 800;
   color: var(--accent-gold);
-  line-height: 1.5;
-  margin-bottom: 16px;
+  line-height: 1.4;
+  margin-bottom: 8px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .hero-banner-desc {
   font-family: 'Noto Serif Sinhala', Georgia, serif;
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 500;
   color: var(--text-main);
-  line-height: 2.1;
+  line-height: 1.9;
   text-align: justify;
   text-justify: inter-word;
-  margin-bottom: 24px;
+  margin-bottom: 0;           /* පහළ පරතරය 0 කර උස අඩු කර ඇත */
 }
 
-/* Hero Action Buttons */
+/* ==========================================
+   Hero Actions — බැනරයට යටින්
+   ========================================== */
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
+  margin-top: 14px;
+  margin-bottom: 32px;
 }
 
 .hero-btn {
@@ -363,11 +367,11 @@ html.light .theme-toggle-icon {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 44px;
-  padding: 0 22px;
+  height: 42px;
+  padding: 0 20px;
   border-radius: var(--r-md);
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 600;
   text-decoration: none !important;
   cursor: pointer;
@@ -379,11 +383,11 @@ html.light .theme-toggle-icon {
   background: var(--btn-solid-bg) !important;
   color: var(--btn-solid-text) !important;
   border: 1px solid transparent;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 .hero-btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
 }
 
 .hero-btn-ghost {
@@ -395,6 +399,21 @@ html.light .theme-toggle-icon {
   background: var(--bg-hover) !important;
   border-color: var(--border-light) !important;
   transform: translateY(-2px);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .hero-banner {
+    padding: 18px 16px;
+    margin: 14px 0 12px 0;
+  }
+  .hero-banner-desc {
+    text-align: left;
+    font-size: 0.95rem;
+  }
+  .hero-actions {
+    margin-bottom: 28px;
+  }
 }
 
 /* ==========================================
