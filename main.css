@@ -103,10 +103,11 @@ body {
   color: #000;
 }
 
+/* පිටුවේ ප්‍රධාන තිරස් සීමාව මදක් වැඩි කිරීම (1140px සිට 1220px දක්වා) */
 .container {
-  max-width: 1140px;
+  max-width: 1220px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
   position: relative;
 }
 
