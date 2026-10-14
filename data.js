@@ -51,7 +51,7 @@
     {
       id: 1,
       title: "අභිධර්ම මාතිකා (Matika)",
-      developer: "B.E.A • අභිධර්ම අධ්‍යනය",
+      developer: "B.E.D • බෞද්ධ අධ්‍යාපනය",
       category: "අභිධර්මය",
       rating: "4.9",
       reviews: "100+",
@@ -59,7 +59,7 @@
       badgeType: "tag-gold",
       description: "අභිධර්ම මාතිකා සහ ධම්මසංගණී විග්‍රහයන් පහසුවෙන් කියවීමට සහ අධ්‍යයනය කිරීමට නිර්මාණය කළ සුවිශේෂී මෘදුකාංගයකි.",
       icon: BASE_URL + "/icons/matika.png",
-      apkUrl: "https://apkpure.com/p/app.vercel.matika_snowy.twa",
+      apkUrl: "https://play.google.com/store/apps/details?id=app.vercel.matika_snowy.twa",
       webUrl: "https://pavara9803-ctrl.github.io/Matika/",
       screenshots: [
         BASE_URL + "/screenshots/matika-1.webp",
@@ -71,9 +71,9 @@
       installGuide: {
         android: [
           "පහත <strong>\"Install (Play Store)\"</strong> බොත්තම ඔබන්න",
-          "එය ඔබව Google Play Store එකට ගෙන යනු ඇත",
-          "<strong>\"Install\"</strong> බොත්තම ඔබන්න",
-          "Installation එක අවසන් වූ පසු <strong>\"Open\"</strong> ඔබන්න",
+          "එය ඔබව Google Play Store වෙත ගෙන යනු ඇත",
+          "<strong>\"Install\"</strong> ඔබන්න",
+          "ස්ථාපනය අවසන් වූ පසු <strong>\"Open\"</strong> ඔබන්න",
           "දැන් ඔබගේ Home Screen එකේ අයිකනය දිස්වේ! 🎉"
         ],
         ios: [
@@ -87,15 +87,14 @@
           "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
           "Address bar එකේ දකුණේ ඇති <strong>install icon</strong> (➕) ඔබන්න",
           "හෝ browser මෙනුවෙන් <strong>\"Install\"</strong> තෝරන්න",
-          "<strong>\"Install\"</strong> බොත්තම ඔබන්න",
-          "Desktop එකේ යෙදුමක් ලෙස දිස්වේ! 🎉"
+          "<strong>\"Install\"</strong> ඔබන්න - Desktop App එකක් ලෙස දිස්වේ! 🎉"
         ]
       }
     },
     {
       id: 2,
       title: "රූපසිද්ධි (Rupasiddhi)",
-      developer: "B.E.A • පාලි ව්‍යාකරණ",
+      developer: "B.E.D • පාලි ව්‍යාකරණ",
       category: "පාලි භාෂාව",
       rating: "4.8",
       reviews: "50+",
@@ -103,7 +102,7 @@
       badgeType: "tag-blue",
       description: "පදරුපසිද්ධි ග්‍රන්ථය ඇසුරින් පාලි නාම, ආඛ්‍යාත පද සාධනයන් සහ ව්‍යාකරණ සූත්‍ර පහසුවෙන් හදාරන මෘදුකාංගය.",
       icon: BASE_URL + "/icons/ruoasiddhi.png",
-      apkUrl: "https://rupasiddhi.vercel.app/",
+      apkUrl: "https://github.com/pavara9803-ctrl/Rupasiddhi/releases/latest/download/Rupasiddhi.apk",
       webUrl: "https://rupasiddhi.vercel.app/",
       screenshots: [
         BASE_URL + "/screenshots/rupasiddhi-1.webp",
@@ -131,15 +130,14 @@
           "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
           "Address bar එකේ දකුණේ ඇති <strong>install icon</strong> (➕) ඔබන්න",
           "හෝ browser මෙනුවෙන් <strong>\"Install\"</strong> තෝරන්න",
-          "<strong>\"Install\"</strong> බොත්තම ඔබන්න",
-          "Desktop එකේ යෙදුමක් ලෙස දිස්වේ! 🎉"
+          "<strong>\"Install\"</strong> ඔබන්න - Desktop App එකක් ලෙස දිස්වේ! 🎉"
         ]
       }
     },
     {
       id: 3,
-      title: "බුද්ධ වර්ෂය (Buddhist Era)",
-      developer: "B.C • දින දර්ශන",
+      title: "බෞද්ධ වර්ෂය (Buddhist Era)",
+      developer: "B.E.D • දින දර්ශන",
       category: "දින දර්ශනය",
       rating: "4.9",
       reviews: "30+",
@@ -330,7 +328,7 @@
   }
 
   // ==========================================
-  // Apps Render කිරීම (Play Store Layout + Share Button)
+  // Apps Render කිරීම
   // ==========================================
   function renderApps(apps) {
     const container = document.getElementById("appsContainer");
@@ -360,7 +358,7 @@
       ` : "";
 
       const installGuideHTML = app.installGuide ? `
-        <div class="install-guide" style="margin-top: 10px;">
+        <div class="install-guide">
           <button class="install-guide-toggle" onclick="event.stopPropagation(); toggleInstallGuide(this)">
             <span class="install-guide-icon">📲</span>
             <span class="install-guide-text">යෙදුම ස්ථාපනය කරගන්නා ආකාරය</span>
@@ -370,13 +368,24 @@
           <div class="install-guide-content">
             <div class="install-tabs">
               <button class="install-tab active" onclick="event.stopPropagation(); switchInstallTab(this, 'android-${app.id}')">
-                🤖 Android
+                <svg class="tab-badge-icon" viewBox="0 0 512 512" width="18" height="18" fill="currentColor">
+                  <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+                </svg>
+                <span>Google Play</span>
               </button>
+              
               <button class="install-tab" onclick="event.stopPropagation(); switchInstallTab(this, 'ios-${app.id}')">
-                🍎 iOS
+                <svg class="tab-badge-icon" viewBox="0 0 170 170" width="18" height="18" fill="currentColor">
+                  <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.58-7.7-11.64-13.98-5.88-9.13-10.46-19.46-13.73-30.98-3.26-11.52-4.9-22.37-4.9-32.55 0-14.12 3.59-25.99 10.77-35.61 7.18-9.62 16.32-14.53 27.42-14.73 4.9 0 10.12 1.25 15.66 3.75 5.54 2.5 9.14 3.86 10.79 4.08 1.96-.33 5.76-1.79 11.41-4.4 5.65-2.61 10.77-3.81 15.35-3.61 14.79.76 26.24 6.2 34.35 16.31-13.06 7.83-19.48 18.59-19.26 32.28.22 10.66 4.13 19.68 11.74 27.07 7.61 7.39 16.75 11.63 27.41 12.72-2.18 6.42-4.8 12.63-7.85 18.63zM119.22 31.84c0-7.72 2.72-14.9 8.16-21.53 5.44-6.63 12.19-10.77 20.25-12.42.22 1.31.33 2.5.33 3.59 0 7.61-2.83 14.8-8.49 21.55-5.66 6.75-12.51 10.77-20.57 12.07-.11-1.09-.17-2.18-.17-3.26z"/>
+                </svg>
+                <span>Apple iOS</span>
               </button>
+              
               <button class="install-tab" onclick="event.stopPropagation(); switchInstallTab(this, 'desktop-${app.id}')">
-                💻 Computer
+                <svg class="tab-badge-icon" viewBox="0 0 88 88" width="18" height="18" fill="currentColor">
+                  <path d="M0 12.402l35.688-4.86.016 34.423-35.67.24zM35.67 45.547l.034 35.035-35.67-4.896-.034-30.139zm4.33-48.452L88 0v41.594l-48 .377zm48 44.139L40 81.334V45.717l48 .347z"/>
+                </svg>
+                <span>Windows PC</span>
               </button>
             </div>
 
@@ -403,7 +412,6 @@
 
       return `
         <div class="playstore-card" id="app-card-${app.id}">
-          <!-- මුලින් දිස්වන අයිකන් සහ මාතෘකා කොටස -->
           <div class="playstore-summary" onclick="toggleAppCard(${app.id})">
             <img src="${app.icon}" alt="${app.title} Icon" class="playstore-app-icon" onerror="this.src='favicon.png'">
             <div class="playstore-header-info">
@@ -415,7 +423,6 @@
             <span class="card-expand-arrow">▼</span>
           </div>
 
-          <!-- ක්ලික් කළ පසු දිගහැරෙන විස්තරාත්මක කොටස -->
           <div class="playstore-details">
             <div class="playstore-meta-row">
               <div class="playstore-meta-item">
@@ -434,7 +441,6 @@
               </div>
             </div>
 
-            <!-- Buttons: APK, Web, සහ Share -->
             <div class="playstore-actions">
               <a href="${app.apkUrl}" ${app.apkUrl.endsWith('.apk') ? 'download' : 'target="_blank" rel="noopener noreferrer"'} class="btn-playstore-install" onclick="event.stopPropagation()">
                 <span>📥</span> ${buttonLabel}
@@ -457,7 +463,7 @@
   }
 
   // ==========================================
-  // Share Functionality (Web Share API / Copy Link)
+  // Share App
   // ==========================================
   function shareApp(title, url) {
     if (navigator.share) {
@@ -467,7 +473,6 @@
         url: url
       }).catch(() => {});
     } else {
-      // Browser එකේ Web Share නොමැති නම් Link එක Copy කර පෙන්වීම
       navigator.clipboard.writeText(url).then(() => {
         alert(`"${title}" යෙදුමේ සබැඳිය Copy කරගන්නා ලදී!`);
       }).catch(() => {
@@ -477,7 +482,7 @@
   }
 
   // ==========================================
-  // App Card Expand/Collapse Toggle
+  // App Card Toggle
   // ==========================================
   function toggleAppCard(appId) {
     const card = document.getElementById(`app-card-${appId}`);
@@ -486,7 +491,7 @@
   }
 
   // ==========================================
-  // Books Table Render කිරීම (මුලින් Files සැඟවී තිබේ)
+  // Books Table Render කිරීම
   // ==========================================
   function renderBooks(books) {
     const container = document.getElementById("pdfFileList");
@@ -510,7 +515,7 @@
           <span class="folder-arrow">▶</span>
           <span class="folder-icon">📁</span>
           <span class="folder-name">${folderName}</span>
-          <span class="folder-count">(${grouped[folderName].length} පොත්)</span>
+          <span class="folder-count">${grouped[folderName].length} පොත්</span>
         </div>
         <div class="folder-books" style="display: none;">
           ${grouped[folderName].map(book => `
@@ -533,9 +538,6 @@
     `).join("");
   }
 
-  // ==========================================
-  // ෆෝල්ඩරය විවෘත කිරීම සහ වැසීම
-  // ==========================================
   function toggleFolder(headerElement) {
     const folderGroup = headerElement.parentElement;
     const folderBooks = folderGroup.querySelector(".folder-books");
@@ -554,9 +556,6 @@
     }
   }
 
-  // ==========================================
-  // Install Guide Toggle
-  // ==========================================
   function toggleInstallGuide(button) {
     const content = button.nextElementSibling;
     const arrow = button.querySelector(".install-guide-arrow");
@@ -572,9 +571,6 @@
     }
   }
 
-  // ==========================================
-  // Install Tab Switch
-  // ==========================================
   function switchInstallTab(tabButton, panelId) {
     const tabContainer = tabButton.parentElement;
     tabContainer.querySelectorAll(".install-tab").forEach(t => {
@@ -591,9 +587,6 @@
     if (targetPanel) targetPanel.classList.add("active");
   }
 
-  // ==========================================
-  // Lightbox
-  // ==========================================
   function openLightbox(imageSrc, title) {
     const existing = document.getElementById("lightbox");
     if (existing) existing.remove();
@@ -604,7 +597,7 @@
     lightbox.innerHTML = `
       <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
       <img src="${imageSrc}" alt="${title}" class="lightbox-img">
-      <p class="lightbox-caption" style="color: var(--accent-gold); margin-top: 14px; font-family: var(--font-heading); font-size: 1.15rem; text-align: center;">${title}</p>
+      <p class="lightbox-caption">${title}</p>
     `;
     lightbox.onclick = function(e) {
       if (e.target === lightbox) closeLightbox();
@@ -622,62 +615,44 @@
   }
 
   // ==========================================
-  // Firebase Download Count Functions
+  // Firebase Counts
   // ==========================================
   function loadAllDownloadCounts() {
-    if (!db) {
-      console.warn("⚠️ Firebase not initialized");
-      return;
-    }
+    if (!db) return;
     booksData.forEach(book => {
-      if (book.countKey) {
-        getDownloadCount(book.countKey);
-      }
+      if (book.countKey) getDownloadCount(book.countKey);
     });
   }
 
   function getDownloadCount(countKey) {
     db.ref('downloads/' + countKey).once('value')
       .then(snapshot => {
-        const count = snapshot.val() || 0;
-        updateCountDisplay(countKey, count);
+        updateCountDisplay(countKey, snapshot.val() || 0);
       })
-      .catch(error => {
-        console.error('Error reading count:', error);
+      .catch(() => {
         updateCountDisplay(countKey, 0);
       });
   }
 
   function incrementDownloadCount(countKey) {
     if (!db || !countKey) return;
-    
-    const ref = db.ref('downloads/' + countKey);
-    ref.transaction(current => {
-      return (current || 0) + 1;
-    }).then(result => {
-      if (result.committed) {
-        updateCountDisplay(countKey, result.snapshot.val());
-      }
-    }).catch(error => {
-      console.error('Error incrementing count:', error);
-    });
+    db.ref('downloads/' + countKey).transaction(current => (current || 0) + 1)
+      .then(result => {
+        if (result.committed) updateCountDisplay(countKey, result.snapshot.val());
+      });
   }
 
   function updateCountDisplay(countKey, value) {
     const element = document.getElementById(`count-${countKey}`);
-    if (element) {
-      element.textContent = value;
-    }
+    if (element) element.textContent = value;
   }
 
   function handleDownload(countKey) {
-    if (countKey) {
-      incrementDownloadCount(countKey);
-    }
+    if (countKey) incrementDownloadCount(countKey);
   }
 
   // ==========================================
-  // Live Search with Dropdown Results
+  // Live Search
   // ==========================================
   let searchDebounceTimer = null;
 
@@ -687,19 +662,13 @@
     if (!input) return;
 
     const query = input.value.trim();
-
     if (clearBtn) {
-      if (query.length > 0) {
-        clearBtn.classList.remove('hidden');
-      } else {
-        clearBtn.classList.add('hidden');
-      }
+      if (query.length > 0) clearBtn.classList.remove('hidden');
+      else clearBtn.classList.add('hidden');
     }
 
     if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
-    searchDebounceTimer = setTimeout(function() {
-      performSearch(query);
-    }, 150);
+    searchDebounceTimer = setTimeout(() => performSearch(query), 150);
   }
 
   function handleSearchFocus() {
@@ -720,105 +689,56 @@
     }
 
     const lowerQuery = query.toLowerCase();
+    const matchedApps = appsData.filter(app => 
+      app.title.toLowerCase().includes(lowerQuery) ||
+      app.category.toLowerCase().includes(lowerQuery) ||
+      app.description.toLowerCase().includes(lowerQuery)
+    );
 
-    const matchedApps = appsData.filter(function(app) {
-      return app.title.toLowerCase().includes(lowerQuery) ||
-             app.category.toLowerCase().includes(lowerQuery) ||
-             app.description.toLowerCase().includes(lowerQuery);
-    });
+    const matchedBooks = booksData.filter(book => 
+      book.title.toLowerCase().includes(lowerQuery) ||
+      book.category.toLowerCase().includes(lowerQuery)
+    );
 
-    const matchedBooks = booksData.filter(function(book) {
-      return book.title.toLowerCase().includes(lowerQuery) ||
-             book.category.toLowerCase().includes(lowerQuery);
-    });
-
-    const totalResults = matchedApps.length + matchedBooks.length;
-
-    if (totalResults === 0) {
-      resultsInner.innerHTML = 
-        '<div class="search-no-results" style="padding: 24px; text-align: center;">' +
-          '<div style="font-size: 2rem; margin-bottom: 8px;">🔍</div>' +
-          '<div style="font-weight: 600; color: var(--text-bright); margin-bottom: 4px;">"' + escapeHtml(query) + '" සඳහා ප්‍රතිඵල හමු නොවීය</div>' +
-          '<div style="font-size: 0.85rem; color: var(--text-muted);">වෙනත් වචනයක් උත්සාහ කරන්න</div>' +
-        '</div>';
+    if (matchedApps.length === 0 && matchedBooks.length === 0) {
+      resultsInner.innerHTML = `<div style="padding: 20px; text-align: center; color: var(--text-muted);">ප්‍රතිඵල හමු නොවීය.</div>`;
       resultsContainer.classList.remove('hidden');
       return;
     }
 
     let html = '';
-
     if (matchedApps.length > 0) {
-      html += '<div class="search-section">';
-      html += '<div class="search-section-title">📱 යෙදුම් <span class="search-section-count">' + matchedApps.length + '</span></div>';
-      
-      matchedApps.forEach(function(app) {
-        html += 
-          '<a href="' + app.webUrl + '" target="_blank" rel="noopener noreferrer" class="search-result-item">' +
-            '<div class="search-result-icon app-icon">📱</div>' +
-            '<div class="search-result-content">' +
-              '<div class="search-result-title">' + highlightMatch(app.title, query) + '</div>' +
-              '<div class="search-result-meta">' +
-                '<span class="tag ' + app.badgeType + '" style="font-size: 0.7rem; padding: 1px 6px;">' + app.category + '</span>' +
-              '</div>' +
-            '</div>' +
-            '<div style="color: var(--accent-gold); font-size: 1rem;">↗</div>' +
-          '</a>';
+      html += `<div class="search-section-title">📱 යෙදුම් (${matchedApps.length})</div>`;
+      matchedApps.forEach(app => {
+        html += `
+          <a href="${app.webUrl}" target="_blank" rel="noopener noreferrer" class="search-result-item">
+            <span style="font-size: 1.2rem;">📱</span>
+            <div class="search-result-title">${app.title}</div>
+          </a>
+        `;
       });
-      
-      html += '</div>';
     }
 
     if (matchedBooks.length > 0) {
-      html += '<div class="search-section">';
-      html += '<div class="search-section-title">📄 ග්‍රන්ථ <span class="search-section-count">' + matchedBooks.length + '</span></div>';
-      
-      matchedBooks.forEach(function(book) {
-        html += 
-          '<a href="' + book.pdfUrl + '" target="_blank" rel="noopener noreferrer" class="search-result-item" onclick="handleDownload(\'' + book.countKey + '\')">' +
-            '<div class="search-result-icon book-icon">📄</div>' +
-            '<div class="search-result-content">' +
-              '<div class="search-result-title">' + highlightMatch(book.title, query) + '</div>' +
-              '<div class="search-result-meta">' +
-                '<span style="color: var(--text-muted);">' + book.category + '</span> • ' +
-                '<span style="color: var(--accent-green); font-weight: 600;">' + book.size + '</span>' +
-              '</div>' +
-            '</div>' +
-            '<div style="color: var(--accent-gold); font-size: 1rem;">↗</div>' +
-          '</a>';
+      html += `<div class="search-section-title">📄 ග්‍රන්ථ (${matchedBooks.length})</div>`;
+      matchedBooks.forEach(book => {
+        html += `
+          <a href="${book.pdfUrl}" target="_blank" rel="noopener noreferrer" class="search-result-item" onclick="handleDownload('${book.countKey}')">
+            <span style="font-size: 1.2rem;">📄</span>
+            <div class="search-result-title">${book.title}</div>
+          </a>
+        `;
       });
-      
-      html += '</div>';
     }
 
     resultsInner.innerHTML = html;
     resultsContainer.classList.remove('hidden');
   }
 
-  function highlightMatch(text, query) {
-    if (!query) return escapeHtml(text);
-    
-    const escapedText = escapeHtml(text);
-    const escapedQuery = escapeHtml(query);
-    const regex = new RegExp('(' + escapeRegex(escapedQuery) + ')', 'gi');
-    
-    return escapedText.replace(regex, '<mark style="background: rgba(246, 190, 78, 0.35); color: inherit; padding: 0 2px; border-radius: 3px;">$1</mark>');
-  }
-
-  function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-  }
-
-  function escapeRegex(text) {
-    return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  }
-
   function clearSearch() {
     const input = document.getElementById('searchInput');
     const clearBtn = document.getElementById('searchClear');
     const resultsContainer = document.getElementById('searchResults');
-    
     if (input) {
       input.value = '';
       input.focus();
@@ -827,46 +747,27 @@
     if (resultsContainer) resultsContainer.classList.add('hidden');
   }
 
-  document.addEventListener('click', function(event) {
+  document.addEventListener('click', event => {
     const searchWrapper = document.querySelector('.search-wrapper');
     const resultsContainer = document.getElementById('searchResults');
-    
     if (searchWrapper && resultsContainer && !searchWrapper.contains(event.target)) {
       resultsContainer.classList.add('hidden');
     }
   });
 
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-      const resultsContainer = document.getElementById('searchResults');
-      if (resultsContainer) resultsContainer.classList.add('hidden');
-    }
-  });
-
-  function filterItems() {
-    handleSearchInput();
-  }
-
-  // ==========================================
-  // Global Function Bindings
-  // ==========================================
+  // Global Scope Attachments
   window.shareApp = shareApp;
   window.toggleAppCard = toggleAppCard;
   window.toggleFolder = toggleFolder;
   window.openLightbox = openLightbox;
   window.closeLightbox = closeLightbox;
   window.handleDownload = handleDownload;
-  window.filterItems = filterItems;
-  window.renderContent = renderContent;
   window.toggleInstallGuide = toggleInstallGuide;
   window.switchInstallTab = switchInstallTab;
   window.handleSearchInput = handleSearchInput;
   window.handleSearchFocus = handleSearchFocus;
   window.clearSearch = clearSearch;
 
-  // ==========================================
-  // පිටුව Load වූ පසු ආරම්භ කිරීම
-  // ==========================================
   if (document.readyState === 'loading') {
     document.addEventListener("DOMContentLoaded", renderContent);
   } else {

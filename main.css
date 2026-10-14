@@ -34,7 +34,7 @@ html.dark,
 }
 
 /* ==========================================
-   Root Variables - LIGHT THEME (ආලෝකමත් තේමාව)
+   Root Variables - LIGHT THEME
    ========================================== */
 :root.light,
 html.light,
@@ -44,11 +44,11 @@ html.light,
   --bg-hover: #f0ede6;
   --bg-elevated: #faf8f3;
   --bg-input: #ffffff;
-  --bg-table-header: #ebe7dd;
-  --bg-folder: #f5edd8;
-  --bg-folder-hover: #f0e5c8;
-  --border-color: #ddd7c8;
-  --border-light: #e5dfd0;
+  --bg-table-header: #f7f4ed;
+  --bg-folder: #fcf9f2;
+  --bg-folder-hover: #f5eedf;
+  --border-color: #e2d9cc;
+  --border-light: #ebdccb;
   --text-main: #2c2416;
   --text-bright: #1a1410;
   --text-muted: #6b6255;
@@ -57,7 +57,7 @@ html.light,
   --accent-green: #1e8449;
   --accent-blue: #2874a6;
   --pdf-red: #c0392b;
-  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -87,7 +87,7 @@ body {
 }
 
 /* ==========================================
-   Site Header & Brand
+   Header & Search
    ========================================== */
 .site-header {
   background-color: var(--bg-surface);
@@ -118,7 +118,6 @@ body {
   white-space: nowrap;
 }
 
-/* Theme Toggle Button */
 .theme-toggle {
   background-color: var(--bg-hover);
   border: 1px solid var(--border-color);
@@ -138,9 +137,6 @@ body {
   border-color: var(--accent-gold);
 }
 
-/* ==========================================
-   Search Wrapper & Dropdown Results
-   ========================================== */
 .search-wrapper {
   flex: 1;
   max-width: 550px;
@@ -167,10 +163,6 @@ body {
 
 .search-box input:focus {
   border-color: var(--accent-gold);
-}
-
-.search-box input::placeholder {
-  color: var(--text-dim);
 }
 
 .search-icon {
@@ -202,11 +194,6 @@ body {
   transition: all 0.2s;
 }
 
-.search-clear:hover {
-  background: var(--accent-gold);
-  color: #1a1a1a;
-}
-
 .search-clear.hidden {
   display: none;
 }
@@ -223,32 +210,10 @@ body {
   z-index: 100;
   max-height: 70vh;
   overflow-y: auto;
-  animation: searchDropIn 0.2s ease-out;
 }
 
 .search-results.hidden {
   display: none;
-}
-
-@keyframes searchDropIn {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.search-results::-webkit-scrollbar {
-  width: 6px;
-}
-.search-results::-webkit-scrollbar-thumb {
-  background: var(--accent-gold);
-  border-radius: 3px;
-}
-
-.search-section {
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border-color);
-}
-.search-section:last-child {
-  border-bottom: none;
 }
 
 .search-section-title {
@@ -260,18 +225,6 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  text-transform: uppercase;
-}
-
-.search-section-count {
-  background: var(--accent-gold);
-  color: #1a1a1a;
-  font-size: 0.7rem;
-  padding: 1px 7px;
-  border-radius: 10px;
-  font-family: var(--font-ui);
-  font-weight: 700;
-  margin-left: auto;
 }
 
 .search-result-item {
@@ -288,74 +241,29 @@ body {
   background: var(--bg-hover);
 }
 
-.search-result-icon {
-  flex-shrink: 0;
-  width: 38px;
-  height: 38px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.15rem;
-}
-
-.search-result-icon.app-icon {
-  background: rgba(229, 169, 60, 0.15);
-  border: 1px solid var(--accent-gold);
-}
-
-.search-result-icon.book-icon {
-  background: rgba(231, 76, 60, 0.15);
-  border: 1px solid var(--pdf-red);
-}
-
-.search-result-content {
-  flex: 1;
-  min-width: 0;
-}
-
 .search-result-title {
   font-size: 0.9rem;
   color: var(--text-bright);
-  line-height: 1.4;
-  margin-bottom: 3px;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.search-result-meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  font-family: var(--font-ui);
-}
-
-.search-highlight {
-  background: rgba(229, 169, 60, 0.35);
-  color: var(--text-bright);
-  padding: 0 2px;
-  border-radius: 3px;
-  font-weight: 600;
 }
 
 /* ==========================================
-   Hero Banner (හැඳින්වීම බැනරයක් ලෙස)
+   Hero Banner
    ========================================== */
 .hero-banner {
   position: relative;
-  background: linear-gradient(135deg, rgba(229, 169, 60, 0.12) 0%, var(--bg-surface) 100%);
-  border: 1px solid rgba(229, 169, 60, 0.35);
+  background: linear-gradient(135deg, rgba(229, 169, 60, 0.15) 0%, var(--bg-surface) 100%);
+  border: 1.5px solid var(--accent-gold);
   border-radius: 16px;
-  padding: 26px 28px;
+  padding: 24px 28px;
   margin: 24px 0 32px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   overflow: hidden;
 }
 
@@ -364,9 +272,9 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 5px;
+  width: 6px;
   height: 100%;
-  background: linear-gradient(180deg, var(--accent-gold) 0%, #b8860b 100%);
+  background: linear-gradient(180deg, #f5b942 0%, #b8860b 100%);
 }
 
 .hero-banner-content {
@@ -375,7 +283,8 @@ body {
 
 .hero-banner-title {
   font-family: var(--font-heading);
-  font-size: 1.65rem;
+  font-size: 1.7rem;
+  font-weight: 800;
   color: var(--accent-gold);
   margin-bottom: 8px;
   display: flex;
@@ -384,9 +293,11 @@ body {
 }
 
 .hero-banner-desc {
-  font-size: 0.96rem;
-  color: var(--text-main);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-bright);
   line-height: 1.7;
+  text-align: justify;
 }
 
 .hero-banner-badge {
@@ -402,8 +313,22 @@ body {
   font-size: 2.8rem;
 }
 
+html.light .hero-banner {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border-color: #d97706;
+  box-shadow: 0 8px 20px rgba(180, 83, 9, 0.12);
+}
+
+html.light .hero-banner-title {
+  color: #78350f;
+}
+
+html.light .hero-banner-desc {
+  color: #332211;
+}
+
 /* ==========================================
-   Section Titles
+   Section Title
    ========================================== */
 .section-title {
   font-family: var(--font-heading);
@@ -416,7 +341,7 @@ body {
 }
 
 /* ==========================================
-   Apps Grid & Google Play Store Cards
+   Play Store Style App Cards
    ========================================== */
 .apps-grid {
   display: grid;
@@ -446,7 +371,6 @@ body {
   box-shadow: 0 8px 28px rgba(229, 169, 60, 0.2);
 }
 
-/* Card Summary Header (මුලින් පෙනෙන කොටස) */
 .playstore-summary {
   display: flex;
   gap: 14px;
@@ -505,7 +429,6 @@ body {
   transform: rotate(180deg);
 }
 
-/* ක්ලික් කළ පසු දිගහැරෙන කොටස */
 .playstore-details {
   display: none;
   margin-top: 14px;
@@ -523,7 +446,6 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Stats Row */
 .playstore-meta-row {
   display: flex;
   align-items: center;
@@ -562,7 +484,6 @@ body {
   background-color: var(--border-color);
 }
 
-/* Action Buttons (APK, Web, Share) */
 .playstore-actions {
   display: flex;
   gap: 10px;
@@ -587,11 +508,6 @@ body {
   cursor: pointer;
 }
 
-.btn-playstore-install:hover {
-  background: #019e70;
-  color: #fff;
-}
-
 .btn-playstore-web {
   flex: 1;
   background: var(--bg-hover);
@@ -605,11 +521,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.btn-playstore-web:hover {
-  border-color: var(--accent-gold);
-  color: var(--accent-gold);
 }
 
 .btn-playstore-share {
@@ -631,7 +542,6 @@ body {
 .btn-playstore-share:hover {
   border-color: var(--accent-gold);
   color: var(--accent-gold);
-  background: rgba(229, 169, 60, 0.15);
 }
 
 .playstore-about {
@@ -641,7 +551,6 @@ body {
   margin-bottom: 12px;
 }
 
-/* Screenshots Preview */
 .playstore-screenshots {
   margin-bottom: 14px;
 }
@@ -670,81 +579,78 @@ body {
   border-color: var(--accent-gold);
 }
 
-/* ==========================================
-   Install Guide
-   ========================================== */
+/* ============================================================
+   Install Guide & Official Badges
+   ============================================================ */
 .install-guide {
   margin-top: 10px;
   border-top: 1px solid var(--border-color);
   padding-top: 12px;
 }
 
-/* ============================================================
-   📲 'යෙදුම ස්ථාපනය කරගන්නා ආකාරය' කැපී පෙනෙන ලෙස සැකසීම
-   ============================================================ */
 .install-guide-toggle {
   width: 100%;
-  background: linear-gradient(135deg, rgba(229, 169, 60, 0.2) 0%, rgba(229, 169, 60, 0.08) 100%);
-  border: 1.5px solid var(--accent-gold);
-  color: #ffcc00;
-  padding: 12px 16px;
-  border-radius: 10px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  color: var(--text-bright);
+  padding: 12px 18px;
+  border-radius: 12px;
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 10px;
-  box-shadow: 0 2px 10px rgba(229, 169, 60, 0.15);
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   transition: all 0.25s ease;
 }
 
 .install-guide-toggle:hover {
-  background: linear-gradient(135deg, rgba(229, 169, 60, 0.35) 0%, rgba(229, 169, 60, 0.18) 100%);
-  color: #ffffff;
-  border-color: #ffd700;
-  box-shadow: 0 4px 16px rgba(229, 169, 60, 0.3);
+  border-color: var(--accent-gold);
+  background: var(--bg-hover);
+  color: var(--accent-gold);
   transform: translateY(-1px);
 }
 
 .install-guide-icon {
   font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .install-guide-text {
   flex: 1;
   text-align: left;
-  letter-spacing: 0.3px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .install-guide-arrow {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--accent-gold);
   transition: transform 0.25s ease;
+  margin-left: auto;
 }
 
-/* Light Theme එක සඳහා පැහැදිලි වර්ණ */
 html.light .install-guide-toggle {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  border-color: #b45309;
-  color: #78350f;
-  box-shadow: 0 2px 8px rgba(180, 83, 9, 0.15);
+  background: #ffffff;
+  border-color: #d8cebe;
+  color: #2b1f14;
 }
 
 html.light .install-guide-toggle:hover {
-  background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
-  color: #451a03;
+  border-color: #b45309;
+  background: #fdfbf7;
+  color: #78350f;
+  box-shadow: 0 4px 14px rgba(180, 83, 9, 0.12);
 }
 
-html.light .install-guide-text {
-  text-shadow: none;
-}
-
-.install-guide-text {
-  flex: 1;
-  text-align: left;
+html.light .install-guide-arrow {
+  color: #b45309;
 }
 
 .install-guide-content {
@@ -763,30 +669,77 @@ html.light .install-guide-text {
 }
 
 .install-tabs {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 12px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
 }
 
 .install-tab {
-  flex: 1;
-  min-width: 90px;
   background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  color: var(--text-muted);
-  padding: 8px 10px;
-  border-radius: 6px;
+  border: 1.5px solid var(--border-color);
+  color: var(--text-main);
+  padding: 10px 14px;
+  border-radius: 8px;
   font-family: var(--font-ui);
-  font-size: 0.85rem;
+  font-size: 0.86rem;
+  font-weight: 600;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.tab-badge-icon {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.install-tab:hover {
+  border-color: var(--accent-gold);
+  background: var(--bg-hover);
+  color: var(--text-bright);
+}
+
+.install-tab:hover .tab-badge-icon {
+  transform: scale(1.1);
 }
 
 .install-tab.active {
-  background: var(--accent-gold);
-  color: #1a1a1a;
+  background: #111111;
   border-color: var(--accent-gold);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(229, 169, 60, 0.25);
   font-weight: 700;
+}
+
+.install-tab.active .tab-badge-icon {
+  fill: var(--accent-gold);
+}
+
+html.light .install-tab {
+  background: #ffffff;
+  border-color: #d8cebe;
+  color: #451a03;
+}
+
+html.light .install-tab:hover {
+  background: #fdfbf7;
+  border-color: #b45309;
+}
+
+html.light .install-tab.active {
+  background: #2b1f14;
+  border-color: #78350f;
+  color: #fef3c7;
+  box-shadow: 0 4px 12px rgba(69, 26, 3, 0.2);
+}
+
+html.light .install-tab.active .tab-badge-icon {
+  fill: #f59e0b;
 }
 
 .install-panel {
@@ -833,48 +786,53 @@ html.light .install-guide-text {
   font-weight: 700;
 }
 
-/* ==========================================
-   PDF Table & Folders
-   ========================================== */
+/* ============================================================
+   PDF Files List Table & Folders
+   ============================================================ */
 .pdf-table {
   background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 14px;
   overflow: hidden;
   margin-bottom: 50px;
-  padding: 6px 0;
+  padding: 8px 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .table-header {
   display: grid;
   grid-template-columns: 1fr 140px 100px 90px;
-  padding: 12px 18px;
+  padding: 14px 22px;
   background-color: var(--bg-table-header);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1.5px solid var(--border-color);
   color: var(--accent-gold);
-  font-size: 0.95rem;
+  font-size: 1rem;
+  font-weight: 800;
   font-family: var(--font-heading);
 }
 
 .folder-group {
   margin: 10px 14px;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
   background: var(--bg-surface);
+  transition: all 0.25s ease;
 }
 
 .folder-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 13px 18px;
+  gap: 12px;
+  padding: 14px 20px;
   background-color: var(--bg-folder);
   color: var(--accent-gold);
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
   cursor: pointer;
   user-select: none;
+  transition: background-color 0.2s ease;
 }
 
 .folder-header:hover {
@@ -887,7 +845,8 @@ html.light .install-guide-text {
 }
 
 .folder-count {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 700;
   color: var(--text-muted);
   font-family: var(--font-ui);
   margin-left: auto;
@@ -903,11 +862,11 @@ html.light .install-guide-text {
   display: grid;
   grid-template-columns: 1fr 140px 100px 90px;
   align-items: center;
-  padding: 12px 18px;
+  padding: 13px 22px;
   border-bottom: 1px solid var(--border-color);
   text-decoration: none;
   color: var(--text-main);
-  transition: background-color 0.15s;
+  transition: background-color 0.15s ease;
 }
 
 .table-row:last-child {
@@ -938,7 +897,8 @@ html.light .install-guide-text {
 }
 
 .file-text {
-  font-size: 0.95rem;
+  font-size: 0.96rem;
+  font-weight: 600;
   color: var(--text-bright);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -948,6 +908,7 @@ html.light .install-guide-text {
 .file-col-cat,
 .file-col-count {
   font-size: 0.9rem;
+  font-weight: 600;
   color: var(--text-muted);
 }
 
@@ -956,7 +917,70 @@ html.light .install-guide-text {
   font-size: 0.95rem;
   color: var(--accent-green);
   text-align: right;
-  font-weight: 600;
+  font-weight: 700;
+}
+
+/* Light Theme PDF Color Scheme */
+html.light .pdf-table {
+  background: #ffffff !important;
+  border: 1px solid #e2d9cc !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light .table-header {
+  background-color: #f7f4ed !important;
+  border-bottom: 1px solid #e5ded2 !important;
+  color: #78350f !important;
+  font-weight: 700 !important;
+}
+
+html.light .folder-group {
+  border: 1px solid #ebdccb !important;
+  background: #ffffff !important;
+  box-shadow: 0 2px 6px rgba(120, 53, 15, 0.04) !important;
+}
+
+html.light .folder-header {
+  background-color: #fcf9f2 !important;
+  color: #854d0e !important;
+}
+
+html.light .folder-header:hover {
+  background-color: #f5eedf !important;
+}
+
+html.light .folder-arrow {
+  color: #b45309 !important;
+}
+
+html.light .folder-name {
+  color: #451a03 !important;
+  font-weight: 700 !important;
+}
+
+html.light .folder-count {
+  color: #92400e !important;
+  background: #fef3c7 !important;
+  padding: 2px 10px !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+}
+
+html.light .table-row {
+  border-bottom-color: #eee4d5;
+}
+
+html.light .table-row:hover {
+  background-color: #f4ecdc;
+}
+
+html.light .file-text {
+  color: #1a1410;
+}
+
+html.light .file-col-cat,
+html.light .file-col-count {
+  color: #554433;
 }
 
 /* ==========================================
@@ -1036,244 +1060,7 @@ html.light .install-guide-text {
   .table-header span:nth-child(3) {
     display: none;
   }
-}
-/* ============================================================
-   🌟 Hero Banner (තද, පැහැදිලි Bold අකුරු සහිතව)
-   ============================================================ */
-.hero-banner {
-  position: relative;
-  background: linear-gradient(135deg, rgba(229, 169, 60, 0.15) 0%, var(--bg-surface) 100%);
-  border: 1.5px solid var(--accent-gold);
-  border-radius: 16px;
-  padding: 24px 28px;
-  margin: 24px 0 32px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  overflow: hidden;
-}
-
-.hero-banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 100%;
-  background: linear-gradient(180deg, #f5b942 0%, #b8860b 100%);
-}
-
-.hero-banner-content {
-  flex: 1;
-}
-
-.hero-banner-title {
-  font-family: var(--font-heading);
-  font-size: 1.7rem;
-  font-weight: 800; /* ඉතා තද අකුරු (Extra Bold) */
-  color: var(--accent-gold);
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  letter-spacing: 0.3px;
-}
-
-/* Hero Banner අකුරු Justify කිරීම */
-.hero-banner-desc {
-  text-align: justify !important;
-}
-
-/* Light Theme Banner එක වඩාත් පැහැදිලි කිරීම */
-html.light .hero-banner {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-  border-color: #d97706;
-  box-shadow: 0 8px 20px rgba(180, 83, 9, 0.12);
-}
-
-html.light .hero-banner-title {
-  color: #78350f;
-  font-weight: 800;
-}
-
-html.light .hero-banner-desc {
-  color: #332211;
-  font-weight: 600;
-}
-
-/* ============================================================
-   📚 PDF Files List Table & Folders (පැහැදිලි නවීන පෙනුම)
-   ============================================================ */
-.pdf-table {
-  background: var(--bg-surface);
-  border: 1.5px solid var(--border-color);
-  border-radius: 14px;
-  overflow: hidden;
-  margin-bottom: 50px;
-  padding: 8px 0;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-html.light .pdf-table {
-  border-color: #d1c7b7;
-  background: #ffffff;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-}
-
-/* Table Header - අකුරු පැහැදිලි සහ Bold කිරීම */
-.table-header {
-  display: grid;
-  grid-template-columns: 1fr 140px 100px 90px;
-  padding: 14px 22px;
-  background-color: var(--bg-table-header);
-  border-bottom: 1.5px solid var(--border-color);
-  color: var(--accent-gold);
-  font-size: 1rem;
-  font-weight: 800;
-  font-family: var(--font-heading);
-  letter-spacing: 0.5px;
-}
-
-html.light .table-header {
-  background-color: #ebdcb9;
-  border-bottom-color: #d5c39b;
-  color: #5c3a00; /* කියවීමට පහසු තද දුඹුරු රන්වන් පැහැය */
-  font-weight: 800;
-}
-
-/* Folder Row Styling */
-.folder-group {
-  margin: 10px 14px;
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  overflow: hidden;
-  background: var(--bg-surface);
-  transition: all 0.25s ease;
-}
-
-html.light .folder-group {
-  border-color: #e6dac3;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-}
-
-.folder-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 20px;
-  background-color: var(--bg-folder);
-  color: var(--accent-gold);
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 700;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.2s ease;
-}
-
-html.light .folder-header {
-  background-color: #f7ecd2;
-  color: #4a2e00;
-  font-weight: 700;
-}
-
-.folder-header:hover {
-  background-color: var(--bg-folder-hover);
-}
-
-html.light .folder-header:hover {
-  background-color: #efe0bf;
-}
-
-.folder-arrow {
-  font-size: 0.85rem;
-  color: var(--accent-gold);
-  width: 14px;
-}
-
-html.light .folder-arrow {
-  color: #78350f;
-}
-
-.folder-count {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  font-family: var(--font-ui);
-  margin-left: auto;
-}
-
-html.light .folder-count {
-  color: #614d31;
-}
-
-/* File List Rows (ඇතුළත ගොනු පෙළගැස්ම) */
-.folder-books {
-  display: none;
-  background: var(--bg-elevated);
-  border-top: 1px solid var(--border-color);
-}
-
-html.light .folder-books {
-  background: #fdfbf7;
-  border-top-color: #e5dac7;
-}
-
-.table-row {
-  display: grid;
-  grid-template-columns: 1fr 140px 100px 90px;
-  align-items: center;
-  padding: 13px 22px;
-  border-bottom: 1px solid var(--border-color);
-  text-decoration: none;
-  color: var(--text-main);
-  transition: background-color 0.15s ease;
-}
-
-html.light .table-row {
-  border-bottom-color: #eee4d5;
-}
-
-.table-row:last-child {
-  border-bottom: none;
-}
-
-.table-row:hover {
-  background-color: var(--bg-hover);
-}
-
-html.light .table-row:hover {
-  background-color: #f4ecdc;
-}
-
-.file-text {
-  font-size: 0.96rem;
-  font-weight: 600;
-  color: var(--text-bright);
-}
-
-html.light .file-text {
-  color: #1a1410;
-}
-
-.file-col-cat,
-.file-col-count {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-html.light .file-col-cat,
-html.light .file-col-count {
-  color: #554433;
-}
-
-.file-col-size {
-  font-family: var(--font-ui);
-  font-size: 0.95rem;
-  color: var(--accent-green);
-  text-align: right;
-  font-weight: 700;
+  .install-tabs {
+    grid-template-columns: 1fr;
+  }
 }
