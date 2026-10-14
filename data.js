@@ -59,7 +59,7 @@
       badgeType: "tag-gold",
       description: "අභිධර්ම මාතිකා සහ ධම්මසංගණී විග්‍රහයන් පහසුවෙන් කියවීමට සහ අධ්‍යයනය කිරීමට නිර්මාණය කළ සුවිශේෂී මෘදුකාංගයකි.",
       icon: BASE_URL + "/icons/matika.png",
-      apkUrl: "https://play.google.com/store/apps/details?id=app.vercel.matika_snowy.twa",
+      apkUrl: "https://apkpure.com/p/app.vercel.matika_snowy.twa",
       webUrl: "https://pavara9803-ctrl.github.io/Matika/",
       screenshots: [
         BASE_URL + "/screenshots/matika-1.webp",
@@ -103,7 +103,7 @@
       badgeType: "tag-blue",
       description: "පදරුපසිද්ධි ග්‍රන්ථය ඇසුරින් පාලි නාම, ආඛ්‍යාත පද සාධනයන් සහ ව්‍යාකරණ සූත්‍ර පහසුවෙන් හදාරන මෘදුකාංගය.",
       icon: BASE_URL + "/icons/ruoasiddhi.png",
-      apkUrl: "https://github.com/pavara9803-ctrl/Rupasiddhi/releases/latest/download/Rupasiddhi.apk",
+      apkUrl: "https://rupasiddhi.vercel.app/",
       webUrl: "https://rupasiddhi.vercel.app/",
       screenshots: [
         BASE_URL + "/screenshots/rupasiddhi-1.webp",
