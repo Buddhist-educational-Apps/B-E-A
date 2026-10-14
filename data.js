@@ -40,7 +40,7 @@
   }
 
   // ==========================================
-  // ⚠️ BASE URL - මෙතන වෙනස් කර ඇත
+  // BASE URL
   // ==========================================
   const BASE_URL = "https://buddhist-educational-apps.github.io/B-E-A";
 
@@ -96,7 +96,7 @@
       badgeType: "tag-blue",
       description: "පදරුපසිද්ධි ග්‍රන්ථය ඇසුරින් පාලි නාම හා ආඛ්‍යාත පද සාධනයන් හදාරන මෘදුකාංගය.",
       apkUrl: "https://github.com/pavara9803-ctrl/Rupasiddhi/releases/latest/download/Rupasiddhi.apk",
-      webUrl: "https:https://rupasiddhi.github.io/R-S/",
+      webUrl: "https://rupasiddhi.github.io/R-S/",
       screenshots: [
         BASE_URL + "/screenshots/rupasiddhi-1.webp",
         BASE_URL + "/screenshots/rupasiddhi-2.webp",
@@ -246,7 +246,7 @@
   }
 
   // ==========================================
-  // Apps Render කිරීම (Install Guide සමඟ)
+  // Apps Render කිරීම
   // ==========================================
   function renderApps(apps) {
     const container = document.getElementById("appsContainer");
@@ -263,7 +263,7 @@
           <div class="screenshots-scroll">
             ${app.screenshots.map((img, index) => `
               <img src="${img}" 
-                   alt="${app.title} - Screenshot ${index + 1}" 
+                   alt="${app.title} - Screenshot${index + 1}" 
                    class="screenshot-img"
                    width="220"
                    height="180"
@@ -352,7 +352,7 @@
   }
 
   // ==========================================
-  // Books Table Render කිරීම
+  // Books Table Render කිරීම (මුලින් Files සැඟවී තිබේ)
   // ==========================================
   function renderBooks(books) {
     const container = document.getElementById("pdfFileList");
@@ -378,7 +378,7 @@
           <span class="folder-name">${folderName}</span>
           <span class="folder-count">(${grouped[folderName].length} පොත්)</span>
         </div>
-        <div class="folder-books">
+        <div class="folder-books" style="display: none;">
           ${grouped[folderName].map(book => `
             <a href="${book.pdfUrl}" 
                class="table-row" 
@@ -400,7 +400,7 @@
   }
 
   // ==========================================
-  // ෆෝල්ඩරය විවෘත/වසා දැමීම
+  // ෆෝල්ඩරය විවෘත කිරීම සහ වැසීම
   // ==========================================
   function toggleFolder(headerElement) {
     const folderGroup = headerElement.parentElement;
@@ -412,11 +412,11 @@
     if (isOpen) {
       folderGroup.classList.remove("open");
       folderBooks.style.display = "none";
-      arrow.textContent = "▶";
+      if (arrow) arrow.textContent = "▶";
     } else {
       folderGroup.classList.add("open");
       folderBooks.style.display = "block";
-      arrow.textContent = "▼";
+      if (arrow) arrow.textContent = "▼";
     }
   }
 
