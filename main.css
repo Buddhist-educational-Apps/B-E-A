@@ -1,6 +1,7 @@
-/* ==========================================
-   Root Variables
-   ========================================== */
+/* ============================================================
+   බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග - Master Stylesheet (main.css)
+   ============================================================ */
+
 /* ==========================================
    Root Variables - DARK THEME (Default)
    ========================================== */
@@ -17,11 +18,11 @@ html.dark,
   --bg-folder: #1f1a10;
   --bg-folder-hover: #2a2314;
   --border-color: #2b2b2b;
-  --border-light: #333;
+  --border-light: #333333;
   --text-main: #e8e8e8;
   --text-bright: #ffffff;
   --text-muted: #8e8e8e;
-  --text-dim: #777;
+  --text-dim: #777777;
   --accent-gold: #e5a93c;
   --accent-green: #2ecc71;
   --accent-blue: #3498db;
@@ -33,7 +34,7 @@ html.dark,
 }
 
 /* ==========================================
-   ✅ LIGHT THEME - ආලෝකමත් තේමාව
+   Root Variables - LIGHT THEME (ආලෝකමත් තේමාව)
    ========================================== */
 :root.light,
 html.light,
@@ -58,6 +59,7 @@ html.light,
   --pdf-red: #c0392b;
   --shadow-color: rgba(0, 0, 0, 0.1);
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -75,6 +77,7 @@ body {
   font-family: var(--font-serif);
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -84,10 +87,10 @@ body {
 }
 
 /* ==========================================
-   Header
+   Site Header & Brand
    ========================================== */
 .site-header {
-  background-color: #181818;
+  background-color: var(--bg-surface);
   border-bottom: 1px solid var(--border-color);
   padding: 14px 0;
   position: sticky;
@@ -115,19 +118,47 @@ body {
   white-space: nowrap;
 }
 
-.search-box {
+/* Theme Toggle Button */
+.theme-toggle {
+  background-color: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent-gold);
+}
+
+/* ==========================================
+   Search Wrapper & Dropdown Results
+   ========================================== */
+.search-wrapper {
   flex: 1;
   max-width: 550px;
   position: relative;
 }
 
+.search-box {
+  position: relative;
+  width: 100%;
+}
+
 .search-box input {
   width: 100%;
-  background-color: #0d0d0d;
-  border: 1px solid #333;
-  border-radius: 6px;
-  padding: 9px 16px 9px 40px;
-  color: #fff;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  padding: 9px 40px 9px 40px;
+  color: var(--text-bright);
   font-family: var(--font-serif);
   font-size: 0.95rem;
   outline: none;
@@ -139,37 +170,21 @@ body {
 }
 
 .search-box input::placeholder {
-  color: #666;
+  color: var(--text-dim);
 }
 
 .search-icon {
   position: absolute;
-  left: 12px;
+  left: 14px;
   top: 50%;
   transform: translateY(-50%);
-  color: #777;
+  color: var(--text-dim);
   font-size: 1rem;
 }
 
-
-/* ==========================================
-   ✅ Search Wrapper + Dropdown Results
-   ========================================== */
-.search-wrapper {
-  flex: 1;
-  max-width: 550px;
-  position: relative;
-}
-
-.search-wrapper .search-box {
-  max-width: 100%;
-  width: 100%;
-}
-
-/* Clear Button */
 .search-clear {
   position: absolute;
-  right: 10px;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
   width: 24px;
@@ -180,12 +195,10 @@ body {
   color: var(--text-muted);
   font-size: 1.1rem;
   font-weight: 700;
-  line-height: 1;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
   transition: all 0.2s;
 }
 
@@ -198,7 +211,6 @@ body {
   display: none;
 }
 
-/* Search Results Dropdown */
 .search-results {
   position: absolute;
   top: calc(100% + 8px);
@@ -219,35 +231,22 @@ body {
 }
 
 @keyframes searchDropIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .search-results::-webkit-scrollbar {
   width: 6px;
 }
-
-.search-results::-webkit-scrollbar-track {
-  background: var(--bg-hover);
-}
-
 .search-results::-webkit-scrollbar-thumb {
   background: var(--accent-gold);
   border-radius: 3px;
 }
 
-/* Search Section */
 .search-section {
   padding: 8px 0;
   border-bottom: 1px solid var(--border-color);
 }
-
 .search-section:last-child {
   border-bottom: none;
 }
@@ -262,7 +261,6 @@ body {
   align-items: center;
   gap: 6px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 .search-section-count {
@@ -276,7 +274,6 @@ body {
   margin-left: auto;
 }
 
-/* Result Item */
 .search-result-item {
   display: flex;
   align-items: center;
@@ -285,18 +282,12 @@ body {
   text-decoration: none;
   color: var(--text-main);
   transition: background-color 0.15s;
-  cursor: pointer;
 }
 
 .search-result-item:hover {
   background: var(--bg-hover);
 }
 
-.search-result-item:active {
-  background: var(--border-color);
-}
-
-/* Result Icon */
 .search-result-icon {
   flex-shrink: 0;
   width: 38px;
@@ -318,7 +309,6 @@ body {
   border: 1px solid var(--pdf-red);
 }
 
-/* Result Content */
 .search-result-content {
   flex: 1;
   min-width: 0;
@@ -331,10 +321,7 @@ body {
   margin-bottom: 3px;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
+  white-space: nowrap;
 }
 
 .search-result-meta {
@@ -346,38 +333,6 @@ body {
   font-family: var(--font-ui);
 }
 
-.search-result-tag {
-  background: var(--bg-hover);
-  color: var(--text-muted);
-  padding: 1px 8px;
-  border-radius: 4px;
-  font-size: 0.68rem;
-}
-
-.search-result-type {
-  color: var(--accent-gold);
-  font-weight: 600;
-}
-
-.search-result-size {
-  color: var(--accent-green);
-  font-weight: 600;
-}
-
-/* Result Arrow */
-.search-result-arrow {
-  flex-shrink: 0;
-  color: var(--text-dim);
-  font-size: 1rem;
-  transition: transform 0.2s, color 0.2s;
-}
-
-.search-result-item:hover .search-result-arrow {
-  color: var(--accent-gold);
-  transform: translate(2px, -2px);
-}
-
-/* Highlight */
 .search-highlight {
   background: rgba(229, 169, 60, 0.35);
   color: var(--text-bright);
@@ -386,36 +341,66 @@ body {
   font-weight: 600;
 }
 
-html.light .search-highlight {
-  background: #fff3b8;
-  color: #6b4e00;
+/* ==========================================
+   Hero Banner (හැඳින්වීම බැනරයක් ලෙස)
+   ========================================== */
+.hero-banner {
+  position: relative;
+  background: linear-gradient(135deg, rgba(229, 169, 60, 0.12) 0%, var(--bg-surface) 100%);
+  border: 1px solid rgba(229, 169, 60, 0.35);
+  border-radius: 16px;
+  padding: 26px 28px;
+  margin: 24px 0 32px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
 }
 
-/* No Results */
-.search-no-results {
-  padding: 32px 20px;
-  text-align: center;
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent-gold) 0%, #b8860b 100%);
 }
 
-.search-no-results-icon {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  opacity: 0.6;
+.hero-banner-content {
+  flex: 1;
 }
 
-.search-no-results-text {
-  font-size: 0.95rem;
+.hero-banner-title {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  color: var(--accent-gold);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-banner-desc {
+  font-size: 0.96rem;
   color: var(--text-main);
-  margin-bottom: 6px;
-  font-weight: 600;
+  line-height: 1.7;
 }
 
-.search-no-results-hint {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  font-family: var(--font-ui);
+.hero-banner-badge {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  background: rgba(229, 169, 60, 0.1);
+  border: 1px dashed var(--accent-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
 }
-
 
 /* ==========================================
    Section Titles
@@ -431,1421 +416,8 @@ html.light .search-highlight {
 }
 
 /* ==========================================
-   Apps Grid
+   Apps Grid & Google Play Store Cards
    ========================================== */
-.apps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 16px;
-  margin-bottom: 35px;
-}
-
-.app-box {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 20px;
-  transition: transform 0.2s, border-color 0.2s;
-}
-
-.app-box:hover {
-  border-color: var(--accent-gold);
-  transform: translateY(-2px);
-}
-
-.app-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 10px;
-  gap: 10px;
-}
-
-.app-title {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  color: #fff;
-  line-height: 1.3;
-}
-
-.tag {
-  font-size: 0.8rem;
-  padding: 3px 10px;
-  border-radius: 4px;
-  font-family: var(--font-ui);
-  white-space: nowrap;
-  font-weight: 600;
-}
-
-.tag-gold {
-  background: #3d2f13;
-  color: var(--accent-gold);
-}
-
-.tag-blue {
-  background: #153248;
-  color: var(--accent-blue);
-}
-
-.app-desc {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  margin-bottom: 18px;
-  line-height: 1.6;
-}
-
-.app-actions {
-  display: flex;
-  gap: 10px;
-}
-
-.btn-apk {
-  flex: 1.2;
-  background-color: #1e4620;
-  color: #72f07b;
-  border: 1px solid #2e7d32;
-  padding: 10px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: 0.2s;
-  font-family: var(--font-serif);
-  cursor: pointer;
-}
-
-.btn-apk:hover {
-  background-color: #255d28;
-  color: #fff;
-}
-
-.btn-web {
-  flex: 1;
-  background-color: #262626;
-  color: #ddd;
-  border: 1px solid #3d3d3d;
-  padding: 10px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.88rem;
-  text-align: center;
-  transition: 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-serif);
-  cursor: pointer;
-}
-
-.btn-web:hover {
-  background-color: #333;
-  color: #fff;
-}
-
-/* ==========================================
-   App Screenshots
-   ========================================== */
-.app-screenshots {
-  margin: 14px 0;
-  border-top: 1px solid var(--border-color);
-  padding-top: 14px;
-}
-
-.screenshots-scroll {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-gold) var(--bg-hover);
-  scroll-behavior: smooth;
-}
-
-.screenshots-scroll::-webkit-scrollbar {
-  height: 6px;
-}
-
-.screenshots-scroll::-webkit-scrollbar-track {
-  background: var(--bg-hover);
-  border-radius: 3px;
-}
-
-.screenshots-scroll::-webkit-scrollbar-thumb {
-  background: var(--accent-gold);
-  border-radius: 3px;
-}
-
-.screenshot-img {
-  height: 180px;
-  width: auto;
-  max-width: 220px;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  cursor: pointer;
-  transition: transform 0.2s, border-color 0.2s;
-  flex-shrink: 0;
-  object-fit: cover;
-  display: block;
-}
-
-.screenshot-img:hover {
-  transform: scale(1.05);
-  border-color: var(--accent-gold);
-}
-
-/* ==========================================
-   Lightbox
-   ========================================== */
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.92);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 20px;
-  cursor: zoom-out;
-  animation: lightboxFadeIn 0.2s ease-out;
-}
-
-@keyframes lightboxFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.lightbox-img {
-  max-width: 90%;
-  max-height: 80vh;
-  border-radius: 10px;
-  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
-  border: 2px solid var(--accent-gold);
-}
-
-.lightbox-caption {
-  color: var(--accent-gold);
-  margin-top: 16px;
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  text-align: center;
-}
-
-.lightbox-close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 44px;
-  color: #fff;
-  cursor: pointer;
-  font-weight: 300;
-  line-height: 1;
-  transition: color 0.2s;
-  background: none;
-  border: none;
-}
-
-.lightbox-close:hover {
-  color: var(--accent-gold);
-}
-
-/* ==========================================
-   PDF Files List Table
-   ========================================== */
-.pdf-table {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 50px;
-}
-
-.table-header {
-  display: grid;
-  grid-template-columns: 1fr 140px 100px 90px;
-  padding: 12px 18px;
-  background-color: #121212;
-  border-bottom: 1px solid var(--border-color);
-  color: var(--accent-gold);
-  font-size: 0.95rem;
-  font-family: var(--font-heading);
-}
-
-.table-row {
-  display: grid;
-  grid-template-columns: 1fr 140px 100px 90px;
-  align-items: center;
-  padding: 12px 18px;
-  border-bottom: 1px solid #242424;
-  text-decoration: none;
-  color: var(--text-main);
-  transition: background-color 0.15s;
-}
-
-.table-row:last-child {
-  border-bottom: none;
-}
-
-.table-row:hover {
-  background-color: var(--bg-hover);
-}
-
-.file-col-title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-right: 15px;
-}
-
-.pdf-badge {
-  background-color: var(--pdf-red);
-  color: #ffffff;
-  font-size: 0.68rem;
-  font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 3px;
-  letter-spacing: 0.5px;
-  flex-shrink: 0;
-}
-
-.file-text {
-  font-size: 0.95rem;
-  color: #e0e0e0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.file-col-cat {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.file-col-count {
-  font-family: var(--font-ui);
-  font-size: 0.95rem;
-  color: var(--text-muted);
-}
-
-.file-col-size {
-  font-family: var(--font-ui);
-  font-size: 0.95rem;
-  color: var(--accent-green);
-  text-align: right;
-  font-weight: 600;
-}
-
-/* ==========================================
-   Folder Groups (Collapsible)
-   ========================================== */
-.folder-group {
-  margin: 12px 16px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  overflow: hidden;
-  background: var(--bg-surface);
-  transition: box-shadow 0.2s;
-}
-
-.folder-group.open {
-  box-shadow: 0 4px 16px rgba(229, 169, 60, 0.15);
-}
-
-.folder-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 18px;
-  background-color: #1f1a10;
-  font-family: var(--font-heading);
-  color: var(--accent-gold);
-  font-size: 1.1rem;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.2s;
-}
-
-.folder-header:hover {
-  background-color: #2a2314;
-}
-
-.folder-arrow {
-  font-size: 0.85rem;
-  color: var(--accent-gold);
-  display: inline-block;
-  width: 14px;
-  transition: transform 0.2s;
-}
-
-.folder-icon {
-  font-size: 1.3rem;
-}
-
-.folder-name {
-  font-weight: 600;
-}
-
-.folder-count {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  font-family: var(--font-ui);
-  margin-left: auto;
-}
-
-.folder-books {
-  display: none;
-  background: var(--bg-surface);
-  border-top: 1px solid var(--border-color);
-}
-
-.folder-books .table-row {
-  padding-left: 30px;
-}
-
-/* ==========================================
-   Install Guide (App Card ඇතුළත)
-   ========================================== */
-.install-guide {
-  margin-top: 16px;
-  border-top: 1px solid var(--border-color);
-  padding-top: 14px;
-}
-
-.install-guide-toggle {
-  width: 100%;
-  background: linear-gradient(135deg, #1f1a10 0%, #2a2314 100%);
-  border: 1px solid var(--accent-gold);
-  color: var(--accent-gold);
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: all 0.2s;
-}
-
-.install-guide-toggle:hover {
-  background: linear-gradient(135deg, #2a2314 0%, #332b1a 100%);
-  transform: translateY(-1px);
-}
-
-.install-guide-icon {
-  font-size: 1.2rem;
-}
-
-.install-guide-text {
-  flex: 1;
-  text-align: left;
-}
-
-.install-guide-arrow {
-  font-size: 0.85rem;
-  transition: transform 0.2s;
-}
-
-.install-guide-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  background: #0f0f0f;
-  border-radius: 0 0 8px 8px;
-  margin-top: -4px;
-}
-
-.install-guide-content.open {
-  max-height: 900px;
-  padding: 16px;
-  border: 1px solid var(--border-color);
-  border-top: none;
-}
-
-/* Tabs */
-.install-tabs {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-}
-
-.install-tab {
-  flex: 1;
-  min-width: 110px;
-  background: #1a1a1a;
-  border: 1px solid #333;
-  color: var(--text-muted);
-  padding: 9px 12px;
-  border-radius: 6px;
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-
-.install-tab:hover {
-  background: #242424;
-  color: var(--text-main);
-  border-color: #555;
-}
-
-.install-tab.active {
-  background: var(--accent-gold);
-  color: #1a1a1a;
-  border-color: var(--accent-gold);
-  font-weight: 700;
-}
-
-/* Panels */
-.install-panel {
-  display: none;
-  animation: fadeIn 0.3s ease-out;
-}
-
-.install-panel.active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Steps */
-.install-steps {
-  list-style: none;
-  counter-reset: step-counter;
-  padding: 0;
-  margin: 0 0 14px 0;
-}
-
-.install-steps li {
-  counter-increment: step-counter;
-  position: relative;
-  padding: 10px 10px 10px 44px;
-  margin-bottom: 8px;
-  background: #151515;
-  border-radius: 6px;
-  border-left: 3px solid var(--accent-gold);
-  color: var(--text-main);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.install-steps li::before {
-  content: counter(step-counter);
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 22px;
-  height: 22px;
-  background: var(--accent-gold);
-  color: #1a1a1a;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-ui);
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-
-.install-steps li strong {
-  color: var(--accent-gold);
-}
-
-/* Tip Box */
-.install-tip {
-  background: rgba(52, 152, 219, 0.1);
-  border-left: 3px solid var(--accent-blue);
-  padding: 10px 14px;
-  border-radius: 6px;
-  font-size: 0.83rem;
-  color: #a8d5f0;
-  line-height: 1.6;
-}
-
-.install-tip strong {
-  color: var(--accent-blue);
-}
-
-/* ==========================================
-   PWA Install Section
-   ========================================== */
-.pwa-install-section {
-  margin: 20px 0 30px;
-}
-
-.pwa-install-section.hidden {
-  display: none;
-}
-
-.pwa-install-card {
-  background: linear-gradient(135deg, #1f1a10 0%, #2a2314 100%);
-  border: 2px solid var(--accent-gold);
-  border-radius: 12px;
-  padding: 22px;
-  display: flex;
-  gap: 18px;
-  align-items: center;
-  box-shadow: 0 4px 20px rgba(229, 169, 60, 0.15);
-  animation: installPulse 2.5s ease-in-out infinite;
-}
-
-@keyframes installPulse {
-  0%, 100% { box-shadow: 0 4px 20px rgba(229, 169, 60, 0.15); }
-  50% { box-shadow: 0 4px 30px rgba(229, 169, 60, 0.35); }
-}
-
-.pwa-install-icon {
-  flex-shrink: 0;
-  width: 70px;
-  height: 70px;
-  background: rgba(229, 169, 60, 0.15);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.2rem;
-  border: 2px solid var(--accent-gold);
-}
-
-.pwa-install-content {
-  flex: 1;
-}
-
-.pwa-install-title {
-  font-family: var(--font-heading);
-  color: var(--accent-gold);
-  font-size: 1.25rem;
-  margin-bottom: 6px;
-}
-
-.pwa-install-desc {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin-bottom: 14px;
-  line-height: 1.5;
-}
-
-.pwa-install-btn {
-  background: var(--accent-gold);
-  color: #1a1a1a;
-  border: none;
-  padding: 11px 24px;
-  border-radius: 8px;
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.2s;
-  box-shadow: 0 4px 12px rgba(229, 169, 60, 0.3);
-}
-
-.pwa-install-btn:hover {
-  background: #f4c060;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(229, 169, 60, 0.45);
-}
-
-.pwa-install-note {
-  font-size: 0.78rem;
-  color: #777;
-  margin-top: 12px;
-  line-height: 1.6;
-  font-family: var(--font-ui);
-}
-
-/* ==========================================
-   Install Instructions Modal
-   ========================================== */
-.install-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-  padding: 20px;
-  animation: fadeIn 0.2s ease-out;
-}
-
-.install-modal-content {
-  background: var(--bg-surface);
-  border: 2px solid var(--accent-gold);
-  border-radius: 14px;
-  padding: 28px;
-  max-width: 480px;
-  width: 100%;
-  position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-.install-modal-content h3 {
-  font-family: var(--font-heading);
-  color: var(--accent-gold);
-  font-size: 1.3rem;
-  margin-bottom: 16px;
-}
-
-.install-modal-content ol {
-  padding-left: 22px;
-  margin-bottom: 16px;
-}
-
-.install-modal-content ol li {
-  color: var(--text-main);
-  margin-bottom: 10px;
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-.install-modal-content ol li strong {
-  color: var(--accent-gold);
-}
-
-.install-modal-content .note {
-  background: rgba(229, 169, 60, 0.1);
-  border-left: 3px solid var(--accent-gold);
-  padding: 10px 14px;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 16px;
-}
-
-.install-modal-close {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  background: none;
-  border: none;
-  color: #888;
-  font-size: 28px;
-  cursor: pointer;
-  line-height: 1;
-}
-
-.install-modal-close:hover {
-  color: var(--accent-gold);
-}
-
-.install-modal-btn {
-  width: 100%;
-  background: var(--accent-gold);
-  color: #1a1a1a;
-  border: none;
-  padding: 12px;
-  border-radius: 8px;
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.install-modal-btn:hover {
-  background: #f4c060;
-}
-
-/* ==========================================
-   Install Success Toast
-   ========================================== */
-.install-success-toast {
-  position: fixed;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #2ecc71;
-  color: #0d2818;
-  padding: 14px 24px;
-  border-radius: 10px;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1rem;
-  box-shadow: 0 8px 30px rgba(46, 204, 113, 0.5);
-  z-index: 3000;
-  transition: opacity 0.3s ease;
-  animation: slideDown 0.3s ease-out;
-  max-width: 90%;
-  text-align: center;
-}
-
-@keyframes slideDown {
-  from { opacity: 0; transform: translate(-50%, -20px); }
-  to { opacity: 1; transform: translate(-50%, 0); }
-}
-
-/* ==========================================
-   Mobile ප්‍රතිචාරාත්මක (768px)
-   ========================================== */
-@media (max-width: 768px) {
-  .table-header,
-  .table-row {
-    grid-template-columns: 1fr 80px;
-  }
-
-  .file-col-cat,
-  .file-col-count,
-  .table-header span:nth-child(2),
-  .table-header span:nth-child(3) {
-    display: none;
-  }
-
-  .screenshot-img {
-    height: 140px;
-    max-width: 170px;
-  }
-
-  .lightbox-close {
-    top: 10px;
-    right: 15px;
-    font-size: 36px;
-  }
-
-  .app-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
-
-  .app-actions {
-    flex-direction: column;
-  }
-
-  .btn-apk,
-  .btn-web {
-    width: 100%;
-  }
-
-  .header-inner {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .search-box {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .folder-header {
-    font-size: 1rem;
-    padding: 12px 14px;
-  }
-
-  .folder-count {
-    font-size: 0.75rem;
-  }
-
-  .folder-books .table-row {
-    padding-left: 20px;
-  }
-
-  /* Install Guide Mobile */
-  .install-tab {
-    flex: 1 1 100%;
-    min-width: 0;
-    font-size: 0.85rem;
-    padding: 10px;
-  }
-
-  .install-steps li {
-    font-size: 0.85rem;
-    padding: 9px 9px 9px 40px;
-  }
-
-  .install-steps li::before {
-    width: 20px;
-    height: 20px;
-    left: 10px;
-    font-size: 0.75rem;
-  }
-
-  .install-guide-toggle {
-    font-size: 0.92rem;
-    padding: 10px 12px;
-  }
-
-  .install-guide-content.open {
-    padding: 12px;
-  }
-
-  /* PWA Mobile */
-  .pwa-install-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .pwa-install-icon {
-    width: 60px;
-    height: 60px;
-    font-size: 1.8rem;
-  }
-
-  .pwa-install-btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .install-modal-content {
-    padding: 22px 18px;
-  }
-
-  .install-success-toast {
-    font-size: 0.9rem;
-    padding: 12px 18px;
-  }
-}
-
-/* ==========================================
-   Small Mobile ප්‍රතිචාරාත්මක (480px)
-   ========================================== */
-@media (max-width: 480px) {
-  .container {
-    padding: 0 14px;
-  }
-
-  .brand {
-    font-size: 1.2rem;
-  }
-
-  .section-title {
-    font-size: 1.15rem;
-  }
-
-  .app-title {
-    font-size: 1.15rem;
-  }
-
-  .app-box {
-    padding: 16px;
-  }
-
-  .screenshot-img {
-    height: 120px;
-    max-width: 150px;
-  }
-
-  .install-steps li {
-    font-size: 0.82rem;
-    padding: 8px 8px 8px 36px;
-  }
-
-  .install-steps li::before {
-    width: 18px;
-    height: 18px;
-    left: 9px;
-    font-size: 0.7rem;
-  }
-
-  .install-tip {
-    font-size: 0.78rem;
-    padding: 9px 11px;
-  }
-
-  .folder-group {
-    margin: 8px 10px;
-  }
-
-  .table-row {
-    padding: 10px 14px;
-  }
-
-  .file-text {
-    font-size: 0.85rem;
-  }
-
-  .pdf-badge {
-    font-size: 0.6rem;
-    padding: 2px 5px;
-  }
-}
-
-/* ==========================================
-   Print Styles
-   ========================================== */
-@media print {
-  .site-header,
-  .app-actions,
-  .install-guide,
-  .pwa-install-section {
-    display: none !important;
-  }
-
-  body {
-    background: white;
-    color: black;
-  }
-}
-
-/* ==========================================
-   Accessibility - Focus Styles
-   ========================================== */
-button:focus-visible,
-a:focus-visible,
-input:focus-visible {
-  outline: 2px solid var(--accent-gold);
-  outline-offset: 2px;
-}
-
-/* ==========================================
-   Reduced Motion
-   ========================================== */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-/* ==========================================
-   ✅ Light Theme විශේෂ නිවැරදි කිරීම්
-   ========================================== */
-
-/* Header පසුබිම් */
-html.light .site-header {
-  background-color: #ffffff;
-  border-bottom-color: #e5dfd0;
-}
-
-/* Search input */
-html.light .search-box input {
-  background-color: #ffffff;
-  border-color: #ddd7c8;
-  color: #2c2416;
-}
-
-html.light .search-box input::placeholder {
-  color: #999080;
-}
-
-/* Search icon */
-html.light .search-icon {
-  color: #999080;
-}
-
-/* App title */
-html.light .app-title {
-  color: #1a1410;
-}
-
-/* App tags */
-html.light .tag-gold {
-  background: #f5e6c8;
-  color: #8a6d00;
-}
-
-html.light .tag-blue {
-  background: #d6e8f5;
-  color: #1e5a8a;
-}
-
-/* APK button */
-html.light .btn-apk {
-  background-color: #d4edda;
-  color: #145a1f;
-  border-color: #a8d5b5;
-}
-
-html.light .btn-apk:hover {
-  background-color: #b8e0c0;
-  color: #0d2818;
-}
-
-/* Web button */
-html.light .btn-web {
-  background-color: #f0ede6;
-  color: #2c2416;
-  border-color: #ddd7c8;
-}
-
-html.light .btn-web:hover {
-  background-color: #e5dfd0;
-  color: #1a1410;
-}
-
-/* Table header */
-html.light .table-header {
-  background-color: #ebe7dd;
-}
-
-/* Table row hover */
-html.light .table-row:hover {
-  background-color: #f0ede6;
-}
-
-/* File text */
-html.light .file-text {
-  color: #2c2416;
-}
-
-/* Folder header */
-html.light .folder-header {
-  background-color: #f5edd8;
-  color: #8a6d00;
-}
-
-html.light .folder-header:hover {
-  background-color: #f0e5c8;
-}
-
-/* Install guide toggle */
-html.light .install-guide-toggle {
-  background: linear-gradient(135deg, #f5edd8 0%, #ebe0c4 100%);
-  color: #8a6d00;
-}
-
-html.light .install-guide-toggle:hover {
-  background: linear-gradient(135deg, #ebe0c4 0%, #e0d3b0 100%);
-}
-
-/* Install guide content */
-html.light .install-guide-content {
-  background: #faf8f3;
-}
-
-/* Install steps */
-html.light .install-steps li {
-  background: #f0ede6;
-  color: #2c2416;
-}
-
-html.light .install-steps li strong {
-  color: #8a6d00;
-}
-
-html.light .install-steps li::before {
-  background: #b8860b;
-  color: #ffffff;
-}
-
-/* Install tabs */
-html.light .install-tab {
-  background: #f0ede6;
-  border-color: #ddd7c8;
-  color: #6b6255;
-}
-
-html.light .install-tab:hover {
-  background: #ebe7dd;
-  color: #2c2416;
-}
-
-html.light .install-tab.active {
-  background: #b8860b;
-  color: #ffffff;
-  border-color: #b8860b;
-}
-
-/* Install tip */
-html.light .install-tip {
-  background: rgba(40, 116, 166, 0.12);
-  color: #1e5a8a;
-}
-
-/* Screenshot hover */
-html.light .screenshot-img:hover {
-  border-color: #b8860b;
-}
-
-/* Lightbox caption */
-html.light .lightbox-caption {
-  color: #f4c060;
-}
-
-/* Theme Toggle Button */
-html.light .theme-toggle {
-  background-color: #f0ede6;
-  border-color: #ddd7c8;
-  color: #2c2416;
-}
-
-html.light .theme-toggle:hover {
-  background-color: #b8860b;
-  border-color: #b8860b;
-  color: #ffffff;
-}
-
-/* Search clear button */
-html.light .search-clear {
-  background: #f0ede6;
-  color: #6b6255;
-}
-
-html.light .search-clear:hover {
-  background: #b8860b;
-  color: #ffffff;
-}
-
-/* Search results dropdown */
-html.light .search-results {
-  background: #ffffff;
-  border-color: #ddd7c8;
-}
-
-html.light .search-result-item:hover {
-  background: #f0ede6;
-}
-
-html.light .search-result-title {
-  color: #1a1410;
-}
-
-html.light .search-result-tag {
-  background: #f0ede6;
-  color: #6b6255;
-}
-
-html.light .search-section-title {
-  color: #b8860b;
-}
-
-/* Search scrollbar */
-html.light .search-results::-webkit-scrollbar-track {
-  background: #f0ede6;
-}
-
-/* Smooth transitions */
-html, body,
-.site-header,
-.app-box,
-.pdf-table,
-.table-row,
-.folder-group,
-.folder-header,
-.search-box input,
-.search-results,
-.theme-toggle {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-/* ============================================================
-   Google Play Store Card Styling
-   ============================================================ */
-.apps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  gap: 22px;
-  margin-bottom: 40px;
-}
-
-.playstore-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.playstore-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent-gold);
-  box-shadow: 0 8px 24px rgba(229, 169, 60, 0.15);
-}
-
-/* Play Store Header */
-.playstore-header {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  margin-bottom: 14px;
-}
-
-.playstore-app-icon {
-  width: 68px;
-  height: 68px;
-  border-radius: 16px;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--border-color);
-  flex-shrink: 0;
-  background: #1a1a1a;
-}
-
-.playstore-header-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.playstore-app-title {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-bright);
-  line-height: 1.3;
-  margin-bottom: 4px;
-}
-
-.playstore-developer {
-  font-size: 0.82rem;
-  color: var(--accent-green);
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-/* Play Store Meta Row (Rating, Downloads, Category) */
-.playstore-meta-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 10px 0;
-  margin-bottom: 12px;
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
-}
-
-.playstore-meta-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.playstore-meta-val {
-  font-family: var(--font-ui);
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--text-bright);
-  display: flex;
-  align-items: center;
-  gap: 3px;
-}
-
-.playstore-meta-val .star {
-  color: #f1c40f;
-  font-size: 0.85rem;
-}
-
-.playstore-meta-lbl {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-}
-
-.playstore-meta-divider {
-  width: 1px;
-  height: 24px;
-  background-color: var(--border-color);
-}
-
-/* Play Store Buttons */
-.playstore-actions {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-
-.btn-playstore-install {
-  flex: 1.3;
-  background: linear-gradient(135deg, #01875f 0%, #00694a 100%);
-  color: #ffffff;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: all 0.2s;
-  box-shadow: 0 4px 10px rgba(1, 135, 95, 0.3);
-}
-
-.btn-playstore-install:hover {
-  background: #019e70;
-  transform: translateY(-1px);
-  color: #fff;
-}
-
-.btn-playstore-web {
-  flex: 1;
-  background: var(--bg-hover);
-  color: var(--text-main);
-  border: 1px solid var(--border-color);
-  padding: 10px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-}
-
-.btn-playstore-web:hover {
-  border-color: var(--accent-gold);
-  color: var(--accent-gold);
-}
-
-/* Screenshots Preview */
-.playstore-screenshots {
-  margin-bottom: 12px;
-}
-
-.playstore-screenshots-scroll {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 6px;
-  scrollbar-width: thin;
-}
-
-.playstore-screenshot-img {
-  height: 180px;
-  width: auto;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  cursor: pointer;
-  flex-shrink: 0;
-  object-fit: cover;
-  transition: transform 0.2s;
-}
-
-.playstore-screenshot-img:hover {
-  transform: scale(1.03);
-  border-color: var(--accent-gold);
-}
-
-/* About App Description */
-.playstore-about {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.55;
-  margin-bottom: 12px;
-}
-/* ============================================================
-   Interactive App Card (Collapsed by Default, Expand on Click)
-   ============================================================ */
 .apps-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1874,7 +446,7 @@ html, body,
   box-shadow: 0 8px 28px rgba(229, 169, 60, 0.2);
 }
 
-/* Card Summary Header (නිතරම දිස්වන කොටස) */
+/* Card Summary Header (මුලින් පෙනෙන කොටස) */
 .playstore-summary {
   display: flex;
   gap: 14px;
@@ -1922,7 +494,6 @@ html, body,
   gap: 4px;
 }
 
-/* Expand Arrow */
 .card-expand-arrow {
   font-size: 0.85rem;
   color: var(--accent-gold);
@@ -1934,7 +505,7 @@ html, body,
   transform: rotate(180deg);
 }
 
-/* ඇතුළත තොරතුරු (ක්ලික් කළ විට පමණක් දිගහැරෙන කොටස) */
+/* ක්ලික් කළ පසු දිගහැරෙන කොටස */
 .playstore-details {
   display: none;
   margin-top: 14px;
@@ -1952,7 +523,7 @@ html, body,
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Play Store Stats Row */
+/* Stats Row */
 .playstore-meta-row {
   display: flex;
   align-items: center;
@@ -1991,7 +562,7 @@ html, body,
   background-color: var(--border-color);
 }
 
-/* Buttons */
+/* Action Buttons (APK, Web, Share) */
 .playstore-actions {
   display: flex;
   gap: 10px;
@@ -2013,6 +584,12 @@ html, body,
   justify-content: center;
   gap: 6px;
   box-shadow: 0 4px 10px rgba(1, 135, 95, 0.3);
+  cursor: pointer;
+}
+
+.btn-playstore-install:hover {
+  background: #019e70;
+  color: #fff;
 }
 
 .btn-playstore-web {
@@ -2030,7 +607,41 @@ html, body,
   justify-content: center;
 }
 
-/* Screenshots */
+.btn-playstore-web:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.btn-playstore-share {
+  background: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  color: var(--text-bright);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-playstore-share:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background: rgba(229, 169, 60, 0.15);
+}
+
+.playstore-about {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* Screenshots Preview */
 .playstore-screenshots {
   margin-bottom: 14px;
 }
@@ -2040,20 +651,342 @@ html, body,
   gap: 10px;
   overflow-x: auto;
   padding-bottom: 6px;
+  scrollbar-width: thin;
 }
 
 .playstore-screenshot-img {
   height: 175px;
+  width: auto;
   border-radius: 8px;
   border: 1px solid var(--border-color);
   cursor: pointer;
   object-fit: cover;
   flex-shrink: 0;
+  transition: transform 0.2s ease;
 }
 
-.playstore-about {
+.playstore-screenshot-img:hover {
+  transform: scale(1.03);
+  border-color: var(--accent-gold);
+}
+
+/* ==========================================
+   Install Guide
+   ========================================== */
+.install-guide {
+  margin-top: 10px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 12px;
+}
+
+.install-guide-toggle {
+  width: 100%;
+  background: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  color: var(--accent-gold);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.install-guide-text {
+  flex: 1;
+  text-align: left;
+}
+
+.install-guide-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  background: var(--bg-input);
+  border-radius: 0 0 8px 8px;
+}
+
+.install-guide-content.open {
+  max-height: 900px;
+  padding: 14px;
+  border: 1px solid var(--border-color);
+  border-top: none;
+}
+
+.install-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.install-tab {
+  flex: 1;
+  min-width: 90px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.install-tab.active {
+  background: var(--accent-gold);
+  color: #1a1a1a;
+  border-color: var(--accent-gold);
+  font-weight: 700;
+}
+
+.install-panel {
+  display: none;
+}
+.install-panel.active {
+  display: block;
+}
+
+.install-steps {
+  list-style: none;
+  counter-reset: step-counter;
+  padding: 0;
+  margin: 0;
+}
+
+.install-steps li {
+  counter-increment: step-counter;
+  position: relative;
+  padding: 8px 10px 8px 38px;
+  margin-bottom: 6px;
+  background: var(--bg-surface);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent-gold);
+  color: var(--text-main);
+  font-size: 0.88rem;
+}
+
+.install-steps li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--accent-gold);
+  color: #1a1a1a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* ==========================================
+   PDF Table & Folders
+   ========================================== */
+.pdf-table {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 50px;
+  padding: 6px 0;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 1fr 140px 100px 90px;
+  padding: 12px 18px;
+  background-color: var(--bg-table-header);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--accent-gold);
+  font-size: 0.95rem;
+  font-family: var(--font-heading);
+}
+
+.folder-group {
+  margin: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-surface);
+}
+
+.folder-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  background-color: var(--bg-folder);
+  color: var(--accent-gold);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.folder-header:hover {
+  background-color: var(--bg-folder-hover);
+}
+
+.folder-arrow {
+  font-size: 0.85rem;
+  width: 14px;
+}
+
+.folder-count {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--font-ui);
+  margin-left: auto;
+}
+
+.folder-books {
+  display: none;
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-color);
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 1fr 140px 100px 90px;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border-color);
+  text-decoration: none;
+  color: var(--text-main);
+  transition: background-color 0.15s;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-row:hover {
+  background-color: var(--bg-hover);
+}
+
+.file-col-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 15px;
+}
+
+.pdf-badge {
+  background-color: var(--pdf-red);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.file-text {
+  font-size: 0.95rem;
+  color: var(--text-bright);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-col-cat,
+.file-col-count {
   font-size: 0.9rem;
   color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 12px;
+}
+
+.file-col-size {
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  color: var(--accent-green);
+  text-align: right;
+  font-weight: 600;
+}
+
+/* ==========================================
+   Lightbox
+   ========================================== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  cursor: zoom-out;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  border: 2px solid var(--accent-gold);
+}
+
+.lightbox-caption {
+  color: var(--accent-gold);
+  margin-top: 14px;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* ==========================================
+   Mobile Responsive
+   ========================================== */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .search-wrapper {
+    max-width: 100%;
+  }
+  .hero-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 16px;
+  }
+  .hero-banner::before {
+    width: 100%;
+    height: 4px;
+  }
+  .hero-banner-badge {
+    display: none;
+  }
+  .playstore-actions {
+    flex-direction: column;
+  }
+  .table-header,
+  .table-row {
+    grid-template-columns: 1fr 80px;
+  }
+  .file-col-cat,
+  .file-col-count,
+  .table-header span:nth-child(2),
+  .table-header span:nth-child(3) {
+    display: none;
+  }
 }

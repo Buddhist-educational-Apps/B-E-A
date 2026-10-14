@@ -51,7 +51,7 @@
     {
       id: 1,
       title: "අභිධර්ම මාතිකා (Matika)",
-      developer: "B.E.A • බෞද්ධ අධ්‍යාපනය",
+      developer: "B.E.D • බෞද්ධ අධ්‍යාපනය",
       category: "අභිධර්මය",
       rating: "4.9",
       reviews: "100+",
@@ -95,7 +95,7 @@
     {
       id: 2,
       title: "රූපසිද්ධි (Rupasiddhi)",
-      developer: "B.E.A • පාලි ව්‍යාකරණ",
+      developer: "B.E.D • පාලි ව්‍යාකරණ",
       category: "පාලි භාෂාව",
       rating: "4.8",
       reviews: "50+",
@@ -139,7 +139,7 @@
     {
       id: 3,
       title: "බෞද්ධ වර්ෂය (Buddhist Era)",
-      developer: "B.C • දින දර්ශන",
+      developer: "B.E.D • දින දර්ශන",
       category: "දින දර්ශනය",
       rating: "4.9",
       reviews: "30+",
@@ -330,7 +330,7 @@
   }
 
   // ==========================================
-  // Apps Render කිරීම (ක්ලික් කළ පසු තොරතුරු දිගහැරීම)
+  // Apps Render කිරීම (Play Store Layout + Share Button)
   // ==========================================
   function renderApps(apps) {
     const container = document.getElementById("appsContainer");
@@ -434,6 +434,7 @@
               </div>
             </div>
 
+            <!-- Buttons: APK, Web, සහ Share -->
             <div class="playstore-actions">
               <a href="${app.apkUrl}" ${app.apkUrl.endsWith('.apk') ? 'download' : 'target="_blank" rel="noopener noreferrer"'} class="btn-playstore-install" onclick="event.stopPropagation()">
                 <span>📥</span> ${buttonLabel}
@@ -441,6 +442,9 @@
               <a href="${app.webUrl}" target="_blank" rel="noopener noreferrer" class="btn-playstore-web" onclick="event.stopPropagation()">
                 Online භාවිතය ↗
               </a>
+              <button type="button" class="btn-playstore-share" onclick="event.stopPropagation(); shareApp('${app.title}', '${app.webUrl}')" title="යෙදුම බෙදාගන්න">
+                <span>🔗</span> ශෙයා
+              </button>
             </div>
 
             <p class="playstore-about">${app.description}</p>
@@ -450,6 +454,26 @@
         </div>
       `;
     }).join("");
+  }
+
+  // ==========================================
+  // Share Functionality (Web Share API / Copy Link)
+  // ==========================================
+  function shareApp(title, url) {
+    if (navigator.share) {
+      navigator.share({
+        title: title,
+        text: `${title} - බෞද්ධ අධ්‍යාපනික මෘදුකාංගය:`,
+        url: url
+      }).catch(() => {});
+    } else {
+      // Browser එකේ Web Share නොමැති නම් Link එක Copy කර පෙන්වීම
+      navigator.clipboard.writeText(url).then(() => {
+        alert(`"${title}" යෙදුමේ සබැඳිය Copy කරගන්නා ලදී!`);
+      }).catch(() => {
+        prompt("මෙම සබැඳිය පිටපත් කරගන්න:", url);
+      });
+    }
   }
 
   // ==========================================
@@ -826,6 +850,7 @@
   // ==========================================
   // Global Function Bindings
   // ==========================================
+  window.shareApp = shareApp;
   window.toggleAppCard = toggleAppCard;
   window.toggleFolder = toggleFolder;
   window.openLightbox = openLightbox;
