@@ -45,7 +45,7 @@
   const BASE_URL = "https://buddhist-educational-apps.github.io/B-E-A";
 
   // ==========================================
-  // බෞද්ධ අධ්‍යාපනික Apps දත්ත (Icons සහිතව)
+  // බෞද්ධ අධ්‍යාපනික Apps දත්ත
   // ==========================================
   const appsData = [
     {
@@ -330,7 +330,7 @@
   }
 
   // ==========================================
-  // Apps Render කිරීම (Play Store Card Layout)
+  // Apps Render කිරීම (ක්ලික් කළ පසු තොරතුරු දිගහැරීම)
   // ==========================================
   function renderApps(apps) {
     const container = document.getElementById("appsContainer");
@@ -353,7 +353,7 @@
                    alt="${app.title} - Screenshot${index + 1}" 
                    class="playstore-screenshot-img"
                    loading="lazy"
-                   onclick="openLightbox('${img}', '${app.title}')">
+                   onclick="event.stopPropagation(); openLightbox('${img}', '${app.title}')">
             `).join("")}
           </div>
         </div>
@@ -361,7 +361,7 @@
 
       const installGuideHTML = app.installGuide ? `
         <div class="install-guide" style="margin-top: 10px;">
-          <button class="install-guide-toggle" onclick="toggleInstallGuide(this)">
+          <button class="install-guide-toggle" onclick="event.stopPropagation(); toggleInstallGuide(this)">
             <span class="install-guide-icon">📲</span>
             <span class="install-guide-text">යෙදුම ස්ථාපනය කරගන්නා ආකාරය</span>
             <span class="install-guide-arrow">▼</span>
@@ -369,13 +369,13 @@
           
           <div class="install-guide-content">
             <div class="install-tabs">
-              <button class="install-tab active" onclick="switchInstallTab(this, 'android-${app.id}')">
+              <button class="install-tab active" onclick="event.stopPropagation(); switchInstallTab(this, 'android-${app.id}')">
                 🤖 Android
               </button>
-              <button class="install-tab" onclick="switchInstallTab(this, 'ios-${app.id}')">
+              <button class="install-tab" onclick="event.stopPropagation(); switchInstallTab(this, 'ios-${app.id}')">
                 🍎 iOS
               </button>
-              <button class="install-tab" onclick="switchInstallTab(this, 'desktop-${app.id}')">
+              <button class="install-tab" onclick="event.stopPropagation(); switchInstallTab(this, 'desktop-${app.id}')">
                 💻 Computer
               </button>
             </div>
@@ -384,36 +384,27 @@
               <ol class="install-steps">
                 ${app.installGuide.android.map(step => `<li>${step}</li>`).join("")}
               </ol>
-              <div class="install-tip">
-                💡 <strong>ඉඟිය:</strong> Android 8+ භාවිතා කරන්නේ නම් Install බොත්තම මඟින් පහසුවෙන් යෙදුම ක්‍රියාත්මක කරගත හැක.
-              </div>
             </div>
 
             <div class="install-panel" id="ios-${app.id}">
               <ol class="install-steps">
                 ${app.installGuide.ios.map(step => `<li>${step}</li>`).join("")}
               </ol>
-              <div class="install-tip">
-                💡 <strong>වැදගත්:</strong> iOS හි Safari browser එක භාවිතා කර "Add to Home Screen" තෝරන්න.
-              </div>
             </div>
 
             <div class="install-panel" id="desktop-${app.id}">
               <ol class="install-steps">
                 ${app.installGuide.desktop.map(step => `<li>${step}</li>`).join("")}
               </ol>
-              <div class="install-tip">
-                💡 <strong>ඉඟිය:</strong> Chrome හෝ Edge browser මඟින් Install කරගත හැක.
-              </div>
             </div>
           </div>
         </div>
       ` : "";
 
       return `
-        <div class="playstore-card">
-          <!-- Play Store Card Header -->
-          <div class="playstore-header">
+        <div class="playstore-card" id="app-card-${app.id}">
+          <!-- මුලින් දිස්වන අයිකන් සහ මාතෘකා කොටස -->
+          <div class="playstore-summary" onclick="toggleAppCard(${app.id})">
             <img src="${app.icon}" alt="${app.title} Icon" class="playstore-app-icon" onerror="this.src='favicon.png'">
             <div class="playstore-header-info">
               <h3 class="playstore-app-title">${app.title}</h3>
@@ -421,47 +412,53 @@
                 <span>✓</span> ${app.developer || "බෞද්ධ අධ්‍යාපනය"}
               </div>
             </div>
+            <span class="card-expand-arrow">▼</span>
           </div>
 
-          <!-- Play Store Stats Row -->
-          <div class="playstore-meta-row">
-            <div class="playstore-meta-item">
-              <span class="playstore-meta-val">${app.rating || "4.8"} <span class="star">★</span></span>
-              <span class="playstore-meta-lbl">${app.reviews || "Reviews"}</span>
+          <!-- ක්ලික් කළ පසු දිගහැරෙන විස්තරාත්මක කොටස -->
+          <div class="playstore-details">
+            <div class="playstore-meta-row">
+              <div class="playstore-meta-item">
+                <span class="playstore-meta-val">${app.rating || "4.8"} <span class="star">★</span></span>
+                <span class="playstore-meta-lbl">${app.reviews || "Reviews"}</span>
+              </div>
+              <div class="playstore-meta-divider"></div>
+              <div class="playstore-meta-item">
+                <span class="playstore-meta-val">${app.size || "10 MB"}</span>
+                <span class="playstore-meta-lbl">ප්‍රමාණය</span>
+              </div>
+              <div class="playstore-meta-divider"></div>
+              <div class="playstore-meta-item">
+                <span class="playstore-meta-val">3+</span>
+                <span class="playstore-meta-lbl">Rated for 3+</span>
+              </div>
             </div>
-            <div class="playstore-meta-divider"></div>
-            <div class="playstore-meta-item">
-              <span class="playstore-meta-val">${app.size || "10 MB"}</span>
-              <span class="playstore-meta-lbl">ප්‍රමාණය</span>
+
+            <div class="playstore-actions">
+              <a href="${app.apkUrl}" ${app.apkUrl.endsWith('.apk') ? 'download' : 'target="_blank" rel="noopener noreferrer"'} class="btn-playstore-install" onclick="event.stopPropagation()">
+                <span>📥</span> ${buttonLabel}
+              </a>
+              <a href="${app.webUrl}" target="_blank" rel="noopener noreferrer" class="btn-playstore-web" onclick="event.stopPropagation()">
+                Online භාවිතය ↗
+              </a>
             </div>
-            <div class="playstore-meta-divider"></div>
-            <div class="playstore-meta-item">
-              <span class="playstore-meta-val">3+</span>
-              <span class="playstore-meta-lbl">Rated for 3+</span>
-            </div>
+
+            <p class="playstore-about">${app.description}</p>
+            ${screenshotsHTML}
+            ${installGuideHTML}
           </div>
-
-          <!-- Play Store Buttons -->
-          <div class="playstore-actions">
-            <a href="${app.apkUrl}" ${app.apkUrl.endsWith('.apk') ? 'download' : 'target="_blank" rel="noopener noreferrer"'} class="btn-playstore-install">
-              <span>📥</span> ${buttonLabel}
-            </a>
-            <a href="${app.webUrl}" target="_blank" rel="noopener noreferrer" class="btn-playstore-web">
-              Online භාවිතය ↗
-            </a>
-          </div>
-
-          <!-- Screenshots Carousel -->
-          ${screenshotsHTML}
-
-          <!-- About Description -->
-          <p class="playstore-about">${app.description}</p>
-
-          <!-- Install Instructions -->
-          ${installGuideHTML}
         </div>
       `;
     }).join("");
+  }
+
+  // ==========================================
+  // App Card Expand/Collapse Toggle
+  // ==========================================
+  function toggleAppCard(appId) {
+    const card = document.getElementById(`app-card-${appId}`);
+    if (!card) return;
+    card.classList.toggle('expanded');
   }
 
   // ==========================================
@@ -829,6 +826,7 @@
   // ==========================================
   // Global Function Bindings
   // ==========================================
+  window.toggleAppCard = toggleAppCard;
   window.toggleFolder = toggleFolder;
   window.openLightbox = openLightbox;
   window.closeLightbox = closeLightbox;

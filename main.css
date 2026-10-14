@@ -1642,3 +1642,418 @@ html, body,
 .theme-toggle {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
+/* ============================================================
+   Google Play Store Card Styling
+   ============================================================ */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 22px;
+  margin-bottom: 40px;
+}
+
+.playstore-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.playstore-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 8px 24px rgba(229, 169, 60, 0.15);
+}
+
+/* Play Store Header */
+.playstore-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.playstore-app-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  flex-shrink: 0;
+  background: #1a1a1a;
+}
+
+.playstore-header-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.playstore-app-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.playstore-developer {
+  font-size: 0.82rem;
+  color: var(--accent-green);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Play Store Meta Row (Rating, Downloads, Category) */
+.playstore-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0;
+  margin-bottom: 12px;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.playstore-meta-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.playstore-meta-val {
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.playstore-meta-val .star {
+  color: #f1c40f;
+  font-size: 0.85rem;
+}
+
+.playstore-meta-lbl {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.playstore-meta-divider {
+  width: 1px;
+  height: 24px;
+  background-color: var(--border-color);
+}
+
+/* Play Store Buttons */
+.playstore-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.btn-playstore-install {
+  flex: 1.3;
+  background: linear-gradient(135deg, #01875f 0%, #00694a 100%);
+  color: #ffffff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 10px rgba(1, 135, 95, 0.3);
+}
+
+.btn-playstore-install:hover {
+  background: #019e70;
+  transform: translateY(-1px);
+  color: #fff;
+}
+
+.btn-playstore-web {
+  flex: 1;
+  background: var(--bg-hover);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.btn-playstore-web:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+/* Screenshots Preview */
+.playstore-screenshots {
+  margin-bottom: 12px;
+}
+
+.playstore-screenshots-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+}
+
+.playstore-screenshot-img {
+  height: 180px;
+  width: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  flex-shrink: 0;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+
+.playstore-screenshot-img:hover {
+  transform: scale(1.03);
+  border-color: var(--accent-gold);
+}
+
+/* About App Description */
+.playstore-about {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+/* ============================================================
+   Interactive App Card (Collapsed by Default, Expand on Click)
+   ============================================================ */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 18px;
+  margin-bottom: 35px;
+}
+
+.playstore-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.playstore-card:hover {
+  border-color: var(--accent-gold);
+}
+
+.playstore-card.expanded {
+  border-color: var(--accent-gold);
+  box-shadow: 0 8px 28px rgba(229, 169, 60, 0.2);
+}
+
+/* Card Summary Header (නිතරම දිස්වන කොටස) */
+.playstore-summary {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.playstore-app-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 14px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background: #1a1a1a;
+  transition: transform 0.2s ease;
+}
+
+.playstore-summary:hover .playstore-app-icon {
+  transform: scale(1.05);
+}
+
+.playstore-header-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.playstore-app-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+.playstore-developer {
+  font-size: 0.8rem;
+  color: var(--accent-green);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Expand Arrow */
+.card-expand-arrow {
+  font-size: 0.85rem;
+  color: var(--accent-gold);
+  padding: 8px;
+  transition: transform 0.3s ease;
+}
+
+.playstore-card.expanded .card-expand-arrow {
+  transform: rotate(180deg);
+}
+
+/* ඇතුළත තොරතුරු (ක්ලික් කළ විට පමණක් දිගහැරෙන කොටස) */
+.playstore-details {
+  display: none;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color);
+  animation: detailsFadeIn 0.3s ease-out;
+}
+
+.playstore-card.expanded .playstore-details {
+  display: block;
+}
+
+@keyframes detailsFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Play Store Stats Row */
+.playstore-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0;
+  margin-bottom: 14px;
+  background: var(--bg-hover);
+  border-radius: 10px;
+}
+
+.playstore-meta-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.playstore-meta-val {
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+.playstore-meta-val .star {
+  color: #f1c40f;
+}
+
+.playstore-meta-lbl {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.playstore-meta-divider {
+  width: 1px;
+  height: 20px;
+  background-color: var(--border-color);
+}
+
+/* Buttons */
+.playstore-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.btn-playstore-install {
+  flex: 1.3;
+  background: linear-gradient(135deg, #01875f 0%, #00694a 100%);
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 10px rgba(1, 135, 95, 0.3);
+}
+
+.btn-playstore-web {
+  flex: 1;
+  background: var(--bg-hover);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Screenshots */
+.playstore-screenshots {
+  margin-bottom: 14px;
+}
+
+.playstore-screenshots-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.playstore-screenshot-img {
+  height: 175px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.playstore-about {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
