@@ -96,7 +96,7 @@
       badgeType: "tag-blue",
       description: "පදරුපසිද්ධි ග්‍රන්ථය ඇසුරින් පාලි නාම හා ආඛ්‍යාත පද සාධනයන් හදාරන මෘදුකාංගය.",
       apkUrl: "https://github.com/pavara9803-ctrl/Rupasiddhi/releases/latest/download/Rupasiddhi.apk",
-      webUrl: "https://pavara9803-ctrl.github.io/Rupasiddhi/",
+      webUrl: "https:https://rupasiddhi.github.io/R-S/",
       screenshots: [
         BASE_URL + "/screenshots/rupasiddhi-1.webp",
         BASE_URL + "/screenshots/rupasiddhi-2.webp",
