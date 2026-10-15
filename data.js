@@ -18,7 +18,7 @@ const appsData = [
     badgeType: "tag-gold",
     description: "අභිධර්ම මාතිකා සහ ධම්මසංගණී විග්‍රහයන් පහසුවෙන් කියවීමට සහ අධ්‍යයනය කිරීමට නිර්මාණය කළ සුවිශේෂී මෘදුකාංගයකි.",
     icon: BASE_URL + "/icons/matika.png",
-    apkUrl: "https://play.google.com/store/apps/details?id=app.vercel.matika_snowy.twa",
+    apkUrl: "https://apkpure.com/p/app.vercel.matika_snowy.twa",
     webUrl: "https://pavara9803-ctrl.github.io/Matika/",
     screenshots: [
       BASE_URL + "/screenshots/matika-1.webp",
@@ -61,7 +61,7 @@ const appsData = [
     badgeType: "tag-blue",
     description: "පදරුපසිද්ධි ග්‍රන්ථය ඇසුරින් පාලි නාම, ආඛ්‍යාත පද සාධනයන් සහ ව්‍යාකරණ සූත්‍ර පහසුවෙන් හදාරන මෘදුකාංගය.",
     icon: BASE_URL + "/icons/ruoasiddhi.png",
-    apkUrl: "https://github.com/pavara9803-ctrl/Rupasiddhi/releases/latest/download/Rupasiddhi.apk",
+    apkUrl: "https://rupasiddhi.vercel.app/",
     webUrl: "https://rupasiddhi.vercel.app/",
     screenshots: [
       BASE_URL + "/screenshots/rupasiddhi-1.webp",
@@ -464,7 +464,7 @@ function toggleAppCard(appId) {
 }
 
 // ==========================================
-// Books Table Render කිරීම
+// Books Table Render කිරීම (දුරකථන මගින් බාගත කිරීමට පහසු වන සේ සකසා ඇත)
 // ==========================================
 function renderBooks(books) {
   const container = document.getElementById("pdfFileList");
@@ -493,17 +493,24 @@ function renderBooks(books) {
       <div class="folder-books" style="display: none;">
         ${grouped[folderName].map(book => `
           <a href="${book.pdfUrl}" 
+             download="${book.title}.pdf"
              class="table-row" 
              onclick="handleDownload('${book.countKey}')"
              target="_blank" 
-             rel="noopener noreferrer">
+             rel="noopener noreferrer"
+             title="${book.title} බාගත කරගන්න">
             <div class="file-col-title">
               <span class="pdf-badge">PDF</span>
               <span class="file-text">${book.title}</span>
             </div>
             <span class="file-col-cat">${book.category}</span>
             <span class="file-col-count" id="count-${book.countKey}">${book.downloads}</span>
-            <span class="file-col-size">${book.size}</span>
+            <div class="file-col-size-wrap" style="display: flex; align-items: center; justify-content: flex-end; gap: 6px;">
+              <span class="file-col-size">${book.size}</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-gold); flex-shrink: 0;" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+            </div>
           </a>
         `).join("")}
       </div>
@@ -730,7 +737,7 @@ function performSearch(query) {
     html += `<div class="search-section-title">ග්‍රන්ථ (${matchedBooks.length})</div>`;
     matchedBooks.forEach(book => {
       html += `
-        <a href="${book.pdfUrl}" target="_blank" rel="noopener noreferrer" class="search-result-item" onclick="handleDownload('${book.countKey}')">
+        <a href="${book.pdfUrl}" download="${book.title}.pdf" target="_blank" rel="noopener noreferrer" class="search-result-item" onclick="handleDownload('${book.countKey}')">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--pdf-red); flex-shrink: 0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           <div class="search-result-title">${book.title}</div>
         </a>
