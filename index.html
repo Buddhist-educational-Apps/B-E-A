@@ -1,398 +1,204 @@
 <!DOCTYPE html>
-<html lang="si" class="h-full">
+<html lang="si">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ============ SEO & SEARCH ENGINE TAGS ============ -->
-<title>අභිධර්ම මාතිකා අධ්‍යයනය | Abhidharma Matika Study</title>
-
-<!-- මූලික විස්තරය (Search Description) -->
-<meta name="description" content="සර්වසංග්‍රාහී සබ්බත්තික මාතිකා, සුත්තන්ත මාතිකා, තික මාතිකා 22 සහ ගොච්ඡක 13 ට අයත් දුක මාතිකා 100 හි මාතිකා පදවල ස්වරූපාර්ථ, ස්කන්ධ, ආයතන, ධාතු සහ සත්‍ය බෙදීම් විස්තරාත්මකව අධ්‍යයනය කරන්න.">
-
-<!-- සෙවුම් පද (Keywords - සිංහල, පාලි සහ ඉංග්‍රීසි) -->
-<meta name="keywords" content="අභිධර්මය, අභිධර්ම මාතිකා, තික මාතිකා, දුක මාතිකා, සබ්බත්තික මාතිකා, සුත්තන්ත මාතිකා, සතර පරමාර්ථ, චිත්ත, චෛතසික, රූප, නිබ්බාන, ධම්මසංගණී, ත්‍රිපිටකය, Abhidhamma, Abhidharma, Matika, Tika Matika, Duka Matika, Suttanta Matika, Paramattha, Dhamma, Buddhist Philosophy">
-
-<meta name="author" content="Buddhist Educational Apps">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://matika-snowy.vercel.app/">
-
-<!-- Google Search Console හිමිකාරිත්ව සත්‍යාපනය (Verification Meta Tag) -->
-<!-- සටහන: Search Console එකේ 'HTML tag' ක්‍රමයෙන් ලැබෙන කේතය මෙතැනට යොදන්න -->
-<meta name="google-site-verification" content="google8495547c2c561a1f">
-
-<!-- ============ OPEN GRAPH (Facebook, WhatsApp, Viber පෙරදසුන් සඳහා) ============ -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://matika-snowy.vercel.app/">
-<meta property="og:title" content="අභිධර්ම මාතිකා අධ්‍යයනය | Abhidharma Matika Study">
-<meta property="og:description" content="සබ්බත්තික, සුත්තන්ත, තික (22) සහ දුක (100) මාතිකා පදවල ස්වරූපාර්ථ, ස්කන්ධ, ආයතන, ධාතු සහ සත්‍ය විභාගය.">
-<meta property="og:image" content="https://matika-snowy.vercel.app/launchericon-192x192.png">
-<meta property="og:locale" content="si_LK">
-
-<!-- ============ TWITTER CARD TAGS ============ -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://matika-snowy.vercel.app/">
-<meta name="twitter:title" content="අභිධර්ම මාතිකා අධ්‍යයනය">
-<meta name="twitter:description" content="අභිධර්ම මාතිකා, ස්වරූපාර්ථ සහ පරමාර්ථ ධර්ම විභාගය පහසුවෙන් අධ්‍යයනය කරන්න.">
-<meta name="twitter:image" content="https://matika-snowy.vercel.app/launchericon-192x192.png">
-
-<!-- ============ STRUCTURED DATA (Schema.org / JSON-LD for Google) ============ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "අභිධර්ම මාතිකා අධ්‍යයනය",
-  "url": "https://matika-snowy.vercel.app/",
-  "applicationCategory": "EducationalApplication",
-  "genre": "Buddhism / Education",
-  "inLanguage": "si",
-  "description": "සර්වසංග්‍රාහී සබ්බත්තික මාතිකා, සුත්තන්ත මාතිකා, තික මාතිකා 22 සහ දුක මාතිකා 100 හි මාතිකා පදවල ස්වරූපාර්ථ හා ධර්ම විශ්ලේෂණය.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "LKR"
-  }
-}
-</script>
-
-<!-- ============ ICONS & PWA CONFIGURATION ============ -->
-<link rel="manifest" href="./manifest.json">
-<link rel="icon" type="image/png" sizes="48x48" href="./launchericon-48x48.png">
-<link rel="icon" type="image/png" sizes="192x192" href="./launchericon-192x192.png">
-<link rel="shortcut icon" href="./launchericon-48x48.png">
-<link rel="apple-touch-icon" sizes="180x180" href="./launchericon-192x192.png">
-
-<meta name="theme-color" content="#3f0a0c">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="මාතිකා">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="msapplication-TileColor" content="#3f0a0c">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-04M71GY1ZL"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3XSZLHD76"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-04M71GY1ZL');
+  gtag('config', 'G-T3XSZLHD76');
 </script>
 
-<!-- ============ DATA FILES ============ -->
-<!-- 1. Helper functions + data arrays + registerTika() -->
-<script src="sabbatika-data.js"></script>
-<script src="tika-data.js"></script>
-<script src="tika-app.js"></script>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
 
-<!-- 2. තික ගොනු 22 (registerTika() call කරයි) -->
-<script src="tika/01-kusala-tika.js"></script>
-<script src="tika/02-vedana-tika.js"></script>
-<script src="tika/03-vipaka-tika.js"></script>
-<script src="tika/04-upadinnna-tika.js"></script>
-<script src="tika/05-sankilittha-tika.js"></script>
-<script src="tika/06-vitakka-tika.js"></script>
-<script src="tika/07-piti-tika.js"></script>
-<script src="tika/08-dassana-tika.js"></script>
-<script src="tika/09-dassanahetu-tika.js"></script>
-<script src="tika/10-avayagami-tika.js"></script>
-<script src="tika/11-sekha-tika.js"></script>
-<script src="tika/12-paritta-tika.js"></script>
-<script src="tika/13-parittarammana-tika.js"></script>
-<script src="tika/14-hina-tika.js"></script>
-<script src="tika/15-micchatta-tika.js"></script>
-<script src="tika/16-maggarammana-tika.js"></script>
-<script src="tika/17-uppanna-tika.js"></script>
-<script src="tika/18-atita-tika.js"></script>
-<script src="tika/19-atitarammana-tika.js"></script>
-<script src="tika/20-ajjhatta-tika.js"></script>
-<script src="tika/21-ajjhattarammana-tika.js"></script>
-<script src="tika/22-sanidassana-tika.js"></script>
+  <!-- SEO Title & Meta -->
+  <title>බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග | Abhidhamma Books PDF & Buddhist Apps</title>
+  <meta name="google-site-verification" content="google8495547c2c561a1f" />
+  <link rel="canonical" href="https://buddhistapps.vercel.app/">
+  <meta name="description" content="අභිධර්ම මාතිකා, ධාතුකථා, පට්ඨාන ප්‍රකරණ ඇතුළු බෞද්ධ ධර්ම ග්‍රන්ථ (PDF) නොමිලේ බාගත කරගන්න. බෞද්ධ අධ්‍යාපනික Web සහ Android Apps.">
+  <meta name="keywords" content="අභිධර්ම, බුද්ධ ධර්මය, පාලි, රූපසිද්ධිය, අභිධර්ම මාතිකා, පට්ඨාන, ධාතුකථා, ධර්ම පුස්තකාලය, Buddhist Apps, Abhidhamma, Matika, Sinhala Dhamma Books PDF">
+  <meta name="author" content="Pavara">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#09090b">
 
-<!-- 3. Feedback Logic -->
-<script src="feedback.js"></script>
+  <!-- Preconnect Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<script src="./tailwind.min.js"></script>
-<script>
-tailwind.config = {
-  darkMode: 'class',
-  theme: {
-    extend: {
-      colors: {
-        saffron: {
-          50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a', 300: '#fcd34d',
-          400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', 700: '#b45309',
-          800: '#92400e', 900: '#78350f', 950: '#451a03'
-        },
-        maroon: {
-          700: '#701a1d', 800: '#581113', 900: '#3f0a0c', 950: '#260507'
-        }
-      },
-      fontFamily: {
-        sans: ['Inter', 'Noto Serif Sinhala', 'Segoe UI', 'sans-serif']
+  <!-- Preload LCP Icon -->
+  <link rel="preload" as="image" href="https://buddhist-educational-apps.github.io/B-E-A/icons/matika.png" fetchpriority="high">
+
+  <!-- Optimized Google Fonts with display=optional -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700;800&family=Gemunu+Libre:wght@500;600;700&family=Noto+Serif+Sinhala:wght@400;500;600&display=optional">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700;800&family=Gemunu+Libre:wght@500;600;700&family=Noto+Serif+Sinhala:wght@400;500;600&display=optional" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700;800&family=Gemunu+Libre:wght@500;600;700&family=Noto+Serif+Sinhala:wght@400;500;600&display=optional">
+  </noscript>
+  <link rel="stylesheet" href="main.css?v=20">
+
+  <!-- Theme Detection Script -->
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('buddhist_apps_theme') || 'dark';
+        document.documentElement.classList.toggle('light', saved === 'light');
+        document.documentElement.setAttribute('data-theme', saved);
+      } catch (e) {
+        document.documentElement.classList.add('dark');
       }
-    }
+    })();
+  </script>
+
+  <!-- Open Graph / Structured Data -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://buddhistapps.vercel.app/">
+  <meta property="og:title" content="බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග | Abhidhamma Books PDF & Apps">
+  <meta property="og:description" content="අභිධර්ම මාතිකා, ධාතුකථා, පට්ඨාන ප්‍රකරණ ඇතුළු බෞද්ධ ධර්ම ග්‍රන්ථ (PDF) සහ බෞද්ධ අධ්‍යාපනික මෘදුකාංග.">
+  <meta property="og:image" content="https://buddhistapps.vercel.app/screenshots/matika-1.webp">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග",
+    "url": "https://buddhistapps.vercel.app/",
+    "description": "අභිධර්ම මාතිකා, ධාතුකථා, පට්ඨාන ඇතුළු බෞද්ධ ධර්ම ග්‍රන්ථ PDF සහ අධ්‍යාපනික Android / Web Apps.",
+    "inLanguage": "si",
+    "author": { "@type": "Person", "name": "Pavara" }
   }
-};
-</script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-body { font-family: 'Noto Serif Sinhala', 'Inter', serif; -webkit-tap-highlight-color: transparent; }
-.hide-scrollbar::-webkit-scrollbar { display: none; }
-.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-.breakdown-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 0.6rem 0; border-bottom: 1px solid #fef3c7; gap: 1rem; }
-.breakdown-item:last-child { border-bottom: none; }
-.breakdown-item .num { font-weight: 700; color: #92400e; min-width: 1.8rem; flex-shrink: 0; }
-.breakdown-item .name { color: #78350f; flex: 1; }
-.breakdown-item .value { color: #b45309; font-weight: 600; text-align: right; flex-shrink: 0; max-width: 55%; }
-.dark .breakdown-item { border-bottom-color: #334155; }
-.dark .breakdown-item .num { color: #fcd34d; }
-.dark .breakdown-item .name { color: #fde68a; }
-.dark .breakdown-item .value { color: #fbbf24; }
-
-/* FEEDBACK BUTTON ANIMATION */
-@keyframes pulse-soft {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.6); }
-  50% { box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
-}
-.feedback-pulse {
-  animation: pulse-soft 2.5s infinite;
-}
-
-#offline-indicator {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 60;
-  background: #dc2626; color: white; text-align: center;
-  padding: 6px; font-size: 12px; font-weight: bold;
-  transform: translateY(-100%); transition: transform 0.3s;
-}
-#offline-indicator.show { transform: translateY(0); }
-</style>
+  </script>
 </head>
-<script>
-window.addEventListener('load', function() {
-  console.log('=== DEBUG ===');
-  console.log('app.js loaded?', typeof window.toggleMenu);
-  console.log('installApp?', typeof window.installApp);
-  console.log('menuAction?', typeof window.menuAction);
-  console.log('navigateTo?', typeof window.navigateTo);
-  console.log('toggleDarkMode?', typeof window.toggleDarkMode);
-  console.log('install-btn exists?', !!document.getElementById('install-btn'));
-  console.log('custom-menu exists?', !!document.getElementById('custom-menu'));
-  console.log('=============');
-});
-</script>
-<body class="h-full flex flex-col text-slate-800 dark:text-slate-100 bg-amber-50/30 dark:bg-slate-900 antialiased">
+<body>
 
-<div id="offline-indicator"><i class="fa-solid fa-wifi"></i> ඔබ දැන් නොබැඳි තත්ත්වයේ සිටී</div>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand" aria-label="මුල් පිටුව">
+        <span class="brand-mark" aria-hidden="true">
+          <!-- ධර්මචක්‍රය සංකේතය -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.2 4.2M14.2 14.2l4.2 4.2M18.4 5.6l-4.2 4.2M9.8 14.2l-4.2 4.2"/>
+          </svg>
+        </span>
+        <span class="brand-name">පුස්තකාලය</span>
+      </a>
 
-<!-- ============ HEADER ============ -->
-<header class="sticky top-0 z-30 bg-maroon-900 text-amber-100 shadow-md border-b-2 border-saffron-500">
-<div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
-<div class="flex items-center space-x-2 space-x-reverse">
-<button onclick="navigateTo('home')" class="p-2 rounded-lg bg-maroon-800 hover:bg-maroon-700 text-saffron-200" title="මුල් පිටුව"><i class="fa-solid fa-house text-lg"></i></button>
-</div>
-<div class="flex items-center mx-auto cursor-pointer" onclick="navigateTo('home')">
-<div class="w-9 h-9 rounded-full bg-saffron-500/20 border border-saffron-400 flex items-center justify-center text-saffron-300 shrink-0"><i class="fa-solid fa-dharmachakra text-xl"></i></div>
-<h1 class="font-bold text-xl sm:text-2xl ml-2 text-saffron-100">අභිධර්ම මාතිකා</h1>
-</div>
-<button onclick="toggleDarkMode()" class="p-2 rounded-lg bg-maroon-800 hover:bg-maroon-700 text-saffron-200" title="තේමාව"><i id="theme-toggle-icon" class="fa-solid fa-moon text-lg"></i></button>
-
-<!-- Install බොත්තම -->
-<button id="install-btn" onclick="installApp()" class="hidden p-2 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white transition-all ml-1" title="යෙදුම install කරන්න">
-  <i class="fa-solid fa-download text-lg"></i>
-</button>
-
-<!-- Feedback බොත්තම -->
-<button onclick="openFeedbackModal()" class="p-2 rounded-lg bg-gradient-to-br from-saffron-500 to-amber-600 hover:from-saffron-400 hover:to-amber-500 text-maroon-950 feedback-pulse transition-all ml-1" title="ඔබගේ අදහස් එවන්න">
-  <i class="fa-solid fa-comment-dots text-lg"></i>
-</button>
-
-<button onclick="toggleMenu()" class="p-2 rounded-lg bg-maroon-800 hover:bg-maroon-700 text-saffron-200 ml-1" title="මෙනුව">
-    <i class="fa-solid fa-bars text-lg"></i>
-</button>
-</div>
-</header>
-
-<!-- ============ මෙනු ලැයිස්තුව ============ -->
-<div id="custom-menu" class="hidden fixed top-16 right-4 z-50 bg-white dark:bg-slate-800 border border-amber-300 dark:border-slate-700 rounded-xl shadow-2xl w-64 overflow-hidden">
-    <div class="py-1">
-        <button id="menu-install-btn" onclick="menuAction('install')" class="hidden w-full text-left px-4 py-3 hover:bg-amber-100 dark:hover:bg-slate-700 flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-200 border-b border-amber-100 dark:border-slate-700">
-            <i class="fa-solid fa-download text-green-600 text-lg w-5"></i> යෙදුම install කරන්න
-        </button>
-        <button onclick="menuAction('rate')" class="w-full text-left px-4 py-3 hover:bg-amber-100 dark:hover:bg-slate-700 flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-200 border-b border-amber-100 dark:border-slate-700">
-            <i class="fa-solid fa-star text-yellow-500 text-lg w-5"></i> මෙම යෙදුමට තරු යොදන්න
-        </button>
-        <button onclick="menuAction('share')" class="w-full text-left px-4 py-3 hover:bg-amber-100 dark:hover:bg-slate-700 flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-200 border-b border-amber-100 dark:border-slate-700">
-            <i class="fa-solid fa-share-nodes text-blue-500 text-lg w-5"></i> මෙම යෙදුම බෙදාගන්න
-        </button>
-        <button onclick="menuAction('star')" class="w-full text-left px-4 py-3 hover:bg-amber-100 dark:hover:bg-slate-700 flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-200 border-b border-amber-100 dark:border-slate-700">
-            <i class="fa-solid fa-star text-yellow-500 text-lg w-5"></i> 0 තරු යෙදුම
-        </button>
-        <button onclick="menuAction('about')" class="w-full text-left px-4 py-3 hover:bg-amber-100 dark:hover:bg-slate-700 flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-200 border-b border-amber-100 dark:border-slate-700">
-            <i class="fa-solid fa-circle-info text-saffron-600 text-lg w-5"></i> මෙම යෙදුම ගැන
-        </button>
-        <button onclick="menuAction('help')" class="w-full text-left px-4 py-3 hover:bg-amber-100 dark:hover:bg-slate-700 flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-200 border-b border-amber-100 dark:border-slate-700">
-            <i class="fa-solid fa-circle-question text-purple-600 text-lg w-5"></i> උදව්
-        </button>
-        <button onclick="menuAction('feedback')" class="w-full text-left px-4 py-3 hover:bg-amber-100 dark:hover:bg-slate-700 flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-200">
-            <i class="fa-solid fa-comment-dots text-saffron-600 text-lg w-5"></i> අදහස් එවන්න
-        </button>
-    </div>
-</div>
-
-<main class="flex-1 max-w-3xl w-full mx-auto p-4 sm:p-6 pb-12">
-<div id="view-container">
-
-<!-- HOME VIEW -->
-<section id="view-home" class="space-y-6">
-<div class="bg-gradient-to-br from-amber-800 to-maroon-900 text-amber-50 rounded-2xl p-5 shadow-lg border border-amber-600/30 relative overflow-hidden">
-<div class="absolute -right-6 -bottom-6 opacity-10 text-amber-100 text-9xl pointer-events-none"><i class="fa-solid fa-dharmachakra"></i></div>
-<span class="inline-block px-3 py-1 bg-saffron-500/20 border border-saffron-400/40 rounded-full text-xs text-saffron-300 font-medium mb-2">අභිධර්ම පිටකය</span>
-<h2 class="text-xl sm:text-2xl font-bold text-saffron-200 mb-2">අභිධර්ම මාතිකා අධ්‍යයනය</h2>
-<p class="text-sm text-amber-100/90 leading-relaxed">සර්වසංග්‍රාහී සබ්බත්තික මාතිකා, සුත්තන්ත මාතිකා, තික මාතිකා 22 සහ ගොච්ඡක 13 ට අයත් දුක මාතිකා 100 හි මාතිකා පදවල ස්වරූපාර්ථ, ස්කන්ධ, ආයතන, ධාතු සහ සත්‍ය බෙදීම් විස්තරාත්මකව අධ්‍යයනය කරන්න.</p>
-</div>
-
-<!-- මාතිකා කාඩ්පත් -->
-<div class="grid grid-cols-1 gap-4">
-
-<!-- සබ්බත්තික මාතිකා -->
-<a href="sabbattika.html" class="group bg-gradient-to-r from-amber-700 via-saffron-600 to-amber-700 text-white rounded-2xl p-5 text-left shadow-md hover:shadow-xl w-full block">
-<div class="flex items-center justify-between mb-2">
-<div class="w-10 h-10 rounded-xl bg-white/25 flex items-center justify-center text-xl text-saffron-100"><i class="fa-solid fa-book-open"></i></div>
-<i class="fa-solid fa-arrow-right text-saffron-200 text-xl group-hover:translate-x-1 transition-transform"></i>
-</div>
-<h3 class="text-lg font-bold mb-1">සබ්බත්තික මාතිකා සහ ස්වරූපාර්ථ</h3>
-<p class="text-xs text-amber-100/90">සියලු තිකදුකයන්හි සමස්ත පද සහ පරමාර්ථ ධර්ම විශ්ලේෂණය</p>
-</a>
-
-<!-- තික + දුක + සුත්තන්ත + සතර පරමාර්ථ -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-<!-- තික මාතිකා -->
-<a href="tika-matika.html" class="group bg-gradient-to-r from-saffron-500 to-amber-600 text-white rounded-2xl p-5 text-left shadow-md hover:shadow-xl block">
-<div class="flex items-center justify-between mb-3">
-<div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-xl font-bold text-amber-100">22</div>
-<i class="fa-solid fa-arrow-right text-saffron-200 group-hover:translate-x-1 transition-transform"></i>
-</div>
-<h3 class="text-lg font-bold mb-1">තික මාතිකා</h3>
-<p class="text-xs text-amber-100/80">ත්‍රික කොටස් 22 කින් යුක්ත මාතිකා පද 66 සහ ස්වරූපාර්ථ</p>
-</a>
-
-<!-- දුක මාතිකා -->
-<a href="duka-matika.html" class="group bg-gradient-to-r from-amber-800 to-maroon-800 text-white rounded-2xl p-5 text-left shadow-md hover:shadow-xl block">
-<div class="flex items-center justify-between mb-3">
-<div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-xl font-bold text-saffron-300">100</div>
-<i class="fa-solid fa-arrow-right text-amber-300 group-hover:translate-x-1 transition-transform"></i>
-</div>
-<h3 class="text-lg font-bold text-saffron-100 mb-1">දුක මාතිකා</h3>
-<p class="text-xs text-amber-200/80">ගොච්ඡක 13 ට අයත් දුක මාතිකා 100 හි පද සහ ස්වරූපාර්ථ</p>
-</a>
-
-<!-- සුත්තන්ත මාතිකා -->
-<a href="suttanta-matika.html" class="group bg-gradient-to-r from-maroon-900 to-amber-900 text-white rounded-2xl p-5 text-left shadow-md hover:shadow-xl block">
-<div class="flex items-center justify-between mb-2">
-<div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-xl text-saffron-300"><i class="fa-solid fa-scroll"></i></div>
-<i class="fa-solid fa-arrow-right text-saffron-200 group-hover:translate-x-1"></i>
-</div>
-<h3 class="text-lg font-bold text-saffron-100 mb-1">සුත්තන්ත මාතිකා</h3>
-<p class="text-xs text-amber-100/90">සුත්තන්තික මාතිකා පද සහ ස්වරූපාර්ථ</p>
-</a>
-
-<!-- සතර පරමාර්ථ -->
-<a href="paramatta.html" class="group bg-gradient-to-r from-purple-700 via-indigo-700 to-blue-700 text-white rounded-2xl p-5 text-left shadow-md hover:shadow-xl block relative overflow-hidden">
-<div class="absolute -right-4 -bottom-4 opacity-15 text-white text-8xl pointer-events-none"><i class="fa-solid fa-gem"></i></div>
-<div class="relative">
-<div class="flex items-center justify-between mb-3">
-<div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-xl text-purple-100"><i class="fa-solid fa-gem"></i></div>
-<i class="fa-solid fa-arrow-right text-purple-200 group-hover:translate-x-1 transition-transform"></i>
-</div>
-<h3 class="text-lg font-bold text-purple-100 mb-1">සතර පරමාර්ථ</h3>
-<p class="text-xs text-purple-100/90">අභිධර්ම මාතිකා අධ්‍යනය පිණිස උපාකාරී වන චිත්ත, චෛතසික, රූප සහ නිබ්බාන යන පරමාර්ථ ධර්ම විභාගය</p>
-</div>
-</a>
-
-</div>
-
-</div>
-</section>
-
-</div>
-</main>
-
-<!-- FEEDBACK MODAL -->
-<div id="feedback-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-  <div class="bg-white dark:bg-slate-800 w-full max-w-lg rounded-2xl p-5 shadow-2xl border border-amber-300 dark:border-slate-700 max-h-[90vh] overflow-y-auto space-y-4">
-    <div class="flex justify-between items-center border-b border-amber-200 dark:border-slate-700 pb-3">
-      <div class="flex items-center gap-2">
-        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-saffron-500 to-amber-600 flex items-center justify-center text-maroon-950">
-          <i class="fa-solid fa-comment-dots"></i>
+      <!-- සෙවුම් තීරුව -->
+      <div class="search-wrapper">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+          </svg>
+          <input type="text"
+                 id="searchInput"
+                 placeholder="යෙදුම් හෝ ග්‍රන්ථ නාමයෙන් සොයන්න..."
+                 oninput="handleSearchInput()"
+                 onfocus="handleSearchFocus()"
+                 autocomplete="off"
+                 aria-label="සොයන්න">
+          <button type="button"
+                  class="search-clear hidden"
+                  id="searchClear"
+                  onclick="clearSearch()"
+                  aria-label="මකන්න">×</button>
         </div>
-        <div>
-          <h3 class="font-bold text-base text-maroon-900 dark:text-saffron-200">ඔබගේ අදහස් එවන්න</h3>
-          <p class="text-[10px] text-slate-500 dark:text-slate-400">Feedback & Suggestions</p>
+
+        <div id="searchResults" class="search-results hidden" role="listbox">
+          <div class="search-results-inner"></div>
         </div>
       </div>
-      <button onclick="closeFeedbackModal()" class="text-slate-400 hover:text-red-500 text-lg transition-colors">
-        <i class="fa-solid fa-xmark"></i>
+
+      <!-- තේමාව වෙනස් කිරීමේ බොත්තම -->
+      <button class="theme-toggle" onclick="toggleTheme()" title="තේමාව මාරු කරන්න" aria-label="තේමාව මාරු කරන්න">
+        <span class="theme-toggle-icon" aria-hidden="true"></span>
       </button>
     </div>
+  </header>
 
-    <form id="feedback-form" onsubmit="submitFeedback(event)" class="space-y-4 text-sm">
-      <div>
-        <label class="block font-semibold mb-1.5 text-xs text-maroon-900 dark:text-saffron-200">
-          <i class="fa-solid fa-user text-saffron-600"></i> ඔබගේ නම <span class="text-slate-400 font-normal">(අවශ්‍ය නැත)</span>
-        </label>
-        <input type="text" id="feedback-name" placeholder="උදා: සුනිල් පෙරේරා" class="w-full p-2.5 rounded-lg border border-amber-200 dark:border-slate-700 dark:bg-slate-900 text-xs focus:ring-2 focus:ring-saffron-500 focus:border-transparent outline-none transition-all">
+  <!-- ප්‍රධාන අන්තර්ගතය -->
+  <main class="container">
+
+    <!-- තනි, උස අඩු කළ Hero Banner එක පමණි -->
+    <section class="hero-banner">
+      <div class="hero-banner-content">
+        <div class="hero-eyebrow">
+          <span class="dot"></span> නොමිලේ ලබාගත හැක • Web • Android • iOS
+        </div>
+        <h1 class="hero-banner-title">
+          බෞද්ධ ධර්ම පුස්තකාලය හා අධ්‍යාපනික මෘදුකාංග
+        </h1>
+        <p class="hero-banner-desc">
+          අභිධර්ම මාතිකා, පාලි රූපසිද්ධිය, බුද්ධ වර්ෂ දින දර්ශනය, පාලි-සිංහල ශබ්දකෝෂය, ධාතුකථා සහ පට්ඨාන ප්‍රකරණ ඇතුළු උතුම් ත්‍රිපිටක ධර්ම කරුණු පහසුවෙන් පරිශීලනය සඳහා සැකසූ නවීන යෙදුම් සහ ධර්ම ග්‍රන්ථ PDF ගොනු මෙහි අන්තර්ගත වේ.
+        </p>
       </div>
+    </section>
 
-      <div>
-        <label class="block font-semibold mb-1.5 text-xs text-maroon-900 dark:text-saffron-200">
-          <i class="fa-solid fa-tag text-saffron-600"></i> ප්‍රතිචාරයේ වර්ගය <span class="text-red-500">*</span>
-        </label>
-        <select id="feedback-type" required class="w-full p-2.5 rounded-lg border border-amber-200 dark:border-slate-700 dark:bg-slate-900 text-xs focus:ring-2 focus:ring-saffron-500 focus:border-transparent outline-none transition-all">
-          <option value="">-- තෝරන්න --</option>
-          <option value="bug">🐞 දෝෂයක් (Bug)</option>
-          <option value="suggestion">💡 යෝජනාවක් (Suggestion)</option>
-          <option value="content">📖 අන්තර්ගතය ගැන (Content)</option>
-          <option value="design">🎨 නිර්මාණය ගැන (Design)</option>
-          <option value="praise">👏 ප්‍රශංසාවක් (Praise)</option>
-          <option value="other">📝 වෙනත් (Other)</option>
-        </select>
-      </div>
-
-      <div>
-        <label class="block font-semibold mb-1.5 text-xs text-maroon-900 dark:text-saffron-200">
-          <i class="fa-solid fa-message text-saffron-600"></i> ඔබගේ පණිවිඩය <span class="text-red-500">*</span>
-        </label>
-        <textarea id="feedback-message" required rows="5" placeholder="ඔබගේ අදහස්, යෝජනා, හෝ දෝෂ පිළිබඳ විස්තරය මෙහි ලියන්න..." class="w-full p-2.5 rounded-lg border border-amber-200 dark:border-slate-700 dark:bg-slate-900 text-xs focus:ring-2 focus:ring-saffron-500 focus:border-transparent outline-none transition-all resize-none"></textarea>
-      </div>
-
-      <div>
-        <label class="block font-semibold mb-1.5 text-xs text-maroon-900 dark:text-saffron-200">
-          <i class="fa-solid fa-envelope text-saffron-600"></i> ඊමේල් ලිපිනය <span class="text-slate-400 font-normal">(පිළිතුරු ලබා ගැනීමට)</span>
-        </label>
-        <input type="email" id="feedback-email" placeholder="your.email@example.com" class="w-full p-2.5 rounded-lg border border-amber-200 dark:border-slate-700 dark:bg-slate-900 text-xs focus:ring-2 focus:ring-saffron-500 focus:border-transparent outline-none transition-all">
-      </div>
-
-      <div class="flex justify-end gap-2 pt-2 border-t border-amber-100 dark:border-slate-700">
-        <button type="button" onclick="closeFeedbackModal()" class="px-4 py-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 rounded-lg text-xs font-medium transition-colors">
-          අවලංගු කරන්න
-        </button>
-        <button type="submit" id="feedback-submit-btn" class="px-4 py-2 bg-gradient-to-r from-saffron-500 to-amber-600 hover:from-saffron-400 hover:to-amber-500 text-maroon-950 font-bold rounded-lg text-xs shadow hover:shadow-lg transition-all flex items-center gap-1.5">
-          <i class="fa-solid fa-paper-plane"></i> එවන්න
-        </button>
-      </div>
-    </form>
-
-    <div class="bg-amber-50 dark:bg-slate-900 border border-amber-200 dark:border-slate-700 rounded-lg p-3 text-[10px] text-slate-600 dark:text-slate-400 leading-relaxed">
-      <i class="fa-solid fa-circle-info text-saffron-600"></i>
-      ඔබගේ අදහස් අපගේ යෙදුම වැඩිදියුණු කිරීමට උපකාරී වේ. ස්තූතියි! 🙏
+    <!-- බැනරයෙන් පිටත, ඊට යටින් පිහිටි Buttons -->
+    <div class="hero-actions">
+      <a href="#apps" class="hero-btn hero-btn-primary">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
+        යෙදුම් බලන්න
+      </a>
+      <a href="#books" class="hero-btn hero-btn-ghost">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
+        ග්‍රන්ථ (PDF)
+      </a>
     </div>
-  </div>
-</div>
 
-<script src="app.js"></script>
+    <!-- Apps Section -->
+    <section class="section-block">
+      <h2 class="section-title" id="apps">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>
+        </svg>
+        බෞද්ධ අධ්‍යාපනික Apps
+      </h2>
+      <div id="appsContainer" class="apps-grid"></div>
+    </section>
 
+    <!-- Books Section -->
+    <section class="section-block">
+      <h2 class="section-title" id="books">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/>
+        </svg>
+        ධර්ම ග්‍රන්ථ එකතුව (PDF)
+      </h2>
+
+      <div class="pdf-table">
+        <div class="table-header">
+          <span>ගොනු නම</span>
+          <span>ප්‍රවර්ගය</span>
+          <span>බාගත කිරීම්</span>
+          <span style="text-align: right;">ප්‍රමාණය</span>
+        </div>
+        <div id="pdfFileList"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>බෞද්ධ අධ්‍යාපනික මෘදුකාංග සහ pdf ගොනු • Buddhist Educational Tools and PDF Resources</p>
+      <p class="footer-subtext">බුද්ධසාසනං චිරං තිට්ඨතු!</p>
+    </footer>
+
+  </main>
+
+  <!-- Non-blocking Scripts -->
+  <script src="theme.js" defer></script>
+  <script src="data.js" defer></script>
 </body>
 </html>
