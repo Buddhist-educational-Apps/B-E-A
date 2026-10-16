@@ -6,6 +6,16 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3XSZLHD76"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T3XSZLHD76');
+</script>
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
@@ -25,6 +35,9 @@
   <!-- Preconnect Domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Preload LCP Icon -->
+  <link rel="preload" as="image" href="https://buddhist-educational-apps.github.io/B-E-A/icons/matika.png" fetchpriority="high">
 
   <!-- Optimized Google Fonts with display=optional -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700;800&family=Gemunu+Libre:wght@500;600;700&family=Noto+Serif+Sinhala:wght@400;500;600&display=optional">
@@ -184,16 +197,8 @@
 
   </main>
 
+  <!-- Non-blocking Scripts -->
   <script src="theme.js" defer></script>
   <script src="data.js" defer></script>
-
-  <script>
-    (function() {
-      const version = Date.now();
-      const script = document.createElement('script');
-      script.src = 'data.js?v=' + version;
-      document.body.appendChild(script);
-    })();
-  </script>
 </body>
 </html>
