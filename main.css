@@ -322,6 +322,13 @@ html.light .theme-toggle-icon {
   width: 100%;
   position: relative;
   z-index: 1;
+  /* අකුරු පිටුපස අර්ධ-පාරදර්ශක පුවරුවක් — පින්තූරය පෙනෙමින් අකුරු පැහැදිලි වීමට */
+  padding: 20px 28px;
+  background: var(--hero-panel);
+  border: 1px solid var(--hero-panel-border);
+  border-radius: var(--r-lg);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 .hero-eyebrow {
@@ -1136,21 +1143,25 @@ html.light .theme-toggle-icon {
 :root.dark,
 html.dark,
 [data-theme="dark"] {
-  --hero-overlay: rgba(9, 9, 11, 0.80);
-  --hero-text: #f5f5f4;
+  --hero-overlay: rgba(9, 9, 11, 0.40);
+  --hero-panel: rgba(9, 9, 11, 0.72);
+  --hero-panel-border: rgba(251, 191, 36, 0.35);
+  --hero-text: #ffffff;
   --hero-title: #fcd34d;
-  --hero-chip-bg: rgba(0, 0, 0, 0.45);
-  --hero-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  --hero-chip-bg: rgba(0, 0, 0, 0.55);
+  --hero-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 12px rgba(0, 0, 0, 0.75);
   --header-tint: rgba(251, 191, 36, 0.07);
 }
 :root.light,
 html.light,
 [data-theme="light"] {
-  --hero-overlay: rgba(255, 252, 245, 0.86);
-  --hero-text: #1c1917;
-  --hero-title: #9a3412;
-  --hero-chip-bg: rgba(255, 255, 255, 0.85);
-  --hero-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+  --hero-overlay: rgba(255, 252, 245, 0.35);
+  --hero-panel: rgba(255, 255, 255, 0.82);
+  --hero-panel-border: rgba(180, 83, 9, 0.3);
+  --hero-text: #0c0a09;
+  --hero-title: #7c2d12;
+  --hero-chip-bg: rgba(255, 255, 255, 0.88);
+  --hero-shadow: 0 0 3px rgba(255, 255, 255, 0.95), 0 0 10px rgba(255, 255, 255, 0.85), 0 0 18px rgba(255, 255, 255, 0.6);
   --header-tint: rgba(254, 243, 199, 0.95);
 }
 
@@ -1163,8 +1174,11 @@ html.light,
 @media (max-width: 768px) {
   .hero-banner {
     min-height: 0;
-    padding: 22px 18px;
+    padding: 14px;
     margin: 16px 0 14px 0;
+  }
+  .hero-banner-content {
+    padding: 16px 14px;
   }
   .hero-banner-title {
     text-align: center;
