@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="si">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +30,7 @@
   <meta name="keywords" content="අභිධර්ම, බුද්ධ ධර්මය, පාලි, රූපසිද්ධිය, අභිධර්ම මාතිකා, පට්ඨාන, ධාතුකථා, ධර්ම පුස්තකාලය, Buddhist Apps, Abhidhamma, Matika, Sinhala Dhamma Books PDF">
   <meta name="author" content="Pavara">
   
-  <!-- Google Search සඳහා Image Previews සක්‍රීය කිරීම -->
+  <!-- Google Search Image Previews -->
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#09090b">
 
@@ -36,18 +38,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Preload LCP Icon -->
-  <link rel="preload" as="image" href="https://buddhist-educational-apps.github.io/B-E-A/icons/matika.png" fetchpriority="high">
+  <!-- Preload Essential Sinhala Web Font (අකුරු පෙන්වීම ප්‍රමාද වීම වැළැක්වීමට display=swap සමඟ) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@500;700;800&family=Inter:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@500;700;800&family=Inter:wght@500;600;700&display=swap">
 
-  <!-- Optimized Google Fonts with display=optional -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700;800&family=Gemunu+Libre:wght@500;600;700&family=Noto+Serif+Sinhala:wght@400;500;600&display=optional">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700;800&family=Gemunu+Libre:wght@500;600;700&family=Noto+Serif+Sinhala:wght@400;500;600&display=optional" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700;800&family=Gemunu+Libre:wght@500;600;700&family=Noto+Serif+Sinhala:wght@400;500;600&display=optional">
-  </noscript>
-  <link rel="stylesheet" href="main.css?v=20">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="main.css?v=21">
 
-  <!-- Theme Detection Script -->
+  <!-- Theme Detection Script (Flash of wrong theme වැළැක්වීමට) -->
   <script>
     (function() {
       try {
@@ -74,7 +72,7 @@
   <meta name="twitter:description" content="බෞද්ධ ධර්ම ග්‍රන්ථ (PDF) නොමිලේ බාගත කරගන්න. බෞද්ධ අධ්‍යාපනික Web සහ Android Apps.">
   <meta name="twitter:image" content="https://buddhistapps.vercel.app/screenshots/matika-1.webp">
 
-  <!-- Structured Data (Google Schema.org with Screenshots) -->
+  <!-- Structured Data (Google Schema.org) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -84,9 +82,6 @@
     "applicationCategory": "EducationalApplication",
     "inLanguage": "si",
     "image": [
-      "https://buddhistapps.vercel.app/screenshots/matika-1.webp"
-    ],
-    "screenshot": [
       "https://buddhistapps.vercel.app/screenshots/matika-1.webp"
     ],
     "description": "අභිධර්ම මාතිකා, ධාතුකථා, පට්ඨාන ඇතුළු බෞද්ධ ධර්ම ග්‍රන්ථ PDF සහ අධ්‍යාපනික Android / Web Apps.",
@@ -126,7 +121,7 @@
                  oninput="handleSearchInput()"
                  onfocus="handleSearchFocus()"
                  autocomplete="off"
-                 aria-label="සොයන්න">
+                 aria-label="සෙවුම් තීරුව">
           <button type="button"
                   class="search-clear hidden"
                   id="searchClear"
@@ -215,7 +210,7 @@
 
   </main>
 
-  <!-- Non-blocking Scripts -->
+  <!-- Scripts -->
   <script src="theme.js" defer></script>
   <script src="data.js" defer></script>
 </body>
