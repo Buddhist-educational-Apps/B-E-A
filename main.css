@@ -296,32 +296,46 @@ html.light .theme-toggle-icon {
    ========================================== */
 /* බැනරයට පමණක් වම්පස රන්වන් මායිම පවත්වා ගැනීම */
 .hero-banner {
-  margin: 20px 0 14px 0;
-  padding: 22px 28px;
-  background: var(--bg-surface);
+  margin: 24px 0 18px 0;
+  padding: 36px 44px;            /* අකුරු සම්පූර්ණ බැනරයේ පළල පුරා පැතිරේ */
+  display: flex;
+  align-items: center;
   border: 1px solid var(--border-color);
   border-left: 5px solid var(--accent-gold) !important;
-  border-radius: var(--r-lg);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-sm);
   position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--bg-surface);
+  /* පින්තූරය පසුබිමට + තේමාවට ගැළපෙන overlay එකක් (අකුරු පැහැදිලි වීමට) */
+  background-image:
+    linear-gradient(var(--hero-overlay), var(--hero-overlay)),
+    url("Gemini_Generated_Image_10kmon10kmon10km.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero-banner-content {
   max-width: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 999px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-color);
-  color: var(--text-muted);
+  background: var(--hero-chip-bg);
+  border: 1px solid var(--accent-ring);
+  color: var(--hero-text);
   font-size: 0.78rem;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .hero-eyebrow .dot {
@@ -337,12 +351,10 @@ html.light .theme-toggle-icon {
   /* අකුරු ප්‍රමාණය මදක් අඩු කර ඇත */
   font-size: clamp(1.35rem, 2.4vw, 1.85rem);
   font-weight: 800;
-  color: var(--accent-gold);
-  line-height: 1.45;
+  color: var(--hero-title);
+  line-height: 1.5;
   margin-bottom: 14px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  
-  /* මාතෘකාව මැදට (Center align) කිරීම */
+  text-shadow: var(--hero-shadow);
   text-align: center;
   width: 100%;
 }
@@ -351,11 +363,12 @@ html.light .theme-toggle-icon {
   font-family: 'Noto Serif Sinhala', Georgia, serif;
   font-size: 0.98rem;
   font-weight: 500;
-  color: var(--text-main);
+  color: var(--hero-text);
   line-height: 1.9;
   text-align: justify;
   text-justify: inter-word;
-  margin-bottom: 0;           /* පහළ පරතරය 0 කර උස අඩු කර ඇත */
+  text-shadow: var(--hero-shadow);
+  margin-bottom: 0;
 }
 
 /* ==========================================
@@ -366,9 +379,9 @@ html.light .theme-toggle-icon {
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: 16px;
-  margin-bottom: 36px;
-  padding-left: 28px; /* බැනරයේ ඇතුළත content එකේ වම් මායිමට සමපාත වීමට */
+  margin-top: 0;
+  margin-bottom: 44px;
+  padding-left: 0;
 }
 
 .hero-btn {
@@ -1085,4 +1098,86 @@ html.light .theme-toggle-icon {
   width: 220px;
   height: 175px;
   aspect-ratio: 220 / 175;
+}
+
+/* ============================================================
+   ✨ Layout Polish — විධිමත් පෙනුම
+   ============================================================ */
+.section-title {
+  padding-bottom: 12px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.playstore-card {
+  box-shadow: var(--shadow-sm);
+}
+.playstore-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.pdf-table {
+  box-shadow: var(--shadow-sm);
+}
+.table-header span:last-child {
+  text-align: right;
+}
+.folder-header {
+  border-left: 3px solid transparent;
+}
+.folder-group.open > .folder-header {
+  border-left-color: var(--accent-gold);
+  background: var(--bg-folder-hover);
+}
+
+/* Hero banner colours — theme aware (overlay + text always high contrast) */
+:root,
+:root.dark,
+html.dark,
+[data-theme="dark"] {
+  --hero-overlay: rgba(9, 9, 11, 0.80);
+  --hero-text: #f5f5f4;
+  --hero-title: #fcd34d;
+  --hero-chip-bg: rgba(0, 0, 0, 0.45);
+  --hero-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  --header-tint: rgba(251, 191, 36, 0.07);
+}
+:root.light,
+html.light,
+[data-theme="light"] {
+  --hero-overlay: rgba(255, 252, 245, 0.86);
+  --hero-text: #1c1917;
+  --hero-title: #9a3412;
+  --hero-chip-bg: rgba(255, 255, 255, 0.85);
+  --hero-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+  --header-tint: rgba(254, 243, 199, 0.95);
+}
+
+/* Header / search bar area — light tint */
+.site-header {
+  background-image: linear-gradient(var(--header-tint), var(--header-tint));
+  border-bottom: 1px solid var(--accent-ring);
+}
+
+@media (max-width: 768px) {
+  .hero-banner {
+    min-height: 0;
+    padding: 22px 18px;
+    margin: 16px 0 14px 0;
+  }
+  .hero-banner-title {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+  .hero-banner-desc {
+    font-size: 0.93rem;
+    line-height: 1.85;
+  }
+  .hero-actions {
+    margin-bottom: 32px;
+  }
+  .hero-btn {
+    flex: 1;
+  }
 }
