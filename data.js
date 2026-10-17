@@ -18,7 +18,7 @@ const appsData = [
     badgeType: "tag-gold",
     description: "අභිධර්ම මාතිකා සහ ධම්මසංගණී විග්‍රහයන් පහසුවෙන් කියවීමට සහ අධ්‍යයනය කිරීමට නිර්මාණය කළ සුවිශේෂී මෘදුකාංගයකි.",
     icon: BASE_URL + "/icons/matika.png",
-    apkUrl: "https://apkpure.com/p/app.vercel.matika_snowy.twa",
+    apkUrl: "Source: Vercel https://share.google/GuJj8bOamLoXsCOOv",
     webUrl: "https://pavara9803-ctrl.github.io/Matika/",
     screenshots: [
       BASE_URL + "/screenshots/matika-1.webp",
