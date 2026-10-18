@@ -7,15 +7,8 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3XSZLHD76"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-T3XSZLHD76');
-  </script>
+  <!-- Google Analytics + Cookie දැන්වීම (අවසරය ලැබුණු පසු පමණක් Analytics ක්‍රියාත්මක වේ) -->
+  <script src="site.js"></script>
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
@@ -42,7 +35,7 @@
   <!-- Banner Background Preload (පින්තූරය ක්ෂණිකව Load වීමට) -->
   <link rel="preload" as="image" href="Gemini_Generated_Image_10kmon10kmon10km.jpg">
 
-  <link rel="stylesheet" href="main.css?v=30">
+  <link rel="stylesheet" href="main.css?v=31">
 
   <!-- Theme Detection Script -->
   <script>
@@ -199,6 +192,13 @@
 
     <!-- Footer -->
     <footer class="site-footer">
+      <nav class="footer-links" aria-label="පාදක සබැඳි">
+        <a href="about.html">අප ගැන</a>
+        <a href="contact.html">සම්බන්ධ වන්න</a>
+        <a href="privacy.html">රහස්‍යතා ප්‍රතිපත්තිය</a>
+        <a href="copyright.html">ප්‍රකාශන හිමිකම්</a>
+        <button type="button" class="footer-link-btn" onclick="openCookieSettings()">Cookie සැකසුම්</button>
+      </nav>
       <p>බෞද්ධ අධ්‍යාපනික මෘදුකාංග සහ pdf ගොනු • Buddhist Educational Tools and PDF Resources</p>
       <p class="footer-subtext">බුද්ධසාසනං චිරං තිට්ඨතු!</p>
     </footer>

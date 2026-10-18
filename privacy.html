@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>රහස්‍යතා ප්‍රතිපත්තිය | බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග</title>
+  <meta name="description" content="මෙම අඩවිය රැස් කරන තොරතුරු, Google Analytics සහ Firebase භාවිතය, සහ ඔබට ඇති තේරීම් ගැන රහස්‍යතා ප්‍රතිපත්තිය.">
+  <link rel="canonical" href="https://buddhistapps.vercel.app/privacy.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#09090b">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@500;700;800&family=Inter:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="main.css?v=31">
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('buddhist_apps_theme') || 'dark';
+        document.documentElement.classList.toggle('light', saved === 'light');
+        document.documentElement.setAttribute('data-theme', saved);
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  <script src="site.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="මුල් පිටුව">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.2 4.2M14.2 14.2l4.2 4.2M18.4 5.6l-4.2 4.2M9.8 14.2l-4.2 4.2"/>
+          </svg>
+        </span>
+        <span class="brand-name">පුස්තකාලය</span>
+      </a>
+      <nav class="site-nav" aria-label="ප්‍රධාන සබැඳි">
+        <a href="index.html">මුල් පිටුව</a>
+        <a href="about.html">අප ගැන</a>
+        <a href="contact.html">සම්බන්ධ වන්න</a>
+      </nav>
+      <button class="theme-toggle" onclick="toggleTheme()" title="තේමාව මාරු කරන්න" aria-label="තේමාව මාරු කරන්න">
+        <span class="theme-toggle-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero">
+      <h1>රහස්‍යතා ප්‍රතිපත්තිය</h1>
+      <p>ඔබගේ තොරතුරු අප භාවිතා කරන ආකාරය</p>
+    </section>
+
+    <article class="page-content">
+      <p class="page-meta">අවසන් යාවත්කාලීන කළේ: 2026 ඔක්තෝබර් 18</p>
+
+      <p>
+        මෙම ප්‍රතිපත්තිය <strong>buddhistapps.vercel.app</strong> වෙබ් අඩවියට අදාළ වේ. ඔබ අඩවිය භාවිතා කරන විට කුමන තොරතුරු රැස් වේද, ඒවා කුමක් සඳහාද යන්න මෙහි පැහැදිලි කර ඇත. අඩවියට ඇතුළු වීමට ගිණුමක් සෑදීම හෝ නම, ඊමේල් වැනි පුද්ගලික තොරතුරු ලබා දීම අවශ්‍ය නැත.
+      </p>
+
+      <h2>1. අප රැස් කරන තොරතුරු</h2>
+      <p><strong>Google Analytics (ඔබ පිළිගත්තොත් පමණි).</strong> අඩවිය භාවිතා වන ආකාරය දැනගැනීමට Google Analytics භාවිතා කරමු. එමඟින් නැරඹූ පිටු, අඩවියේ ගත කළ කාලය, උපාංගය සහ බ්‍රවුසර වර්ගය, ආසන්න භූගෝලීය ප්‍රදේශය වැනි නිර්නාමික සංඛ්‍යාලේඛන රැස් වේ. ඔබ cookie දැන්වීමේ "පිළිගන්නවා" තෝරනතුරු මෙය ක්‍රියාත්මක නොවේ. අපි IP ලිපින නිර්නාමික කිරීමේ විකල්පය සක්‍රීය කර ඇත.</p>
+      <p><strong>බාගත කිරීම් ගණන (Firebase).</strong> එක් එක් ග්‍රන්ථය කී වතාවක් බාගත කළාද යන සංඛ්‍යාව පෙන්වීමට Google Firebase Realtime Database භාවිතා කරමු. ගබඩා වන්නේ ගණන් සංඛ්‍යාව පමණි; ඔබ ගැන තොරතුරු නොවේ. කෙසේ වෙතත්, ඕනෑම වෙබ් සේවාවක් මෙන්ම Google සේවාදායකයන් සමඟ සම්බන්ධ වීමේදී ඔබගේ IP ලිපිනය සහ බ්‍රවුසර තොරතුරු තාක්ෂණික අවශ්‍යතා සඳහා Google වෙත ලැබේ.</p>
+      <p><strong>ඔබගේ උපාංගයේ ගබඩා වන දේ.</strong> ඔබගේ බ්‍රවුසරයේ ඇති ගබඩාවේ (localStorage) තේමා තේරීම (Dark / Light) සහ cookie පිළිබඳ ඔබගේ තේරීම සුරැකේ. මේවා ඔබගේ උපාංගයෙන් පිටතට යවනු නොලැබේ.</p>
+
+      <h2>2. තොරතුරු භාවිතා කරන ආකාරය</h2>
+      <ul>
+        <li>අඩවිය වැඩිදියුණු කිරීමට සහ ජනප්‍රිය ග්‍රන්ථ/යෙදුම් හඳුනාගැනීමට.</li>
+        <li>බාගත කිරීම් ගණන පෙන්වීමට.</li>
+        <li>ඔබගේ තේමා සහ cookie තේරීම් මතක තබාගැනීමට.</li>
+      </ul>
+      <p>අපි ඔබගේ තොරතුරු විකුණන්නේ නැත, ප්‍රචාරණ අරමුණු සඳහා භාවිතා කරන්නේ නැත.</p>
+
+      <h2>3. තෙවන පාර්ශව සේවා</h2>
+      <p>මෙම අඩවිය පහත සේවා භාවිතා කරයි. ඒවායේ ස්වකීය රහස්‍යතා ප්‍රතිපත්ති අදාළ වේ:</p>
+      <ul>
+        <li><strong>Google Analytics</strong> — නිර්නාමික භාවිත සංඛ්‍යාලේඛන (අවසරය සමඟ පමණි).</li>
+        <li><strong>Google Firebase</strong> — බාගත කිරීම් ගණන.</li>
+        <li><strong>Google Fonts</strong> — අකුරු පෙන්වීමට. ඔබගේ බ්‍රවුසරය Google සේවාදායකයන් වෙතින් අකුරු ගොනු ඉල්ලයි.</li>
+        <li><strong>Vercel සහ GitHub Pages</strong> — අඩවිය, යෙදුම් අයිකන, පින්තූර සහ PDF ගොනු සත්කාරකත්වය (hosting).</li>
+        <li><strong>Google Play, APKPure</strong> — යෙදුම් බාගත කිරීමේ බාහිර සබැඳි. එම අඩවි වෙත ගිය පසු ඒවායේ ප්‍රතිපත්ති අදාළ වේ.</li>
+      </ul>
+
+      <h2>4. ඔබට ඇති තේරීම්</h2>
+      <ul>
+        <li>පහළ ඇති <strong>Cookie සැකසුම්</strong> බොත්තම මඟින් Analytics පිළිබඳ ඔබගේ තීරණය ඕනෑම වේලාවක වෙනස් කළ හැක.</li>
+        <li>බ්‍රවුසරයේ අඩවි දත්ත (site data) මැකීමෙන් සුරැකි තේරීම් ඉවත් කළ හැක.</li>
+        <li>Google Analytics වෙතින් ඉවත් වීමට Google ගේ බ්‍රවුසර add-on ද භාවිතා කළ හැක.</li>
+      </ul>
+      <p><button type="button" class="form-submit" onclick="openCookieSettings()">Cookie සැකසුම් විවෘත කරන්න</button></p>
+
+      <h2>5. ළමයින්</h2>
+      <p>මෙම අඩවිය ළමයින්ගෙන් පුද්ගලික තොරතුරු දැනුවත්ව රැස් නොකරයි.</p>
+
+      <h2>6. යෙදුම් (Android / Web) පිළිබඳව</h2>
+      <p>මෙම ප්‍රතිපත්තිය මෙම වෙබ් අඩවියට අදාළ වේ. අඩවියෙන් ලබාගත හැකි එක් එක් යෙදුමට ඒවායේ ස්වකීය රහස්‍යතා සටහන් තිබිය හැක.</p>
+
+      <h2>7. ප්‍රතිපත්තියේ වෙනස්කම්</h2>
+      <p>මෙම ප්‍රතිපත්තිය කලින් කලට යාවත්කාලීන කළ හැක. වෙනස්කම් මෙම පිටුවේ පළ කර, ඉහළ ඇති "අවසන් යාවත්කාලීන කළේ" දිනය වෙනස් කෙරේ.</p>
+
+      <h2>8. සම්බන්ධ වන්න</h2>
+      <p>
+        මෙම ප්‍රතිපත්තිය ගැන ප්‍රශ්න ඇත්නම් <a href="contact.html">සම්බන්ධ වන්න</a> පිටුව හරහා හෝ
+        <a href="#" data-contact-email>ඊමේල්</a> මඟින් අප අමතන්න.
+      </p>
+    </article>
+
+    <footer class="site-footer">
+      <nav class="footer-links" aria-label="පාදක සබැඳි">
+        <a href="about.html">අප ගැන</a>
+        <a href="contact.html">සම්බන්ධ වන්න</a>
+        <a href="privacy.html">රහස්‍යතා ප්‍රතිපත්තිය</a>
+        <a href="copyright.html">ප්‍රකාශන හිමිකම්</a>
+        <button type="button" class="footer-link-btn" onclick="openCookieSettings()">Cookie සැකසුම්</button>
+      </nav>
+      <p>බෞද්ධ අධ්‍යාපනික මෘදුකාංග සහ pdf ගොනු • Buddhist Educational Tools and PDF Resources</p>
+      <p class="footer-subtext">බුද්ධසාසනං චිරං තිට්ඨතු!</p>
+    </footer>
+  </main>
+
+  <script src="theme.js" defer></script>
+</body>
+</html>
