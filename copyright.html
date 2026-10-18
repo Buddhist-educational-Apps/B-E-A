@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ප්‍රකාශන හිමිකම් සහ මූලාශ්‍ර | බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග</title>
-  <meta name="description" content="ධර්ම ග්‍රන්ථ සහ යෙදුම් වල ප්‍රකාශන හිමිකම්, මූලාශ්‍ර, භාවිත කොන්දේසි සහ ඉවත් කිරීමේ ඉල්ලීම් ක්‍රමය.">
+  <title data-title-en="Copyright & Sources | Buddhist Dhamma Library & Apps">ප්‍රකාශන හිමිකම් සහ මූලාශ්‍ර | බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග</title>
+  <meta name="description" content="ධර්ම ග්‍රන්ථ සහ යෙදුම් වල ප්‍රකාශන හිමිකම්, මූලාශ්‍ර, භාවිත කොන්දේසි සහ ඉවත් කිරීමේ ඉල්ලීම් ක්‍රමය." data-content-en="Copyright of the Dhamma books and apps, sources, terms of use and how to request removal.">
   <link rel="canonical" href="https://buddhistapps.vercel.app/copyright.html">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#09090b">
@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@500;700;800&family=Inter:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="main.css?v=31">
+  <link rel="stylesheet" href="main.css?v=36">
   <script>
     (function() {
       try {
@@ -24,13 +24,14 @@
       }
     })();
   </script>
-  <script src="site.js"></script>
+  <script src="i18n.js?v=2"></script>
+  <script src="site.js?v=2"></script>
 </head>
 <body>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand" aria-label="මුල් පිටුව">
+      <a href="index.html" class="brand" aria-label="මුල් පිටුව" data-i18n-aria="nav.home">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="3"/>
@@ -38,14 +39,18 @@
             <path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.2 4.2M14.2 14.2l4.2 4.2M18.4 5.6l-4.2 4.2M9.8 14.2l-4.2 4.2"/>
           </svg>
         </span>
-        <span class="brand-name">පුස්තකාලය</span>
+        <span class="brand-name" data-i18n="brand">පුස්තකාලය</span>
       </a>
-      <nav class="site-nav" aria-label="ප්‍රධාන සබැඳි">
-        <a href="index.html">මුල් පිටුව</a>
-        <a href="about.html">අප ගැන</a>
-        <a href="contact.html">සම්බන්ධ වන්න</a>
+      <nav class="site-nav" aria-label="ප්‍රධාන සබැඳි" data-i18n-aria="nav.aria">
+        <a href="index.html" data-i18n="nav.home">මුල් පිටුව</a>
+        <a href="about.html" data-i18n="nav.about">අප ගැන</a>
+        <a href="contact.html" data-i18n="nav.contact">සම්බන්ධ වන්න</a>
       </nav>
-      <button class="theme-toggle" onclick="toggleTheme()" title="තේමාව මාරු කරන්න" aria-label="තේමාව මාරු කරන්න">
+      <div class="lang-switch" role="group" aria-label="භාෂාව / Language" data-i18n-aria="lang.aria">
+        <button type="button" data-set-lang="si" aria-pressed="true" title="සිංහල">සිං</button>
+        <button type="button" data-set-lang="en" aria-pressed="false" title="English">EN</button>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()" title="තේමාව මාරු කරන්න" aria-label="තේමාව මාරු කරන්න" data-i18n-title="theme.toggle" data-i18n-aria="theme.toggle">
         <span class="theme-toggle-icon" aria-hidden="true"></span>
       </button>
     </div>
@@ -53,11 +58,12 @@
 
   <main class="container">
     <section class="page-hero">
-      <h1>ප්‍රකාශන හිමිකම් සහ මූලාශ්‍ර</h1>
-      <p>ග්‍රන්ථ සහ යෙදුම් පිළිබඳ දැන්වීම</p>
+      <h1><span data-lang="si">ප්‍රකාශන හිමිකම් සහ මූලාශ්‍ර</span><span data-lang="en">Copyright & Sources</span></h1>
+      <p><span data-lang="si">ග්‍රන්ථ සහ යෙදුම් පිළිබඳ දැන්වීම</span><span data-lang="en">Notice about the books and apps</span></p>
     </section>
 
     <article class="page-content">
+      <div data-lang="si">
       <p class="page-meta">අවසන් යාවත්කාලීන කළේ: 2026 ඔක්තෝබර් 18</p>
 
       <h2>1. ග්‍රන්ථ වල ප්‍රකාශන හිමිකම</h2>
@@ -98,20 +104,126 @@
       <p>ඉල්ලීම ලැබුණු පසු එය සමාලෝචනය කර අවශ්‍ය නම් ගොනුව ඉවත් කරනු ලැබේ.</p>
 
       <div class="note">
-        සම්බන්ධතා ඊමේල් ලිපිනය: <a href="mailto:buddhisteducationallibrary@gmail.com">buddhisteducationallibrary@gmail.com</a>
+        සම්බන්ධතා ඊමේල් ලිපිනය: <a href="#" data-contact-email>ඊමේල්</a>
+      </div>
+    
+      </div>
+      <div data-lang="en">
+      <p class="page-meta">Last updated: 18 October 2026</p>
+
+      <h2>1. Copyright of the books</h2>
+      <p>
+        Copyright in the Dhamma books (PDF) on this site belongs to the respective authors and publishers. The author, compiler or year of publication of each book is stated in its title and within the PDF file. The website's developer does not claim authorship of these books.
+      </p>
+
+      <h2>2. About the Dhamma content</h2>
+      <p>
+        The Tipiṭaka Pāli texts and the Buddha's discourses are classical Dhamma works, while the Sinhala explanations, sannayas (commentaries) and study guides are the creations of their respective authors. The content on this site is for ease of study only. For deeper study it is advisable to confirm points with a qualified teacher or the original texts.
+      </p>
+
+      <h2>3. Terms of use</h2>
+      <ul>
+        <li>You may download and read the books free of charge for personal study.</li>
+        <li>Selling the books, using them for any other commercial purpose, or modifying and republishing the content requires the written permission of the respective author.</li>
+        <li>When quoting a book, please credit the author and the title.</li>
+      </ul>
+
+      <h2>4. Sources of the apps</h2>
+      <ul>
+        <li><strong>Rupasiddhi:</strong> prepared with reference to the Padarūpasiddhi text.</li>
+        <li><strong>Pali–Sinhala Dictionary (DPSD):</strong> created by the DPSD Team.</li>
+        <li><strong>Abhidhamma Matika and Buddhist Era:</strong> created by the developers named on each app's card.</li>
+      </ul>
+      <p>The developer of each app is shown on its card on the home page.</p>
+
+      <h2>5. Removal requests and corrections</h2>
+      <p>
+        If you are the author or rights holder of a book listed here and would like it removed, or would like your name or source corrected, please choose "Copyright request" on the <a href="contact.html">Contact</a> page and send us the following:
+      </p>
+      <ol>
+        <li>The title of the book (as shown on this site).</li>
+        <li>A short statement showing that you are the rights holder.</li>
+        <li>The action you want (removal or correction).</li>
+        <li>A way for us to contact you.</li>
+      </ol>
+      <p>Once we receive a request we will review it and, where appropriate, remove the file.</p>
+
+      <div class="note">
+        Contact email address: <a href="#" data-contact-email>email</a>
+      </div>
       </div>
     </article>
 
     <footer class="site-footer">
-      <nav class="footer-links" aria-label="පාදක සබැඳි">
-        <a href="about.html">අප ගැන</a>
-        <a href="contact.html">සම්බන්ධ වන්න</a>
-        <a href="privacy.html">රහස්‍යතා ප්‍රතිපත්තිය</a>
-        <a href="copyright.html">ප්‍රකාශන හිමිකම්</a>
-        <button type="button" class="footer-link-btn" onclick="openCookieSettings()">Cookie සැකසුම්</button>
-      </nav>
-      <p>බෞද්ධ අධ්‍යාපනික මෘදුකාංග සහ pdf ගොනු • Buddhist Educational Tools and PDF Resources</p>
-      <p class="footer-subtext">බුද්ධසාසනං චිරං තිට්ඨතු!</p>
+      <div class="footer-inner">
+        <div class="footer-grid">
+
+          <div class="footer-col footer-about">
+            <a href="index.html" class="footer-brand">
+              <span class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.2 4.2M14.2 14.2l4.2 4.2M18.4 5.6l-4.2 4.2M9.8 14.2l-4.2 4.2"/>
+                </svg>
+              </span>
+              <span class="footer-brand-name" data-i18n="brand.full">බෞද්ධ ධර්ම පුස්තකාලය</span>
+            </a>
+            <p data-i18n="footer.blurb">ත්‍රිපිටක ධර්මය හදාරන්නන් සඳහා නොමිලේ ලබාගත හැකි අධ්‍යාපනික යෙදුම් සහ ධර්ම ග්‍රන්ථ PDF එකතුවකි.</p>
+            <div class="footer-chips">
+              <span class="footer-chip" data-i18n="footer.free">නොමිලේ</span>
+              <span class="footer-chip">Web</span>
+              <span class="footer-chip">Android</span>
+              <span class="footer-chip">iOS</span>
+            </div>
+          </div>
+
+          <nav class="footer-col" aria-labelledby="footerExplore">
+            <h3 id="footerExplore" data-i18n="footer.explore">අඩවිය</h3>
+            <ul>
+              <li><a href="index.html#apps" data-i18n="nav.apps">යෙදුම්</a></li>
+              <li><a href="index.html#books" data-i18n="nav.books">ග්‍රන්ථ</a></li>
+              <li><a href="about.html" data-i18n="nav.about">අප ගැන</a></li>
+              <li><a href="contact.html" data-i18n="nav.contact">සම්බන්ධ වන්න</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-col" aria-labelledby="footerLegal">
+            <h3 id="footerLegal" data-i18n="footer.legal">නීතිමය තොරතුරු</h3>
+            <ul>
+              <li><a href="privacy.html" data-i18n="footer.privacy">රහස්‍යතා ප්‍රතිපත්තිය</a></li>
+              <li><a href="copyright.html" data-i18n="footer.copyright">ප්‍රකාශන හිමිකම් සහ මූලාශ්‍ර</a></li>
+              <li><button type="button" class="footer-link-btn" onclick="openCookieSettings()" data-i18n="footer.cookie">Cookie සැකසුම්</button></li>
+            </ul>
+          </nav>
+
+          <div class="footer-col footer-contact">
+            <h3 data-i18n="footer.contact">සම්බන්ධ වන්න</h3>
+            <p class="footer-contact-text" data-i18n="footer.contactText">ප්‍රශ්න, යෝජනා හෝ දෝෂ වාර්තා කිරීම් සඳහා අප හා සම්බන්ධ වන්න.</p>
+            <a href="contact.html" class="footer-cta">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <span data-i18n="footer.contactCta">පණිවිඩයක් යවන්න</span>
+            </a>
+            <a href="#" class="footer-mail" data-contact-email data-hide-if-no-email hidden></a>
+          </div>
+
+        </div>
+
+        <div class="footer-blessing"><span data-i18n="footer.blessing">බුද්ධසාසනං චිරං තිට්ඨතු!</span></div>
+
+        <div class="footer-bottom">
+          <p class="footer-copy">© <span data-year>2026</span> <span data-i18n="footer.rightsName">බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග</span></p>
+          <div class="footer-bottom-right">
+            <div class="lang-switch" role="group" aria-label="භාෂාව / Language" data-i18n-aria="lang.aria">
+              <button type="button" data-set-lang="si" aria-pressed="true" title="සිංහල">සිංහල</button>
+              <button type="button" data-set-lang="en" aria-pressed="false" title="English">English</button>
+            </div>
+            <button type="button" class="footer-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="ඉහළට යන්න" title="ඉහළට යන්න" data-i18n-aria="footer.top" data-i18n-title="footer.top">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
     </footer>
   </main>
 

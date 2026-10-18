@@ -93,6 +93,14 @@ window.SITE_CONFIG = {
   function fillEmail() {
     // data-contact-email අඩංගු අංග පිරවීම
     var email = (window.SITE_CONFIG && window.SITE_CONFIG.contactEmail) || "";
+    // ඊමේල් ලිපිනයක් නොමැති නම් (footer වැනි තැන්වල) එම අංගය සඟවන්න
+    document.querySelectorAll("[data-hide-if-no-email]").forEach(function (el) {
+      el.hidden = !email;
+    });
+    // © වසර
+    document.querySelectorAll("[data-year]").forEach(function (el) {
+      el.textContent = new Date().getFullYear();
+    });
     document.querySelectorAll("[data-contact-email]").forEach(function (el) {
       if (email) {
         el.textContent = email;

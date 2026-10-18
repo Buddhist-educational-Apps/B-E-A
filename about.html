@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>අප ගැන | බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග</title>
-  <meta name="description" content="බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග අඩවිය, B.E.A ව්‍යාපෘතිය සහ එහි අරමුණු ගැන දැනගන්න.">
+  <title data-title-en="About | Buddhist Dhamma Library & Apps">අප ගැන | බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග</title>
+  <meta name="description" content="බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග අඩවිය, B.E.A ව්‍යාපෘතිය සහ එහි අරමුණු ගැන දැනගන්න." data-content-en="Learn about the Buddhist Dhamma Library & Apps website, the B.E.A project and its aims.">
   <link rel="canonical" href="https://buddhistapps.vercel.app/about.html">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#09090b">
@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@500;700;800&family=Inter:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="main.css?v=31">
+  <link rel="stylesheet" href="main.css?v=36">
   <script>
     (function() {
       try {
@@ -24,13 +24,14 @@
       }
     })();
   </script>
-  <script src="site.js"></script>
+  <script src="i18n.js?v=2"></script>
+  <script src="site.js?v=2"></script>
 </head>
 <body>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand" aria-label="මුල් පිටුව">
+      <a href="index.html" class="brand" aria-label="මුල් පිටුව" data-i18n-aria="nav.home">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="3"/>
@@ -38,14 +39,18 @@
             <path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.2 4.2M14.2 14.2l4.2 4.2M18.4 5.6l-4.2 4.2M9.8 14.2l-4.2 4.2"/>
           </svg>
         </span>
-        <span class="brand-name">පුස්තකාලය</span>
+        <span class="brand-name" data-i18n="brand">පුස්තකාලය</span>
       </a>
-      <nav class="site-nav" aria-label="ප්‍රධාන සබැඳි">
-        <a href="index.html">මුල් පිටුව</a>
-        <a href="about.html" aria-current="page">අප ගැන</a>
-        <a href="contact.html">සම්බන්ධ වන්න</a>
+      <nav class="site-nav" aria-label="ප්‍රධාන සබැඳි" data-i18n-aria="nav.aria">
+        <a href="index.html" data-i18n="nav.home">මුල් පිටුව</a>
+        <a href="about.html" aria-current="page" data-i18n="nav.about">අප ගැන</a>
+        <a href="contact.html" data-i18n="nav.contact">සම්බන්ධ වන්න</a>
       </nav>
-      <button class="theme-toggle" onclick="toggleTheme()" title="තේමාව මාරු කරන්න" aria-label="තේමාව මාරු කරන්න">
+      <div class="lang-switch" role="group" aria-label="භාෂාව / Language" data-i18n-aria="lang.aria">
+        <button type="button" data-set-lang="si" aria-pressed="true" title="සිංහල">සිං</button>
+        <button type="button" data-set-lang="en" aria-pressed="false" title="English">EN</button>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()" title="තේමාව මාරු කරන්න" aria-label="තේමාව මාරු කරන්න" data-i18n-title="theme.toggle" data-i18n-aria="theme.toggle">
         <span class="theme-toggle-icon" aria-hidden="true"></span>
       </button>
     </div>
@@ -53,11 +58,12 @@
 
   <main class="container">
     <section class="page-hero">
-      <h1>අප ගැන</h1>
-      <p> <h3>B.E.A (Buddhist Educational Apps) - යනු මෙම අඩවියේ සඳහන් බොහෝ යෙදුම් නිර්මාණය කරන බෞද්ධ අධ්‍යාපනික මෘදුකාංග ව්‍යාපෘතියයි.</h3> </p>
+      <h1><span data-lang="si">අප ගැන</span><span data-lang="en">About Us</span></h1>
+      <p><span data-lang="si">බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග</span><span data-lang="en">Buddhist Dhamma Library & Apps</span></p>
     </section>
 
     <article class="page-content">
+      <div data-lang="si">
       <h2>මෙම අඩවිය</h2>
       <p>
         බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග යනු ත්‍රිපිටක ධර්මය, විශේෂයෙන් අභිධර්මය, පාලි භාෂාව සහ බෞද්ධ දින දර්ශනය පහසුවෙන් අධ්‍යයනය කිරීමට උපකාරී වන අධ්‍යාපනික යෙදුම් සහ ධර්ම ග්‍රන්ථ (PDF) එක් තැනක එකතු කර ඇති නොමිලේ භාවිතා කළ හැකි අඩවියකි.
@@ -72,7 +78,7 @@
 
       <h2>B.E.A ව්‍යාපෘතිය</h2>
       <p>
-        B.E.A ව්‍යාපෘතියේ අරමුණ වන්නේ බෞද්ධ ධර්මය අධ්‍යයනය කරන ශිෂ්‍යයන්ට සහ උනන්දුවක් දක්වන්නන්ට උපකාරී වන මෘදුකාංග නිර්මාණය කිරීමයි. මෙම ව්‍යාපෘතියේ යෙදුම් බොහෝ විට පාලි භාෂාව, අභිධර්මය, විනය, බුද්ධ දේශනා සහ බෞද්ධ දින දර්ශනය වැනි විෂයයන් ආවරණය කරයි.
+        B.E.A (Buddhist Educational Apps) යනු මෙම අඩවියේ සඳහන් බොහෝ යෙදුම් නිර්මාණය කරන බෞද්ධ අධ්‍යාපනික මෘදුකාංග ව්‍යාපෘතියයි. අඩවියේ සංවර්ධකයා <strong>Pavara</strong> ය.
       </p>
 
       <h2>අඩවියේ ඇති යෙදුම්</h2>
@@ -98,18 +104,122 @@
       <p>
         යෝජනා, ප්‍රතිචාර, දෝෂ වාර්තා කිරීම් හෝ ග්‍රන්ථ ගැන විමසීම් සඳහා <a href="contact.html">සම්බන්ධ වන්න</a> පිටුව භාවිතා කරන්න.
       </p>
+    
+      </div>
+      <div data-lang="en">
+      <h2>This website</h2>
+      <p>
+        Buddhist Dhamma Library &amp; Apps is a free website that brings together educational apps and Dhamma books (PDF) to help you study the Tipiṭaka teachings — especially the Abhidhamma, the Pāli language and the Buddhist calendar — with ease.
+      </p>
+
+      <h2>Our aim</h2>
+      <ul>
+        <li>Making the apps and books needed for Dhamma study freely and easily available to everyone.</li>
+        <li>Providing apps that work on phones, computers and web browsers (Android, iOS, Web, Windows).</li>
+        <li>Helping students of subjects such as Pāli and the Abhidhamma, and everyone with an interest in them.</li>
+      </ul>
+
+      <h2>The B.E.A project</h2>
+      <p>
+        B.E.A (Buddhist Educational Apps) is the Buddhist educational software project that creates most of the apps listed on this site. The website's developer is <strong>Pavara</strong>.
+      </p>
+
+      <h2>Apps on this site</h2>
+      <table class="info-table">
+        <thead>
+          <tr><th>App</th><th>Developer</th><th>Subject</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Abhidhamma Matika</td><td>B.E.A</td><td>Abhidhamma</td></tr>
+          <tr><td>Rupasiddhi</td><td>B.E.A</td><td>Pāli grammar</td></tr>
+          <tr><td>Buddhist Era</td><td>B.C</td><td>Buddhist calendar</td></tr>
+          <tr><td>Pali–Sinhala Dictionary (DPSD)</td><td>DPSD Team</td><td>Pāli dictionary</td></tr>
+        </tbody>
+      </table>
+      <p>Some apps were created by other developers. The developer of each app is shown on its card on the home page.</p>
+
+      <h2>Book collection</h2>
+      <p>
+        Abhidhamma and Vinaya books are available to download free as PDFs. Details about copyright and sources are on the <a href="copyright.html">Copyright &amp; Sources</a> page.
+      </p>
+
+      <h2>Get in touch</h2>
+      <p>
+        For suggestions, feedback, bug reports or questions about the books, please use the <a href="contact.html">Contact</a> page.
+      </p>
+      </div>
     </article>
 
     <footer class="site-footer">
-      <nav class="footer-links" aria-label="පාදක සබැඳි">
-        <a href="about.html">අප ගැන</a>
-        <a href="contact.html">සම්බන්ධ වන්න</a>
-        <a href="privacy.html">රහස්‍යතා ප්‍රතිපත්තිය</a>
-        <a href="copyright.html">ප්‍රකාශන හිමිකම්</a>
-        <button type="button" class="footer-link-btn" onclick="openCookieSettings()">Cookie සැකසුම්</button>
-      </nav>
-      <p>බෞද්ධ අධ්‍යාපනික මෘදුකාංග සහ pdf ගොනු • Buddhist Educational Tools and PDF Resources</p>
-      <p class="footer-subtext">බුද්ධසාසනං චිරං තිට්ඨතු!</p>
+      <div class="footer-inner">
+        <div class="footer-grid">
+
+          <div class="footer-col footer-about">
+            <a href="index.html" class="footer-brand">
+              <span class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.2 4.2M14.2 14.2l4.2 4.2M18.4 5.6l-4.2 4.2M9.8 14.2l-4.2 4.2"/>
+                </svg>
+              </span>
+              <span class="footer-brand-name" data-i18n="brand.full">බෞද්ධ ධර්ම පුස්තකාලය</span>
+            </a>
+            <p data-i18n="footer.blurb">ත්‍රිපිටක ධර්මය හදාරන්නන් සඳහා නොමිලේ ලබාගත හැකි අධ්‍යාපනික යෙදුම් සහ ධර්ම ග්‍රන්ථ PDF එකතුවකි.</p>
+            <div class="footer-chips">
+              <span class="footer-chip" data-i18n="footer.free">නොමිලේ</span>
+              <span class="footer-chip">Web</span>
+              <span class="footer-chip">Android</span>
+              <span class="footer-chip">iOS</span>
+            </div>
+          </div>
+
+          <nav class="footer-col" aria-labelledby="footerExplore">
+            <h3 id="footerExplore" data-i18n="footer.explore">අඩවිය</h3>
+            <ul>
+              <li><a href="index.html#apps" data-i18n="nav.apps">යෙදුම්</a></li>
+              <li><a href="index.html#books" data-i18n="nav.books">ග්‍රන්ථ</a></li>
+              <li><a href="about.html" data-i18n="nav.about">අප ගැන</a></li>
+              <li><a href="contact.html" data-i18n="nav.contact">සම්බන්ධ වන්න</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-col" aria-labelledby="footerLegal">
+            <h3 id="footerLegal" data-i18n="footer.legal">නීතිමය තොරතුරු</h3>
+            <ul>
+              <li><a href="privacy.html" data-i18n="footer.privacy">රහස්‍යතා ප්‍රතිපත්තිය</a></li>
+              <li><a href="copyright.html" data-i18n="footer.copyright">ප්‍රකාශන හිමිකම් සහ මූලාශ්‍ර</a></li>
+              <li><button type="button" class="footer-link-btn" onclick="openCookieSettings()" data-i18n="footer.cookie">Cookie සැකසුම්</button></li>
+            </ul>
+          </nav>
+
+          <div class="footer-col footer-contact">
+            <h3 data-i18n="footer.contact">සම්බන්ධ වන්න</h3>
+            <p class="footer-contact-text" data-i18n="footer.contactText">ප්‍රශ්න, යෝජනා හෝ දෝෂ වාර්තා කිරීම් සඳහා අප හා සම්බන්ධ වන්න.</p>
+            <a href="contact.html" class="footer-cta">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <span data-i18n="footer.contactCta">පණිවිඩයක් යවන්න</span>
+            </a>
+            <a href="#" class="footer-mail" data-contact-email data-hide-if-no-email hidden></a>
+          </div>
+
+        </div>
+
+        <div class="footer-blessing"><span data-i18n="footer.blessing">බුද්ධසාසනං චිරං තිට්ඨතු!</span></div>
+
+        <div class="footer-bottom">
+          <p class="footer-copy">© <span data-year>2026</span> <span data-i18n="footer.rightsName">බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග</span></p>
+          <div class="footer-bottom-right">
+            <div class="lang-switch" role="group" aria-label="භාෂාව / Language" data-i18n-aria="lang.aria">
+              <button type="button" data-set-lang="si" aria-pressed="true" title="සිංහල">සිංහල</button>
+              <button type="button" data-set-lang="en" aria-pressed="false" title="English">English</button>
+            </div>
+            <button type="button" class="footer-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="ඉහළට යන්න" title="ඉහළට යන්න" data-i18n-aria="footer.top" data-i18n-title="footer.top">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
     </footer>
   </main>
 

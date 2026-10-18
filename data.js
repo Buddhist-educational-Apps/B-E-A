@@ -264,18 +264,156 @@ const booksData = [
     size: "2 MB",
     pdfUrl: BASE_URL + "/pdfs/vinaya/Sapthadasakaraya.pdf",
     countKey: "vinaya-sapthadasakaraya"
-  },
-  {
-    id: 10,
-    title: "සීමා",
-    category: "විනය",
-    folder: "විනය",
-    downloads: 0,
-    size: "2 MB",
-    pdfUrl: BASE_URL + "/pdfs/vinaya/Seema.pdf",
-    countKey: "vinaya-seema"
   }
+
 ];
+
+// ==========================================
+// භාෂා සහාය (Sinhala / English)
+// ==========================================
+const countCache = {};
+
+const tr = (key, params) => (window.I18N ? window.I18N.t(key, params) : key);
+const curLang = () => (window.I18N ? window.I18N.lang : 'si');
+
+const appsEn = {
+  1: {
+    title: "Abhidhamma Matika",
+    developer: "B.E.A • Buddhist Education",
+    category: "Abhidhamma",
+    description: "A special app designed for easy reading and study of the Abhidhamma Mātikā and the analyses of the Dhammasaṅgaṇī.",
+    installGuide: {
+      android: [
+        "Tap the <strong>\"Install (Play Store)\"</strong> button below",
+        "It will take you to the Google Play Store",
+        "Tap <strong>\"Install\"</strong>",
+        "When the installation finishes, tap <strong>\"Open\"</strong>",
+        "The app icon now appears on your Home Screen! 🎉"
+      ],
+      ios: [
+        "Tap the <strong>\"Use online\"</strong> button above",
+        "The app opens in the Safari browser",
+        "Tap the <strong>Share</strong> button (⬆️) at the bottom",
+        "Choose <strong>\"Add to Home Screen\"</strong>",
+        "Tap <strong>\"Add\"</strong> — it is now on your Home Screen! 🎉"
+      ],
+      desktop: [
+        "Tap the <strong>\"Use online\"</strong> button above",
+        "Click the <strong>install icon</strong> (➕) on the right side of the address bar",
+        "Or choose <strong>\"Install\"</strong> from the browser menu",
+        "Click <strong>\"Install\"</strong> — it appears as a desktop app! 🎉"
+      ]
+    }
+  },
+  2: {
+    title: "Rupasiddhi",
+    developer: "B.E.A • Pāli Grammar",
+    category: "Pāli Language",
+    description: "An app for studying Pāli noun and verb formations and grammar rules, based on the Padarūpasiddhi text.",
+    installGuide: {
+      android: [
+        "Tap the <strong>\"Download (APK)\"</strong> button below",
+        "The APK file downloads (Rupasiddhi.apk)",
+        "Tap <strong>\"Install\"</strong> in the Notifications",
+        "Or enable <strong>Settings → Security → Unknown Sources</strong>",
+        "Open the APK file and choose <strong>\"Install\"</strong>",
+        "The icon now appears on your Home Screen! 🎉"
+      ],
+      ios: [
+        "Tap the <strong>\"Use online\"</strong> button above",
+        "The app opens in the Safari browser",
+        "Tap the <strong>Share</strong> button (⬆️) at the bottom",
+        "Choose <strong>\"Add to Home Screen\"</strong>",
+        "Tap <strong>\"Add\"</strong> — it is now on your Home Screen! 🎉"
+      ],
+      desktop: [
+        "Tap the <strong>\"Use online\"</strong> button above",
+        "Click the <strong>install icon</strong> (➕) on the right side of the address bar",
+        "Or choose <strong>\"Install\"</strong> from the browser menu",
+        "Click <strong>\"Install\"</strong> — it appears as a desktop app! 🎉"
+      ]
+    }
+  },
+  3: {
+    title: "Buddhist Era",
+    developer: "B.C • Buddhist Calendars",
+    category: "Calendar",
+    description: "An app that automatically calculates the Buddhist Era year, Poya days and special Buddhist calendar dates.",
+    installGuide: {
+      android: [
+        "Tap the <strong>\"Install (Play Store)\"</strong> button below",
+        "It will take you to the Google Play Store",
+        "Tap <strong>\"Install\"</strong> — the icon appears on your Home Screen! 🎉"
+      ],
+      ios: [
+        "Tap the <strong>\"Use online\"</strong> button above",
+        "In Safari, tap the <strong>Share</strong> button (⬆️) at the bottom",
+        "Choose <strong>\"Add to Home Screen\"</strong> — it is now on your Home Screen! 🎉"
+      ],
+      desktop: [
+        "Tap the <strong>\"Use online\"</strong> button above",
+        "Click the <strong>install icon</strong> (➕) on the right side of the address bar",
+        "Choose <strong>\"Install\"</strong> — it appears as a desktop app! 🎉"
+      ]
+    }
+  },
+  4: {
+    title: "Pali–Sinhala Dictionary (DPSD)",
+    developer: "DPSD Team • Dictionaries",
+    category: "Pāli Dictionary",
+    description: "Digital Pali–Sinhala Dictionary (DPSD) — a digital dictionary for easily looking up Tipiṭaka Pāli terms and their meanings in Sinhala.",
+    installGuide: {
+      android: [
+        "Tap the <strong>\"Download (APK)\"</strong> button below",
+        "From the Chrome menu (⋮) choose <strong>\"Install App\"</strong> or <strong>\"Add to Home screen\"</strong>",
+        "You can now use it as an app from your Home Screen! 🎉"
+      ],
+      ios: [
+        "Tap the <strong>\"Use online\"</strong> button above",
+        "In Safari, tap the <strong>Share</strong> button (⬆️) at the bottom",
+        "Choose <strong>\"Add to Home Screen\"</strong> and tap <strong>Add</strong>! 🎉"
+      ],
+      desktop: [
+        "Tap the <strong>\"Use online\"</strong> button above",
+        "Click the Install icon on the right side of the address bar",
+        "Click <strong>\"Install\"</strong>! 🎉"
+      ]
+    }
+  }
+};
+
+const booksEn = {
+  1: { title: "An Approach to the Study of the Abhidhamma Mātikā - Ven. Kaduwela Atulañāṇa, 2023", category: "Abhidhamma", folder: "Abhidhamma" },
+  2: { title: "Abhidhamma Cittavīthi Vinicchaya (Analysis of Cognitive Processes) - Ven. Kaduwela Atulañāṇa", category: "Abhidhamma", folder: "Abhidhamma" },
+  3: { title: "An Approach to the Study of the Dhātukathā Treatise - Ven. Kaduwela Atulañāṇa, 2023", category: "Abhidhamma", folder: "Abhidhamma" },
+  4: { title: "The Paṭṭhāna Three Groups (Tri-Rāsi) - Ven. Naauyane Ariyadhamma, Ven. Kaduwela Atulañāṇa, 2022", category: "Abhidhamma", folder: "Abhidhamma" },
+  5: { title: "An Approach to the Study of the Paṭṭhāna Treatise - Ven. Kaduwela Atulañāṇa, 2024", category: "Abhidhamma", folder: "Abhidhamma" },
+  6: { title: "An Approach to the Study of the Paṭṭhāna Treatise: Pure Numbers and Sarūpārūḷha - Ven. Kaduwela Atulañāṇa, 2023", category: "Abhidhamma", folder: "Abhidhamma" },
+  7: { title: "Paṭṭhāna Mahāpakaraṇa Sannaya (Commentary), Vol. 2 - Ven. Kaduwela Atulañāṇa, 2023", category: "Abhidhamma", folder: "Abhidhamma" },
+  8: { title: "Samuṭṭhānasīsa", category: "Vinaya", folder: "Vinaya" },
+  9: { title: "Saptadasakāraya", category: "Vinaya", folder: "Vinaya" },
+  10: { title: "Sīmā", category: "Vinaya", folder: "Vinaya" }
+};
+
+// තෝරාගත් භාෂාවට අදාළ අගය ලබාදෙයි (English නොමැති නම් සිංහල)
+function loc(kind, item, field) {
+  if (curLang() === 'en') {
+    const map = kind === 'app' ? appsEn : booksEn;
+    const entry = map[item.id];
+    if (entry && entry[field] !== undefined) return entry[field];
+  }
+  return item[field];
+}
+
+// සෙවුමේදී භාෂා දෙකම පරීක්ෂා කිරීම
+function searchable(kind, item, fields) {
+  const map = kind === 'app' ? appsEn : booksEn;
+  const en = map[item.id] || {};
+  return fields
+    .map(f => ((item[f] || '') + ' ' + (en[f] || '')))
+    .join(' ')
+    .toLowerCase();
+}
 
 // ==========================================
 // Render Functions
@@ -294,38 +432,42 @@ function renderApps(apps) {
   if (!container) return;
 
   if (apps.length === 0) {
-    container.innerHTML = `<div style="padding: 32px; text-align: center; color: var(--text-muted); grid-column: 1/-1;">සොයන ලද යෙදුම හමු නොවීය.</div>`;
+    container.innerHTML = `<div style="padding: 32px; text-align: center; color: var(--text-muted); grid-column: 1/-1;">${tr('apps.empty')}</div>`;
     return;
   }
 
   container.innerHTML = apps.map(app => {
+    const title = loc('app', app, 'title');
+    const developer = loc('app', app, 'developer');
+    const description = loc('app', app, 'description');
+    const guide = loc('app', app, 'installGuide');
     const isPlayStoreLink = app.apkUrl && app.apkUrl.includes("play.google.com");
-    const buttonLabel = isPlayStoreLink ? "Install (Play Store)" : "බාගත කරන්න (APK)";
+    const buttonLabel = isPlayStoreLink ? tr('btn.install.play') : tr('btn.download.apk');
 
     const screenshotsHTML = app.screenshots && app.screenshots.length > 0 ? `
       <div class="playstore-screenshots">
         <div class="playstore-screenshots-scroll">
           ${app.screenshots.map((img, index) => `
             <img src="${img}" 
-                 alt="${app.title} - Screenshot${index + 1}" 
+                 alt="${title} - Screenshot${index + 1}" 
                  class="playstore-screenshot-img"
                  width="220"
                  height="175"
                  loading="lazy"
                  decoding="async"
-                 onclick="event.stopPropagation(); openLightbox('${img}', '${app.title}')">
+                 onclick="event.stopPropagation(); openLightbox('${img}', '${title}')">
           `).join("")}
         </div>
       </div>
     ` : "";
 
-    const installGuideHTML = app.installGuide ? `
+    const installGuideHTML = guide ? `
       <div class="install-guide">
         <button type="button" class="install-guide-toggle" onclick="event.stopPropagation(); toggleInstallGuide(this)" aria-expanded="false">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-gold); flex-shrink: 0;">
             <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/>
           </svg>
-          <span class="install-guide-text">යෙදුම ස්ථාපනය කරගන්නා ආකාරය</span>
+          <span class="install-guide-text">${tr('guide.toggle')}</span>
           <span class="install-guide-arrow"></span>
         </button>
         
@@ -355,19 +497,19 @@ function renderApps(apps) {
 
           <div class="install-panel active" id="android-${app.id}">
             <ol class="install-steps">
-              ${app.installGuide.android.map(step => `<li>${step}</li>`).join("")}
+              ${guide.android.map(step => `<li>${step}</li>`).join("")}
             </ol>
           </div>
 
           <div class="install-panel" id="ios-${app.id}">
             <ol class="install-steps">
-              ${app.installGuide.ios.map(step => `<li>${step}</li>`).join("")}
+              ${guide.ios.map(step => `<li>${step}</li>`).join("")}
             </ol>
           </div>
 
           <div class="install-panel" id="desktop-${app.id}">
             <ol class="install-steps">
-              ${app.installGuide.desktop.map(step => `<li>${step}</li>`).join("")}
+              ${guide.desktop.map(step => `<li>${step}</li>`).join("")}
             </ol>
           </div>
         </div>
@@ -377,11 +519,11 @@ function renderApps(apps) {
     return `
       <div class="playstore-card" id="app-card-${app.id}">
         <div class="playstore-summary" onclick="toggleAppCard(${app.id})">
-          <img src="${app.icon}" alt="${app.title} Icon" class="playstore-app-icon" width="62" height="62" decoding="async" onerror="this.src='favicon.png'">
+          <img src="${app.icon}" alt="${title} Icon" class="playstore-app-icon" width="62" height="62" decoding="async" onerror="this.onerror=null;this.src='favicon.png'">
           <div class="playstore-header-info">
-            <h3 class="playstore-app-title">${app.title}</h3>
+            <h3 class="playstore-app-title">${title}</h3>
             <div class="playstore-developer">
-              <span>✓</span> ${app.developer || "බෞද්ධ අධ්‍යාපනය"}
+              <span>✓</span> ${developer || tr('dev.default')}
             </div>
           </div>
           <span class="card-expand-arrow" aria-hidden="true"></span>
@@ -391,12 +533,12 @@ function renderApps(apps) {
           <div class="playstore-meta-row">
             <div class="playstore-meta-item">
               <span class="playstore-meta-val">${app.rating || "4.8"} <span class="star">★</span></span>
-              <span class="playstore-meta-lbl">${app.reviews || "Reviews"}</span>
+              <span class="playstore-meta-lbl">${app.reviews || tr('card.reviews')}</span>
             </div>
             <div class="playstore-meta-divider"></div>
             <div class="playstore-meta-item">
               <span class="playstore-meta-val">${app.size || "10 MB"}</span>
-              <span class="playstore-meta-lbl">ප්‍රමාණය</span>
+              <span class="playstore-meta-lbl">${tr('card.size')}</span>
             </div>
             <div class="playstore-meta-divider"></div>
             <div class="playstore-meta-item">
@@ -416,17 +558,17 @@ function renderApps(apps) {
               <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
               </svg>
-              Online භාවිතය
+              ${tr('btn.online')}
             </a>
-            <button type="button" class="btn-playstore-share" onclick="event.stopPropagation(); shareApp('${app.title}', '${app.webUrl}')" title="යෙදුම බෙදාගන්න" aria-label="Share">
+            <button type="button" class="btn-playstore-share" onclick="event.stopPropagation(); shareApp('${title}', '${app.webUrl}')" title="${tr('btn.share.title')}" aria-label="Share">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
               </svg>
-              ශෙයා
+              ${tr('btn.share')}
             </button>
           </div>
 
-          <p class="playstore-about">${app.description}</p>
+          <p class="playstore-about">${description}</p>
           ${screenshotsHTML}
           ${installGuideHTML}
         </div>
@@ -442,14 +584,14 @@ function shareApp(title, url) {
   if (navigator.share) {
     navigator.share({
       title: title,
-      text: `${title} - බෞද්ධ අධ්‍යාපනික මෘදුකාංගය:`,
+      text: tr('share.text', { title: title }),
       url: url
     }).catch(() => {});
   } else {
     navigator.clipboard.writeText(url).then(() => {
-      alert(`"${title}" යෙදුමේ සබැඳිය Copy කරගන්නා ලදී!`);
+      alert(tr('share.copied', { title: title }));
     }).catch(() => {
-      prompt("මෙම සබැඳිය පිටපත් කරගන්න:", url);
+      prompt(tr('share.prompt'), url);
     });
   }
 }
@@ -471,7 +613,7 @@ function renderBooks(books) {
   if (!container) return;
 
   if (books.length === 0) {
-    container.innerHTML = `<div style="padding: 24px; text-align: center; color: var(--text-muted);">සොයන ලද පොත හමු නොවීය.</div>`;
+    container.innerHTML = `<div style="padding: 24px; text-align: center; color: var(--text-muted);">${tr('books.empty')}</div>`;
     return;
   }
 
@@ -483,28 +625,28 @@ function renderBooks(books) {
   });
 
   container.innerHTML = Object.keys(grouped).map(folderName => `
-    <div class="folder-group">
+    <div class="folder-group" data-folder="${folderName}">
       <div class="folder-header" onclick="toggleFolder(this)">
         <span class="folder-arrow" aria-hidden="true"></span>
         <span class="folder-icon" aria-hidden="true"></span>
-        <span class="folder-name">${folderName}</span>
-        <span class="folder-count">${grouped[folderName].length} පොත්</span>
+        <span class="folder-name">${loc('book', grouped[folderName][0], 'folder')}</span>
+        <span class="folder-count">${tr('books.count', { n: grouped[folderName].length })}</span>
       </div>
       <div class="folder-books" style="display: none;">
         ${grouped[folderName].map(book => `
           <a href="${book.pdfUrl}" 
-             download="${book.title}.pdf"
+             download="${loc('book', book, 'title')}.pdf"
              class="table-row" 
              onclick="handleDownload('${book.countKey}')"
              target="_blank" 
              rel="noopener noreferrer"
-             title="${book.title} බාගත කරගන්න">
+             title="${tr('dl.title', { title: loc('book', book, 'title') })}">
             <div class="file-col-title">
               <span class="pdf-badge">PDF</span>
-              <span class="file-text">${book.title}</span>
+              <span class="file-text">${loc('book', book, 'title')}</span>
             </div>
-            <span class="file-col-cat">${book.category}</span>
-            <span class="file-col-count" id="count-${book.countKey}">${book.downloads}</span>
+            <span class="file-col-cat">${loc('book', book, 'category')}</span>
+            <span class="file-col-count" id="count-${book.countKey}">${countCache[book.countKey] !== undefined ? countCache[book.countKey] : book.downloads}</span>
             <div class="file-col-size-wrap" style="display: flex; align-items: center; justify-content: flex-end; gap: 6px;">
               <span class="file-col-size">${book.size}</span>
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-gold); flex-shrink: 0;" aria-hidden="true">
@@ -570,7 +712,7 @@ function openLightbox(imageSrc, title) {
   lightbox.id = "lightbox";
   lightbox.className = "lightbox";
   lightbox.innerHTML = `
-    <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="වසන්න">&times;</button>
+    <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="${tr('lightbox.close')}">&times;</button>
     <img src="${imageSrc}" alt="${title}" class="lightbox-img">
     <p class="lightbox-caption">${title}</p>
   `;
@@ -657,6 +799,7 @@ function incrementDownloadCount(countKey) {
 }
 
 function updateCountDisplay(countKey, value) {
+  countCache[countKey] = value;
   const element = document.getElementById(`count-${countKey}`);
   if (element) element.textContent = value;
 }
@@ -703,43 +846,40 @@ function performSearch(query) {
   }
 
   const lowerQuery = query.toLowerCase();
-  const matchedApps = appsData.filter(app => 
-    app.title.toLowerCase().includes(lowerQuery) ||
-    app.category.toLowerCase().includes(lowerQuery) ||
-    app.description.toLowerCase().includes(lowerQuery)
+  const matchedApps = appsData.filter(app =>
+    searchable('app', app, ['title', 'category', 'description']).includes(lowerQuery)
   );
 
-  const matchedBooks = booksData.filter(book => 
-    book.title.toLowerCase().includes(lowerQuery) ||
-    book.category.toLowerCase().includes(lowerQuery)
+  const matchedBooks = booksData.filter(book =>
+    searchable('book', book, ['title', 'category']).includes(lowerQuery)
   );
 
   if (matchedApps.length === 0 && matchedBooks.length === 0) {
-    resultsInner.innerHTML = `<div style="padding: 16px; text-align: center; color: var(--text-dim); font-size: 0.9rem;">ප්‍රතිඵල හමු නොවීය.</div>`;
+    resultsInner.innerHTML = `<div style="padding: 16px; text-align: center; color: var(--text-dim); font-size: 0.9rem;">${tr('search.none')}</div>`;
     resultsContainer.classList.remove('hidden');
     return;
   }
 
   let html = '';
   if (matchedApps.length > 0) {
-    html += `<div class="search-section-title">යෙදුම් (${matchedApps.length})</div>`;
+    html += `<div class="search-section-title">${tr('search.apps', { n: matchedApps.length })}</div>`;
     matchedApps.forEach(app => {
       html += `
         <a href="${app.webUrl}" target="_blank" rel="noopener noreferrer" class="search-result-item">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-gold); flex-shrink: 0;"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
-          <div class="search-result-title">${app.title}</div>
+          <div class="search-result-title">${loc('app', app, 'title')}</div>
         </a>
       `;
     });
   }
 
   if (matchedBooks.length > 0) {
-    html += `<div class="search-section-title">ග්‍රන්ථ (${matchedBooks.length})</div>`;
+    html += `<div class="search-section-title">${tr('search.books', { n: matchedBooks.length })}</div>`;
     matchedBooks.forEach(book => {
       html += `
-        <a href="${book.pdfUrl}" download="${book.title}.pdf" target="_blank" rel="noopener noreferrer" class="search-result-item" onclick="handleDownload('${book.countKey}')">
+        <a href="${book.pdfUrl}" download="${loc('book', book, 'title')}.pdf" target="_blank" rel="noopener noreferrer" class="search-result-item" onclick="handleDownload('${book.countKey}')">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--pdf-red); flex-shrink: 0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          <div class="search-result-title">${book.title}</div>
+          <div class="search-result-title">${loc('book', book, 'title')}</div>
         </a>
       `;
     });
@@ -781,6 +921,34 @@ window.switchInstallTab = switchInstallTab;
 window.handleSearchInput = handleSearchInput;
 window.handleSearchFocus = handleSearchFocus;
 window.clearSearch = clearSearch;
+
+// ==========================================
+// භාෂාව වෙනස් වූ විට නැවත render කිරීම
+// ==========================================
+document.addEventListener('languagechange', function () {
+  const expandedIds = Array.from(document.querySelectorAll('.playstore-card.expanded')).map(el => el.id);
+  const openFolders = Array.from(document.querySelectorAll('.folder-group.open')).map(el => el.dataset.folder);
+
+  renderApps(appsData);
+  renderBooks(booksData);
+
+  expandedIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('expanded');
+  });
+  openFolders.forEach(name => {
+    document.querySelectorAll('.folder-group').forEach(group => {
+      if (group.dataset.folder === name) {
+        group.classList.add('open');
+        const books = group.querySelector('.folder-books');
+        if (books) books.style.display = 'block';
+      }
+    });
+  });
+
+  const input = document.getElementById('searchInput');
+  if (input && input.value.trim()) performSearch(input.value.trim());
+});
 
 // ==========================================
 // 1. ක්ෂණිකව UI පෙන්වීම (Fast Paint)
