@@ -6,7 +6,7 @@
 
 /* ▼▼▼ මෙහි ඔබගේ ඊමේල් ලිපිනය ඇතුළත් කරන්න (උදා: "name@gmail.com") ▼▼▼ */
 window.SITE_CONFIG = {
-  contactEmail: ""
+  contactEmail: "buddhisteducationallibrary@gmail.com"
 };
 /* ▲▲▲ */
 
