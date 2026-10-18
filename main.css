@@ -296,13 +296,16 @@ html.light .theme-toggle-icon {
    ========================================== */
 /* බැනරයට පමණක් වම්පස රන්වන් මායිම පවත්වා ගැනීම */
 .hero-banner {
-  margin: 24px 0 18px 0;
-  padding: 16px;                 /* පුවරුව බැනරයේ දෙපස මායිම් දක්වා පළල් වේ */
+  /* බැනරය තිරයේ වම් සිට දකුණ දක්වා සම්පූර්ණ පළලට (full-bleed) */
+  width: 100vw;
+  margin: 0 0 22px calc(50% - 50vw);
+  padding: 32px 20px;
   display: flex;
   align-items: center;
-  border: 1px solid var(--border-color);
-  border-left: 5px solid var(--accent-gold) !important;
-  border-radius: var(--r-xl);
+  border: none;
+  border-left: none !important;
+  border-bottom: 1px solid var(--accent-ring);
+  border-radius: 0;
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
@@ -318,17 +321,15 @@ html.light .theme-toggle-icon {
 }
 
 .hero-banner-content {
-  max-width: 100%;
+  max-width: 1180px;             /* අන්තර්ගතය මැදට, පසුබිම සම්පූර්ණ තිරයට */
   width: 100%;
+  margin: 0 auto;
   position: relative;
   z-index: 1;
   /* අකුරු පිටුපස අර්ධ-පාරදර්ශක පුවරුවක් — පින්තූරය පෙනෙමින් අකුරු පැහැදිලි වීමට */
-  padding: 26px 44px;
+  padding: 10px 24px;
   background: var(--hero-panel);
-  border: 1px solid var(--hero-panel-border);
-  border-radius: var(--r-lg);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+  border: none;
 }
 
 .hero-eyebrow {
@@ -1143,9 +1144,9 @@ html.light .theme-toggle-icon {
 :root.dark,
 html.dark,
 [data-theme="dark"] {
-  --hero-overlay: rgba(9, 9, 11, 0.40);
-  --hero-panel: rgba(9, 9, 11, 0.72);
-  --hero-panel-border: rgba(251, 191, 36, 0.35);
+  --hero-overlay: rgba(48, 0, 14, 0.68);
+  --hero-panel: transparent;
+  --hero-panel-border: transparent;
   --hero-text: #ffffff;
   --hero-title: #fcd34d;
   --hero-chip-bg: rgba(0, 0, 0, 0.55);
@@ -1156,13 +1157,13 @@ html.dark,
 :root.light,
 html.light,
 [data-theme="light"] {
-  --hero-overlay: rgba(255, 252, 245, 0.35);
-  --hero-panel: rgba(255, 255, 255, 0.82);
-  --hero-panel-border: rgba(180, 83, 9, 0.3);
-  --hero-text: #0c0a09;
-  --hero-title: #7c2d12;
-  --hero-chip-bg: rgba(255, 255, 255, 0.88);
-  --hero-shadow: 0 0 3px rgba(255, 255, 255, 0.95), 0 0 10px rgba(255, 255, 255, 0.85), 0 0 18px rgba(255, 255, 255, 0.6);
+  --hero-overlay: rgba(48, 0, 14, 0.68);
+  --hero-panel: transparent;
+  --hero-panel-border: transparent;
+  --hero-text: #ffffff;
+  --hero-title: #fcd34d;
+  --hero-chip-bg: rgba(0, 0, 0, 0.5);
+  --hero-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 12px rgba(0, 0, 0, 0.7);
   --header-tint: rgba(250, 226, 231, 0.97);   /* ගොඩක් ලා මෙරූන් (pale maroon) */
   --header-border: rgba(128, 0, 32, 0.22);
 }
@@ -1176,8 +1177,8 @@ html.light,
 @media (max-width: 768px) {
   .hero-banner {
     min-height: 0;
-    padding: 14px;
-    margin: 16px 0 14px 0;
+    padding: 16px 12px;
+    margin: 0 0 14px calc(50% - 50vw);
   }
   .hero-banner-content {
     padding: 16px 14px;
