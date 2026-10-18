@@ -1797,3 +1797,420 @@ html.light .site-footer .lang-switch button.active {
   .footer-bottom { flex-direction: column; align-items: flex-start; }
   .footer-bottom-right { width: 100%; justify-content: space-between; }
 }
+
+/* ============================================================
+   📄 Document පිටු — නවීන ලැප්ටොප් layout
+   (About / Privacy / Copyright / Contact) — බැනරයක් නැත
+   ============================================================ */
+.page-main { padding-top: 34px; padding-bottom: 8px; }
+
+/* --- ශීර්ෂය: breadcrumb + මාතෘකාව + හැඳින්වීම --- */
+.crumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: var(--text-dim);
+  font-size: 0.84rem;
+}
+.crumbs a { color: var(--text-muted); font-weight: 600; text-decoration: none; }
+.crumbs a:hover { color: var(--accent-gold); }
+.crumbs .sep { opacity: 0.5; }
+.crumbs [aria-current="page"] { color: var(--accent-gold); font-weight: 700; }
+
+.page-head {
+  position: relative;
+  max-width: 860px;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--border-color);
+}
+.page-head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 110px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent-gold), transparent);
+}
+.page-head h1 {
+  color: var(--text-bright);
+  font-size: clamp(1.9rem, 3.2vw, 2.65rem);
+  font-weight: 800;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.page-lede {
+  max-width: 62ch;
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 1.08rem;
+  line-height: 1.85;
+}
+
+/* --- layout: sticky පැති තීරුව + ලිපිය --- */
+.doc-layout {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+  margin-bottom: 28px;
+}
+.doc-aside {
+  position: sticky;
+  top: 92px;
+  display: grid;
+  gap: 26px;
+  max-height: calc(100vh - 112px);
+  overflow-y: auto;
+  padding: 2px 6px 8px 2px;
+  scrollbar-width: thin;
+}
+.doc-toc-box[hidden] { display: none; }
+.doc-box-title {
+  margin: 0 0 10px;
+  padding: 0 12px;
+  color: var(--text-dim);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+.doc-pages { display: grid; gap: 3px; list-style: none; }
+.doc-pages a {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 12px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--text-main);
+  font-size: 0.93rem;
+  font-weight: 600;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.doc-pages a:hover { background: var(--bg-hover); }
+.doc-pages svg { flex-shrink: 0; opacity: 0.8; }
+.doc-pages a[aria-current="page"] {
+  color: var(--accent-gold);
+  background: var(--accent-soft);
+  border-color: var(--accent-ring);
+}
+.doc-pages a[aria-current="page"] svg { opacity: 1; }
+
+.doc-toc {
+  display: grid;
+  gap: 1px;
+  margin-left: 12px;
+  list-style: none;
+  border-left: 2px solid var(--border-color);
+}
+.doc-toc a {
+  display: block;
+  margin-left: -2px;
+  padding: 6px 12px;
+  border-left: 2px solid transparent;
+  color: var(--text-muted);
+  font-size: 0.87rem;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s;
+}
+.doc-toc a:hover { color: var(--text-bright); }
+.doc-toc a.active {
+  color: var(--accent-gold);
+  border-left-color: var(--accent-gold);
+  font-weight: 700;
+}
+
+/* --- ලිපිය --- */
+.doc-article {
+  max-width: 800px;
+  margin: 0;
+  padding: 0;
+}
+.doc-article > div > :first-child { margin-top: 0; }
+.doc-article .page-meta {
+  display: inline-block;
+  margin: 0 0 6px;
+  padding: 5px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+.doc-article h2 {
+  position: relative;
+  margin: 46px 0 14px;
+  padding: 0 0 0 18px;
+  border-bottom: none;
+  color: var(--text-bright);
+  font-size: 1.3rem;
+  line-height: 1.6;
+  scroll-margin-top: 96px;
+}
+.doc-article h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.38em;
+  width: 5px;
+  height: 1.05em;
+  border-radius: 3px;
+  background: var(--accent-gold);
+}
+.doc-article p,
+.doc-article li { font-size: 1rem; line-height: 1.95; }
+.doc-article p { margin-bottom: 14px; }
+.doc-article strong { color: var(--text-bright); }
+.doc-article a { text-underline-offset: 3px; }
+
+.doc-article ul {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 18px;
+  padding: 0;
+  list-style: none;
+}
+.doc-article ul li { position: relative; margin: 0; padding-left: 28px; }
+.doc-article ul li::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 0.82em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+.doc-article ol {
+  display: grid;
+  gap: 12px;
+  margin: 10px 0 18px;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.doc-article ol li { position: relative; margin: 0; padding-left: 44px; counter-increment: step; }
+.doc-article ol li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: var(--accent-gold);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-ring);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* අරමුණු කාඩ්පත් (About) */
+.doc-article ul.card-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 16px 0 22px;
+  counter-reset: aim;
+}
+.doc-article ul.card-list li {
+  padding: 18px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--r-lg);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+  font-size: 0.94rem;
+  line-height: 1.85;
+  counter-increment: aim;
+  transition: transform 0.18s, border-color 0.18s;
+}
+.doc-article ul.card-list li:hover { transform: translateY(-2px); border-color: var(--accent-ring); }
+.doc-article ul.card-list li::before {
+  content: counter(aim);
+  position: static;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  color: var(--accent-gold);
+  background: var(--accent-soft);
+  box-shadow: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+/* වගුව */
+.doc-article .info-table {
+  margin: 14px 0 18px;
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--r-lg);
+}
+.doc-article .info-table td:first-child { color: var(--text-bright); font-weight: 700; }
+.doc-article .info-table tbody tr { transition: background 0.15s; }
+.doc-article .info-table tbody tr:hover { background: var(--bg-hover); }
+
+/* සටහන (callout) */
+.doc-article .note {
+  position: relative;
+  margin: 22px 0;
+  padding: 16px 18px 16px 58px;
+  border: 1px solid var(--accent-ring);
+  border-left: 4px solid var(--accent-gold);
+  border-radius: var(--r-md);
+  background: var(--accent-soft);
+  color: var(--text-bright);
+  line-height: 1.85;
+}
+.doc-article .note::before {
+  content: "i";
+  position: absolute;
+  left: 18px;
+  top: 17px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: var(--bg-main);
+  background: var(--accent-gold);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* --- කියවීමේ ප්‍රගති රේඛාව --- */
+.read-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 70;
+  height: 3px;
+  pointer-events: none;
+}
+.read-progress span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-gold), #fde68a);
+  box-shadow: 0 0 8px var(--accent-ring);
+}
+
+/* --- සම්බන්ධ වන්න පිටුව --- */
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 26px;
+  align-items: start;
+}
+.contact-main > h2:first-child { margin-top: 0; }
+.contact-intro { max-width: 60ch; color: var(--text-muted); }
+.doc-article .contact-form {
+  gap: 18px;
+  margin-top: 18px;
+  padding: 26px;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+}
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
+.form-actions .form-status { margin: 0; }
+.doc-article .form-row label { line-height: 1.6; }
+
+.contact-side {
+  position: sticky;
+  top: 92px;
+  display: grid;
+  gap: 14px;
+}
+.contact-side [hidden] { display: none !important; }
+.info-card {
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--r-lg);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+}
+.info-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 0 0 10px;
+  color: var(--text-bright);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+.info-card .ic {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  color: var(--accent-gold);
+  background: var(--accent-soft);
+}
+.info-card p { margin: 0; font-size: 0.93rem; line-height: 1.85; }
+.doc-article .info-card ul { gap: 6px; margin: 0; }
+.doc-article .info-card li { font-size: 0.92rem; line-height: 1.8; }
+.info-card .mail-link { display: block; margin-top: 6px; font-weight: 700; word-break: break-all; }
+
+/* --- Responsive --- */
+@media (max-width: 1100px) {
+  .contact-layout { grid-template-columns: minmax(0, 1fr); }
+  .contact-side { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .doc-layout { gap: 40px; }
+}
+@media (max-width: 960px) {
+  .doc-layout { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .doc-aside { position: static; max-height: none; overflow: visible; padding: 0; }
+  .doc-toc-box { display: none; }
+  .doc-box-title { display: none; }
+  .doc-pages {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .doc-pages a { white-space: nowrap; border-color: var(--border-color); }
+  .doc-article ul.card-list { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .page-main { padding-top: 22px; }
+  .page-head { margin-bottom: 28px; padding-bottom: 22px; }
+  .page-lede { font-size: 1rem; }
+  .doc-article h2 { margin-top: 36px; font-size: 1.18rem; }
+  .form-grid-2 { grid-template-columns: minmax(0, 1fr); }
+  .contact-side { grid-template-columns: minmax(0, 1fr); }
+  .doc-article .contact-form { padding: 20px 16px; }
+  .doc-article .info-table th:nth-child(3),
+  .doc-article .info-table td:nth-child(3) { display: none; }
+}
+
+/* මුද්‍රණය */
+@media print {
+  .site-header, .site-footer, .doc-aside, .read-progress, .cookie-banner { display: none !important; }
+  .doc-layout { display: block; }
+  .doc-article { max-width: none; }
+}
+.doc-aside, .doc-aside nav, .doc-article, .contact-main { min-width: 0; }
+.doc-pages { max-width: 100%; }

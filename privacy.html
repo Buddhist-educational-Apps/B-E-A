@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@500;700;800&family=Inter:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="main.css?v=36">
+  <link rel="stylesheet" href="main.css?v=38">
   <script>
     (function() {
       try {
@@ -56,13 +56,33 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="page-hero">
+  <main class="container page-main">
+    <nav class="crumbs" aria-label="breadcrumb">
+      <a href="index.html" data-i18n="nav.home">මුල් පිටුව</a><span class="sep">/</span><span aria-current="page" data-i18n="footer.privacy"></span>
+    </nav>
+    <header class="page-head">
       <h1><span data-lang="si">රහස්‍යතා ප්‍රතිපත්තිය</span><span data-lang="en">Privacy Policy</span></h1>
-      <p><span data-lang="si">ඔබගේ තොරතුරු අප භාවිතා කරන ආකාරය</span><span data-lang="en">How we use your information</span></p>
-    </section>
+      <p class="page-lede"><span data-lang="si">ඔබගේ තොරතුරු අප භාවිතා කරන ආකාරය</span><span data-lang="en">How we use your information</span></p>
+    </header>
 
-    <article class="page-content">
+    <div class="doc-layout">
+      <aside class="doc-aside">
+        <nav aria-labelledby="pgT">
+          <p class="doc-box-title" id="pgT" data-i18n="pages.title">පිටු</p>
+          <ul class="doc-pages">
+          <li><a href="about.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span data-i18n="nav.about"></span></a></li>
+          <li><a href="privacy.html" aria-current="page"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg><span data-i18n="footer.privacy"></span></a></li>
+          <li><a href="copyright.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.8 9.5a3.5 3.5 0 100 5"/></svg><span data-i18n="footer.copyright"></span></a></li>
+          <li><a href="contact.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span data-i18n="nav.contact"></span></a></li>
+          </ul>
+        </nav>
+        <nav class="doc-toc-box" id="docTocBox" aria-labelledby="tocT" hidden>
+          <p class="doc-box-title" id="tocT" data-i18n="toc.title">මෙම පිටුවේ</p>
+          <ol class="doc-toc" id="docToc"></ol>
+        </nav>
+      </aside>
+
+      <article class="doc-article">
       <div data-lang="si">
       <p class="page-meta">අවසන් යාවත්කාලීන කළේ: 2026 ඔක්තෝබර් 18</p>
 
@@ -170,7 +190,8 @@
         <a href="#" data-contact-email>email</a>.
       </p>
       </div>
-    </article>
+      </article>
+    </div>
 
     <footer class="site-footer">
       <div class="footer-inner">
@@ -245,6 +266,7 @@
     </footer>
   </main>
 
+  <script src="page.js?v=1" defer></script>
   <script src="theme.js" defer></script>
 </body>
 </html>
