@@ -1,7 +1,6 @@
 /* ============================================================
    modern.js — නවීන පෙනුම සඳහා කුඩා අන්තර්ක්‍රියා
    1) Scroll කළ විට header එකට සෙවනැල්ල
-   2) Hero සංඛ්‍යාලේඛන (යෙදුම් / ග්‍රන්ථ ගණන) ස්වයංක්‍රීයව
    3) කොටස් මෘදුව දිස්වීම (scroll reveal)
    4) මුල් පිටුවේ nav සබැඳිය active කිරීම
    ============================================================ */
@@ -12,14 +11,6 @@
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
-
-  /* --- සංඛ්‍යාලේඛන --- */
-  try {
-    var a = document.querySelector('[data-stat="apps"]');
-    var b = document.querySelector('[data-stat="books"]');
-    if (a && typeof appsData !== "undefined") a.textContent = appsData.length;
-    if (b && typeof booksData !== "undefined") b.textContent = booksData.length;
-  } catch (e) {}
 
   /* --- Scroll reveal --- */
   var targets = document.querySelectorAll(
