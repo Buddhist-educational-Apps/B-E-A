@@ -30,13 +30,14 @@
   <!-- Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@500;700;800&family=Inter:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@500;700;800&family=Inter:wght@500;600;700&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@500;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@500;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
 
   <!-- Banner Background Preload (පින්තූරය ක්ෂණිකව Load වීමට) -->
   <link rel="preload" as="image" href="Gemini_Generated_Image_10kmon10kmon10km.jpg">
 
   <link rel="stylesheet" href="main.css?v=39">
+  <link rel="stylesheet" href="modern.css?v=1">
 
   <!-- Theme Detection Script -->
   <script>
@@ -98,6 +99,12 @@
         <span class="brand-name" data-i18n="brand">පුස්තකාලය</span>
       </a>
 
+      <nav class="site-nav" aria-label="ප්‍රධාන සබැඳි" data-i18n-aria="nav.aria">
+        <a href="#apps" data-i18n="nav.apps">යෙදුම්</a>
+        <a href="#books" data-i18n="nav.books">ග්‍රන්ථ</a>
+        <a href="about.html" data-i18n="nav.about">අප ගැන</a>
+      </nav>
+
       <!-- සෙවුම් තීරුව -->
       <div class="search-wrapper">
         <div class="search-box">
@@ -140,32 +147,33 @@
   <!-- ප්‍රධාන අන්තර්ගතය -->
   <main class="container">
 
-    <!-- Translucent Background සහිත බැනරය -->
+    <!-- Hero -->
     <section class="hero-banner">
       <div class="hero-banner-content">
         <div class="hero-eyebrow">
           <span class="dot"></span> <span data-i18n="hero.eyebrow">නොමිලේ ලබාගත හැක • Web • Android • iOS</span>
         </div>
-        <h1 class="hero-banner-title" data-i18n="hero.title">
-          බෞද්ධ ධර්ම පුස්තකාලය හා අධ්‍යාපනික මෘදුකාංග
-        </h1>
+        <h1 class="hero-banner-title" data-i18n="hero.title">බෞද්ධ ධර්ම පුස්තකාලය හා අධ්‍යාපනික මෘදුකාංග</h1>
         <p class="hero-banner-desc" data-i18n="hero.desc">
           අභිධර්ම මාතිකා, පාලි රූපසිද්ධිය, බුද්ධ වර්ෂ දින දර්ශනය, පාලි-සිංහල ශබ්දකෝෂය, ධාතුකථා සහ පට්ඨාන ප්‍රකරණ ඇතුළු උතුම් ත්‍රිපිටක ධර්ම කරුණු පහසුවෙන් පරිශීලනය සඳහා සැකසූ නවීන යෙදුම් සහ ධර්ම ග්‍රන්ථ PDF ගොනු මෙහි අන්තර්ගත වේ.
         </p>
+        <div class="hero-actions">
+          <a href="#apps" class="hero-btn hero-btn-primary">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
+            <span data-i18n="hero.btn.apps">යෙදුම් බලන්න</span>
+          </a>
+          <a href="#books" class="hero-btn hero-btn-ghost">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
+            <span data-i18n="hero.btn.books">ග්‍රන්ථ (PDF)</span>
+          </a>
+        </div>
+        <dl class="hero-stats">
+          <div class="hero-stat"><dt data-stat="apps">4</dt><dd data-i18n="stat.apps">අධ්‍යාපනික යෙදුම්</dd></div>
+          <div class="hero-stat"><dt data-stat="books">9</dt><dd data-i18n="stat.books">ධර්ම ග්‍රන්ථ PDF</dd></div>
+          <div class="hero-stat"><dt>100%</dt><dd data-i18n="stat.free">සම්පූර්ණයෙන් නොමිලේ</dd></div>
+        </dl>
       </div>
     </section>
-
-    <!-- බැනරයට යටින් පිහිටි Buttons -->
-    <div class="hero-actions">
-      <a href="#apps" class="hero-btn hero-btn-primary">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
-        <span data-i18n="hero.btn.apps">යෙදුම් බලන්න</span>
-      </a>
-      <a href="#books" class="hero-btn hero-btn-ghost">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
-        <span data-i18n="hero.btn.books">ග්‍රන්ථ (PDF)</span>
-      </a>
-    </div>
 
     <!-- Apps Section -->
     <section class="section-block">
@@ -175,6 +183,7 @@
         </svg>
         <span data-i18n="section.apps">බෞද්ධ අධ්‍යාපනික Apps</span>
       </h2>
+      <p class="section-sub" data-i18n="section.apps.sub">අභිධර්මය, පාලි ව්‍යාකරණ, දින දර්ශනය සහ ශබ්දකෝෂය — Web, Android සහ iOS සඳහා.</p>
       <div id="appsContainer" class="apps-grid"></div>
     </section>
 
@@ -186,6 +195,7 @@
         </svg>
         <span data-i18n="section.books">ධර්ම ග්‍රන්ථ එකතුව (PDF)</span>
       </h2>
+      <p class="section-sub" data-i18n="section.books.sub">ෆෝල්ඩරයක් විවෘත කර ග්‍රන්ථයක් මත ක්ලික් කර නොමිලේ බාගත කරගන්න.</p>
 
       <div class="pdf-table">
         <div class="table-header">
@@ -275,5 +285,6 @@
 
   <script src="theme.js" defer></script>
   <script src="data.js?v=2" defer></script>
+  <script src="modern.js?v=1" defer></script>
 </body>
-</html>
+</html>
