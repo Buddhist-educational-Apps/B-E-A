@@ -21,11 +21,14 @@ const appsData = [
     apkUrl: "https://share.google/GuJj8bOamLoXsCOOv",
     webUrl: "https://pavara9803-ctrl.github.io/Matika/",
     screenshots: [
-      BASE_URL + "/screenshots/matika-1.webp",
-      BASE_URL + "/screenshots/matika-2.webp",
-      BASE_URL + "/screenshots/matika-3.webp",
-      BASE_URL + "/screenshots/matika-4.webp",
-      BASE_URL + "/screenshots/matika-5.webp"
+      BASE_URL + "/screenshots/matika-1.webp?v=2",
+      BASE_URL + "/screenshots/matika-2.webp?v=2",
+      BASE_URL + "/screenshots/matika-3.webp?v=2",
+      BASE_URL + "/screenshots/matika-4.webp?v=2",
+      BASE_URL + "/screenshots/matika-5.webp?v=2",
+      BASE_URL + "/screenshots/matika-6.webp?v=2",
+      BASE_URL + "/screenshots/matika-7.webp?v=2",
+      BASE_URL + "/screenshots/matika-8.webp?v=2"
     ],
     installGuide: {
       android: [
