@@ -1,7 +1,7 @@
 // ==========================================
 // BASE URL
 // ==========================================
-const BASE_URL = "https://buddhist-educational-apps.github.io/B-E-A";
+const BASE_URL = "https://buddhistapps.vercel.app";
 
 // ==========================================
 // බෞද්ධ අධ්‍යාපනික Apps දත්ත
