@@ -35,7 +35,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700;800&family=Gemunu+Libre:wght@500;600;700&family=Noto+Serif+Sinhala:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="main.css?v=16">
+  <link rel="stylesheet" href="main.css?v=17">
 
   <!-- ⚠️ Open Graph - නව URL එකට යාවත්කාලීන කර ඇත -->
   <meta property="og:title" content="බෞද්ධ ධර්ම පුස්තකාලය හා මෘදුකාංග">
@@ -92,10 +92,51 @@
     </div>
   </header>
 
+  <!-- Hero Banner Section -->
+  <section class="dhamma-banner">
+    <div class="banner-overlay"></div>
+
+    <div class="banner-content">
+      <!-- Stylized Dhamma Wheel / Lotus SVG Icon -->
+      <div class="banner-icon-wrapper">
+        <svg class="dhamma-wheel-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="50" cy="50" r="44" stroke="currentColor" stroke-width="3" stroke-dasharray="4 2"/>
+          <circle cx="50" cy="50" r="36" stroke="currentColor" stroke-width="2"/>
+          <circle cx="50" cy="50" r="10" stroke="currentColor" stroke-width="3"/>
+          <circle cx="50" cy="50" r="4" fill="currentColor"/>
+          <!-- 8 Spokes (Noble Eightfold Path) -->
+          <line x1="50" y1="14" x2="50" y2="40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="50" y1="60" x2="50" y2="86" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="14" y1="50" x2="40" y2="50" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="60" y1="50" x2="86" y2="50" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="24.5" y1="24.5" x2="42.9" y2="42.9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="57.1" y1="57.1" x2="75.5" y2="75.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="24.5" y1="75.5" x2="42.9" y2="57.1" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="57.1" y1="42.9" x2="75.5" y2="24.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- Banner Typography -->
+      <span class="banner-tag">ධර්ම දානය උදෙසා</span>
+      <h1 class="banner-title">බෞද්ධ අධ්‍යාපනික යෙදුම් එකතුව</h1>
+      <p class="banner-subtitle">
+        පාලි භාෂාව, ධර්ම කරුණු සහ ත්‍රිපිටක මූලාශ්‍ර පහසුවෙන් පරිශීලනය කිරීම සඳහා නිර්මාණය කළ ඩිජිටල් මෙවලම්.
+      </p>
+
+      <!-- Call to Action Buttons -->
+      <div class="banner-actions">
+        <a href="#apps" class="btn btn-primary">යෙදුම් ගවේෂණය කරන්න</a>
+        <a href="#about" class="btn btn-secondary">වැඩිදුර විස්තර</a>
+      </div>
+    </div>
+  </section>
+
   <main class="container">
-    
-    <h2 class="section-title"><span>💻</span> බෞද්ධ අධ්‍යාපනික Apps</h2>
-    <div id="appsContainer" class="apps-grid"></div>
+
+    <section id="about">
+      <h2 id="apps" class="section-title"><span>💻</span> බෞද්ධ අධ්‍යාපනික Apps</h2>
+      <div id="appsContainer" class="apps-grid"></div>
+    </section>
 
     <h2 class="section-title"><span>📚</span> අභිධර්ම ධර්ම ග්‍රන්ථ (PDF)</h2>
 
