@@ -338,21 +338,25 @@ html .section-title svg {
    ========================================================== */
 html .apps-grid { gap: 18px; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); }
 html .playstore-card {
-  background: linear-gradient(180deg, var(--bg-elevated), var(--bg-surface));
-  border: 1px solid var(--border-color);
+  background: linear-gradient(145deg, #26151a 0%, #1b1512 58%, #17130f 100%);
+  border: 1px solid rgba(231, 186, 117, .2);
   border-radius: var(--r-xl);
   padding: 18px;
   box-shadow: var(--shadow-sm);
   transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s;
 }
+html.light .playstore-card {
+  background: linear-gradient(145deg, #fffdfa 0%, #fbf5ed 58%, #f7eee4 100%);
+  border-color: rgba(122, 21, 48, .18);
+}
 html .playstore-card:hover {
   transform: translateY(-4px);
-  border-color: var(--accent-ring);
+  border-color: rgba(244, 183, 64, .48);
   box-shadow: var(--glow);
 }
 html .playstore-card.expanded {
   transform: none;
-  border-color: var(--accent-ring);
+  border-color: rgba(244, 183, 64, .48);
   box-shadow: var(--glow);
 }
 html .playstore-summary { gap: 16px; }
@@ -369,15 +373,29 @@ html .card-expand-arrow {
   transition: transform .35s var(--ease), background .2s;
 }
 html .playstore-card:hover .card-expand-arrow { background: var(--accent-soft); border-color: var(--accent-ring); }
-html .playstore-details { border-top: 1px dashed var(--border-light); margin-top: 18px; padding-top: 18px; }
+html .playstore-details {
+  border-top: 1px solid rgba(231, 186, 117, .22);
+  margin-top: 18px;
+  padding: 18px 2px 2px;
+  background: linear-gradient(180deg, rgba(109, 18, 41, .14), transparent 55%);
+}
+html.light .playstore-details {
+  border-top-color: rgba(122, 21, 48, .18);
+  background: linear-gradient(180deg, rgba(122, 21, 48, .045), transparent 55%);
+}
 html .playstore-meta-row {
-  background: var(--bg-hover);
+  background: rgba(109, 18, 41, .2);
   border-radius: 16px;
   padding: 12px 8px;
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(231, 186, 117, .18);
+}
+html.light .playstore-meta-row {
+  background: #f5e9df;
+  border-color: rgba(122, 21, 48, .14);
 }
 html .playstore-meta-val { font-family: 'Inter', var(--font-ui); color: var(--text-bright); }
-html .playstore-meta-lbl { font-family: var(--font-ui); color: var(--text-dim); }
+html .playstore-meta-lbl { font-family: var(--font-ui); color: var(--text-muted); }
+html.light .playstore-meta-lbl { color: #68584d; }
 html .playstore-actions { gap: 10px; }
 html .btn-playstore-install,
 html [data-theme="dark"] .btn-playstore-install {
@@ -395,17 +413,42 @@ html .btn-playstore-share {
   border-radius: 999px;
   font-family: var(--font-ui);
   font-weight: 600;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-light);
+  background: rgba(255, 250, 242, .06);
+  border: 1px solid rgba(231, 186, 117, .24);
   color: var(--text-bright);
+}
+html.light .btn-playstore-web,
+html.light .btn-playstore-share {
+  background: #fffdfa;
+  border-color: rgba(122, 21, 48, .2);
 }
 html .btn-playstore-web:hover,
 html .btn-playstore-share:hover { border-color: var(--accent-ring); background: var(--accent-soft); color: var(--text-bright); }
-html .playstore-screenshot-img { border-radius: 14px; border: 1px solid var(--border-color); transition: transform .3s var(--ease); }
+html .playstore-screenshot-img { border-radius: 14px; border: 1px solid rgba(231, 186, 117, .2); transition: transform .3s var(--ease); }
+html.light .playstore-screenshot-img { border-color: rgba(122, 21, 48, .16); }
 html .playstore-screenshot-img:hover { transform: scale(1.03); }
-html .playstore-about { font-family: var(--font-ui); color: var(--text-muted); line-height: 1.9; }
-html .install-guide-toggle { border-radius: 14px; font-family: var(--font-ui); }
-html .install-tabs { border-radius: 999px; background: var(--bg-hover); padding: 4px; border: 1px solid var(--border-color); }
+html .playstore-about { font-family: var(--font-ui); color: var(--text-main); line-height: 1.9; }
+html .install-guide-toggle {
+  border-radius: 14px;
+  font-family: var(--font-ui);
+  background: rgba(109, 18, 41, .18);
+  border-color: rgba(231, 186, 117, .2);
+}
+html.light .install-guide-toggle {
+  background: #f5e9df;
+  border-color: rgba(122, 21, 48, .16);
+}
+html .install-guide-toggle:hover { border-color: var(--accent-ring); background: var(--accent-soft); }
+html .install-guide-content.open {
+  background: rgba(10, 8, 7, .24);
+  border-color: rgba(231, 186, 117, .18);
+}
+html.light .install-guide-content.open {
+  background: rgba(255, 253, 250, .82);
+  border-color: rgba(122, 21, 48, .14);
+}
+html .install-tabs { border-radius: 999px; background: rgba(109, 18, 41, .2); padding: 4px; border: 1px solid rgba(231, 186, 117, .16); }
+html.light .install-tabs { background: #f5e9df; border-color: rgba(122, 21, 48, .12); }
 html .install-tab { border-radius: 999px; font-family: var(--font-ui); }
 html .install-tab.active { background: var(--bg-surface); color: var(--text-bright); box-shadow: var(--shadow-sm); }
 
