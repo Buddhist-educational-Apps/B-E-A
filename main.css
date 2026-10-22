@@ -2593,7 +2593,12 @@ html, body,
   position: relative;
   width: 100%;
   padding: 48px 24px 24px;
-  background: radial-gradient(circle at 50% 20%, #741b35 0%, #3a0816 100%);
+  background-color: #3a0816;
+  background-image:
+    linear-gradient(90deg, rgba(28, 5, 12, 0.7) 0%, rgba(48, 8, 20, 0.76) 34%, rgba(42, 8, 19, 0.76) 66%, rgba(13, 12, 24, 0.58) 100%),
+    url("hero_bannar.jpg");
+  background-size: cover;
+  background-position: center 54%;
   color: #ffffff;
   text-align: center;
   overflow: hidden;
@@ -2618,7 +2623,7 @@ html, body,
   width: 100%;
   height: 100%;
   color: #e5b358;
-  opacity: 0.32;
+  opacity: 0.18;
   pointer-events: none;
 }
 
@@ -2706,7 +2711,7 @@ html, body,
   }
 
   .banner-art {
-    opacity: 0.18;
+    opacity: 0.12;
   }
 
   .banner-art-stupa {
