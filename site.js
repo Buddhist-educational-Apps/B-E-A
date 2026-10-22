@@ -1,7 +1,7 @@
 /* ============================================================
    site.js — සියලු පිටු සඳහා පොදු:
    1) අඩවි සැකසුම් (සම්බන්ධ වීමේ ඊමේල් ලිපිනය)
-   2) Cookie / Analytics අවසරය — අවසරය ලැබුණු පසුව පමණක් Google Analytics load වේ
+   2) Cookie / Analytics සැකසුම් — එකඟතාව ලබා දුන් පසුව පමණක් Google Analytics load වේ
    ============================================================ */
 
 /* ▼▼▼ මෙහි ඔබගේ ඊමේල් ලිපිනය ඇතුළත් කරන්න (උදා: "name@gmail.com") ▼▼▼ */
@@ -112,11 +112,10 @@ window.SITE_CONFIG = {
   }
 
   function onReady() {
-    if (!readChoice()) showBanner();
     fillEmail();
   }
 
-  // භාෂාව වෙනස් වූ විට cookie දැන්වීම සහ ඊමේල් පෙළ යාවත්කාලීන කිරීම
+  // භාෂාව වෙනස් වූ විට විවෘත Cookie සැකසුම් සහ ඊමේල් පෙළ යාවත්කාලීන කිරීම
   document.addEventListener("languagechange", function () {
     if (document.getElementById("cookieBanner")) showBanner();
     fillEmail();
