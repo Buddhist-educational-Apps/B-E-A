@@ -36,7 +36,7 @@
   <!-- Banner Background Preload (පින්තූරය ක්ෂණිකව Load වීමට) -->
   <link rel="preload" as="image" href="Gemini_Generated_Image_10kmon10kmon10km.jpg">
 
-  <link rel="stylesheet" href="main.css?v=40">
+  <link rel="stylesheet" href="main.css?v=41">
   <link rel="stylesheet" href="modern.css?v=1">
 
   <!-- Theme Detection Script -->
@@ -147,6 +147,46 @@
   <!-- Hero Banner Section -->
   <section class="dhamma-banner">
     <div class="banner-overlay"></div>
+    <svg class="banner-art" viewBox="0 0 1440 360" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <defs>
+        <g id="banner-stupa">
+          <path d="M0 48v26m-13-8h26m-21 8h16m-22 9h28m-34 10h40" />
+          <path d="M-12 99h24v14h-24z" />
+          <path d="M-52 194c0-39 22-65 52-65s52 26 52 65" />
+          <path d="M-61 194h122v12h-122zm-9 12h140v12h-140z" />
+          <path d="M-84 218h168v12h-168zm-9 12h186v12h-186z" />
+          <path d="M-102 242h204v11h-204zm-9 11h222v12h-222z" />
+          <path d="M-118 265h236v10h-236" />
+          <path d="M-105 279c12 12 26 12 38 0 12 12 26 12 38 0 12 12 26 12 38 0 12 12 26 12 38 0 12 12 26 12 38 0" />
+          <path d="M-118 291h236m-98-177h40" />
+          <circle cx="0" cy="48" r="3" />
+        </g>
+        <g id="banner-lotus">
+          <path d="M0 0c-20-19-21-37 0-54 21 17 20 35 0 54zm0 0c-28-8-42-22-36-43 21 4 33 18 36 43zm0 0c28-8 42-22 36-43-21 4-33 18-36 43zm-42 0h84M-30 8c18-8 42-8 60 0" />
+        </g>
+      </defs>
+
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path class="banner-art-frame" d="M30 28h1380M30 332h1380" />
+        <path class="banner-art-frame" d="M30 28v18m1380-18v18M30 332v-18m1380 18v-18" />
+        <g class="banner-art-stupa" transform="translate(170 18)">
+          <use href="#banner-stupa" />
+          <use href="#banner-lotus" transform="translate(-136 282) scale(.72)" />
+          <path d="M-135 291h-18m171 0h18" />
+        </g>
+        <g class="banner-art-stupa" transform="translate(1270 18) scale(-1 1)">
+          <use href="#banner-stupa" />
+          <use href="#banner-lotus" transform="translate(-136 282) scale(.72)" />
+          <path d="M-135 291h-18m171 0h18" />
+        </g>
+        <g class="banner-art-lotus" transform="translate(64 320) scale(.38)">
+          <use href="#banner-lotus" />
+        </g>
+        <g class="banner-art-lotus" transform="translate(1376 320) scale(.38)">
+          <use href="#banner-lotus" />
+        </g>
+      </g>
+    </svg>
 
     <div class="banner-content">
       <!-- Stylized Dhamma Wheel / Lotus SVG Icon -->
