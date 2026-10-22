@@ -402,28 +402,39 @@ html [data-theme="dark"] .btn-playstore-install {
   border-radius: 999px;
   font-family: var(--font-ui);
   font-weight: 600;
-  background: linear-gradient(135deg, #ffd27a, #f4b740 50%, #e0911f);
-  color: #1a140f;
+  background: linear-gradient(135deg, #02a875, #01875f 58%, #007a55);
+  color: #ffffff;
   border: 0;
-  box-shadow: 0 8px 22px -10px rgba(244,183,64,.8);
+  box-shadow: 0 8px 22px -10px rgba(1, 135, 95, .8);
 }
-html .btn-playstore-install:hover { filter: brightness(1.05); transform: translateY(-1px); }
+html .btn-playstore-install:hover { filter: brightness(1.08); transform: translateY(-1px); }
 html .btn-playstore-web,
 html .btn-playstore-share {
   border-radius: 999px;
   font-family: var(--font-ui);
   font-weight: 600;
-  background: rgba(255, 250, 242, .06);
-  border: 1px solid rgba(231, 186, 117, .24);
+  background: rgba(1, 135, 95, .1);
+  border: 1px solid rgba(1, 180, 126, .34);
   color: var(--text-bright);
 }
 html.light .btn-playstore-web,
 html.light .btn-playstore-share {
-  background: #fffdfa;
-  border-color: rgba(122, 21, 48, .2);
+  background: #f0faf6;
+  border-color: rgba(1, 135, 95, .28);
+  color: #075a43;
 }
 html .btn-playstore-web:hover,
-html .btn-playstore-share:hover { border-color: var(--accent-ring); background: var(--accent-soft); color: var(--text-bright); }
+html .btn-playstore-share:hover {
+  border-color: #02a875;
+  background: rgba(1, 135, 95, .2);
+  color: var(--text-bright);
+}
+html.light .btn-playstore-web:hover,
+html.light .btn-playstore-share:hover {
+  border-color: #01875f;
+  background: #dff4eb;
+  color: #064d3b;
+}
 html .playstore-screenshot-img { border-radius: 14px; border: 1px solid rgba(231, 186, 117, .2); transition: transform .3s var(--ease); }
 html.light .playstore-screenshot-img { border-color: rgba(122, 21, 48, .16); }
 html .playstore-screenshot-img:hover { transform: scale(1.03); }
@@ -451,6 +462,19 @@ html .install-tabs { border-radius: 999px; background: rgba(109, 18, 41, .2); pa
 html.light .install-tabs { background: #f5e9df; border-color: rgba(122, 21, 48, .12); }
 html .install-tab { border-radius: 999px; font-family: var(--font-ui); }
 html .install-tab.active { background: var(--bg-surface); color: var(--text-bright); box-shadow: var(--shadow-sm); }
+html .install-tab[onclick*="'android-"].active {
+  background: #01875f;
+  color: #ffffff;
+}
+html .install-tab[onclick*="'ios-"].active {
+  background: #27272a;
+  color: #ffffff;
+}
+html.light .install-tab[onclick*="'ios-"].active { background: #1f2937; }
+html .install-tab[onclick*="'desktop-"].active {
+  background: #2563eb;
+  color: #ffffff;
+}
 
 /* ==========================================================
    Books table
