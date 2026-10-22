@@ -384,11 +384,15 @@ html.light .playstore-details {
   background: linear-gradient(180deg, rgba(122, 21, 48, .045), transparent 55%);
 }
 html .playstore-meta-row {
+  display: flex;
+  align-items: stretch;
   background: rgba(109, 18, 41, .2);
   border-radius: 16px;
   padding: 12px 8px;
   border: 1px solid rgba(231, 186, 117, .18);
 }
+html .playstore-meta-item { flex: 1 1 0; min-width: 0; }
+html .playstore-meta-divider { align-self: center; flex: 0 0 1px; height: 24px; }
 html.light .playstore-meta-row {
   background: #f5e9df;
   border-color: rgba(122, 21, 48, .14);

@@ -82,8 +82,10 @@
       "contact.mail.type": "වර්ගය",
 
       "dev.default": "බෞද්ධ අධ්‍යාපනය",
+      "card.rating": "ශ්‍රේණිගත කිරීම",
       "card.size": "ප්‍රමාණය",
-      "card.reviews": "Reviews",
+      "card.reviews": "සමාලෝචන",
+      "card.contentRating": "වයස් ශ්‍රේණිගත කිරීම",
       "btn.install.play": "Install (Play Store)",
       "btn.download.apk": "බාගත කරන්න (APK)",
       "btn.online": "Online භාවිතය",
@@ -173,8 +175,10 @@
       "contact.mail.type": "Type",
 
       "dev.default": "Buddhist Education",
+      "card.rating": "Rating",
       "card.size": "Size",
       "card.reviews": "Reviews",
+      "card.contentRating": "Age rating",
       "btn.install.play": "Install (Play Store)",
       "btn.download.apk": "Download (APK)",
       "btn.online": "Use online",

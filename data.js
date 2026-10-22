@@ -12,9 +12,6 @@ const appsData = [
     title: "අභිධර්ම මාතිකා (Matika)",
     developer: "B.E.A • බෞද්ධ අධ්‍යාපනය",
     category: "අභිධර්මය",
-    rating: "4.9",
-    reviews: "100+",
-    size: "15 MB",
     badgeType: "tag-gold",
     description: "අභිධර්ම මාතිකා සහ ධම්මසංගණී විග්‍රහයන් පහසුවෙන් කියවීමට සහ අධ්‍යයනය කිරීමට නිර්මාණය කළ සුවිශේෂී මෘදුකාංගයකි.",
     icon: BASE_URL + "/icons/matika.png",
@@ -58,9 +55,6 @@ const appsData = [
     title: "රූපසිද්ධි (Rupasiddhi)",
     developer: "B.E.A • පාලි ව්‍යාකරණ",
     category: "පාලි භාෂාව",
-    rating: "4.8",
-    reviews: "50+",
-    size: "8 MB",
     badgeType: "tag-blue",
     description: "පදරුපසිද්ධි ග්‍රන්ථය ඇසුරින් පාලි නාම, ආඛ්‍යාත පද සාධනයන් සහ ව්‍යාකරණ සූත්‍ර පහසුවෙන් හදාරන මෘදුකාංගය.",
     icon: BASE_URL + "/icons/ruoasiddhi.png",
@@ -101,9 +95,6 @@ const appsData = [
     title: "බුද්ධ වර්ෂය (Buddhist Era)",
     developer: "B.C • බෞද්ධ දින දර්ශන",
     category: "දින දර්ශනය",
-    rating: "4.9",
-    reviews: "30+",
-    size: "4 MB",
     badgeType: "tag-gold",
     description: "ශ්‍රී බුද්ධ වර්ෂය, පොහොය දින සහ විශේෂ බෞද්ධ දින දර්ශන ස්වයංක්‍රීයව ගණනය කර බලාගැනීමේ මෘදුකාංගය.",
     icon: BASE_URL + "/icons/buddhistera.png",
@@ -139,9 +130,6 @@ const appsData = [
     title: "පාලි සිංහල ශබ්දකෝෂය (DPSD)",
     developer: "DPSD Team • ශබ්දකෝෂ",
     category: "පාලි ශබ්දකෝෂ",
-    rating: "4.9",
-    reviews: "45+",
-    size: "12 MB",
     badgeType: "tag-blue",
     description: "Digital Pali-Sinhala Dictionary (DPSD) - ත්‍රිපිටක පාලි පාඨ සහ වචනාර්ථ පහසුවෙන් සිංහලෙන් සෙවිය හැකි විද්‍යුත් ශබ්දකෝෂය.",
     icon: BASE_URL + "/icons/palidic.png",
@@ -446,6 +434,35 @@ function renderApps(apps) {
     const guide = loc('app', app, 'installGuide');
     const isPlayStoreLink = app.apkUrl && app.apkUrl.includes("play.google.com");
     const buttonLabel = isPlayStoreLink ? tr('btn.install.play') : tr('btn.download.apk');
+    const metadata = [
+      app.rating && {
+        value: `${app.rating} <span class="star">★</span>`,
+        label: tr('card.rating')
+      },
+      app.reviews && {
+        value: app.reviews,
+        label: tr('card.reviews')
+      },
+      app.size && {
+        value: app.size,
+        label: tr('card.size')
+      },
+      app.contentRating && {
+        value: app.contentRating,
+        label: tr('card.contentRating')
+      }
+    ].filter(Boolean);
+    const metadataHTML = metadata.length ? `
+      <div class="playstore-meta-row">
+        ${metadata.map((item, index) => `
+          ${index ? '<div class="playstore-meta-divider"></div>' : ''}
+          <div class="playstore-meta-item">
+            <span class="playstore-meta-val">${item.value}</span>
+            <span class="playstore-meta-lbl">${item.label}</span>
+          </div>
+        `).join("")}
+      </div>
+    ` : "";
 
     const screenshotsHTML = app.screenshots && app.screenshots.length > 0 ? `
       <div class="playstore-screenshots">
@@ -533,22 +550,7 @@ function renderApps(apps) {
         </div>
 
         <div class="playstore-details">
-          <div class="playstore-meta-row">
-            <div class="playstore-meta-item">
-              <span class="playstore-meta-val">${app.rating || "4.8"} <span class="star">★</span></span>
-              <span class="playstore-meta-lbl">${app.reviews || tr('card.reviews')}</span>
-            </div>
-            <div class="playstore-meta-divider"></div>
-            <div class="playstore-meta-item">
-              <span class="playstore-meta-val">${app.size || "10 MB"}</span>
-              <span class="playstore-meta-lbl">${tr('card.size')}</span>
-            </div>
-            <div class="playstore-meta-divider"></div>
-            <div class="playstore-meta-item">
-              <span class="playstore-meta-val">3+</span>
-              <span class="playstore-meta-lbl">Rated 3+</span>
-            </div>
-          </div>
+          ${metadataHTML}
 
           <div class="playstore-actions">
             <a href="${app.apkUrl}" ${app.apkUrl.endsWith('.apk') ? 'download' : 'target="_blank" rel="noopener noreferrer"'} class="btn-playstore-install" onclick="event.stopPropagation()">
