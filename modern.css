@@ -553,27 +553,25 @@ html .form-submit:hover { transform: translateY(-1px); filter: brightness(1.05);
 html .site-footer {
   margin-top: 40px;
   border-top: 1px solid var(--border-color);
-  background:
-    radial-gradient(700px 300px at 90% 0%, rgba(244,183,64,.12), transparent 60%),
-    linear-gradient(180deg, #1c0a10, #12070a);
-  color: #e9dfd2;
+  background: linear-gradient(180deg, #101010, #000000);
+  color: #ffffff;
 }
 html .site-footer::before { opacity: .5; }
-html .site-footer .footer-col h3 { font-family: var(--font-ui); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,244,228,.55); }
+html .site-footer .footer-col h3 { font-family: var(--font-ui); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: #ffffff; }
 html .site-footer .footer-col h3::after { display: none; }
 html .site-footer .footer-col a,
-html .site-footer .footer-col .footer-link-btn { font-family: var(--font-ui); color: #f3e9dc; }
+html .site-footer .footer-col .footer-link-btn { font-family: var(--font-ui); color: #ffffff; }
 html .site-footer .footer-col a:hover,
 html .site-footer .footer-col .footer-link-btn:hover { color: #ffd27a; }
 html .site-footer .footer-about p,
-html .site-footer .footer-contact-text { font-family: var(--font-ui); color: rgba(255,244,228,.66); }
-html .footer-brand-name { color: #fffaf2; }
+html .site-footer .footer-contact-text { font-family: var(--font-ui); color: #ffffff; }
+html .footer-brand-name { color: #ffffff; }
 html .footer-chip {
   font-family: var(--font-ui);
   border-radius: 999px;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.12);
-  color: #f3e9dc;
+  color: #ffffff;
 }
 html .footer-cta {
   border-radius: 999px;
@@ -582,11 +580,11 @@ html .footer-cta {
   color: #1a140f;
   box-shadow: 0 10px 26px -12px rgba(244,183,64,.8);
 }
-html .footer-mail { color: #ffd27a; font-family: var(--font-ui); overflow-wrap: anywhere; font-size: .88rem; }
-html .footer-blessing span { color: #ffd27a; }
-html .footer-copy { font-family: var(--font-ui); color: rgba(255,244,228,.55); }
+html .footer-mail { color: #ffffff; font-family: var(--font-ui); overflow-wrap: anywhere; font-size: .88rem; }
+html .footer-blessing span { color: #ffffff; }
+html .footer-copy { font-family: var(--font-ui); color: #ffffff; }
 html .site-footer .lang-switch { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
-html .site-footer .lang-switch button { color: rgba(255,244,228,.7); }
+html .site-footer .lang-switch button { color: #ffffff; }
 html .site-footer .lang-switch button.active,
 html .site-footer .lang-switch button[aria-pressed="true"],
 html.light .site-footer .lang-switch button.active { background: #fffaf2; color: #1a140f; }
