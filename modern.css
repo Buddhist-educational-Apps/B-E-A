@@ -878,10 +878,10 @@ html .banner-overlay {
 }
 html .banner-art { opacity: .14; }
 html .banner-content {
-  display: grid;
-  grid-template-columns: 190px minmax(0, 1fr);
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: clamp(20px, 4vw, 56px);
+  gap: 10px;
   width: 100%;
   max-width: none;
   padding: 0;
@@ -897,7 +897,7 @@ html .banner-copy {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  order: 2;
+  order: 1;
   min-width: 0;
   width: 100%;
   text-align: center;
@@ -905,25 +905,25 @@ html .banner-copy {
 html .banner-icon-wrapper {
   position: relative;
   display: inline-flex;
-  width: 176px;
-  height: 176px;
+  width: 140px;
+  height: 140px;
   align-items: center;
   justify-content: center;
-  order: 1;
-  justify-self: start;
-  margin: 0 0 0 10px;
-  padding: 7px;
-  border: 1px solid rgba(255, 225, 157, .88);
+  order: 2;
+  justify-self: center;
+  margin: 0;
+  padding: 2px;
+  border: 1px solid rgba(255, 248, 225, .18);
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 24%, #ffe9b2, #bd8538 55%, #704a21);
-  box-shadow: 0 12px 34px rgba(0, 0, 0, .42), 0 0 38px rgba(244, 183, 64, .24), inset 0 0 0 3px rgba(255, 248, 225, .2);
+  background: rgba(255, 248, 225, .035);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .3);
   filter: none;
 }
 html .banner-icon-wrapper::before {
   content: "";
   position: absolute;
-  inset: -8px;
-  border: 1px solid rgba(255, 226, 167, .48);
+  inset: -3px;
+  border: 1px solid rgba(255, 226, 167, .14);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -931,7 +931,7 @@ html .banner-emblem {
   display: block;
   width: 100%;
   height: 100%;
-  border: 2px solid rgba(255, 248, 225, .78);
+  border: 1px solid rgba(255, 248, 225, .26);
   border-radius: 50%;
   object-fit: cover;
   animation: none;
@@ -975,7 +975,15 @@ html .banner-blessing {
   html .banner-title {
     white-space: nowrap;
     text-wrap: nowrap;
-    font-size: clamp(1.25rem, min(3vw, calc(4.1vw - 11.5px)), 3rem);
+    font-size: clamp(1.25rem, min(3.2vw, calc(4.1vw - 11.5px)), 3.4rem);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  html .banner-title {
+    white-space: normal;
+    text-wrap: balance;
+    font-size: 2rem;
   }
 }
 
@@ -1115,10 +1123,10 @@ html .table-row:hover {
     width: 100%;
     padding: 0;
   }
-  html .banner-content { grid-template-columns: 120px minmax(0, 1fr); gap: 14px; }
+  html .banner-content { gap: 10px; }
   html .banner-art { opacity: .1; }
-  html .banner-icon-wrapper { width: 110px; height: 110px; margin: 0 0 0 4px; border-radius: 50%; }
-  html .banner-icon-wrapper::before { inset: -7px; border-radius: 50%; }
+  html .banner-icon-wrapper { width: 88px; height: 88px; border-radius: 50%; }
+  html .banner-icon-wrapper::before { inset: -3px; border-radius: 50%; }
   html .banner-emblem { width: 100%; height: 100%; border-radius: 50%; }
   html .banner-title { font-size: clamp(1.35rem, 5.6vw, 1.8rem); line-height: 1.35; }
   html .banner-subtitle { font-size: .82rem; line-height: 1.65; }
@@ -1132,9 +1140,9 @@ html .table-row:hover {
 }
 
 @media (max-width: 420px) {
-  html .banner-content { grid-template-columns: 88px minmax(0, 1fr); gap: 8px; }
-  html .banner-icon-wrapper { width: 82px; height: 82px; margin: 0 0 0 2px; border-radius: 50%; }
-  html .banner-icon-wrapper::before { inset: -5px; border-radius: 50%; }
+  html .banner-content { gap: 8px; }
+  html .banner-icon-wrapper { width: 68px; height: 68px; border-radius: 50%; }
+  html .banner-icon-wrapper::before { inset: -2px; border-radius: 50%; }
   html .banner-emblem { border-radius: 50%; }
   html .banner-title { font-size: clamp(1.2rem, 5.2vw, 1.4rem); }
   html .banner-subtitle { font-size: .76rem; }
@@ -1271,6 +1279,13 @@ html .library-books .folder-count {
   border-color: #e5e7eb;
   background: #f3f4f6;
   color: #475569;
+}
+html .library-books .folder-empty {
+  margin: 0;
+  padding: 18px 24px;
+  color: #64748b;
+  font-family: var(--font-ui);
+  font-size: .9rem;
 }
 html .library-books .table-row {
   border-bottom-color: #e5e7eb;

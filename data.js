@@ -638,17 +638,36 @@ function renderBooks(books) {
     if (!grouped[folder]) grouped[folder] = [];
     grouped[folder].push(book);
   });
+  ["සූත්‍ර", "පාලි"].forEach(folder => {
+    if (!grouped[folder]) grouped[folder] = [];
+  });
 
-  container.innerHTML = Object.keys(grouped).map(folderName => `
+  const folderOrder = new Map([
+    ["විනය", 0], ["Vinaya", 0],
+    ["අභිධර්ම", 1], ["Abhidhamma", 1],
+    ["සූත්‍ර", 2], ["Sutta", 2],
+    ["පාලි", 3], ["Pali", 3]
+  ]);
+  const emptyFolderLabels = {
+    "සූත්‍ර": "books.folder.sutta",
+    "පාලි": "books.folder.pali"
+  };
+  const folderNames = Object.keys(grouped).sort((a, b) =>
+    (folderOrder.get(a) ?? 4) - (folderOrder.get(b) ?? 4) || a.localeCompare(b)
+  );
+
+  container.innerHTML = folderNames.map(folderName => `
     <div class="folder-group" data-folder="${folderName}">
       <div class="folder-header" onclick="toggleFolder(this)">
         <span class="folder-arrow" aria-hidden="true"></span>
         <span class="folder-icon" aria-hidden="true"></span>
-        <span class="folder-name">${loc('book', grouped[folderName][0], 'folder')}</span>
+        <span class="folder-name">${grouped[folderName].length
+          ? loc('book', grouped[folderName][0], 'folder')
+          : tr(emptyFolderLabels[folderName])}</span>
         <span class="folder-count">${tr('books.count', { n: grouped[folderName].length })}</span>
       </div>
       <div class="folder-books" style="display: none;">
-        ${grouped[folderName].map(book => `
+        ${grouped[folderName].length ? grouped[folderName].map(book => `
           <a href="${book.pdfUrl}" 
              download="${loc('book', book, 'title')}.pdf"
              class="table-row" 
@@ -669,7 +688,7 @@ function renderBooks(books) {
               </svg>
             </div>
           </a>
-        `).join("")}
+        `).join("") : `<p class="folder-empty">${tr('books.folder.empty')}</p>`}
       </div>
     </div>
   `).join("");
