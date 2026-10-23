@@ -878,6 +878,10 @@ html .banner-overlay {
 }
 html .banner-art { opacity: .14; }
 html .banner-content {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(20px, 4vw, 56px);
   width: 100%;
   max-width: none;
   padding: 0;
@@ -888,45 +892,91 @@ html .banner-content {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
+html .banner-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  order: 2;
+  min-width: 0;
+  width: 100%;
+  text-align: center;
+}
 html .banner-icon-wrapper {
-  width: 78px;
-  height: 78px;
-  margin-bottom: 8px;
-  border: 1px solid rgba(255, 255, 255, .72);
-  border-radius: 19px;
-  background: #ffffff;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, .28), 0 0 24px rgba(244, 183, 64, .22);
+  position: relative;
+  display: inline-flex;
+  width: 176px;
+  height: 176px;
+  align-items: center;
+  justify-content: center;
+  order: 1;
+  justify-self: start;
+  margin: 0 0 0 10px;
+  padding: 7px;
+  border: 1px solid rgba(255, 225, 157, .88);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 24%, #ffe9b2, #bd8538 55%, #704a21);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, .42), 0 0 38px rgba(244, 183, 64, .24), inset 0 0 0 3px rgba(255, 248, 225, .2);
   filter: none;
 }
-html .dhamma-wheel-icon {
-  width: 68px;
-  height: 68px;
-  animation: slowWheelSpin 60s linear infinite;
-  transform-origin: center;
+html .banner-icon-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border: 1px solid rgba(255, 226, 167, .48);
+  border-radius: 50%;
+  pointer-events: none;
+}
+html .banner-emblem {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 248, 225, .78);
+  border-radius: 50%;
+  object-fit: cover;
+  animation: none;
 }
 html .banner-title {
   width: 100%;
+  max-width: none;
   margin-bottom: 8px;
-  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.8vw, 2.35rem);
   text-wrap: balance;
+  text-align: center;
   text-shadow: 0 3px 22px rgba(0, 0, 0, .65);
 }
 html .banner-subtitle {
-  max-width: 720px;
-  margin-bottom: 12px;
+  width: 100%;
+  max-width: none;
+  margin: 0 0 12px;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  line-height: 1.75;
   color: rgba(255, 250, 242, .92);
+  text-align: center;
   text-shadow: 0 2px 12px rgba(0, 0, 0, .72);
 }
 html .banner-blessing {
   display: inline-flex;
-  margin: 4px 0 0;
+  margin: 0;
   padding: 5px 15px;
   border: 1px solid rgba(244, 183, 64, .36);
   border-radius: 999px;
   background: rgba(244, 183, 64, .1);
+  font-family: var(--font-ui);
+  font-weight: 600;
   color: #ffe3a3;
   font-size: .82rem;
   letter-spacing: .04em;
+}
+
+@media (min-width: 769px) {
+  html .banner-title {
+    white-space: nowrap;
+    text-wrap: nowrap;
+    font-size: clamp(1.25rem, min(3vw, calc(4.1vw - 11.5px)), 3rem);
+  }
 }
 
 html main.container {
@@ -935,9 +985,19 @@ html main.container {
   padding-right: clamp(18px, 4vw, 48px);
   padding-left: clamp(18px, 4vw, 48px);
 }
+html .library-columns {
+  display: grid;
+  grid-template-columns: minmax(220px, .34fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(24px, 3vw, 40px);
+}
 html .section-block {
   margin-bottom: clamp(58px, 8vw, 92px);
 }
+html .library-columns > .section-block { min-width: 0; margin-bottom: 0; }
+html .library-columns .section-title { font-size: clamp(1rem, 1.5vw, 1.3rem); }
+html .library-columns .section-title svg { flex: 0 0 22px; }
+html .library-columns .section-sub { margin: 8px 0 18px; font-size: .84rem; line-height: 1.7; }
 html .section-title {
   position: relative;
   gap: 14px;
@@ -965,10 +1025,25 @@ html .apps-grid {
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
   gap: 16px;
 }
+html .library-apps .apps-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
 html .playstore-card {
   position: relative;
   overflow: hidden;
 }
+html .library-apps .playstore-card { padding: 6px; border-radius: 16px; }
+html .library-apps .playstore-summary {
+  min-height: 72px;
+  gap: 12px;
+  border-radius: 12px;
+  outline-offset: 3px;
+}
+html .library-apps .playstore-summary:focus-visible { outline: 2px solid var(--accent-ring); }
+html .library-apps .playstore-app-icon { width: 58px; height: 58px; flex: 0 0 58px; }
+html .library-apps .card-expand-arrow { display: none; }
+html .library-apps .playstore-header-info { display: block; }
+html .library-apps .playstore-app-title { font-size: .88rem; line-height: 1.45; }
+html .library-apps .playstore-developer { font-size: .72rem; }
+html .library-apps .playstore-details { margin: 8px 6px 4px; }
 html .playstore-card::before {
   content: "";
   position: absolute;
@@ -1026,6 +1101,10 @@ html .table-row:hover {
   background: linear-gradient(90deg, var(--accent-soft), var(--bg-hover) 45%);
 }
 
+@media (min-width: 769px) and (max-width: 940px) {
+  html .library-columns { grid-template-columns: minmax(190px, .38fr) minmax(0, 1fr); gap: 20px; }
+}
+
 @media (max-width: 768px) {
   html .dhamma-banner {
     min-height: 0;
@@ -1036,16 +1115,203 @@ html .table-row:hover {
     width: 100%;
     padding: 0;
   }
+  html .banner-content { grid-template-columns: 120px minmax(0, 1fr); gap: 14px; }
   html .banner-art { opacity: .1; }
-  html .banner-icon-wrapper { width: 68px; height: 68px; border-radius: 17px; }
-  html .dhamma-wheel-icon { width: 58px; height: 58px; }
-  html .banner-title { font-size: clamp(1.55rem, 7vw, 2rem); }
-  html .banner-subtitle { font-size: .94rem; line-height: 1.75; }
+  html .banner-icon-wrapper { width: 110px; height: 110px; margin: 0 0 0 4px; border-radius: 50%; }
+  html .banner-icon-wrapper::before { inset: -7px; border-radius: 50%; }
+  html .banner-emblem { width: 100%; height: 100%; border-radius: 50%; }
+  html .banner-title { font-size: clamp(1.35rem, 5.6vw, 1.8rem); line-height: 1.35; }
+  html .banner-subtitle { font-size: .82rem; line-height: 1.65; }
+  html .banner-blessing { padding: 4px 10px; font-size: .72rem; }
   html .section-sub { margin: 8px 0 20px; }
   html .apps-grid { grid-template-columns: minmax(0, 1fr); }
+  html .library-columns { grid-template-columns: minmax(0, 1fr); gap: 38px; }
+  html .library-columns > .section-block { margin-bottom: 0; }
+  html .library-apps .apps-grid { grid-template-columns: minmax(0, 1fr); gap: 8px; }
   html main.container { padding-top: 24px; }
+}
+
+@media (max-width: 420px) {
+  html .banner-content { grid-template-columns: 88px minmax(0, 1fr); gap: 8px; }
+  html .banner-icon-wrapper { width: 82px; height: 82px; margin: 0 0 0 2px; border-radius: 50%; }
+  html .banner-icon-wrapper::before { inset: -5px; border-radius: 50%; }
+  html .banner-emblem { border-radius: 50%; }
+  html .banner-title { font-size: clamp(1.2rem, 5.2vw, 1.4rem); }
+  html .banner-subtitle { font-size: .76rem; }
+}
+
+@media (min-width: 640px) and (max-width: 768px) {
+  html .banner-title {
+    white-space: nowrap;
+    text-wrap: nowrap;
+    font-size: 1.2rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html .playstore-card::before { transition: none; }
+}
+
+/* Keep the app and book library bright in both color themes. */
+html .library-apps .playstore-card,
+html.light .library-apps .playstore-card {
+  border-color: #e5e7eb;
+  background: #ffffff;
+  color: #1f2937;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, .06);
+}
+html .library-apps .playstore-card:hover,
+html .library-apps .playstore-card.expanded {
+  border-color: #d1d5db;
+  background: #ffffff;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, .1);
+}
+html .library-apps .playstore-app-title { color: #111827; }
+html .library-apps .playstore-developer { color: #64748b; }
+html .library-apps .playstore-details {
+  border-top-color: #e5e7eb;
+  background: #ffffff;
+  color: #1f2937;
+}
+html .library-apps .playstore-meta-row {
+  border-color: #e5e7eb;
+  background: #ffffff;
+}
+html .library-apps .playstore-meta-val { color: #111827; }
+html .library-apps .playstore-meta-lbl { color: #64748b; }
+html .library-apps .playstore-meta-divider { background: #e5e7eb; }
+html .library-apps .playstore-about { color: #374151; }
+html .library-apps .btn-playstore-install {
+  border: 1px solid #047857;
+  background: #047857;
+  color: #ffffff !important;
+  box-shadow: 0 3px 10px rgba(4, 120, 87, .2);
+}
+html .library-apps .btn-playstore-install:hover {
+  border-color: #065f46;
+  background: #065f46;
+  color: #ffffff !important;
+}
+html .library-apps .btn-playstore-web,
+html .library-apps .btn-playstore-web,
+html.light .library-apps .btn-playstore-web {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+html .library-apps .btn-playstore-web:hover {
+  border-color: #93c5fd;
+  background: #dbeafe;
+  color: #1e40af;
+}
+html .library-apps .btn-playstore-share {
+  border-color: #ddd6fe;
+  background: #f5f3ff;
+  color: #6d28d9;
+}
+html .library-apps .btn-playstore-share:hover {
+  border-color: #c4b5fd;
+  background: #ede9fe;
+  color: #5b21b6;
+}
+html .library-apps .install-guide-toggle,
+html.light .library-apps .install-guide-toggle {
+  border-color: #fde68a;
+  background: #fffbeb;
+  color: #92400e;
+}
+html .library-apps .install-guide-toggle:hover {
+  border-color: #fcd34d;
+  background: #fef3c7;
+  color: #78350f;
+}
+html .library-apps .install-guide-content.open {
+  border-color: #dbeafe;
+  background: #f8fafc;
+}
+html .library-apps .install-tabs {
+  border-color: #e2e8f0;
+  background: #eef2f7;
+}
+html .library-apps .install-tab {
+  border-radius: 999px;
+  color: #475569;
+}
+html .library-apps .install-tab:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+html .library-apps .install-tab.active {
+  background: #047857;
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(4, 120, 87, .2);
+}
+html .library-apps .install-steps li { color: #374151; }
+html .library-apps .install-steps li strong { color: #111827; }
+html .library-books .pdf-table {
+  border-color: #e5e7eb;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, .06);
+}
+html .library-books .table-header {
+  border-bottom-color: #e5e7eb;
+  background: #ffffff;
+  color: #64748b;
+}
+html .library-books .folder-group { border-bottom-color: #e5e7eb; }
+html .library-books .folder-header {
+  background: #ffffff;
+  color: #1f2937;
+}
+html .library-books .folder-header:hover,
+html .library-books .folder-group.open > .folder-header {
+  background: #f9fafb;
+}
+html .library-books .folder-count {
+  border-color: #e5e7eb;
+  background: #f3f4f6;
+  color: #475569;
+}
+html .library-books .table-row {
+  border-bottom-color: #e5e7eb;
+  background: #ffffff;
+  color: #374151;
+}
+html .library-books .table-row:hover { background: #f9fafb; }
+html .library-books .file-text { color: #111827; }
+html .library-books .file-col-cat,
+html .library-books .file-col-count,
+html .library-books .file-col-size { color: #475569; }
+html .library-books .file-col-size { color: #047857; }
+html .library-books .pdf-badge {
+  border-color: #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+@media (min-width: 769px) {
+  html .library-columns.has-expanded-app {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  html .library-columns.has-expanded-app .library-apps .apps-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 14px;
+  }
+  html .library-columns.has-expanded-app .library-apps .playstore-card.expanded {
+    grid-column: 1 / -1;
+  }
+  html .library-columns.has-expanded-app .library-apps .playstore-card.expanded .playstore-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 16px 24px;
+  }
+  html .library-columns.has-expanded-app .playstore-meta-row,
+  html .library-columns.has-expanded-app .playstore-actions,
+  html .library-columns.has-expanded-app .playstore-about {
+    grid-column: 1 / -1;
+  }
+  html .library-columns.has-expanded-app .playstore-about {
+    margin: 0;
+  }
 }

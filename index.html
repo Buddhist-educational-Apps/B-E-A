@@ -35,9 +35,10 @@
 
   <!-- Banner Background Preload (පින්තූරය ක්ෂණිකව Load වීමට) -->
   <link rel="preload" as="image" href="hero_bannar.jpg">
+  <link rel="preload" as="image" href="icons/pariyattidhamma-mark.jpg">
 
   <link rel="stylesheet" href="main.css?v=43">
-  <link rel="stylesheet" href="modern.css?v=9">
+  <link rel="stylesheet" href="modern.css?v=23">
 
   <!-- Theme Detection Script -->
   <script>
@@ -263,73 +264,63 @@
     </svg>
 
     <div class="banner-content">
-      <!-- Dhamma wheel inspired by the Matika app icon -->
-      <div class="banner-icon-wrapper">
-        <svg class="dhamma-wheel-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g fill="#f28c18">
-            <path d="M46 35V17h-6L50 5l10 12h-6v18z"/>
-            <path d="M46 35V17h-6L50 5l10 12h-6v18z" transform="rotate(45 50 50)"/>
-            <path d="M46 35V17h-6L50 5l10 12h-6v18z" transform="rotate(90 50 50)"/>
-            <path d="M46 35V17h-6L50 5l10 12h-6v18z" transform="rotate(135 50 50)"/>
-            <path d="M46 35V17h-6L50 5l10 12h-6v18z" transform="rotate(180 50 50)"/>
-            <path d="M46 35V17h-6L50 5l10 12h-6v18z" transform="rotate(225 50 50)"/>
-            <path d="M46 35V17h-6L50 5l10 12h-6v18z" transform="rotate(270 50 50)"/>
-            <path d="M46 35V17h-6L50 5l10 12h-6v18z" transform="rotate(315 50 50)"/>
-          </g>
-          <circle cx="50" cy="50" r="36" fill="none" stroke="#f28c18" stroke-width="7"/>
-          <circle cx="50" cy="50" r="14" fill="#ffffff" stroke="#f28c18" stroke-width="4"/>
-          <g stroke="#f28c18" stroke-width="2.5">
-            <path d="M50 38v7M50 55v7M38 50h7M55 50h7M41.5 41.5l5 5M53.5 53.5l5 5M41.5 58.5l5-5M53.5 46.5l5-5"/>
-          </g>
-          <circle cx="50" cy="50" r="4" fill="#f28c18"/>
-        </svg>
+      <div class="banner-copy">
+        <h1 class="banner-title" data-i18n="banner.title">බෞද්ධ ධර්ම පුස්තකාලය හා අධ්‍යාපනික යෙදුම්</h1>
+        <p class="banner-subtitle" data-i18n="banner.subtitle">
+          ත්‍රිරිපිටක මූලාශ්‍ර, පාලි ව්‍යාකරණ සහ ගැඹුරු දහම් කරුණු පහසුවෙන් ගවේෂණය කර ප්‍රගුණ කිරීමට නිර්මාණය කළ ඩිජිටල් අවකාශය.
+        </p>
+        <p class="banner-blessing" data-i18n="banner.blessing">ධර්ම දානය පිණිසයි!</p>
       </div>
 
-      <!-- Banner Typography -->
-      <h1 class="banner-title" data-i18n="banner.title">බෞද්ධ ධර්ම පුස්තකාලය හා අධ්‍යාපනික යෙදුම්</h1>
-      <p class="banner-subtitle" data-i18n="banner.subtitle">
-        ත්‍රිරිපිටක මූලාශ්‍ර, පාලි ව්‍යාකරණ සහ ගැඹුරු දහම් කරුණු පහසුවෙන් ගවේෂණය කර ප්‍රගුණ කිරීමට නිර්මාණය කළ ඩිජිටල් අවකාශය.
-      </p>
-
-      <p class="banner-blessing" data-i18n="banner.blessing">ධර්ම දානය පිණිසයි!</p>
+      <div class="banner-icon-wrapper">
+        <img
+          class="banner-emblem"
+          src="icons/pariyattidhamma-mark.jpg"
+          alt="පරියත්ති ධම්ම ලාංඡනය"
+          width="578"
+          height="541"
+          fetchpriority="high">
+      </div>
     </div>
   </section>
 
   <!-- ප්‍රධාන අන්තර්ගතය -->
   <main id="about" class="container">
 
-    <!-- Apps Section -->
-    <section class="section-block">
-      <h2 class="section-title" id="apps">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>
-        </svg>
-        <span data-i18n="section.apps">බෞද්ධ අධ්‍යාපනික Apps</span>
-      </h2>
-      <p class="section-sub" data-i18n="section.apps.sub">අභිධර්මය, පාලි ව්‍යාකරණ, දින දර්ශනය සහ ශබ්දකෝෂය — Web, Android සහ iOS සඳහා.</p>
-      <div id="appsContainer" class="apps-grid"></div>
-    </section>
+    <div class="library-columns">
+      <!-- Apps Section -->
+      <section class="section-block library-apps">
+        <h2 class="section-title" id="apps">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>
+          </svg>
+          <span data-i18n="section.apps">බෞද්ධ අධ්‍යාපනික Apps</span>
+        </h2>
+        <p class="section-sub" data-i18n="section.apps.sub">අභිධර්මය, පාලි ව්‍යාකරණ, දින දර්ශනය සහ ශබ්දකෝෂය — Web, Android සහ iOS සඳහා.</p>
+        <div id="appsContainer" class="apps-grid"></div>
+      </section>
 
-    <!-- Books Section -->
-    <section class="section-block">
-      <h2 class="section-title" id="books">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/>
-        </svg>
-        <span data-i18n="section.books">ධර්ම ග්‍රන්ථ එකතුව (PDF)</span>
-      </h2>
-      <p class="section-sub" data-i18n="section.books.sub">ෆෝල්ඩරයක් විවෘත කර ග්‍රන්ථයක් මත ක්ලික් කර නොමිලේ බාගත කරගන්න.</p>
+      <!-- Books Section -->
+      <section class="section-block library-books">
+        <h2 class="section-title" id="books">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/>
+          </svg>
+          <span data-i18n="section.books">ධර්ම ග්‍රන්ථ එකතුව (PDF)</span>
+        </h2>
+        <p class="section-sub" data-i18n="section.books.sub">ෆෝල්ඩරයක් විවෘත කර ග්‍රන්ථයක් මත ක්ලික් කර නොමිලේ බාගත කරගන්න.</p>
 
-      <div class="pdf-table">
-        <div class="table-header">
-          <span data-i18n="table.name">ගොනු නම</span>
-          <span data-i18n="table.category">ප්‍රවර්ගය</span>
-          <span data-i18n="table.downloads">බාගත කිරීම්</span>
-          <span style="text-align: right;" data-i18n="table.size">ප්‍රමාණය</span>
+        <div class="pdf-table">
+          <div class="table-header">
+            <span data-i18n="table.name">ගොනු නම</span>
+            <span data-i18n="table.category">ප්‍රවර්ගය</span>
+            <span data-i18n="table.downloads">බාගත කිරීම්</span>
+            <span style="text-align: right;" data-i18n="table.size">ප්‍රමාණය</span>
+          </div>
+          <div id="pdfFileList"></div>
         </div>
-        <div id="pdfFileList"></div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer">

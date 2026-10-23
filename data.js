@@ -542,8 +542,8 @@ function renderApps(apps) {
 
     return `
       <div class="playstore-card" id="app-card-${app.id}">
-        <div class="playstore-summary" onclick="toggleAppCard(${app.id})">
-          <img src="${app.icon}" alt="${title} Icon" class="playstore-app-icon" width="62" height="62" decoding="async" onerror="this.onerror=null;this.src='favicon.png'">
+        <div class="playstore-summary" role="button" tabindex="0" aria-label="${title}" aria-expanded="false" aria-controls="app-details-${app.id}" title="${title}" onclick="toggleAppCard(${app.id})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleAppCard(${app.id})}">
+          <img src="${app.icon}" alt="" class="playstore-app-icon" width="62" height="62" decoding="async" onerror="this.onerror=null;this.src='favicon.png'">
           <div class="playstore-header-info">
             <h3 class="playstore-app-title">${title}</h3>
             <div class="playstore-developer">
@@ -553,7 +553,7 @@ function renderApps(apps) {
           <span class="card-expand-arrow" aria-hidden="true"></span>
         </div>
 
-        <div class="playstore-details">
+        <div class="playstore-details" id="app-details-${app.id}">
           ${metadataHTML}
 
           <div class="playstore-actions">
@@ -611,7 +611,13 @@ function shareApp(title, url) {
 function toggleAppCard(appId) {
   const card = document.getElementById(`app-card-${appId}`);
   if (!card) return;
-  card.classList.toggle('expanded');
+  const expanded = card.classList.toggle('expanded');
+  const summary = card.querySelector('.playstore-summary');
+  if (summary) summary.setAttribute('aria-expanded', String(expanded));
+  const libraryColumns = card.closest('.library-columns');
+  if (libraryColumns) {
+    libraryColumns.classList.toggle('has-expanded-app', Boolean(libraryColumns.querySelector('.playstore-card.expanded')));
+  }
 }
 
 // ==========================================
@@ -916,6 +922,17 @@ document.addEventListener('click', event => {
   if (searchWrapper && resultsContainer && !searchWrapper.contains(event.target)) {
     resultsContainer.classList.add('hidden');
   }
+
+  const expandedCards = document.querySelectorAll('.playstore-card.expanded');
+  expandedCards.forEach(card => {
+    if (card.contains(event.target)) return;
+    card.classList.remove('expanded');
+    const summary = card.querySelector('.playstore-summary');
+    if (summary) summary.setAttribute('aria-expanded', 'false');
+  });
+  document.querySelectorAll('.library-columns').forEach(libraryColumns => {
+    libraryColumns.classList.toggle('has-expanded-app', Boolean(libraryColumns.querySelector('.playstore-card.expanded')));
+  });
 });
 
 // Global Scope Bindings
@@ -943,7 +960,11 @@ document.addEventListener('languagechange', function () {
 
   expandedIds.forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.classList.add('expanded');
+    if (el) {
+      el.classList.add('expanded');
+      const summary = el.querySelector('.playstore-summary');
+      if (summary) summary.setAttribute('aria-expanded', 'true');
+    }
   });
   openFolders.forEach(name => {
     document.querySelectorAll('.folder-group').forEach(group => {

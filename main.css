@@ -2657,17 +2657,6 @@ html, body,
   filter: drop-shadow(0 0 12px rgba(229, 179, 88, 0.35));
 }
 
-.dhamma-wheel-icon {
-  width: 84px;
-  height: 84px;
-  animation: slowWheelSpin 60s linear infinite;
-}
-
-@keyframes slowWheelSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .banner-title {
   margin: 0 0 12px;
   color: #ffffff;
@@ -2703,11 +2692,6 @@ html, body,
 
   .banner-subtitle {
     font-size: 0.95rem;
-  }
-
-  .dhamma-wheel-icon {
-    width: 68px;
-    height: 68px;
   }
 
   .banner-art {
