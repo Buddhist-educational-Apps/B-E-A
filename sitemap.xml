@@ -1,8 +1,121 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://buddhistapps.vercel.app/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/hero_bannar.jpg</image:loc>
+      <image:title>බෞද්ධ ධර්ම පුස්තකාලය හා අධ්‍යාපනික යෙදුම්</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/matika-1.webp</image:loc>
+      <image:title>අභිධර්ම මාතිකා යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/matika-2.webp</image:loc>
+      <image:title>අභිධර්ම මාතිකා යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/matika-3.webp</image:loc>
+      <image:title>අභිධර්ම මාතිකා යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/matika-4.webp</image:loc>
+      <image:title>අභිධර්ම මාතිකා යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/matika-5.webp</image:loc>
+      <image:title>අභිධර්ම මාතිකා යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/matika-6.webp</image:loc>
+      <image:title>අභිධර්ම මාතිකා යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/matika-7.webp</image:loc>
+      <image:title>අභිධර්ම මාතිකා යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/matika-8.webp</image:loc>
+      <image:title>අභිධර්ම මාතිකා යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/rupasiddhi-1.webp</image:loc>
+      <image:title>රූපසිද්ධි යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/rupasiddhi-2.webp</image:loc>
+      <image:title>රූපසිද්ධි යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/rupasiddhi-3.webp</image:loc>
+      <image:title>රූපසිද්ධි යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/rupasiddhi-4.webp</image:loc>
+      <image:title>රූපසිද්ධි යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/bc-1.webp</image:loc>
+      <image:title>බුද්ධ වර්ෂය යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/bc-2.webp</image:loc>
+      <image:title>බුද්ධ වර්ෂය යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/bc-3.webp</image:loc>
+      <image:title>බුද්ධ වර්ෂය යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/bc-4.webp</image:loc>
+      <image:title>බුද්ධ වර්ෂය යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/bc-5.webp</image:loc>
+      <image:title>බුද්ධ වර්ෂය යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/DPSD-1.webp</image:loc>
+      <image:title>පාලි සිංහල ශබ්දකෝෂ යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/DPSD-2.webp</image:loc>
+      <image:title>පාලි සිංහල ශබ්දකෝෂ යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/DPSD-3.webp</image:loc>
+      <image:title>පාලි සිංහල ශබ්දකෝෂ යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/DPSD-4.webp</image:loc>
+      <image:title>පාලි සිංහල ශබ්දකෝෂ යෙදුමේ තිර රුව</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://buddhistapps.vercel.app/screenshots/DPSD-5.webp</image:loc>
+      <image:title>පාලි සිංහල ශබ්දකෝෂ යෙදුමේ තිර රුව</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://buddhistapps.vercel.app/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://buddhistapps.vercel.app/contact.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://buddhistapps.vercel.app/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://buddhistapps.vercel.app/copyright.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>

@@ -12,6 +12,7 @@ const appsData = [
     title: "අභිධර්ම මාතිකා (Matika)",
     developer: "B.E.A • බෞද්ධ අධ්‍යාපනය",
     category: "අභිධර්මය",
+    keywords: ["අභිධර්ම", "අභිධර්ම මාතිකා", "ධම්මසංගණී", "matika", "abhidhamma", "dhammasangani"],
     badgeType: "tag-gold",
     description: "අභිධර්ම මාතිකා සහ ධම්මසංගණී විග්‍රහයන් පහසුවෙන් කියවීමට සහ අධ්‍යයනය කිරීමට නිර්මාණය කළ සුවිශේෂී මෘදුකාංගයකි.",
     icon: BASE_URL + "/icons/matika.png",
@@ -55,6 +56,7 @@ const appsData = [
     title: "රූපසිද්ධි (Rupasiddhi)",
     developer: "B.E.A • පාලි ව්‍යාකරණ",
     category: "පාලි භාෂාව",
+    keywords: ["පාලි", "පාලි ව්‍යාකරණ", "නාම", "ආඛ්‍යාත", "rupasiddhi", "pali grammar", "pali language"],
     badgeType: "tag-blue",
     description: "පදරුපසිද්ධි ග්‍රන්ථය ඇසුරින් පාලි නාම, ආඛ්‍යාත පද සාධනයන් සහ ව්‍යාකරණ සූත්‍ර පහසුවෙන් හදාරන මෘදුකාංගය.",
     icon: BASE_URL + "/icons/ruoasiddhi.png",
@@ -95,6 +97,7 @@ const appsData = [
     title: "බුද්ධ වර්ෂය (Buddhist Era)",
     developer: "B.C • බෞද්ධ දින දර්ශන",
     category: "දින දර්ශනය",
+    keywords: ["බුද්ධ වර්ෂය", "බෞද්ධ දින දර්ශනය", "පොහොය", "buddhist era", "buddhist calendar", "poya"],
     badgeType: "tag-gold",
     description: "ශ්‍රී බුද්ධ වර්ෂය, පොහොය දින සහ විශේෂ බෞද්ධ දින දර්ශන ස්වයංක්‍රීයව ගණනය කර බලාගැනීමේ මෘදුකාංගය.",
     icon: BASE_URL + "/icons/buddhistera.png",
@@ -130,6 +133,7 @@ const appsData = [
     title: "පාලි සිංහල ශබ්දකෝෂය (DPSD)",
     developer: "DPSD Team • ශබ්දකෝෂ",
     category: "පාලි ශබ්දකෝෂ",
+    keywords: ["පාලි", "සිංහල", "ශබ්දකෝෂය", "ත්‍රිපිටක", "pali sinhala dictionary", "pali dictionary", "tipitaka"],
     badgeType: "tag-blue",
     description: "Digital Pali-Sinhala Dictionary (DPSD) - ත්‍රිපිටක පාලි පාඨ සහ වචනාර්ථ පහසුවෙන් සිංහලෙන් සෙවිය හැකි විද්‍යුත් ශබ්දකෝෂය.",
     icon: BASE_URL + "/icons/palidic.png",
@@ -852,7 +856,7 @@ function performSearch(query) {
 
   const lowerQuery = query.toLowerCase();
   const matchedApps = appsData.filter(app =>
-    searchable('app', app, ['title', 'category', 'description']).includes(lowerQuery)
+    searchable('app', app, ['title', 'category', 'description', 'keywords']).includes(lowerQuery)
   );
 
   const matchedBooks = booksData.filter(book =>
