@@ -873,12 +873,20 @@ html .banner-content {
   -webkit-backdrop-filter: none;
 }
 html .banner-icon-wrapper {
+  width: 78px;
+  height: 78px;
   margin-bottom: 8px;
-  filter: drop-shadow(0 0 16px rgba(244, 183, 64, .5));
+  border: 1px solid rgba(255, 255, 255, .72);
+  border-radius: 19px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .28), 0 0 24px rgba(244, 183, 64, .22);
+  filter: none;
 }
 html .dhamma-wheel-icon {
-  width: 74px;
-  height: 74px;
+  width: 68px;
+  height: 68px;
+  animation: slowWheelSpin 60s linear infinite;
+  transform-origin: center;
 }
 html .banner-title {
   width: 100%;
@@ -1013,7 +1021,8 @@ html .table-row:hover {
     padding: 0;
   }
   html .banner-art { opacity: .1; }
-  html .dhamma-wheel-icon { width: 62px; height: 62px; }
+  html .banner-icon-wrapper { width: 68px; height: 68px; border-radius: 17px; }
+  html .dhamma-wheel-icon { width: 58px; height: 58px; }
   html .banner-title { font-size: clamp(1.55rem, 7vw, 2rem); }
   html .banner-subtitle { font-size: .94rem; line-height: 1.75; }
   html .section-sub { margin: 8px 0 20px; }
