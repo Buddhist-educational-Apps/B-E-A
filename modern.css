@@ -800,3 +800,223 @@ html[lang="en"] .hero-banner-desc {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 12px rgba(0, 0, 0, 0.75);
 }
 html .hero-actions { margin-bottom: 4px; }
+
+/* Home page — dark editorial layout with warm Dhamma accents */
+html .site-header {
+  background: rgba(10, 9, 9, .94);
+  border-bottom-color: rgba(244, 183, 64, .14);
+  box-shadow: 0 10px 32px -24px rgba(0, 0, 0, .9);
+}
+html.light .site-header {
+  background: rgba(250, 247, 241, .96);
+  border-bottom-color: rgba(122, 21, 48, .16);
+}
+html .site-header .brand-mark {
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(244, 183, 64, .18), rgba(109, 18, 41, .32));
+  box-shadow: inset 0 0 0 1px rgba(244, 183, 64, .25), 0 5px 18px rgba(0, 0, 0, .25);
+}
+html .site-header .search-box input {
+  background: rgba(255, 250, 242, .055);
+  border-color: rgba(255, 236, 205, .12);
+}
+html.light .site-header .search-box input {
+  background: #fffdfa;
+  border-color: rgba(60, 38, 10, .13);
+}
+
+html .dhamma-banner {
+  isolation: isolate;
+  min-height: 330px;
+  display: grid;
+  place-items: center;
+  padding: clamp(42px, 6vw, 72px) 24px 36px;
+  background-color: #17090d;
+  background-image:
+    linear-gradient(90deg, rgba(17, 8, 10, .72), rgba(42, 8, 20, .76) 48%, rgba(12, 13, 23, .5)),
+    url("hero_bannar.jpg");
+  background-size: cover;
+  background-position: center 54%;
+  border-bottom: 1px solid rgba(244, 183, 64, .32);
+  box-shadow: 0 24px 54px -42px rgba(0, 0, 0, .9);
+}
+html.light .dhamma-banner {
+  background-image:
+    linear-gradient(90deg, rgba(24, 7, 12, .68), rgba(42, 8, 20, .72) 48%, rgba(12, 13, 23, .48)),
+    url("hero_bannar.jpg");
+}
+html .dhamma-banner::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: auto 0 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(244, 183, 64, .72), rgba(255, 250, 242, .32), rgba(244, 183, 64, .72), transparent);
+  pointer-events: none;
+}
+html .banner-overlay {
+  top: -70%;
+  width: min(760px, 100vw);
+  height: 760px;
+  background: radial-gradient(circle, rgba(244, 183, 64, .16), transparent 68%);
+}
+html .banner-art { opacity: .14; }
+html .banner-content {
+  max-width: 860px;
+  padding: 22px 28px 20px;
+  border: 1px solid rgba(255, 236, 205, .14);
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(16, 10, 10, .52), rgba(31, 10, 17, .28));
+  box-shadow: 0 20px 60px -36px rgba(0, 0, 0, .8), inset 0 1px 0 rgba(255, 255, 255, .08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+html .banner-icon-wrapper {
+  margin-bottom: 8px;
+  filter: drop-shadow(0 0 16px rgba(244, 183, 64, .5));
+}
+html .dhamma-wheel-icon {
+  width: 74px;
+  height: 74px;
+}
+html .banner-title {
+  margin-bottom: 8px;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  text-wrap: balance;
+  text-shadow: 0 3px 22px rgba(0, 0, 0, .65);
+}
+html .banner-subtitle {
+  max-width: 720px;
+  margin-bottom: 12px;
+  color: rgba(255, 250, 242, .92);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .72);
+}
+html .banner-blessing {
+  display: inline-flex;
+  margin: 4px 0 0;
+  padding: 5px 15px;
+  border: 1px solid rgba(244, 183, 64, .36);
+  border-radius: 999px;
+  background: rgba(244, 183, 64, .1);
+  color: #ffe3a3;
+  font-size: .82rem;
+  letter-spacing: .04em;
+}
+
+html main.container {
+  max-width: 1280px;
+  padding-right: clamp(18px, 4vw, 48px);
+  padding-left: clamp(18px, 4vw, 48px);
+}
+html .section-block {
+  margin-bottom: clamp(58px, 8vw, 92px);
+}
+html .section-title {
+  position: relative;
+  gap: 14px;
+  padding: 0 0 15px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+html .section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 92px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-gold), transparent);
+}
+html .section-title svg {
+  border-radius: 12px;
+}
+html .section-sub {
+  margin: 8px 0 24px 50px;
+  max-width: 760px;
+}
+html .apps-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 16px;
+}
+html .playstore-card {
+  position: relative;
+  overflow: hidden;
+}
+html .playstore-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent-gold), rgba(109, 18, 41, .1));
+  opacity: .65;
+  transition: opacity .25s, width .25s;
+}
+html .playstore-card:hover::before,
+html .playstore-card.expanded::before {
+  width: 4px;
+  opacity: 1;
+}
+html .playstore-app-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 17px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .28);
+}
+html .playstore-card.expanded .playstore-app-icon {
+  box-shadow: 0 0 0 3px var(--accent-soft), 0 8px 22px rgba(0, 0, 0, .28);
+}
+html .playstore-app-title { letter-spacing: .005em; }
+html .playstore-details { border-top-style: solid; }
+html .playstore-about {
+  padding: 2px 2px 4px;
+  font-size: .93rem;
+}
+html .playstore-screenshots-scroll {
+  scrollbar-color: var(--accent-ring) transparent;
+  scrollbar-width: thin;
+}
+
+html .pdf-table {
+  border-radius: 22px;
+  background: linear-gradient(160deg, var(--bg-elevated), var(--bg-surface) 46%);
+}
+html .table-header {
+  background: linear-gradient(90deg, rgba(109, 18, 41, .24), var(--bg-table-header) 62%);
+  border-bottom-color: var(--border-light);
+}
+html .folder-group { border-bottom-color: var(--border-color); }
+html .folder-header {
+  padding-top: 17px;
+  padding-bottom: 17px;
+}
+html .folder-group.open > .folder-header {
+  background: linear-gradient(90deg, var(--accent-soft), transparent 70%);
+}
+html .table-row {
+  border-top-color: var(--border-color);
+}
+html .table-row:hover {
+  background: linear-gradient(90deg, var(--accent-soft), var(--bg-hover) 45%);
+}
+
+@media (max-width: 768px) {
+  html .dhamma-banner {
+    min-height: 0;
+    padding: 32px 16px 26px;
+    background-position: 52% center;
+  }
+  html .banner-content {
+    padding: 18px 16px 16px;
+    border-radius: 22px;
+  }
+  html .banner-art { opacity: .1; }
+  html .dhamma-wheel-icon { width: 62px; height: 62px; }
+  html .banner-title { font-size: clamp(1.55rem, 7vw, 2rem); }
+  html .banner-subtitle { font-size: .94rem; line-height: 1.75; }
+  html .section-sub { margin: 8px 0 20px; }
+  html .apps-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html .playstore-card::before { transition: none; }
+}
