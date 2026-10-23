@@ -1150,15 +1150,16 @@ html .table-row:hover {
   html .banner-icon-wrapper { width: 68px; height: 68px; border-radius: 50%; }
   html .banner-icon-wrapper::before { inset: -2px; border-radius: 50%; }
   html .banner-emblem { border-radius: 50%; }
-  html .banner-title { font-size: clamp(1.2rem, 5.2vw, 1.4rem); }
+  html .banner-title { font-size: clamp(1.35rem, 6vw, 1.55rem); }
   html .banner-subtitle { font-size: .76rem; }
 }
 
 @media (min-width: 640px) and (max-width: 768px) {
   html .banner-title {
-    white-space: nowrap;
-    text-wrap: nowrap;
-    font-size: 1.2rem;
+    white-space: normal;
+    text-wrap: balance;
+    font-size: clamp(1.65rem, 4.4vw, 2rem);
+    line-height: 1.35;
   }
 }
 
