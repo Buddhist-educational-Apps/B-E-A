@@ -651,6 +651,19 @@ html .footer-cta {
   color: #1a140f;
   box-shadow: 0 10px 26px -12px rgba(244,183,64,.8);
 }
+html .footer-cta.footer-youtube,
+html .site-footer .footer-col a.footer-youtube {
+  margin-top: 10px;
+  background: #ff0033;
+  color: #ffffff;
+  box-shadow: 0 8px 22px -12px rgba(255, 0, 51, .8);
+}
+html .footer-cta.footer-youtube:hover,
+html .site-footer .footer-col a.footer-youtube:hover {
+  background: #cc0029;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
 html .footer-mail { color: #ffffff; font-family: var(--font-ui); overflow-wrap: anywhere; font-size: .88rem; }
 html .footer-blessing span { color: #ffffff; }
 html .footer-copy { font-family: var(--font-ui); color: #ffffff; }
