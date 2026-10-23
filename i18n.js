@@ -205,8 +205,8 @@
   // පිටුව පෙන්වීමට පෙර භාෂා ගුණාංගය සකසන්න (ෆ්ලෑෂ් අඩු කිරීමට)
   document.documentElement.lang = lang;
 
-  function t(key, params) {
-    var d = DICT[lang];
+  function t(key, params, language) {
+    var d = DICT[language || lang];
     var s = (d && d[key] !== undefined) ? d[key] : (DICT.si[key] !== undefined ? DICT.si[key] : key);
     if (params) {
       Object.keys(params).forEach(function (p) {

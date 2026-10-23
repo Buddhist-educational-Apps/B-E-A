@@ -57,21 +57,33 @@ window.SITE_CONFIG = {
     return window.I18N ? window.I18N.t(key) : key;
   }
 
+  function cookieText(key) {
+    var fallback = {
+      "cookie.aria": "Cookies and data collection",
+      "cookie.text": "We use Google Analytics to understand how the site is used (anonymous statistics such as page views). It only runs if you accept.",
+      "cookie.privacy": "Privacy Policy",
+      "cookie.deny": "Decline",
+      "cookie.accept": "Accept"
+    };
+    return window.I18N ? window.I18N.t(key, null, "en") : (fallback[key] || key);
+  }
+
   function showBanner() {
     closeBanner();
     var wrap = document.createElement("div");
     wrap.id = "cookieBanner";
     wrap.className = "cookie-banner";
     wrap.setAttribute("role", "dialog");
-    wrap.setAttribute("aria-label", tr("cookie.aria"));
+    wrap.setAttribute("lang", "en");
+    wrap.setAttribute("aria-label", cookieText("cookie.aria"));
     wrap.innerHTML =
       '<p class="cookie-text">' +
-        tr("cookie.text") + " " +
-        '<a href="privacy.html">' + tr("cookie.privacy") + '</a>' +
+        cookieText("cookie.text") + " " +
+        '<a href="privacy.html">' + cookieText("cookie.privacy") + '</a>' +
       '</p>' +
       '<div class="cookie-actions">' +
-        '<button type="button" class="cookie-btn cookie-btn-ghost" id="cookieDeny">' + tr("cookie.deny") + '</button>' +
-        '<button type="button" class="cookie-btn cookie-btn-primary" id="cookieAccept">' + tr("cookie.accept") + '</button>' +
+        '<button type="button" class="cookie-btn cookie-btn-ghost" id="cookieDeny">' + cookieText("cookie.deny") + '</button>' +
+        '<button type="button" class="cookie-btn cookie-btn-primary" id="cookieAccept">' + cookieText("cookie.accept") + '</button>' +
       '</div>';
     document.body.appendChild(wrap);
 
