@@ -638,7 +638,7 @@ function renderBooks(books) {
     if (!grouped[folder]) grouped[folder] = [];
     grouped[folder].push(book);
   });
-  ["සූත්‍ර", "පාලි"].forEach(folder => {
+  ["සූත්‍ර", "පාලි", "සංස්කරණය කරන ලද පැරණි ග්‍රන්ථ"].forEach(folder => {
     if (!grouped[folder]) grouped[folder] = [];
   });
 
@@ -646,11 +646,14 @@ function renderBooks(books) {
     ["විනය", 0], ["Vinaya", 0],
     ["අභිධර්ම", 1], ["Abhidhamma", 1],
     ["සූත්‍ර", 2], ["Sutta", 2],
-    ["පාලි", 3], ["Pali", 3]
+    ["පාලි", 3], ["Pali", 3],
+    ["සංස්කරණය කරන ලද පැරණි ග්‍රන්ථ", 4],
+    ["Edited Ancient Texts", 4]
   ]);
   const emptyFolderLabels = {
     "සූත්‍ර": "books.folder.sutta",
-    "පාලි": "books.folder.pali"
+    "පාලි": "books.folder.pali",
+    "සංස්කරණය කරන ලද පැරණි ග්‍රන්ථ": "books.folder.editedAncient"
   };
   const folderNames = Object.keys(grouped).sort((a, b) =>
     (folderOrder.get(a) ?? 4) - (folderOrder.get(b) ?? 4) || a.localeCompare(b)

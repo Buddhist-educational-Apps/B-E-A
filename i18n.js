@@ -101,6 +101,7 @@
       "books.count": "{n} පොත්",
       "books.folder.sutta": "සූත්‍ර",
       "books.folder.pali": "පාලි",
+      "books.folder.editedAncient": "සංස්කරණය කරන ලද පැරණි ග්‍රන්ථ",
       "books.folder.empty": "මෙම ප්‍රවර්ගයේ ගොනු තවම එක් කර නැත.",
       "dl.title": "{title} බාගත කරගන්න",
       "lightbox.close": "වසන්න"
@@ -198,6 +199,7 @@
       "books.count": "{n} books",
       "books.folder.sutta": "Sutta",
       "books.folder.pali": "Pali",
+      "books.folder.editedAncient": "Edited Ancient Texts",
       "books.folder.empty": "No files have been added to this category yet.",
       "dl.title": "Download {title}",
       "lightbox.close": "Close"
