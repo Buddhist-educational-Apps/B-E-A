@@ -665,7 +665,7 @@ html .site-footer .footer-col a.footer-youtube:hover {
   transform: translateY(-2px);
 }
 html .footer-mail { color: #ffffff; font-family: var(--font-ui); overflow-wrap: anywhere; font-size: .88rem; }
-html .footer-blessing span { color: #ffffff; }
+html .footer-blessing span { color: #facc15; }
 html .footer-copy { font-family: var(--font-ui); color: #ffffff; }
 html .site-footer .lang-switch { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
 html .site-footer .lang-switch button { color: #ffffff; }
