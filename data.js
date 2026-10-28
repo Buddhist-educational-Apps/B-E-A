@@ -15,7 +15,7 @@ const appsData = [
     keywords: ["අභිධර්ම", "අභිධර්ම මාතිකා", "ධම්මසංගණී", "matika", "abhidhamma", "dhammasangani"],
     badgeType: "tag-gold",
     description: "අභිධර්ම මාතිකා සහ ධම්මසංගණී විග්‍රහයන් පහසුවෙන් කියවීමට සහ අධ්‍යයනය කිරීමට නිර්මාණය කළ සුවිශේෂී මෘදුකාංගයකි.",
-    icon: BASE_URL + "/icons/matika.png",
+    icon: BASE_URL + "/icons/matika.png?v=20261028",
     apkUrl: "https://play.google.com/store/apps/details?id=app.vercel.matika_snowy.twa",
     webUrl: "https://pavara9803-ctrl.github.io/Matika/",
     screenshots: [
@@ -59,7 +59,7 @@ const appsData = [
     keywords: ["පාලි", "පාලි ව්‍යාකරණ", "නාම", "ආඛ්‍යාත", "rupasiddhi", "pali grammar", "pali language"],
     badgeType: "tag-blue",
     description: "පදරුපසිද්ධි ග්‍රන්ථය ඇසුරින් පාලි නාම, ආඛ්‍යාත පද සාධනයන් සහ ව්‍යාකරණ සූත්‍ර පහසුවෙන් හදාරන මෘදුකාංගය.",
-    icon: BASE_URL + "/icons/ruoasiddhi.png",
+    icon: BASE_URL + "/icons/ruoasiddhi.png?v=20261028",
     apkUrl: "https://rupasiddhi.vercel.app/",
     webUrl: "https://rupasiddhi.vercel.app/",
     screenshots: [
