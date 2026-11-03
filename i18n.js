@@ -211,6 +211,8 @@
     var saved = localStorage.getItem(KEY);
     if (saved === "si" || saved === "en") lang = saved;
   } catch (e) {}
+  // /en ලින්ක් එකෙන් පිවිසෙන විට සෑම විටම ඉංග්‍රීසියෙන් ආරම්භ වේ (WhatsApp ආදී preview සඳහා)
+  if (/^\/en(\.html)?\/?$/.test(location.pathname)) lang = "en";
 
   // පිටුව පෙන්වීමට පෙර භාෂා ගුණාංගය සකසන්න (ෆ්ලෑෂ් අඩු කිරීමට)
   document.documentElement.lang = lang;
@@ -294,4 +296,4 @@
   } else {
     apply();
   }
-})();
+})();
