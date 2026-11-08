@@ -17,7 +17,7 @@ const appsData = [
     description: "අභිධර්ම මාතිකා සහ ධම්මසංගණී විග්‍රහයන් පහසුවෙන් කියවීමට සහ අධ්‍යයනය කිරීමට නිර්මාණය කළ සුවිශේෂී මෘදුකාංගයකි.",
     icon: BASE_URL + "/icons/matika.png?v=20261028",
     apkUrl: "https://play.google.com/store/apps/details?id=app.vercel.matika_snowy.twa",
-    webUrl: "https://matika-snowy.vercel.app",
+    webUrl: "https://pavara9803-ctrl.github.io/Matika/",
     screenshots: [
       BASE_URL + "/screenshots/matika-1.webp?v=2",
       BASE_URL + "/screenshots/matika-2.webp?v=2",
