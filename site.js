@@ -124,6 +124,7 @@ window.SITE_CONFIG = {
   }
 
   function onReady() {
+    if (!readChoice()) showBanner();
     fillEmail();
   }
 
