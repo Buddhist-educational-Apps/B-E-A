@@ -520,7 +520,7 @@ function renderApps(apps) {
               <svg class="tab-badge-icon" viewBox="0 0 88 88" width="16" height="16" fill="currentColor">
                 <path d="M0 12.402l35.688-4.86.016 34.423-35.67.24zM35.67 45.547l.034 35.035-35.67-4.896-.034-30.139zm4.33-48.452L88 0v41.594l-48 .377zm48 44.139L40 81.334V45.717l48 .347z"/>
               </svg>
-              <span>Windows PC</span>
+              <span>${app.desktopDownloads ? 'Windows / macOS / Linux' : 'Windows PC'}</span>
             </button>
           </div>
 
@@ -540,6 +540,7 @@ function renderApps(apps) {
             <ol class="install-steps">
               ${guide.desktop.map(step => `<li>${step}</li>`).join("")}
             </ol>
+            ${app.desktopDownloads ? `<div class="desktop-downloads-row">${app.desktopDownloads.map(d => `<a href="${BASE_URL}/downloads/matika/${d.file}" download class="btn-desktop-dl" onclick="event.stopPropagation()"><span>${d.label}</span><small>${d.size}</small></a>`).join("")}</div>` : ""}
           </div>
         </div>
       </div>
