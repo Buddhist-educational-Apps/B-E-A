@@ -18,6 +18,11 @@ const appsData = [
     icon: BASE_URL + "/icons/matika.png?v=20261028",
     apkUrl: "https://play.google.com/store/apps/details?id=app.vercel.matika_snowy.twa",
     webUrl: "https://matika-snowy.vercel.app",
+    desktopDownloads: [
+      { os: "windows", label: "Windows", file: "Abhidhamma-Matika-Setup.exe", size: "7.8 MB" },
+      { os: "mac", label: "macOS", file: "Abhidhamma-Matika.dmg", size: "13 MB" },
+      { os: "linux", label: "Linux (.deb)", file: "Abhidhamma-Matika-1.0.5.deb", size: "6.8 MB" }
+    ],
     screenshots: [
       BASE_URL + "/screenshots/matika-1.webp?v=2",
       BASE_URL + "/screenshots/matika-2.webp?v=2",
@@ -44,10 +49,10 @@ const appsData = [
         "<strong>\"Add\"</strong> ඔබන්න - දැන් Home Screen එකේ! 🎉"
       ],
       desktop: [
-        "ඉහළ <strong>\"Online භාවිතය\"</strong> බොත්තම ඔබන්න",
-        "Address bar එකේ දකුණේ ඇති <strong>install icon</strong> (➕) ඔබන්න",
-        "හෝ browser මෙනුවෙන් <strong>\"Install\"</strong> තෝරන්න",
-        "<strong>\"Install\"</strong> ඔබන්න - Desktop App එකක් ලෙස දිස්වේ! 🎉"
+        "පහත <strong>\"පරිගණක සඳහා බාගත කරන්න\"</strong> කොටසින් ඔබේ පද්ධතියට (Windows / macOS / Linux) අදාළ ගොනුව බාගන්න",
+        "Windows: බාගත කළ <strong>Setup.exe</strong> ගොනුව ධාවනය කර ස්ථාපනය කරන්න",
+        "macOS: <strong>.dmg</strong> ගොනුව විවෘත කර යෙදුම <strong>Applications</strong> වෙත ඇදගෙන යන්න",
+        "Linux: <strong>.deb</strong> ගොනුව විවෘත කර හෝ <code>sudo apt install ./ගොනුව.deb</code> මගින් ස්ථාපනය කරන්න 🎉"
       ]
     }
   },
@@ -293,10 +298,10 @@ const appsEn = {
         "Tap <strong>\"Add\"</strong> — it is now on your Home Screen! 🎉"
       ],
       desktop: [
-        "Tap the <strong>\"Use online\"</strong> button above",
-        "Click the <strong>install icon</strong> (➕) on the right side of the address bar",
-        "Or choose <strong>\"Install\"</strong> from the browser menu",
-        "Click <strong>\"Install\"</strong> — it appears as a desktop app! 🎉"
+        "In the <strong>\"Download for computer\"</strong> section below, download the file for your system (Windows / macOS / Linux)",
+        "Windows: run the downloaded <strong>Setup.exe</strong> and follow the installer",
+        "macOS: open the <strong>.dmg</strong> file and drag the app into <strong>Applications</strong>",
+        "Linux: open the <strong>.deb</strong> file or run <code>sudo apt install ./file.deb</code> 🎉"
       ]
     }
   },
@@ -540,6 +545,19 @@ function renderApps(apps) {
       </div>
     ` : "";
 
+    const desktopHTML = (app.desktopDownloads && app.desktopDownloads.length) ? `
+      <div class="desktop-downloads">
+        <span class="desktop-downloads-title">${tr('btn.desktop.title')}</span>
+        <div class="desktop-downloads-row">
+          ${app.desktopDownloads.map(d => `
+            <a href="${BASE_URL}/downloads/matika/${d.file}" download class="btn-desktop-dl" onclick="event.stopPropagation()">
+              <span>${d.label}</span><small>${d.size}</small>
+            </a>
+          `).join("")}
+        </div>
+      </div>
+    ` : "";
+
     return `
       <div class="playstore-card" id="app-card-${app.id}">
         <div class="playstore-summary" role="button" tabindex="0" aria-label="${title}" aria-expanded="false" aria-controls="app-details-${app.id}" title="${title}" onclick="toggleAppCard(${app.id})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleAppCard(${app.id})}">
@@ -577,6 +595,7 @@ function renderApps(apps) {
             </button>
           </div>
 
+          ${desktopHTML}
           <p class="playstore-about">${description}</p>
           ${screenshotsHTML}
           ${installGuideHTML}
