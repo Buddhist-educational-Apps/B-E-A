@@ -105,7 +105,7 @@ const appsData = [
     keywords: ["බුද්ධ වර්ෂය", "බෞද්ධ දින දර්ශනය", "පොහොය", "buddhist era", "buddhist calendar", "poya"],
     badgeType: "tag-gold",
     description: "ශ්‍රී බුද්ධ වර්ෂය, පොහොය දින සහ විශේෂ බෞද්ධ දින දර්ශන ස්වයංක්‍රීයව ගණනය කර බලාගැනීමේ මෘදුකාංගය.",
-    icon: BASE_URL + "/icons/buddhistera.png",
+    icon: BASE_URL + "/icons/buddhistera.png?v=20261120",
     apkUrl: "https://play.google.com/store/apps/details?id=app.vercel.buddhist_era.twa",
     webUrl: "https://buddhist-era.vercel.app/",
     screenshots: [
